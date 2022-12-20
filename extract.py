@@ -1,26 +1,47 @@
 from bs4 import BeautifulSoup
+import os
 
-# since we are reading and writing html files, we have to read in and write in bytes
-infile = open("testFiles/1001.0008.html", "r", encoding='utf-8')
-outfile = open("prettified_files/prettified_08.html", "wb")
+# a helper function to remore all text in file
+def clear_file(to_delete):
+    open(to_delete, 'w').close()
 
-# create the soup object for searching
-soup = BeautifulSoup(infile, 'lxml')
-# write the prettified version of origional file to prettified
-pretty = soup.prettify()
-outfile.write(pretty.encode())
-# first try finding all parts with mathML encoding
-all_vars = soup.find_all(encoding="MathML-Content")
-
-for variables in all_vars:
-    with open("variables/variables_08.text", "w") as f:
-        var_str = variables.string
-        if var_str:print(var_str)
+# a helper function that return all filenames in given path
+def get_filenames(input_address):
+    file_list = []
+    for filename in os.listdir(input_address):
+        file_list.append(input_address + "/" + filename)
+    return file_list
 
 
-infile.close()
-outfile.close()
+# the main function that extract all math tokens in a file
+def extract(input_file, output_file):
+    infile = open(input_file, "r", encoding='utf-8')
+    soup = BeautifulSoup(infile, 'lxml')
+    all_vars = soup.find_all(encoding="MathML-Content")
+    for variables in all_vars:
+        # open the file that we need to write to in append byte mode
+        with open(output_file, "ab") as f:
+            var_str = variables.string
+            if var_str:
+                f.write(var_str.encode('utf-8'))
+                f.write("\n".encode('utf-8'))
+    infile.close()
 
+
+
+# open the folder that contains all the input files
+input_address = "testFiles"
+inputs = get_filenames(input_address)
+output_address = "variables"
+outputs = get_filenames(output_address)
+
+count = 0
+while count < min(len(inputs), len(outputs)):
+    # call the extract function for all files
+    extract(inputs[count], outputs[count])
+    # save this line for clear outputs
+    # clear_file(outputs[count])
+    count += 1
 
 
 
