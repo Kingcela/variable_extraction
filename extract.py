@@ -17,7 +17,7 @@ def get_filenames(input_address):
 def extract(input_file, output_file):
     infile = open(input_file, "r", encoding='utf-8')
     soup = BeautifulSoup(infile, 'lxml')
-    all_vars = soup.find_all(encoding="MathML-Content")
+    all_vars = soup.find_all("ci")
     for variables in all_vars:
         # open the file that we need to write to in append byte mode
         with open(output_file, "ab") as f:
@@ -27,21 +27,35 @@ def extract(input_file, output_file):
                 f.write("\n".encode('utf-8'))
     infile.close()
 
+# the function that output prettified file for visual
+def prettify_files(input_file, output_file):
+    infile = open(input_file, "r", encoding='utf-8')
+    soup = BeautifulSoup(infile, 'lxml')
+    with open(output_file, "wb") as f:
+        f.write(soup.prettify().encode())
+    infile.close()
 
+# the function to remove all duplicated tokens in file
+def clear_duplicate(input_file):
+    clear_file(input_file)
 
 # open the folder that contains all the input files
 input_address = "testFiles"
 inputs = get_filenames(input_address)
 output_address = "variables"
 outputs = get_filenames(output_address)
+pretty_address = "prettify"
+pretty = get_filenames(pretty_address)
 
 count = 0
 while count < min(len(inputs), len(outputs)):
     # call the extract function for all files
     extract(inputs[count], outputs[count])
     # save this line for clear outputs
-    # clear_file(outputs[count])
+    # clear_duplicate(outputs[count])
+    prettify_files(inputs[count], pretty_address[count])
     count += 1
+
 
 
 
