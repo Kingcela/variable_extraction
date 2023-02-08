@@ -62,9 +62,11 @@ pretty = get_filenames(pretty_address)
 
 count = 0
 while count < min(len(inputs), len(outputs)):
-    remove_duplicate(outputs[count])
+    
     # call the extract function for all files
-    # extract(inputs[count], outputs[count])
+    extract(inputs[count], outputs[count])
+    remove_duplicate(outputs[count])
+
     # save this line for clear outputs
     # clear_duplicate(outputs[count])
     # prettify_files(inputs[count], pretty_address[count])
