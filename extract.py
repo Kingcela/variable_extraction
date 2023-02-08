@@ -39,6 +39,19 @@ def prettify_files(input_file, output_file):
 def clear_duplicate(input_file):
     clear_file(input_file)
 
+def remove_duplicate(input_file):
+    variable_list = []
+    with open(input_file, "rb") as in_file:
+        for line in in_file:
+            if line in variable_list:
+                continue
+            else:
+                variable_list.append(line)
+    
+    with open(input_file, "wb") as rewrite_file:
+        rewrite_file.writelines(variable_list)
+
+
 # open the folder that contains all the input files
 input_address = "testFiles"
 inputs = get_filenames(input_address)
@@ -49,24 +62,11 @@ pretty = get_filenames(pretty_address)
 
 count = 0
 while count < min(len(inputs), len(outputs)):
+    remove_duplicate(outputs[count])
     # call the extract function for all files
-    extract(inputs[count], outputs[count])
+    # extract(inputs[count], outputs[count])
     # save this line for clear outputs
     # clear_duplicate(outputs[count])
-    prettify_files(inputs[count], pretty_address[count])
+    # prettify_files(inputs[count], pretty_address[count])
     count += 1
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
