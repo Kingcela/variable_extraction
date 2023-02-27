@@ -59,18 +59,36 @@ def submit_variable():
     local_attr = ""
     detail = ""
     if attribute.get() == 0:
-        local_attr = "error"
+        remove_reconfig()
+        return
     elif attribute.get() == 1:
-        local_attr = "variable"
+        if const_attr.get() != 0:
+            remove_reconfig()
+            return
+        else:
+            local_attr = "variable"
     elif attribute.get() == 2:
-        local_attr = "constant"
+        if second.get() != 0:
+            remove_reconfig()
+            return
+        else:
+            local_attr = "constant"
     elif attribute.get() == 3:
-        local_attr = "operator"
+        if second.get() != 0 or const_attr.get() != 0:
+            remove_reconfig()
+            return
+        else:
+            local_attr = "operator"
     elif attribute.get() == 4:
-        local_attr = "unit descriptor"
+        if second.get() != 0 or const_attr.get() != 0:
+            remove_reconfig()
+            return
+        else:
+            local_attr = "unit descriptor"
 
     if (second.get() != 0 and const_attr.get() != 0):
-        detail = "error"
+        remove_reconfig()
+        return
     elif (second.get() != 0):
         if second.get() == 1:
             detail = "Scalar"
