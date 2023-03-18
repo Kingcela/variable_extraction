@@ -9,7 +9,7 @@ curr_file = file_list[curr_file_location]
 var_list = hf.get_variable_list(curr_file)
 curr_var_location = 0
 curr_var = var_list[curr_var_location]
-variable_size = hf.get_variable_size(curr_file)
+variable_size = hf.get_variable_size(curr_file) -1
 
 window = tk.Tk()
 window.geometry("500x600")
@@ -141,7 +141,7 @@ def next_file():
     global curr_var_location
     global variable_size
 
-    if curr_file_location < len(file_list):
+    if curr_file_location <= len(file_list):
         curr_file_location += 1
         curr_file = file_list[curr_file_location]
 
@@ -239,6 +239,68 @@ const_global = tk.Radiobutton(constFrame, text="Global", variable=const_attr, va
 const_global.grid(row=3, column=1)
 const_dis = tk.Radiobutton(constFrame, text="Discipline-specified", variable=const_attr, value=3, command=get_constdefine)
 const_dis.grid(row=4, column=1)
+
+# keyboard operations on traverse variables
+window.bind('r', lambda event:remove_reconfig())
+window.bind('s', lambda event:submit_variable())
+window.bind ('<Left>', lambda event: previous_variable())
+window.bind('<Right>', lambda event: next_variable())
+window.bind('<Down>', lambda event: next_file())
+window.bind('<Escape>', lambda event: window.destroy())
+window.bind('q', lambda event: window.destroy())
+
+# keyboard operations on assign variables
+def var_21():
+    attribute.set(1)
+    get_attribute()
+def var_22():
+    attribute.set(2)
+    get_attribute()
+def var_23():
+    attribute.set(3)
+    get_attribute()
+def var_24():
+    attribute.set(4)
+    get_attribute()
+window.bind('1', lambda event:var_21())
+window.bind('2', lambda event:var_22())
+window.bind('3', lambda event:var_23())
+window.bind('-', lambda event:var_24())
+
+# keyboard operation on assign constants
+def var_scalar():
+    second.set(1)
+    get_subclass()
+
+def var_vector():
+    second.set(2)
+    get_subclass()
+
+def var_matrix():
+    second.set(3)
+    get_subclass()
+
+window.bind('4', lambda event: var_scalar())
+window.bind('5', lambda event: var_vector())
+window.bind('6', lambda event: var_matrix())
+
+
+# keyboard operation to set constant values
+def con_local():
+    const_attr.set(1)
+    get_constdefine()
+
+def con_global():
+    const_attr.set(2)
+    get_constdefine()
+
+def con_ds():
+    const_attr.set(3)
+    get_constdefine()
+
+window.bind('7', lambda event: con_local())
+window.bind('8', lambda event: con_global())
+window.bind('9', lambda event: con_ds())
 
 
 window.mainloop()
