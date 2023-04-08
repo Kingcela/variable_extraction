@@ -27,6 +27,21 @@ def extract(input_file, output_file):
                 f.write("\n".encode('utf-8'))
     infile.close()
 
+
+# the main function that extract all math tokens in a file
+def extract_list(input_file):
+    output_list = []
+    infile = open(input_file, "r", encoding='utf-8')
+    soup = BeautifulSoup(infile, 'lxml')
+    all_vars = soup.find_all("ci")
+    for variables in all_vars:
+        # open the file that we need to write to in append byte mode
+        var_str = variables.string
+        if var_str not in output_list:
+            output_list.append(var_str)
+    infile.close()
+    return output_list
+
 # the function that output prettified file for visual
 def prettify_files(input_file, output_file):
     infile = open(input_file, "r", encoding='utf-8')
@@ -64,8 +79,8 @@ count = 0
 while count < min(len(inputs), len(outputs)):
     
     # call the extract function for all files
-    # extract(inputs[count], outputs[count])
-    remove_duplicate(outputs[count])
+    # extract_list(inputs[count])
+    # remove_duplicate(outputs[count])
 
     # save this line for clear outputs
     # clear_duplicate(outputs[count])
