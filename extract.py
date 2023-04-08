@@ -70,13 +70,14 @@ def remove_duplicate(input_file):
 # open the folder that contains all the input files
 input_address = "testFiles"
 inputs = get_filenames(input_address)
+"""
 output_address = "variables"
 outputs = get_filenames(output_address)
 pretty_address = "prettify"
 pretty = get_filenames(pretty_address)
-
+"""
 count = 0
-while count < min(len(inputs), len(outputs)):
+while count < len(inputs):
     
     # call the extract function for all files
     # extract_list(inputs[count])
