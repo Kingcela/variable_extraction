@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtWidgets
-from PyQt5.QtWidgets import QMessageBox, QWidget
+from PyQt5.QtWidgets import QMessageBox, QMainWindow
 from PyQt5.QtCore import Qt
 import extract as ext
 import sys
@@ -34,14 +34,26 @@ variable_choice = 0
 # 0 -> undefine, 1 -> local, 2 -> global, 3 -> discipline specified
 constant_choice = 0
 
-class Ui_symbol_classification(object):
+# a dummmy template class
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        pass
 
-    def setupUi(self, symbol_classification):
-        symbol_classification.setObjectName("symbol_classification")
-        symbol_classification.resize(790, 755)
+    def retranslateUi(self, MainWindow):
+        pass
+
+
+class MainWindow(QMainWindow, Ui_MainWindow):
+    def __init__(self, parent=None):
+        QMainWindow.__init__(self, parent=parent)
+        self.setupUi(self)
+        
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(790, 755)
 
         # main menu part of GUI
-        self.centralwidget = QtWidgets.QWidget(symbol_classification)
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.button_next_file = QtWidgets.QPushButton(self.centralwidget)
         self.button_next_file.setGeometry(QtCore.QRect(490, 10, 101, 41))
@@ -205,17 +217,17 @@ class Ui_symbol_classification(object):
         self.reset_button.raise_()
         self.submit_button.raise_()
         self.quit_button.raise_()
-        symbol_classification.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(symbol_classification)
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 790, 26))
         self.menubar.setObjectName("menubar")
         self.menuFile = QtWidgets.QMenu(self.menubar)
         self.menuFile.setObjectName("menuFile")
-        symbol_classification.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(symbol_classification)
+        MainWindow.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
-        symbol_classification.setStatusBar(self.statusbar)
-        self.actionrandom = QtWidgets.QAction(symbol_classification)
+        MainWindow.setStatusBar(self.statusbar)
+        self.actionrandom = QtWidgets.QAction(MainWindow)
         self.actionrandom.setObjectName("actionrandom")
         self.menuFile.addAction(self.actionrandom)
         self.menuFile.addSeparator()
@@ -239,50 +251,105 @@ class Ui_symbol_classification(object):
         self.button_next_file.clicked.connect(self.next_file)
         self.submit_button.clicked.connect(self.submit_variable)
 
-        self.retranslateUi(symbol_classification)
-        QtCore.QMetaObject.connectSlotsByName(symbol_classification)
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+
+    # function to detect key press events
+    def keyPressEvent(self, e):
+        # key press for operations
+        if e.key() == Qt.Key_Escape:
+            self.quit_event()
+        if e.key() == Qt.Key_Q:
+            self.quit_event()
+        # I want to use arrow keys for them but pyqt5 have some strange bug with this setting
+        # the arrow keys and other keys are exculsive, if I pressed arrows, then other keys will
+        # stop working until I reset it manually or do one selection with mouse control
+        if e.key() == Qt.Key_Period:
+            self.next_variable()
+        if e.key() == Qt.Key_Comma:
+            self.previous_variable()
+        if e.key() == Qt.Key_Slash:
+            self.next_file()
+        if e.key() == Qt.Key_R:
+            self.reset_pressed()
+        if e.key() == Qt.Key_S:
+            self.submit_variable()
+                
+        # key press for radiobutton selection    
+        if e.key() == Qt.Key_0:
+            self.unit_selected()
+        if e.key() == Qt.Key_1:
+            self.variable_selected()
+        if e.key() == Qt.Key_2:
+            self.constant_selected()
+        if e.key() == Qt.Key_3:
+            self.operator_selected()
+        if e.key() == Qt.Key_4:
+            self.scalar_selected()
+        if e.key() == Qt.Key_5:
+            self.vector_selected()
+        if e.key() == Qt.Key_6:
+            self.matrix_selected()
+        if e.key() == Qt.Key_7:
+            self.local_selected()
+        if e.key() == Qt.Key_8:
+            self.global_selected()
+        if e.key() == Qt.Key_9:
+            self.discipline_selected()
+
+             
     # functions that control the event of button press
     def quit_event(self):
         sys.exit()
     def variable_selected(self):
         self.symbol_select_label.setText("The selected symbol is a variable")
+        self.variable_radio.setChecked(True)
         global symbol_choice
         symbol_choice = 1
     def constant_selected(self):
         self.symbol_select_label.setText("The selected symbol is a constant")
+        self.constant_radio.setChecked(True)
         global symbol_choice
         symbol_choice = 2
     def operator_selected(self):
         self.symbol_select_label.setText("The selected symbol is a operator")
+        self.operator_radio.setChecked(True)
         global symbol_choice
         symbol_choice = 3
     def unit_selected(self):
         self.symbol_select_label.setText("The selected symbol is a unit descriptor")
+        self.unit_radio.setChecked(True)
         global symbol_choice
         symbol_choice = 4
     def scalar_selected(self):
         self.assign_attribute_label.setText("This variable is a scalar")
+        self.scalar_radio.setChecked(True)
         global variable_choice
         variable_choice = 1
     def vector_selected(self):
         self.assign_attribute_label.setText("This variable is a vector")
+        self.vector_radio.setChecked(True)
         global variable_choice
         variable_choice = 2
     def matrix_selected(self):
         self.assign_attribute_label.setText("This variable is a matrix")
+        self.matrix_radio.setChecked(True)
         global variable_choice
         variable_choice = 3
     def local_selected(self):
         self.assign_attribute_label_2.setText("This constant/operator is local")
+        self.local_radio.setChecked(True)
         global constant_choice
         constant_choice = 1
     def global_selected(self):
         self.assign_attribute_label_2.setText("This constant/operator is global")
+        self.global_radio.setChecked(True)
         global constant_choice
         constant_choice = 2
     def discipline_selected(self):
         self.assign_attribute_label_2.setText("This constant/operator is discipline specified")
+        self.Discipline_radio.setChecked(True)
         global constant_choice
         constant_choice = 3
 
@@ -420,50 +487,46 @@ class Ui_symbol_classification(object):
 
         self.next_variable()
 
-    def retranslateUi(self, symbol_classification):
+    def retranslateUi(self, MainWindow):
         global curr_file
         global curr_var_location
         global curr_var
         global variable_size
         _translate = QtCore.QCoreApplication.translate
-        symbol_classification.setWindowTitle(_translate("symbol_classification", "MainWindow"))
-        self.button_next_file.setText(_translate("symbol_classification", "Next File"))
-        self.try_label1.setText(_translate("symbol_classification", "Information related to variables"))
-        self.button_prev_var.setText(_translate("symbol_classification", "Prev"))
-        self.button_next_var.setText(_translate("symbol_classification", "Next"))
-        self.file_lable.setText(_translate("symbol_classification", "Now you are in file: %s" %(curr_file)))
-        self.curr_var_label.setText(_translate("symbol_classification", "With variable %d among %d variables" %(curr_var_location + 1, variable_size + 1)))
-        self.symbol_label.setText(_translate("symbol_classification", "The symbol represent by this varibale is: %s" %(curr_var)))
-        self.content_label.setText(_translate("symbol_classification", "The content related to this variable is: "))
-        self.symbol_select_label.setText(_translate("symbol_classification", "The selected symbol is a "))
-        self.variable_radio.setText(_translate("symbol_classification", "Variable"))
-        self.constant_radio.setText(_translate("symbol_classification", "Constant"))
-        self.operator_radio.setText(_translate("symbol_classification", "Operator"))
-        self.unit_radio.setText(_translate("symbol_classification", "Unit descriptor"))
-        self.matrix_radio.setText(_translate("symbol_classification", "Matrix"))
-        self.assign_attribute_label.setText(_translate("symbol_classification", "This variable is a "))
-        self.attribute_label.setText(_translate("symbol_classification", "If the symbol is a variable, what is its attribute?"))
-        self.vector_radio.setText(_translate("symbol_classification", "Vector"))
-        self.scalar_radio.setText(_translate("symbol_classification", "Scalar"))
-        self.classification_label.setText(_translate("symbol_classification", "Variable Classification"))
-        self.Discipline_radio.setText(_translate("symbol_classification", "Discipline specified"))
-        self.assign_attribute_label_2.setText(_translate("symbol_classification", "This constant/operator is "))
-        self.cons_op_attribute_label.setText(_translate("symbol_classification", "If the symbol is a constant or operator, what is its attribute?"))
-        self.global_radio.setText(_translate("symbol_classification", "Global"))
-        self.local_radio.setText(_translate("symbol_classification", "Local"))
-        self.reset_button.setText(_translate("symbol_classification", "Reset"))
-        self.submit_button.setText(_translate("symbol_classification", "Submit"))
-        self.quit_button.setText(_translate("symbol_classification", "Quit"))
-        self.menuFile.setTitle(_translate("symbol_classification", "File"))
-        self.actionrandom.setText(_translate("symbol_classification", "random"))
-
-
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.button_next_file.setText(_translate("MainWindow", "Next File"))
+        self.try_label1.setText(_translate("MainWindow", "Information related to variables"))
+        self.button_prev_var.setText(_translate("MainWindow", "Prev"))
+        self.button_next_var.setText(_translate("MainWindow", "Next"))
+        self.file_lable.setText(_translate("MainWindow", "Now you are in file: %s" %(curr_file)))
+        self.curr_var_label.setText(_translate("MainWindow", "With variable %d among %d variables" %(curr_var_location + 1, variable_size + 1)))
+        self.symbol_label.setText(_translate("MainWindow", "The symbol represent by this varibale is: %s" %(curr_var)))
+        self.content_label.setText(_translate("MainWindow", "The content related to this variable is: "))
+        self.symbol_select_label.setText(_translate("MainWindow", "The selected symbol is a "))
+        self.variable_radio.setText(_translate("MainWindow", "Variable"))
+        self.constant_radio.setText(_translate("MainWindow", "Constant"))
+        self.operator_radio.setText(_translate("MainWindow", "Operator"))
+        self.unit_radio.setText(_translate("MainWindow", "Unit descriptor"))
+        self.matrix_radio.setText(_translate("MainWindow", "Matrix"))
+        self.assign_attribute_label.setText(_translate("MainWindow", "This variable is a "))
+        self.attribute_label.setText(_translate("MainWindow", "If the symbol is a variable, what is its attribute?"))
+        self.vector_radio.setText(_translate("MainWindow", "Vector"))
+        self.scalar_radio.setText(_translate("MainWindow", "Scalar"))
+        self.classification_label.setText(_translate("MainWindow", "Variable Classification"))
+        self.Discipline_radio.setText(_translate("MainWindow", "Discipline specified"))
+        self.assign_attribute_label_2.setText(_translate("MainWindow", "This constant/operator is "))
+        self.cons_op_attribute_label.setText(_translate("MainWindow", "If the symbol is a constant or operator, what is its attribute?"))
+        self.global_radio.setText(_translate("MainWindow", "Global"))
+        self.local_radio.setText(_translate("MainWindow", "Local"))
+        self.reset_button.setText(_translate("MainWindow", "Reset"))
+        self.submit_button.setText(_translate("MainWindow", "Submit"))
+        self.quit_button.setText(_translate("MainWindow", "Quit"))
+        self.menuFile.setTitle(_translate("MainWindow", "File"))
+        self.actionrandom.setText(_translate("MainWindow", "random"))
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    symbol_classification = QtWidgets.QMainWindow()
-    ui = Ui_symbol_classification()
-    ui.setupUi(symbol_classification)
-    symbol_classification.show()
+    w = MainWindow()
+    w.show()
     sys.exit(app.exec_())

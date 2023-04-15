@@ -1,3 +1,17 @@
 
-testFiles/1001.0008.html 0 𝐴 Variable Scalar 
-testFiles/1001.0008.html 1 𝐵 unit descriptor
+testFiles/1001.0008.html 0 𝐴 Variable Vector 
+testFiles/1001.0008.html 1 𝐵 Constant  Global
+testFiles/1001.0008.html 2 𝑘 Constant  Discipline specified
+testFiles/1001.0008.html 3 𝜑 Variable Scalar 
+testFiles/1001.0008.html 4 𝜒 Variable Vector 
+testFiles/1001.0008.html 5 𝛿 Variable Matrix 
+testFiles/1001.0008.html 0 𝐴 Constant  Local
+testFiles/1001.0008.html 1 𝐵 Constant  Global
+testFiles/1001.0008.html 2 𝑘 Constant  Discipline specified
+testFiles/1001.0008.html 3 𝜑 Variable Scalar 
+testFiles/1001.0008.html 4 𝜒 Variable Vector 
+testFiles/1001.0008.html 5 𝛿 Variable Matrix 
+testFiles/1001.0008.html 6 𝑉 Operator  Local
+testFiles/1001.0008.html 7 𝑓 Operator  Global
+testFiles/1001.0008.html 8 𝑁 Operator  Discipline specified
+testFiles/1001.0008.html 9 𝐿 unit descriptor  
