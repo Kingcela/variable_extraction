@@ -80,7 +80,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.symbol_label.setGeometry(QtCore.QRect(40, 110, 500, 31))
         self.symbol_label.setObjectName("symbol_label")
         self.content_label = QtWidgets.QLabel(self.centralwidget)
-        self.content_label.setGeometry(QtCore.QRect(40, 140, 421, 21))
+        self.content_label.setGeometry(QtCore.QRect(40, 140, 600, 21))
         self.content_label.setObjectName("content_label")
         self.listWidget_2 = QtWidgets.QListWidget(self.centralwidget)
         self.listWidget_2.setGeometry(QtCore.QRect(10, 200, 781, 141))
@@ -397,6 +397,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def previous_variable(self):
         global var_list
+        global curr_file
         global curr_var_location
         global curr_var
         if curr_var_location > 0:
@@ -404,11 +405,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             curr_var = var_list[curr_var_location]
         self.curr_var_label.setText("With variable %d among %d variables" %(curr_var_location + 1, variable_size + 1))
         self.symbol_label.setText("The symbol represent by this varibale is: %s" %(curr_var))
+        text = ext.first_word(curr_file, curr_var)
+        self.content_label.setText(text)
         self.reset_pressed()
 
     def next_variable(self):
         # global variables that we need
         global var_list
+        global curr_file
         global curr_var_location
         global curr_var
         global variable_size
@@ -418,6 +422,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             curr_var = var_list[curr_var_location]
         self.curr_var_label.setText("With variable %d among %d variables" %(curr_var_location + 1, variable_size + 1))
         self.symbol_label.setText("The symbol represent by this varibale is: %s" %(curr_var))
+        text = ext.first_word(curr_file, curr_var)
+        self.content_label.setText(text)
         self.reset_pressed()
 
     def error_message(self):
@@ -501,7 +507,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.file_lable.setText(_translate("MainWindow", "Now you are in file: %s" %(curr_file)))
         self.curr_var_label.setText(_translate("MainWindow", "With variable %d among %d variables" %(curr_var_location + 1, variable_size + 1)))
         self.symbol_label.setText(_translate("MainWindow", "The symbol represent by this varibale is: %s" %(curr_var)))
-        self.content_label.setText(_translate("MainWindow", "The content related to this variable is: "))
+        self.content_label.setText(_translate("MainWindow", " "))
         self.symbol_select_label.setText(_translate("MainWindow", "The selected symbol is a "))
         self.variable_radio.setText(_translate("MainWindow", "Variable"))
         self.constant_radio.setText(_translate("MainWindow", "Constant"))

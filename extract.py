@@ -1,4 +1,5 @@
 from bs4 import BeautifulSoup
+import bs4
 import os
 
 # a helper function to remore all text in file
@@ -67,6 +68,48 @@ def remove_duplicate(input_file):
         rewrite_file.writelines(variable_list)
 
 
+def first_word(input_file, target_word):
+    infile = open(input_file, "r", encoding='utf-8')
+    soup = BeautifulSoup(infile, 'html.parser')
+    text = soup.get_text()
+    
+    # print(text.encode('utf-16'))
+    # print(target_word.encode('utf-8'))
+    #print(sentences)
+
+
+    # problems I've met during this process
+    # 1: unlike normal texts, mathmatical symbols cannot use for ... in ... to search
+    # solution: instead search for the matching one word at a time until we find a match or reach the end
+    # 2: the origional text is messed up with parser contents and annotations 
+    # solution : we have to clean them up first, I used stripping to remove them
+    # 3: sentence index out of bound
+    # solution : some if conditions
+
+
+    for data in soup(['annotation', 'script']):
+        # Remove tags
+        data.decompose()
+ 
+    # return data by retrieving the tag content
+    parsed_sentence = " ".join(soup.stripped_strings)
+    sentences = parsed_sentence.split('.')
+    for sentence in sentences:
+        idx = 0
+        for word in sentence:
+            idx += 1
+            if target_word == word:
+                if (idx - 50 < 0 and idx + 50 > len(sentence)):
+                    return sentence
+                elif (idx - 50 < 0):
+                    return sentence[1: idx + 50]
+                elif (idx - 50 > len(sentence)):
+                    return sentence[idx - 50: len(sentence)]
+                return sentence[idx - 50: idx + 50]
+    return "Target variable not found in this file"
+
+
+# individual test of each function
 # open the folder that contains all the input files
 input_address = "testFiles"
 inputs = get_filenames(input_address)
@@ -82,7 +125,8 @@ while count < len(inputs):
     # call the extract function for all files
     # extract_list(inputs[count])
     # remove_duplicate(outputs[count])
-
+    #out = first_word(inputs[count], "𝐴")
+    #print(out)
     # save this line for clear outputs
     # clear_duplicate(outputs[count])
     # prettify_files(inputs[count], pretty_address[count])
