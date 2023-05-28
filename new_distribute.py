@@ -393,6 +393,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.file_lable.setText("Now you are in file: %s" %(curr_file))
         self.curr_var_label.setText("With variable %d among %d variables" %(curr_var_location + 1, variable_size + 1))
         self.symbol_label.setText("The symbol represent by this varibale is: %s" %(curr_var))
+        text = ext.first_word(curr_file, curr_var)
+        print(text + "\n")
+        self.content_label.setText(text)
         self.reset_pressed()
 
     def previous_variable(self):
@@ -407,6 +410,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.symbol_label.setText("The symbol represent by this varibale is: %s" %(curr_var))
         text = ext.first_word(curr_file, curr_var)
         self.content_label.setText(text)
+        print(text + "\n")
         self.reset_pressed()
 
     def next_variable(self):
@@ -424,6 +428,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.symbol_label.setText("The symbol represent by this varibale is: %s" %(curr_var))
         text = ext.first_word(curr_file, curr_var)
         self.content_label.setText(text)
+        print(text + "\n")
         self.reset_pressed()
 
     def error_message(self):
@@ -444,6 +449,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         global symbol_choice
         global variable_choice
         global constant_choice
+
+        text = ext.first_word(curr_file, curr_var)
 
         symbol_dis = ""
         variable_dis = ""
@@ -485,7 +492,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         elif constant_choice == 3:
             constant_dis = "Discipline specified"
 
-        combine = "\n" + curr_file + " " + str(curr_var_location) + " " + curr_var + " " + symbol_dis  + " " + variable_dis + " " + constant_dis
+        combine = "\n" + curr_file + " " + str(curr_var_location) + " " + curr_var + " " + symbol_dis  + " " + variable_dis + " " + constant_dis + "    " + text
         print(combine)
             
         with open("test_database", "ab") as in_file:

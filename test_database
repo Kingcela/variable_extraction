@@ -16,3 +16,6 @@ testFiles/1001.0008.html 7 𝑓 Operator  Global
 testFiles/1001.0008.html 8 𝑁 Operator  Discipline specified
 testFiles/1001.0008.html 9 𝐿 unit descriptor  
 testFiles/1001.0008.html 3 𝜑 Variable Vector 
+testFiles/1001.0008.html 0 𝐴 Variable Vector 
+testFiles/1001.0008.html 1 𝐵 Variable Vector 
+testFiles/1001.0008.html 0 𝐴 Variable Vector  The inflation trajectory bifurcates into A 𝐴 and B 𝐵 when the comoving scale k 1 subscript 𝑘 1
