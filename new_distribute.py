@@ -4,7 +4,7 @@ from PyQt5.QtCore import Qt
 import extract as ext
 import sys
 
-path_name = "testFiles"
+path_name = "9509"
 # an list that stores all filenames in the folder
 file_list = ext.get_filenames(path_name)
 # the number of files in the folder

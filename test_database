@@ -1,21 +1,1104 @@
-
-testFiles/1001.0008.html 0 𝐴 Variable Vector 
-testFiles/1001.0008.html 1 𝐵 Constant  Global
-testFiles/1001.0008.html 2 𝑘 Constant  Discipline specified
-testFiles/1001.0008.html 3 𝜑 Variable Scalar 
-testFiles/1001.0008.html 4 𝜒 Variable Vector 
-testFiles/1001.0008.html 5 𝛿 Variable Matrix 
-testFiles/1001.0008.html 0 𝐴 Constant  Local
-testFiles/1001.0008.html 1 𝐵 Constant  Global
-testFiles/1001.0008.html 2 𝑘 Constant  Discipline specified
-testFiles/1001.0008.html 3 𝜑 Variable Scalar 
-testFiles/1001.0008.html 4 𝜒 Variable Vector 
-testFiles/1001.0008.html 5 𝛿 Variable Matrix 
-testFiles/1001.0008.html 6 𝑉 Operator  Local
-testFiles/1001.0008.html 7 𝑓 Operator  Global
-testFiles/1001.0008.html 8 𝑁 Operator  Discipline specified
-testFiles/1001.0008.html 9 𝐿 unit descriptor  
-testFiles/1001.0008.html 3 𝜑 Variable Vector 
-testFiles/1001.0008.html 0 𝐴 Variable Vector 
-testFiles/1001.0008.html 1 𝐵 Variable Vector 
-testFiles/1001.0008.html 0 𝐴 Variable Vector  The inflation trajectory bifurcates into A 𝐴 and B 𝐵 when the comoving scale k 1 subscript 𝑘 1
+        file name   order symbol  attribute         related content
+9509/adap-org9509001.html 0 𝑓 Constant  Global     1/𝑓 noise was discovered in an earlier measurement of loudness fluctuations in music
+9509/adap-org9509001.html 1 Δ Operator  Global    n can be quantified by studying the displacement Δ ⁢ X ⁢ ( t , T ) Δ 𝑋 𝑡 𝑇 of the walker after T 𝑇 s
+9509/adap-org9509001.html 2 𝑋 unit descriptor      by studying the displacement Δ ⁢ X ⁢ ( t , T ) Δ 𝑋 𝑡 𝑇 of the walker after T 𝑇 steps, which is the d
+9509/adap-org9509001.html 3 𝑡 Variable Scalar      studying the displacement Δ ⁢ X ⁢ ( t , T ) Δ 𝑋 𝑡 𝑇 of the walker after T 𝑇 steps, which is the dif
+9509/adap-org9509001.html 4 𝑇 Variable Scalar     tudying the displacement Δ ⁢ X ⁢ ( t , T ) Δ 𝑋 𝑡 𝑇 of the walker after T 𝑇 steps, which is the diffe
+9509/adap-org9509001.html 5 𝑖 Variable Scalar      1 x ⁢ ( i ) , Δ 𝑋 𝑡 𝑇 subscript superscript 𝑇 1 𝑖 𝑡 𝑥 𝑖 (2) where x ⁢ ( i ) = X ⁢ ( i + 1 ) - X ⁢ (
+9509/adap-org9509001.html 6 𝑥 Variable Scalar      ⁢ ( i ) , Δ 𝑋 𝑡 𝑇 subscript superscript 𝑇 1 𝑖 𝑡 𝑥 𝑖 (2) where x ⁢ ( i ) = X ⁢ ( i + 1 ) - X ⁢ ( i )
+9509/adap-org9509001.html 7 𝐹 Operator  Local     ⁢ ( t , T ) > t ] 2 > t , superscript subscript 𝐹 𝐹 𝐷 2 𝑇 subscript expectation superscript delimit
+9509/adap-org9509001.html 9 𝛼 Constant  Global    to superscript subscript 𝐹 𝐹 𝐷 2 𝑇 superscript 𝑇 𝛼 (5) The corresponding power spectrum of x 𝑥 and Δ
+9509/adap-org9509001.html 10 𝑆 Operator  Global    ively S x ⁢ ( f ) ∼ f 1 - α similar-to subscript 𝑆 𝑥 𝑓 superscript 𝑓 1 𝛼 and S Δ ⁢ X ⁢ ( f ) ∼ f - 1
+9509/adap-org9509001.html 12 𝑦 Variable Scalar     gs, “0” or “1” is mapped to up ( y ⁢ ( i ) = + 1 𝑦 𝑖 1 ) or down ( y ⁢ ( i ) = - 1 𝑦 𝑖 1 ) in a one-
+9509/adap-org9509001.html 13 𝑌 Variable Scalar     is Δ ⁢ Y ⁢ ( t , T ) = ∑ i = t T - 1 y ⁢ ( i ) Δ 𝑌 𝑡 𝑇 superscript subscript 𝑖 𝑡 𝑇 1 𝑦 𝑖 
+9509/adap-org9509001.html 15 𝛾 Constant  Global    to superscript subscript 𝐹 𝐹 𝐼 2 𝑇 superscript 𝑇 𝛾 (6) As a typical example, Fig
+9509/astro-ph9509014.html 2 𝑑 unit descriptor     In d 𝑑 dimensions there exist d + 1 𝑑 1 of these function
+9509/astro-ph9509014.html 3 𝐴 Variable Vector     shape and connectivity of a body A ⊂ IR d 𝐴 superscript IR 𝑑 : In the case of three dimension
+9509/astro-ph9509014.html 4 IR Constant  Global    shape and connectivity of a body A ⊂ IRd
+9509/astro-ph9509014.html 5 𝑾 Variable Scalar      IR 𝑑 : In the case of three dimensions we have: 𝑾 𝟎 = 𝑽 ⁢ ( 𝑨 ) (volume) 𝟑 ⁢ 𝑾 𝟏 = 𝑺 ⁢ ( 𝑨 ) (surfa
+9509/astro-ph9509014.html 14 𝝅 Constant  Global     𝟐 = 𝑯 ⁢ ( 𝑨 ) (shape) 𝟑 ⁢ 𝑾 𝟑 = 𝑮 ⁢ ( 𝑨 ) = 𝟒 ⁢ 𝝅 ⁢ 𝝌 ⁢ ( 𝑨 ) (connectivity) subscript 𝑾 0 𝑽 𝑨 (vol
+9509/astro-ph9509014.html 19 𝑩 Variable Vector     ⁢ ( 𝑨 ) subscript 𝑾 𝝂 𝑨 Additivity : 𝑾 𝝂 ⁢ ( 𝑨 ∪ 𝑩 ) subscript 𝑾 𝝂 𝑨 𝑩 = 𝑾 𝝂 ⁢ ( 𝑨 ) + 𝑾 𝝂 ⁢ ( 𝑩 ) -
+9509/astro-ph9509014.html 20 𝑪 Variable Vector     The 𝑾 𝝂 subscript 𝑾 𝝂 of a body 𝑪 𝑪 , which is the union of two point sets 𝑨 𝑨 and 
+9509/astro-ph9509014.html 21 𝒈 Variable Scalar      𝝅 𝝌 𝑮 4 𝝅 of a body 𝑨 𝑨 is related to its genus 𝒈 𝒈 𝝌 ⁢ ( 𝑨 ) = 𝟏 - 𝒈 ⁢ ( 𝑨 ) , 𝝌 𝑨 1 𝒈 𝑨 so in thr
+9509/astro-ph9509014.html 34 𝒓 Variable Scalar      Figure 2: Each point is decorated with a ball 𝑩 𝒓 subscript 𝑩 𝒓 
+9509/astro-ph9509014.html 36 𝒙 Variable Vector     ) are represented by their cartesian coordinates 𝒙 → 𝒊 subscript bold-→ 𝒙 𝒊 
+9509/astro-ph9509014.html 37 𝑵 Variable Scalar     The input data are the coordinates of all the 𝑵 𝑵 points inside a cubic volume 𝓒 𝓒 that is cut ou
+9509/astro-ph9509014.html 38 𝓒 unit descriptor      ates of all the 𝑵 𝑵 points inside a cubic volume 𝓒 𝓒 that is cut out of the point distribution
+9509/astro-ph9509014.html 40 𝑫 unit descriptor      two values of 𝒓 𝒓 , corresponding to ( 𝒙 = 𝒓 / < 𝑫 > 𝒙 𝒓 expectation 𝑫 ) 𝒙 𝟏 = 0
+9509/astro-ph9509014.html 41 𝒅 Variable Scalar     The radius is scaled by the mean distance < 𝒅 > expectation 𝒅 between the points in the cube 𝓒 
+9509/astro-ph9509021.html 1 𝛼 Constant  Global    on disk line profiles (Smak profiles) to the H α 𝛼 line are similar to those found in several strong
+9509/astro-ph9509021.html 3 𝑀 Constant  Global    6 similar-to subscript 𝑀 𝑥 5
+9509/astro-ph9509021.html 4 𝑥 Variable Scalar     6 similar-to subscript 𝑀 𝑥 5
+9509/astro-ph9509021.html 7 Δ Variable Scalar      The outburst amplitude was Δ ⁢ V ∼ 9
+9509/astro-ph9509021.html 10 𝑅 Constant  Discipline specified    spectra of the nova V849 Oph ( R ∼ 18 similar-to 𝑅 18 ) which were taken on the same nights with the
+9509/astro-ph9509021.html 13 𝐹 Variable Vector     ts of an M3V star and an F λ = F * λ α subscript 𝐹 𝜆 𝐹 superscript 𝜆 𝛼 accretion disk spectrum
+9509/astro-ph9509021.html 14 𝜆 Constant  Discipline specified     of an M3V star and an F λ = F * λ α subscript 𝐹 𝜆 𝐹 superscript 𝜆 𝛼 accretion disk spectrum
+9509/astro-ph9509021.html 15 𝜒 Operator  Discipline specified    We then searched for the minimum χ 2 superscript 𝜒 2 between the observed and synthetic spectra w
+9509/astro-ph9509021.html 17 𝑟 Constant  Global    01 subscript 𝑟 1 plus-or-minus 0
+9509/astro-ph9509021.html 18 Å unit descriptor      t We present results obtained from a series of 5 Å resolution spectra of the X-ray Nova GRO J0422+32
+9509/astro-ph9509021.html 19 𝑣 Variable Scalar      Å , and v d = 442 ± 10 subscript 𝑣 𝑑 plus-or-minus 442 10 km s - 1 1 , were r 1 subs
+9509/astro-ph9509021.html 21 𝑓 Operator  Local     ⁢ G = ( M c ⁢ sin ⁢ ( i ) ) 3 / ( M x + M c ) 2 𝑓 𝑚 𝑃 superscript subscript 𝐾 𝑥 3 2 𝜋 𝐺 superscript
+9509/astro-ph9509021.html 22 𝑚 Constant  Global     G = ( M c ⁢ sin ⁢ ( i ) ) 3 / ( M x + M c ) 2 𝑓 𝑚 𝑃 superscript subscript 𝐾 𝑥 3 2 𝜋 𝐺 superscript s
+9509/astro-ph9509021.html 23 𝑃 Variable Scalar      = ( M c ⁢ sin ⁢ ( i ) ) 3 / ( M x + M c ) 2 𝑓 𝑚 𝑃 superscript subscript 𝐾 𝑥 3 2 𝜋 𝐺 superscript sub
+9509/astro-ph9509021.html 24 𝐾 Variable Scalar      3 / ( M x + M c ) 2 𝑓 𝑚 𝑃 superscript subscript 𝐾 𝑥 3 2 𝜋 𝐺 superscript subscript 𝑀 𝑐 sin 𝑖 3 super
+9509/astro-ph9509021.html 25 𝜋 Constant  Global     x + M c ) 2 𝑓 𝑚 𝑃 superscript subscript 𝐾 𝑥 3 2 𝜋 𝐺 superscript subscript 𝑀 𝑐 sin 𝑖 3 superscript s
+9509/astro-ph9509021.html 26 𝐺 Constant  Global     + M c ) 2 𝑓 𝑚 𝑃 superscript subscript 𝐾 𝑥 3 2 𝜋 𝐺 superscript subscript 𝑀 𝑐 sin 𝑖 3 superscript sub
+9509/astro-ph9509021.html 28 sin Operator  Global    Target variable not found in this file
+9509/astro-ph9509021.html 29 𝑖 Constant  Discipline specified    script 𝐾 𝑥 3 2 𝜋 𝐺 superscript subscript 𝑀 𝑐 sin 𝑖 3 superscript subscript 𝑀 𝑥 subscript 𝑀 𝑐 2 , whe
+9509/astro-ph9509021.html 30 𝛾 Variable Scalar     The phase and mid-point ( γ 𝛾 velocity) of the H α 𝛼 velocity curve relative to
+9509/astro-ph9509021.html 31 𝑇 Constant  Discipline specified    nd values of K x subscript 𝐾 𝑥 and T 0 subscript 𝑇 0 (but not γ 𝛾 ) that are consistent with those d
+9509/astro-ph9509021.html 33 𝜎 Operator  Global    The accretion disk parameters (and 1 ⁢ σ 1 𝜎 errors) derived using the Smak profile fits for G
+9509/astro-ph9509021.html 36 𝑜 Variable Scalar      limit to the inclination of 35 o superscript 35 𝑜 
+9509/astro-ph9509022.html 6 𝑛 Operator  Discipline specified    R i i / | g 00 | ⁢ k 0 2 ) superscript subscript 𝑛 𝛾 2 subscript 𝑘 0 superscript 𝑔 00 1 subscript su
+9509/astro-ph9509022.html 8 𝑘 Variable Scalar      ⁢ k 0 2 ) superscript subscript 𝑛 𝛾 2 subscript 𝑘 0 superscript 𝑔 00 1 subscript superscript 𝑅 𝑖 𝑖 
+9509/astro-ph9509022.html 9 𝑔 Constant  Global    script subscript 𝑛 𝛾 2 subscript 𝑘 0 superscript 𝑔 00 1 subscript superscript 𝑅 𝑖 𝑖 superscript 𝑔 00
+9509/astro-ph9509022.html 10 𝑅 Operator  Discipline specified    ipt 𝑘 0 superscript 𝑔 00 1 subscript superscript 𝑅 𝑖 𝑖 superscript 𝑔 00 superscript subscript 𝑘 0 2 
+9509/astro-ph9509022.html 14 italic-ϕ Operator  Discipline specified    Target variable not found in this file
+9509/astro-ph9509022.html 15 𝑟 Variable Scalar     r < r m ⁢ a ⁢ x ≈ 100 formulae-sequence italic-ϕ 𝑟 superscript subscript 𝑣 𝑐 2 delimited-[] 1 𝑟 subs
+9509/astro-ph9509022.html 21 𝑝 Variable Vector      that for a charged fermion with four momentum p 𝑝 and mass m 𝑚 , the rate of energy radiated by the
+9509/astro-ph9509022.html 22 𝑑 Operator  Global    𝑑 𝐸 𝑑 𝑡 superscript 𝑄 2 subscript 𝛼 𝑒 𝑚 subscript s
+9509/astro-ph9509022.html 23 𝐸 Variable Scalar     𝑑 𝐸 𝑑 𝑡 superscript 𝑄 2 subscript 𝛼 𝑒 𝑚 subscript sup
+9509/astro-ph9509022.html 24 𝑡 Constant  Global    𝑑 𝐸 𝑑 𝑡 superscript 𝑄 2 subscript 𝛼 𝑒 𝑚 subscript supersc
+9509/astro-ph9509022.html 25 𝑄 Constant  Discipline specified    𝑑 𝐸 𝑑 𝑡 superscript 𝑄 2 subscript 𝛼 𝑒 𝑚 subscript superscript 𝑅 ^ 𝑖 ^ 𝑖
+9509/astro-ph9509022.html 26 𝛼 Constant  Discipline specified    𝑑 𝐸 𝑑 𝑡 superscript 𝑄 2 subscript 𝛼 𝑒 𝑚 subscript superscript 𝑅 ^ 𝑖 ^ 𝑖 4 𝜋 delimited
+9509/astro-ph9509022.html 29 𝜋 Constant  Global    ubscript 𝛼 𝑒 𝑚 subscript superscript 𝑅 ^ 𝑖 ^ 𝑖 4 𝜋 delimited-[] 1 2 superscript 𝑚 2 subscript supers
+9509/astro-ph9509022.html 31 𝑓 Operator  Local    ov process f ⁢ ( p ) → f ⁢ ( p ′ ) + γ ⁢ ( k ) → 𝑓 𝑝 𝑓 superscript 𝑝 ′ 𝛾 𝑘 in the local inertial fra
+9509/astro-ph9509022.html 32 ′ Variable Scalar     emission by Čerenkov process f ⁢ ( p ) → f ⁢ ( p ′ ) + γ ⁢ ( k ) → 𝑓 𝑝 𝑓 superscript 𝑝 ′ 𝛾 𝑘 in the 
+9509/astro-ph9509022.html 35 𝐩 Variable Vector     mplies that the Čerenkov radiation angle between 𝐩 𝐩 and 𝐤 𝐤 vectors are given by the relation cos ⁡
+9509/astro-ph9509022.html 36 𝐤 Variable Vector     hat the Čerenkov radiation angle between 𝐩 𝐩 and 𝐤 𝐤 vectors are given by the relation cos ⁡ θ = g i
+9509/astro-ph9509022.html 37 𝜃 Constant  Global    formulae-sequence 𝜃 superscript 𝑔 𝑖 𝑗 subscript 𝑝 𝑖 subscript 𝑘 𝑗 sup
+9509/astro-ph9509022.html 41 𝐷 Operator  Local    the Dirac equation D α ^ ⁢ Ψ = m ⁢ Ψ , subscript 𝐷 ^ 𝛼 Ψ 𝑚 Ψ (5) where the covariant derivative D α 
+9509/astro-ph9509022.html 42 Ψ Constant  Global    ground is governed by the Dirac equation D α ^ ⁢ Ψ = m ⁢ Ψ , subscript 𝐷 ^ 𝛼 Ψ 𝑚 Ψ (5) where the cov
+9509/astro-ph9509022.html 43 𝜔 Operator  Local    pt 𝑒 ^ 𝛼 𝜇 subscript 𝜇 𝑖 2 superscript subscript 𝜔 𝜇 ^ 𝜆 ^ 𝛽 subscript 𝜎 ^ 𝜆 ^ 𝛽 (6) where e α ^ μ s
+9509/astro-ph9509022.html 45 𝜎 Operator  Global    𝑖 2 superscript subscript 𝜔 𝜇 ^ 𝜆 ^ 𝛽 subscript 𝜎 ^ 𝜆 ^ 𝛽 (6) where e α ^ μ superscript subscript 𝑒
+9509/astro-ph9509022.html 46 𝐿 Variable Scalar      = - g ⁢ g μ ⁢ α ⁢ g ν ⁢ β ⁢ F μ ⁢ ν ⁢ F α ⁢ β , 𝐿 𝑔 superscript 𝑔 𝜇 𝛼 superscript 𝑔 𝜈 𝛽 subscript 𝐹
+9509/astro-ph9509022.html 47 𝐹 Variable Vector      𝑔 superscript 𝑔 𝜇 𝛼 superscript 𝑔 𝜈 𝛽 subscript 𝐹 𝜇 𝜈 subscript 𝐹 𝛼 𝛽 (13) gives the wave equation 
+9509/astro-ph9509022.html 48 ∇ Variable Vector     ipt 𝐹 𝛼 𝛽 (13) gives the wave equation g μ ⁢ ν ⁢ ∇ μ ⁡ ∇ ν ⁡ A α - R μ α ⁢ A μ = 0 , superscript 𝑔 𝜇
+9509/astro-ph9509022.html 50 𝛿 Operator  Discipline specified    erscript 𝑝 ′ ^ 0 1 superscript 2 𝜋 2 superscript 𝛿 4 ^ 𝑝 ^ superscript 𝑝 ′ ^ 𝑘 superscript ℳ 2 subsc
+9509/astro-ph9509022.html 51 ℳ Variable Scalar      2 ⁢ π ) 2 ⁢ δ ( 4 ) ⁢ ( p ^ - p ′ ^ - k ^ ) ⁢ | ℳ | 2 ⁢ k 0 ^ 1 2 subscript 𝑝 ^ 0 superscript 𝑑 3 ^
+9509/astro-ph9509023.html 0 ° Operator  Global    ys from Point Sources with Galactic Latitude +𝟏𝟎⁢°<𝐛<+𝟒𝟎⁢° EGRET Observations of Gamma Rays from Poi
+9509/astro-ph9509023.html 1 𝐛 Variable Scalar      from Point Sources with Galactic Latitude +𝟏𝟎⁢°<𝐛<+𝟒𝟎⁢° EGRET Observations of Gamma Rays from Point
+9509/astro-ph9509023.html 3 ℓ Variable Scalar     rces can now be studied in the zone with 0 ⁢ ° < ℓ < 30 ⁢ ° 0 ° ℓ 30 ° , 10 ⁢ ° < b < 20 ⁢ ° 10 ° 𝑏 
+9509/astro-ph9509023.html 4 𝑇 Variable Scalar     tatistic T s ≡ 2 ⁢ log ⁡ ( L 1 / L 0 ) subscript 𝑇 𝑠 2 subscript 𝐿 1 subscript 𝐿 0 , where L 1 subsc
+9509/astro-ph9509023.html 6 𝐿 Variable Scalar      ⁢ log ⁡ ( L 1 / L 0 ) subscript 𝑇 𝑠 2 subscript 𝐿 1 subscript 𝐿 0 , where L 1 subscript 𝐿 1 and L 0
+9509/astro-ph9509023.html 7 𝜒 Operator  Discipline specified      variable distributed as χ 2 ⁢ ( 1 ) superscript 𝜒 2 1 (Mattox et al
+9509/astro-ph9509023.html 11 𝑞 Constant  Discipline specified     assumes isotropic emission, q 0 = 1 2 subscript 𝑞 0 1 2 , and H 0 = 75 subscript 𝐻 0 75 km s - 1 1 
+9509/astro-ph9509023.html 12 𝐻 Constant  Discipline specified    = 1 2 subscript 𝑞 0 1 2 , and H 0 = 75 subscript 𝐻 0 75 km s - 1 1 Mpc - 1 1 
+9509/astro-ph9509023.html 13 𝛼 Constant  Discipline specified     The photon number spectral index α 𝛼 is taken from Table 2
+9509/astro-ph9509023.html 14 𝐾 Operator  Discipline specified    A K 𝐾 correction factor of ( 1 + z ) - ( α + 2 ) supers
+9509/astro-ph9509023.html 15 𝑧 Constant  Discipline specified    on factor of ( 1 + z ) - ( α + 2 ) superscript 1 𝑧 𝛼 2 has been applied so the luminosities can be c
+9509/astro-ph9509023.html 16 𝑑 Operator  Global    um of the form d ⁢ N d ⁢ E ∝ E α proportional-to 𝑑 𝑁 𝑑 𝐸 superscript 𝐸 𝛼 
+9509/astro-ph9509023.html 17 𝑁 Variable Scalar      of the form d ⁢ N d ⁢ E ∝ E α proportional-to 𝑑 𝑁 𝑑 𝐸 superscript 𝐸 𝛼 
+9509/astro-ph9509023.html 18 𝐸 Variable Scalar     the form d ⁢ N d ⁢ E ∝ E α proportional-to 𝑑 𝑁 𝑑 𝐸 superscript 𝐸 𝛼 
+9509/astro-ph9509023.html 21 𝜎 Operator  Global    The uncertainty is 1 ⁢ σ 1 𝜎 , statistical only
+9509/astro-ph9509023.html 22 Δ Operator  Global    Δ Δ g g Distance, in arcminutes, between the radio 
+9509/astro-ph9509031.html 0 𝑧 Constant  Discipline specified    171 𝑧 0
+9509/astro-ph9509031.html 1 𝐿 Constant  Discipline specified    ths of a magnitude brighter than L * superscript 𝐿 , the characteristic Schechter luminosity of fiel
+9509/astro-ph9509031.html 2 𝑀 Constant  Discipline specified    9 subscript 𝑀 𝑉 22
+9509/astro-ph9509031.html 4 𝐻 Constant  Discipline specified     for H 0 = 100 subscript 𝐻 0 100 km s - 1 1 Mpc - 1 superscript Mpc 1 and Ω 
+9509/astro-ph9509031.html 5 Mpc unit descriptor      Target variable not found in this file
+9509/astro-ph9509031.html 6 Ω Constant  Discipline specified    𝐻 0 100 km s - 1 1 Mpc - 1 superscript Mpc 1 and Ω 0 = 1
+9509/astro-ph9509031.html 9 𝜇 Variable Scalar     5 ⁢ arcsec - 2 𝜇 24
+9509/astro-ph9509031.html 14 𝜎 Operator  Global    1 / 2 superscript radius 1 2 , σ - 1 superscript 𝜎 1 , and σ - 2 superscript 𝜎 2 , where σ 𝜎 is the 
+9509/astro-ph9509031.html 15 𝑔 Constant  Discipline specified    7 mag brighter than the g 𝑔 -magnitudes given in Kirhakos et al
+9509/astro-ph9509031.html 16 𝑑 Variable Scalar     cluding the apparent magnitudes, the distance, d 𝑑 , in arcseconds of the HII region from the quasar
+9509/astro-ph9509031.html 18 𝑟 Operator  Discipline specified    (1984) estimated an r 𝑟 -band absolute magnitude for the host galaxy of M
+9509/astro-ph9509031.html 19 𝐾 Operator  Discipline specified    (1993) performed K 𝐾 -band observations and suggest a bright host gala
+9509/astro-ph9509031.html 24 Δ Operator  Global    xies in PHL 909 Field Galaxy m 𝑚 (F606W) d 𝑑 d 𝑑 Δ ⁢ α Δ 𝛼 Δ ⁢ δ Δ 𝛿 ( ″ ″ ) (kpc) ( ″ ″ ) ( ″ ″ ) A
+9509/astro-ph9509034.html 1 𝜎 Constant  Discipline specified    line-of-sight velocity dispersion, σ 1 subscript 𝜎 1 , and the mean harmonic radius, r v subscript 𝑟
+9509/astro-ph9509034.html 2 𝑟 Constant  Global     1 , and the mean harmonic radius, r v subscript 𝑟 𝑣 , are derived for each cluster using algorithms
+9509/astro-ph9509034.html 4 𝑧 Constant  Discipline specified    The cluster luminosity, corrected to z = 0 𝑧 0 , is estimated from the r 𝑟 band luminosities o
+9509/astro-ph9509034.html 5 𝑀 Operator  Discipline specified    5 subscript 𝑀 𝑟 0 18
+9509/astro-ph9509034.html 6 𝐿 Constant  Discipline specified     subscript 𝐿 ∗ , and uniformly correcting for the light below 
+9509/astro-ph9509034.html 9 M Constant  Global    alaxy Cluster Virial Masses and Ω Galaxy Cluster Virial Masses and Ω Ω R
+9509/astro-ph9509034.html 11 𝜌 Operator  Discipline specified    hat the closure mass-to-light, ρ c / j subscript 𝜌 𝑐 𝑗 , is 1160 ± 130 ⁢ h ⁢ M ⊙ / L ⊙ plus-or-minus
+9509/astro-ph9509034.html 13 𝑗 Constant  Discipline specified    the closure mass-to-light, ρ c / j subscript 𝜌 𝑐 𝑗 , is 1160 ± 130 ⁢ h ⁢ M ⊙ / L ⊙ plus-or-minus 116
+9509/astro-ph9509034.html 15 𝑉 Variable Scalar     te cluster masses to ρ 0 = M / V subscript 𝜌 0 𝑀 𝑉 requires an estimate of the co-moving volume, V 𝑉
+9509/astro-ph9509034.html 16 𝐻 Constant  Discipline specified     0 subscript Ω 0 is independent of H 0 subscript 𝐻 0 , and determines the future of the expansion of
+9509/astro-ph9509034.html 17 𝑁 Operator  Discipline specified    ript 𝑀 𝑣 𝐿 and M v / N L subscript 𝑀 𝑣 subscript 𝑁 𝐿 ratios
+9509/astro-ph9509034.html 18 𝛿 Constant  Discipline specified    e) and in the declination range - 15 ≤ δ ≤ 65 15 𝛿 65 , most suitable for CFHT
+9509/astro-ph9509034.html 19 𝑥 Variable Scalar      we chose those with L x ≥ 4 × 10 44 subscript 𝐿 𝑥 4 superscript 10 44 erg s - 1 1 and f x ≥ 4 × 10 
+9509/astro-ph9509034.html 20 𝑓 Operator  Local    0 44 erg s - 1 1 and f x ≥ 4 × 10 - 13 subscript 𝑓 𝑥 4 superscript 10 13 erg cm - 2 2 s - 1 1 
+9509/astro-ph9509034.html 22 𝑚 Constant  Local    e highest priority at the expected m ∗ subscript 𝑚 ∗ of the cluster
+9509/astro-ph9509034.html 23 𝑛 Operator  Local    The resulting n ⁢ ( m ) 𝑛 𝑚 of the subsample with redshifts is nearly const
+9509/astro-ph9509034.html 24 𝑤 Variable Scalar     nitude selection weight, w m ⁢ ( m r ) subscript 𝑤 𝑚 subscript 𝑚 𝑟 
+9509/astro-ph9509034.html 25 𝑦 Variable Scalar      ⁢ ( m r , x , y ) subscript 𝑤 𝑔 subscript 𝑚 𝑟 𝑥 𝑦 
+9509/astro-ph9509034.html 26 km unit descriptor      Target variable not found in this file
+9509/astro-ph9509034.html 27 s unit descriptor      alaxy Cluster Virial Masses and Ω Galaxy Cluster Virial Mass
+9509/astro-ph9509034.html 28 Mpc unit descriptor      Target variable not found in this file
+9509/astro-ph9509034.html 29 𝑞 Constant  Local    1 subscript 𝑞 0 0
+9509/astro-ph9509034.html 30 Λ Constant  Local    1 , Λ = 0 Λ 0 
+9509/astro-ph9509034.html 31 𝑖 Operator  Local    uperscript subscript 𝜎 1 2 superscript subscript 𝑖 subscript 𝑤 𝑖 1 subscript 𝑖 subscript 𝑤 𝑖 supersc
+9509/astro-ph9509034.html 32 Δ Operator  Discipline specified    defined as σ 1 2 = ( ∑ i w i ) - 1 ⁢ ∑ i w i ⁢ ( Δ ⁢ v i ) 2 , superscript subscript 𝜎 1 2 superscri
+9509/astro-ph9509034.html 34 𝑅 Operator  Local     w i ⁢ w j | 𝐫 i - 𝐫 j | , superscript subscript 𝑅 𝐻 1 superscript subscript 𝑖 subscript 𝑤 𝑖 2 subsc
+9509/astro-ph9509034.html 35 𝐫 Constant  Global     R H - 1 = ( ∑ i w i ) - 2 ⁢ ∑ i ⁢ j w i ⁢ w j | 𝐫 i - 𝐫 j | , superscript subscript 𝑅 𝐻 1 superscri
+9509/astro-ph9509034.html 36 𝐢 Operator  Local     random angles of the pairwise potential 1 / | 𝐫 𝐢 - 𝐫 𝐣 | 1 subscript 𝐫 𝐢 subscript 𝐫 𝐣 is the pote
+9509/astro-ph9509034.html 37 𝐣 Operator  Local    m angles of the pairwise potential 1 / | 𝐫 𝐢 - 𝐫 𝐣 | 1 subscript 𝐫 𝐢 subscript 𝐫 𝐣 is the potential 
+9509/astro-ph9509034.html 38 𝜋 Constant  Global     2 subscript 𝑖 𝑗 subscript 𝑤 𝑖 subscript 𝑤 𝑗 1 2 𝜋 superscript subscript 0 2 𝜋 𝑑 𝜃 superscript subsc
+9509/astro-ph9509034.html 39 𝑑 Operator  Global     subscript 𝑤 𝑗 1 2 𝜋 superscript subscript 0 2 𝜋 𝑑 𝜃 superscript subscript 𝑟 𝑖 2 superscript subscri
+9509/astro-ph9509034.html 40 𝜃 Variable Scalar     ubscript 𝑤 𝑗 1 2 𝜋 superscript subscript 0 2 𝜋 𝑑 𝜃 superscript subscript 𝑟 𝑖 2 superscript subscript
+9509/astro-ph9509034.html 41 𝐾 Operator  Local     𝑖 subscript 𝑤 𝑗 2 𝜋 subscript 𝑟 𝑖 subscript 𝑟 𝑗 𝐾 subscript 𝑘 𝑖 𝑗 where k i ⁢ j 2 = 4 ⁢ r i ⁢ r j /
+9509/astro-ph9509034.html 42 𝑘 Variable Scalar      𝑤 𝑗 2 𝜋 subscript 𝑟 𝑖 subscript 𝑟 𝑗 𝐾 subscript 𝑘 𝑖 𝑗 where k i ⁢ j 2 = 4 ⁢ r i ⁢ r j / ( r i + r j
+9509/astro-ph9509034.html 43 𝐺 Constant  Global     subscript 𝑀 𝑣 3 𝐺 superscript subscript 𝜎 1 2 subscript 𝑟 𝑣 (4) 3
+9509/astro-ph9509034.html 45 𝐷 Variable Scalar      physical lengths, D A ⁢ ( z ) ⁢ Δ ⁢ θ subscript 𝐷 𝐴 𝑧 Δ 𝜃 , at the redshift of the cluster
+9509/astro-ph9509034.html 48 italic-ϵ Variable Scalar     Target variable not found in this file
+9509/astro-ph9509034.html 51 𝛼 Constant  Local    25 𝛼 1
+9509/astro-ph9509034.html 52 𝐸 Operator  Discipline specified     a mild evolutionary correction, E ⁢ ( z ) = - z 𝐸 𝑧 𝑧 ( yg ), so that they are appropriately faded 
+9509/astro-ph9509034.html 53 𝐹 Variable Scalar     The quantity F b subscript 𝐹 𝑏 here is the fractional weight of all galaxies b
+9509/astro-ph9509034.html 54 𝜒 Operator  Discipline specified     The χ 2 superscript 𝜒 2 per degree-of-freedom is 1
+9509/astro-ph9509037.html 0 𝑀 unit descriptor      asses around 10 9 superscript 10 9 M ⊙ subscript 𝑀 direct-product for a wide range of redshifts, and
+9509/astro-ph9509037.html 1 uct unit descriptor      uct /year for all AGN and the mass ranges from 3 ⋅ 10 6 ⋅ absent superscript 10 6 (low redshift) to 
+9509/astro-ph9509037.html 2 𝜇 unit descriptor      flection around a well-defined wavelength of 1 μ 𝜇 m
+9509/astro-ph9509037.html 4 𝐿 Variable Scalar     The total luminosity, L 𝐿 , of the accreting disk, is related to M ˙ ˙ 𝑀 th
+9509/astro-ph9509037.html 5 𝜂 Variable Scalar     elated to M ˙ ˙ 𝑀 through: L = η ⁢ M ˙ ⁢ c 2 , 𝐿 𝜂 ˙ 𝑀 superscript 𝑐 2 (1) where η 𝜂 is the efficien
+9509/astro-ph9509037.html 6 𝑐 Constant  Global    through: L = η ⁢ M ˙ ⁢ c 2 , 𝐿 𝜂 ˙ 𝑀 superscript 𝑐 2 (1) where η 𝜂 is the efficiency at which the gr
+9509/astro-ph9509037.html 7 𝑟 Variable Scalar     s at the inner edge of a disk, r i ⁢ n subscript 𝑟 𝑖 𝑛 
+9509/astro-ph9509037.html 10 𝐺 Constant  Global     superscript 𝑟 1 2 𝑟 subscript 𝑟 𝑖 𝑛 subscript 𝑟 𝐺 (2) where r G = 2 ⁢ G ⁢ M / c 2 subscript 𝑟 𝐺 2 𝐺
+9509/astro-ph9509037.html 11 𝐸 Operator  Discipline specified    5 ⋅ 10 38 1 + X ⁢ M M ⊙ ⁢ erg / s , subscript 𝐿 𝐸 4 𝜋 𝑐 𝐺 𝑀 𝜅 ⋅ 2
+9509/astro-ph9509037.html 12 𝜋 Constant  Global     10 38 1 + X ⁢ M M ⊙ ⁢ erg / s , subscript 𝐿 𝐸 4 𝜋 𝑐 𝐺 𝑀 𝜅 ⋅ 2
+9509/astro-ph9509037.html 13 𝜅 Variable Scalar      + X ⁢ M M ⊙ ⁢ erg / s , subscript 𝐿 𝐸 4 𝜋 𝑐 𝐺 𝑀 𝜅 ⋅ 2
+9509/astro-ph9509037.html 14 𝑋 Variable Scalar      superscript 10 38 1 𝑋 𝑀 subscript 𝑀 direct-product erg s (3) where X is
+9509/astro-ph9509037.html 15 erg unit descriptor      Target variable not found in this file
+9509/astro-ph9509037.html 16 s unit descriptor      he Observational Appearance of Slim Accretion Disks The 
+9509/astro-ph9509037.html 22 g unit descriptor      nd Astrophysics, University of California, Los Angeles, CA 90095-1562, USA malkan@bonnie
+9509/astro-ph9509037.html 23 𝐹 Variable Scalar     minosities were calculated from the local flux F 𝐹 , L = 2 ⁢ ∫ r i ⁢ n r o ⁢ u ⁢ t F ⁢ 2 ⁢ π ⁢ r ⁢ 𝑑
+9509/astro-ph9509037.html 27 𝜏 Variable Matrix     hat the viscous stress tensor, τ r ⁢ φ subscript 𝜏 𝑟 𝜑 , is proportional to the total pressure and t
+9509/astro-ph9509037.html 29 𝑃 Variable Scalar     nal to the effective pressure defined by P ⁢ P g 𝑃 subscript 𝑃 𝑔 (see equation (8))
+9509/astro-ph9509037.html 31 𝛼 Constant  Local    In both cases the proportionality coefficient, α 𝛼 , is taken equal to 0
+9509/astro-ph9509037.html 33 𝐻 Variable Scalar     hickness is very small, H / r ≪ 1 much-less-than 𝐻 𝑟 1 , rotation is described by the Kepler law, Ω 
+9509/astro-ph9509037.html 34 Ω Operator  Global    𝐻 𝑟 1 , rotation is described by the Kepler law, Ω = Ω K Ω subscript Ω 𝐾 
+9509/astro-ph9509037.html 37 𝑣 Variable Vector     ertial term, v r ⁢ ( d ⁢ v r / d ⁢ r ) subscript 𝑣 𝑟 𝑑 subscript 𝑣 𝑟 𝑑 𝑟 , describing the dynamical 
+9509/astro-ph9509037.html 38 𝑑 Operator  Global     , L = 2 ⁢ ∫ r i ⁢ n r o ⁢ u ⁢ t F ⁢ 2 ⁢ π ⁢ r ⁢ 𝑑 r 
+9509/astro-ph9509037.html 39 𝜌 Operator  Local     gradient, ρ - 1 ⁢ ( d ⁢ P / d ⁢ r ) superscript 𝜌 1 𝑑 𝑃 𝑑 𝑟 
+9509/astro-ph9509037.html 40 𝑇 Operator  Local     flux, v r ⁢ T ⁢ ( d ⁢ S / d ⁢ r ) subscript 𝑣 𝑟 𝑇 𝑑 𝑆 𝑑 𝑟 is included in the energy equation
+9509/astro-ph9509037.html 41 𝑆 Variable Scalar     x, v r ⁢ T ⁢ ( d ⁢ S / d ⁢ r ) subscript 𝑣 𝑟 𝑇 𝑑 𝑆 𝑑 𝑟 is included in the energy equation 
+9509/astro-ph9509037.html 43 Σ Operator  Global    𝑓 , opacities multiplied by the surface density, Σ Σ , satisfy the condition τ e ⁢ f ⁢ f = 1 2 ⁢ [ κ
+9509/astro-ph9509037.html 46 𝐼 Variable Scalar      1 + κ e ⁢ s / κ f ⁢ f ⁢ ( ν ) ) 1 / 2 subscript 𝐼 𝜈 2 subscript 𝐵 𝜈 𝑇 1 superscript 1 subscript 𝜅 𝑒
+9509/astro-ph9509037.html 48 𝐵 Operator  Global     f ⁢ f ⁢ ( ν ) ) 1 / 2 subscript 𝐼 𝜈 2 subscript 𝐵 𝜈 𝑇 1 superscript 1 subscript 𝜅 𝑒 𝑠 subscript 𝜅 𝑓
+9509/astro-ph9509037.html 49 𝑌 Variable Scalar      superscript 𝑥 3 1 superscript 𝑒 𝑥 1 𝑋 𝑋 𝑌 where x = h ⁢ ν / k ⁢ T 𝑥 ℎ 𝜈 𝑘 𝑇 and Gaunt facto
+9509/astro-ph9509037.html 50 ℎ Variable Scalar     uperscript 𝑒 𝑥 1 𝑋 𝑋 𝑌 where x = h ⁢ ν / k ⁢ T 𝑥 ℎ 𝜈 𝑘 𝑇 and Gaunt factor is taken equal to 1
+9509/astro-ph9509037.html 51 𝑘 Constant  Local    script 𝑒 𝑥 1 𝑋 𝑋 𝑌 where x = h ⁢ ν / k ⁢ T 𝑥 ℎ 𝜈 𝑘 𝑇 and Gaunt factor is taken equal to 1
+9509/astro-ph9509052.html 0 𝑃 Operator  Discipline specified    wer law models ( P ⁢ ( k ) ∝ k n proportional-to 𝑃 𝑘 superscript 𝑘 𝑛 with n = + 3 , + 1 , 0 , - 1 𝑛 
+9509/astro-ph9509052.html 1 𝑘 Variable Scalar     r law models ( P ⁢ ( k ) ∝ k n proportional-to 𝑃 𝑘 superscript 𝑘 𝑛 with n = + 3 , + 1 , 0 , - 1 𝑛 3 
+9509/astro-ph9509052.html 2 𝑛 Constant  Local     ⁢ ( k ) ∝ k n proportional-to 𝑃 𝑘 superscript 𝑘 𝑛 with n = + 3 , + 1 , 0 , - 1 𝑛 3 1 0 1 , and - 2 
+9509/astro-ph9509052.html 3 Ω Constant  Local     + 3 , + 1 , 0 , - 1 𝑛 3 1 0 1 , and - 2 2 in an Ω = 1 Ω 1 universe) reveals that all models show a 
+9509/astro-ph9509052.html 4 𝜒 Operator  Discipline specified    tion of the mean Euler characteristic, χ ⁢ ( ν ) 𝜒 𝜈 , or the genus curve, g ⁢ ( ν ) 𝑔 𝜈 , as functi
+9509/astro-ph9509052.html 5 𝜈 Variable Scalar     on of the mean Euler characteristic, χ ⁢ ( ν ) 𝜒 𝜈 , or the genus curve, g ⁢ ( ν ) 𝑔 𝜈 , as function
+9509/astro-ph9509052.html 6 𝑔 Operator  Local    c, χ ⁢ ( ν ) 𝜒 𝜈 , or the genus curve, g ⁢ ( ν ) 𝑔 𝜈 , as functions of the density contrast: ν = δ /
+9509/astro-ph9509052.html 7 𝛿 Variable Scalar     functions of the density contrast: ν = δ / σ δ 𝜈 𝛿 subscript 𝜎 𝛿 ( g = - χ / 2 𝑔 𝜒 2 ) ( Dor70 ; Bar
+9509/astro-ph9509052.html 8 𝜎 Operator  Local     the density contrast: ν = δ / σ δ 𝜈 𝛿 subscript 𝜎 𝛿 ( g = - χ / 2 𝑔 𝜒 2 ) ( Dor70 ; Bar-etal86 ; Go
+9509/astro-ph9509052.html 11 𝑊 Variable Scalar      the genus peak width, W ν = ν + - ν - subscript 𝑊 𝜈 subscript 𝜈 subscript 𝜈 (where ν + subscript 𝜈 
+9509/astro-ph9509052.html 12 𝑐 Variable Scalar     The density threshold, δ c subscript 𝛿 𝑐 , separating over-dense ( δ > δ c 𝛿 subscript 𝛿 𝑐
+9509/astro-ph9509052.html 13 𝑓 Operator  Local    𝑓 𝑓 𝜈 1 2 𝜋 superscript subscript 𝜈 superscript 𝑒 s
+9509/astro-ph9509052.html 14 𝜋 Constant  Global    𝑓 𝑓 𝜈 1 2 𝜋 superscript subscript 𝜈 superscript 𝑒 superscript
+9509/astro-ph9509052.html 15 𝑒 Constant  Global     𝑓 𝑓 𝜈 1 2 𝜋 superscript subscript 𝜈 superscript 𝑒 superscript 𝑡 2 2 differential-d 𝑡 (1) Also, in G
+9509/astro-ph9509052.html 16 𝑡 Constant  Global    uperscript subscript 𝜈 superscript 𝑒 superscript 𝑡 2 2 differential-d 𝑡 (1) Also, in Gaussian fields
+9509/astro-ph9509052.html 18 𝑉 Variable Scalar     yquist volume: V N ⁢ y = λ N ⁢ y 3 = 8 subscript 𝑉 𝑁 𝑦 superscript subscript 𝜆 𝑁 𝑦 3 8 mesh cells
+9509/astro-ph9509052.html 21 𝜆 Constant  Local     ⁢ y 3 = 8 subscript 𝑉 𝑁 𝑦 superscript subscript 𝜆 𝑁 𝑦 3 8 mesh cells
+9509/astro-ph9509052.html 25 𝑑 Operator  Global    e: f ⁢ f ⁢ ( ν ) = 1 2 ⁢ π ⁢ ∫ ν ∞ e - t 2 / 2 ⁢ 𝑑 t 
+9509/astro-ph9509052.html 27 ℎ unit descriptor      es of radius 8 ⁢ h - 1 ⁢ M ⁢ p ⁢ c 8 superscript ℎ 1 𝑀 𝑝 𝑐 , the rms mass density fluctuation σ m su
+9509/astro-ph9509052.html 29 𝑏 Variable Scalar     ipt 𝜎 𝑚 is parameterized by the “bias factor”, b 𝑏 , such that σ g = b ⁢ σ m subscript 𝜎 𝑔 𝑏 subscri
+9509/astro-ph9509052.html 30 𝑅 Variable Scalar     y the top-hat smoothing filter R T ⁢ H subscript 𝑅 𝑇 𝐻 is approximately two times greater than k n ⁢
+9509/astro-ph9509064.html 2 Ω Variable Scalar     is given in terms of the dimensionless parameter Ω j = ρ j / ρ c subscript Ω 𝑗 subscript 𝜌 𝑗 subscri
+9509/astro-ph9509064.html 4 𝜌 Variable Scalar     arameter Ω j = ρ j / ρ c subscript Ω 𝑗 subscript 𝜌 𝑗 subscript 𝜌 𝑐 (1) where ρ j subscript 𝜌 𝑗 is th
+9509/astro-ph9509064.html 5 𝑐 Constant  Local     j / ρ c subscript Ω 𝑗 subscript 𝜌 𝑗 subscript 𝜌 𝑐 (1) where ρ j subscript 𝜌 𝑗 is the mass (energy) 
+9509/astro-ph9509064.html 6 𝐻 Constant  Discipline specified     K ⁢ e ⁢ V / c ⁢ m 3 subscript 𝜌 𝑐 3 superscript 𝐻 2 superscript subscript 𝑚 𝑃 𝑙 2 8 𝜋 1
+9509/astro-ph9509064.html 7 𝑚 Constant  Local    ript 𝜌 𝑐 3 superscript 𝐻 2 superscript subscript 𝑚 𝑃 𝑙 2 8 𝜋 1
+9509/astro-ph9509064.html 10 𝜋 Constant  Global     superscript 𝐻 2 superscript subscript 𝑚 𝑃 𝑙 2 8 𝜋 1
+9509/astro-ph9509064.html 11 ℎ Constant  Discipline specified    88 superscript subscript ℎ 100 2 superscript 10 29 𝑔 𝑐 superscript 𝑚 3 10
+9509/astro-ph9509064.html 12 𝑔 unit descriptor       superscript subscript ℎ 100 2 superscript 10 29 𝑔 𝑐 superscript 𝑚 3 10
+9509/astro-ph9509064.html 13 𝐾 unit descriptor      5 superscript subscript ℎ 100 2 𝐾 𝑒 𝑉 𝑐 superscript 𝑚 3 (2) Here m P ⁢ l = 1
+9509/astro-ph9509064.html 15 𝑉 unit descriptor      5 superscript subscript ℎ 100 2 𝐾 𝑒 𝑉 𝑐 superscript 𝑚 3 (2) Here m P ⁢ l = 1
+9509/astro-ph9509064.html 16 𝐺 Constant  Global    tational constant is G N = m P ⁢ l - 2 subscript 𝐺 𝑁 superscript subscript 𝑚 𝑃 𝑙 2 )
+9509/astro-ph9509064.html 22 𝑡 Variable Scalar      ⁢ t + Ω m ⁢ x - 1 + Ω v ⁢ a ⁢ c ⁢ x 2 subscript 𝑡 𝑢 1 𝐻 superscript subscript 0 1 𝑑 𝑥 1 subscript Ω
+9509/astro-ph9509064.html 24 𝑑 Operator  Global     x 2 subscript 𝑡 𝑢 1 𝐻 superscript subscript 0 1 𝑑 𝑥 1 subscript Ω 𝑡 𝑜 𝑡 subscript Ω 𝑚 superscript 𝑥
+9509/astro-ph9509064.html 34 𝜂 Operator  Local    bscript Ω 𝑏 𝑎 𝑟 𝑁 𝑆 4 superscript 10 3 subscript 𝜂 10 superscript ℎ 2 where η 10 = 10 10 ⁢ ( N B / N
+9509/astro-ph9509064.html 37 𝐷 Variable Scalar     rvations, one gives by number D / H ≈ 2 × 10 - 4 𝐷 𝐻 2 superscript 10 4 [ 11 , 12 ] and requests as
+9509/astro-ph9509064.html 39 𝛿 Operator  Local     v ⁢ i ⁢ s / ( δ ⁢ ρ / ρ ) t ⁢ o ⁢ t 𝑏 subscript 𝛿 𝜌 𝜌 𝑣 𝑖 𝑠 subscript 𝛿 𝜌 𝜌 𝑡 𝑜 𝑡 
+9509/astro-ph9509064.html 43 𝑂 Operator  Local    able particle with m = O ⁢ ( 100 ⁢ G ⁢ e ⁢ V ) 𝑚 𝑂 100 𝐺 𝑒 𝑉 
+9509/astro-ph9509064.html 45 𝑛 Constant  Local    / k n similar-to superscript 𝑓 2 1 superscript 𝑘 𝑛 
+9509/astro-ph9509064.html 46 Λ Constant  Discipline specified     low matter density if the cosmological constant Λ Λ (or in other words, vacuum energy) is nonzero
+9509/astro-ph9509064.html 47 𝐶 Variable Scalar     7 subscript 𝐶 𝑇 subscript 𝐶 𝑆 0
+9509/astro-ph9509064.html 48 𝐽 Constant  Discipline specified    eV which decays into massive but light majoron J 𝐽 with mass in KeV region
+9509/astro-ph9509067.html 0 𝜇 unit descriptor       μ 𝜇 m spectra were obtained of nine young stellar obj
+9509/astro-ph9509067.html 1 𝑠 Operator  Discipline specified    absorption of solo hydrogens attached to s ⁢ p 3 𝑠 superscript 𝑝 3 bonded carbon clusters, the “diam
+9509/astro-ph9509067.html 2 𝑝 Operator  Discipline specified    solo hydrogens attached to s ⁢ p 3 𝑠 superscript 𝑝 3 bonded carbon clusters, the “diamond”-like form
+9509/astro-ph9509067.html 3 𝜆 Constant  Local     grating, which provided a spectral resolution λ 𝜆 / Δ ⁢ λ Δ 𝜆 ∼ similar-to 1300
+9509/astro-ph9509067.html 4 Δ Operator  Global    ting, which provided a spectral resolution λ 𝜆 / Δ ⁢ λ Δ 𝜆 ∼ similar-to 1300
+9509/astro-ph9509067.html 7 𝛿 Operator  Local     Hydrogen absorption in the Pf δ 𝛿 line at 3
+9509/astro-ph9509067.html 8 𝜏 Constant  Local    05 similar-to 𝜏 0
+9509/astro-ph9509067.html 9 𝜎 Operator  Global    47 μ 𝜇 m feature; the 2 σ 𝜎 upper limit is τ ≤ 0
+9509/astro-ph9509067.html 10 𝜈 Constant  Local    02 μ 𝜇 m ( ν 0 = 2883 ± 2 subscript 𝜈 0 plus-or-minus 2883 2 cm - 1 1 ) and the average
+9509/astro-ph9509067.html 11 𝑟 Constant  Local    55 𝑟 0
+9509/astro-ph9509067.html 16 𝑁 Operator  Local     (Table 3) were estimated from N = τ ⁢ Δ ⁢ ν / A 𝑁 𝜏 Δ 𝜈 𝐴 , where τ 𝜏 is the peak optical depth, Δ 
+9509/astro-ph9509067.html 17 𝐴 Constant  Local    3) were estimated from N = τ ⁢ Δ ⁢ ν / A 𝑁 𝜏 Δ 𝜈 𝐴 , where τ 𝜏 is the peak optical depth, Δ ⁢ ν Δ 𝜈 
+9509/astro-ph9509067.html 21 𝑎 Operator  Local    Table 1: Log of Observations Object UT Range t a 𝑎 Standard Spectral T b ⁢ b b superscript subscript
+9509/astro-ph9509067.html 22 𝑇 Variable Scalar     tandard Spectral T b ⁢ b b superscript subscript 𝑇 𝑏 𝑏 𝑏 (Oct 1994) ( μ 𝜇 m) (sec) Star Type (K) W3/
+9509/astro-ph9509068.html 2 H unit descriptor      -GHz methanol masers Continuum emission associated wi
+9509/astro-ph9509068.html 5 km s unit descriptor      Target variable not found in this file
+9509/astro-ph9509068.html 6 𝜎 Operator  Global    eport no additional compact emission with a 5- σ 𝜎 limit of 6
+9509/astro-ph9509068.html 9 𝑆 Variable Scalar     95 ( S ν ∝ ν α proportional-to subscript 𝑆 𝜈 superscript 𝜈 𝛼 ) between 6
+9509/astro-ph9509068.html 11 𝑒 Variable Scalar     We calculated the electron density (n e 𝑒 ), emission measure (EM) and mass of ionized hydr
+9509/astro-ph9509068.html 14 𝐿 Variable Scalar     we estimate the Lyman continuum photon flux (N L 𝐿 ) and the spectral class of the exciting star [ P
+9509/astro-ph9509074.html 0 𝑐 Constant  Global     a factor exceeding c / ( H ∘ ⁢ R ∘ ) ≈ 4 × 10 5 𝑐 subscript 𝐻 subscript 𝑅 4 superscript 10 5 , wher
+9509/astro-ph9509074.html 1 𝐻 Variable Scalar     ceeding c / ( H ∘ ⁢ R ∘ ) ≈ 4 × 10 5 𝑐 subscript 𝐻 subscript 𝑅 4 superscript 10 5 , where R ∘ = 8
+9509/astro-ph9509074.html 2 𝑅 Constant  Local    ( H ∘ ⁢ R ∘ ) ≈ 4 × 10 5 𝑐 subscript 𝐻 subscript 𝑅 4 superscript 10 5 , where R ∘ = 8
+9509/astro-ph9509074.html 5 𝑚 Variable Scalar      d ⁢ m i proportional-to subscript 𝑛 𝑖 subscript 𝑚 𝑖 𝑑 subscript 𝑚 𝑖 superscript subscript 𝑚 𝑖 2
+9509/astro-ph9509074.html 6 𝑑 Operator  Global     m i proportional-to subscript 𝑛 𝑖 subscript 𝑚 𝑖 𝑑 subscript 𝑚 𝑖 superscript subscript 𝑚 𝑖 2
+9509/astro-ph9509074.html 7 Ω Variable Scalar     5 𝑑 subscript 𝑚 𝑖 , and found that Ω P ⁢ B ⁢ H ⁢ h 2 < ( 7
+9509/astro-ph9509074.html 10 ℎ Constant  Local    6 ) × 10 - 9 subscript Ω 𝑃 𝐵 𝐻 superscript ℎ 2 plus-or-minus 7
+9509/astro-ph9509074.html 11 𝜌 Variable Scalar     43 × 10 - 37 ⁢ gm  cm - 3 , subscript 𝜌 𝑃 𝐵 𝐻 1
+9509/astro-ph9509074.html 12 gm  cm unit descriptor      Target variable not found in this file
+9509/astro-ph9509074.html 13 𝑁 Variable Scalar     d an average number density of PBH’s of N = 10 4 𝑁 superscript 10 4 pc - 3 3 
+9509/astro-ph9509074.html 14 𝑣 Variable Scalar     ⁢ gm  cm - 3 subscript 𝜌 ℎ superscript subscript 𝑣 𝑐 2 4 𝜋 𝐺 superscript 𝑅 2 8
+9509/astro-ph9509074.html 15 𝜋 Constant  Global     - 3 subscript 𝜌 ℎ superscript subscript 𝑣 𝑐 2 4 𝜋 𝐺 superscript 𝑅 2 8
+9509/astro-ph9509074.html 16 𝐺 Constant  Global     3 subscript 𝜌 ℎ superscript subscript 𝑣 𝑐 2 4 𝜋 𝐺 superscript 𝑅 2 8
+9509/astro-ph9509074.html 17 𝜁 Operator  Discipline specified    36 / h 2 × 10 7 𝜁 subscript 𝜌 ℎ ¯ 𝜌 1
+9509/astro-ph9509074.html 18 ¯ Operator  Local    nsidered concentration factors up to ζ = ρ h / ρ ¯ = 1
+9509/astro-ph9509074.html 19 𝑡 Variable Scalar     tial mass of a PBH that is evaporating at time t 𝑡 is m i ∝ t 1 / 3 proportional-to subscript 𝑚 𝑖 su
+9509/astro-ph9509074.html 20 𝑧 Variable Scalar     comoving density ρ / ( 1 + z ) 3 𝜌 superscript 1 𝑧 3 of PBH’s scales like ρ / ( 1 + z ) 3 ∝ ∫ t 1 / 
+9509/astro-ph9509074.html 21 𝐼 Operator  Local     ⁢ ( 1 + z ) 7 / 4 ( 1 + z ) 7 / 2 ⁢ c H ∘ ⁢ 𝑑 z 𝐼 subscript 𝑗 𝐶 𝑀 𝑡 1 𝑧 𝑐 differential-d 𝑡 subscrip
+9509/astro-ph9509074.html 22 𝑗 Operator  Local     7 / 4 ( 1 + z ) 7 / 2 ⁢ c H ∘ ⁢ 𝑑 z 𝐼 subscript 𝑗 𝐶 𝑀 𝑡 1 𝑧 𝑐 differential-d 𝑡 subscript 𝑗 superscr
+9509/astro-ph9509074.html 27 𝜃 Variable Scalar     ribution to the anisotropic intensity at angle θ 𝜃 with respect to the Galactic center is I a ⁢ n ⁢ 
+9509/astro-ph9509074.html 29 𝑟 Variable Scalar     e model: ρ ∝ r - 2 proportional-to 𝜌 superscript 𝑟 2 
+9509/astro-ph9509074.html 30 𝑞 Variable Scalar     ith core radius r c subscript 𝑟 𝑐 , flattening q 𝑞 , and density varying like: ρ = ρ ∘ ⁢ ( R ∘ 2 + r
+9509/astro-ph9509074.html 31 𝜂 Operator  Local    ential-d 𝑠 subscript 𝑗 ℎ subscript 𝑅 subscript 𝑅 𝜂 𝑙 𝑏 subscript 𝑟 𝑐 subscript 𝑅 𝑞 (7) with η ⁢ ( l 
+9509/astro-ph9509074.html 32 𝑙 Variable Scalar     tial-d 𝑠 subscript 𝑗 ℎ subscript 𝑅 subscript 𝑅 𝜂 𝑙 𝑏 subscript 𝑟 𝑐 subscript 𝑅 𝑞 (7) with η ⁢ ( l , 
+9509/astro-ph9509074.html 33 𝑏 Variable Scalar     al-d 𝑠 subscript 𝑗 ℎ subscript 𝑅 subscript 𝑅 𝜂 𝑙 𝑏 subscript 𝑟 𝑐 subscript 𝑅 𝑞 (7) with η ⁢ ( l , b 
+9509/astro-ph9509074.html 36 𝐸 Variable Scalar     ison with Data Figure 1: Gamma rays with E > 100 𝐸 100 MeV from EGRET
+9509/astro-ph9509074.html 40 𝛾 Variable Scalar      𝐶 𝑅 subscript 𝑝 𝐼 𝑆 𝑀 𝑝 𝑝 superscript 𝜋 → 𝑝 𝑝 2 𝛾 (10) where a cosmic ray proton p C ⁢ R subscript 
+9509/astro-ph9509074.html 41 𝜇 unit descriptor      I have used the 100 μ 𝜇 m intensity as a proxy for the column density of 
+9509/astro-ph9509074.html 42 italic-ϵ Operator  Discipline specified    Target variable not found in this file
+9509/astro-ph9509074.html 45 pc unit descriptor      Target variable not found in this file
+9509/astro-ph9509074.html 46 yr unit descriptor      Target variable not found in this file
+9509/astro-ph9509074.html 47 𝑘 Variable Scalar     uperscript 10 14 gm and temperatures k ⁢ T < 100 𝑘 𝑇 100 MeV, and radiation under these conditions i
+9509/astro-ph9509074.html 48 𝑇 Variable Scalar     erscript 10 14 gm and temperatures k ⁢ T < 100 𝑘 𝑇 100 MeV, and radiation under these conditions is 
+9509/astro-ph9509074.html 49 𝒪 Operator  Local    e able to detect PBH explosions out to distances 𝒪 ⁢ ( 10 19 ) 𝒪 superscript 10 19 cm if even a few 
+9509/astro-ph9509074.html 52 𝐹 Operator  Local     flux from the Galaxy, F = ∫ I ⁢ cos ⁡ θ ⁢ d ⁢ Ω 𝐹 𝐼 𝜃 𝑑 Ω , in Figure 1 is F = 1
+9509/astro-ph9509074.html 54 sec unit descriptor      Target variable not found in this file
+9509/astro-ph9509078.html 0 𝜃 Variable Scalar      Galactic dipole moment ⟨ cos ⁡ θ ⟩ delimited-⟨⟩ 𝜃 differs from the value predicted for isotropy by 
+9509/astro-ph9509078.html 1 𝜎 Operator  Global     𝜎 and the observed Galactic quadrupole moment ⟨ sin
+9509/astro-ph9509078.html 2 𝑏 Variable Scalar     t ⟨ sin 2 ⁡ b - 1 3 ⟩ delimited-⟨⟩ superscript 2 𝑏 1 3 by 0
+9509/astro-ph9509078.html 3 𝑉 Variable Scalar     5 delimited-⟨⟩ 𝑉 subscript 𝑉 max 0
+9509/astro-ph9509078.html 5 𝑁 Operator  Local    y the deviation of the log ⁡ ( N > P ) - log ⁡ P 𝑁 𝑃 𝑃 distribution from a - 3 2 3 2 slope power law
+9509/astro-ph9509078.html 6 𝑃 Operator  Local    the deviation of the log ⁡ ( N > P ) - log ⁡ P 𝑁 𝑃 𝑃 distribution from a - 3 2 3 2 slope power law f
+9509/astro-ph9509078.html 7 𝑧 Operator  Discipline specified     If GRBs come from z ≲ 1 less-than-or-similar-to 𝑧 1 , too few have been observed to detect the dipo
+9509/astro-ph9509078.html 8 𝒲 Operator  Discipline specified    We use the coordinate-system independent tests 𝒲 𝒲 and ℬ ℬ as one-tailed tests because no random a
+9509/astro-ph9509078.html 9 ℬ Operator  Discipline specified     the coordinate-system independent tests 𝒲 𝒲 and ℬ ℬ as one-tailed tests because no random anisotrop
+9509/astro-ph9509078.html 10 𝜅 Constant  Local    d angle is proportional to exp ⁡ ( κ ⁢ cos ⁡ θ ) 𝜅 𝜃 , where θ 𝜃 is the angle between a point and th
+9509/astro-ph9509078.html 13 𝜒 Operator  Discipline specified    in four detectors and minimizing χ 2 superscript 𝜒 2 
+9509/astro-ph9509078.html 17 𝛼 Operator  Discipline specified    ed in equatorial coordinates: right ascension, α 𝛼 , and declination, δ 𝛿 
+9509/astro-ph9509078.html 18 𝛿 Operator  Discipline specified    nates: right ascension, α 𝛼 , and declination, δ 𝛿 
+9509/astro-ph9509078.html 19 𝑇 Operator  Local    posure a function only of declination: T ⁢ ( δ ) 𝑇 𝛿 
+9509/astro-ph9509078.html 21 Σ Operator  Global    his time moving each simulated location an angle Σ Σ in a random direction, obtaining the middle his
+9509/astro-ph9509078.html 22 𝐶 Variable Vector     our additional GRBs; the C max / C min subscript 𝐶 max subscript 𝐶 min values of these four GRBs on 
+9509/astro-ph9509078.html 25 𝛽 Variable Scalar     , ⟨ sin 2 ⁡ β - 1 3 ⟩ delimited-⟨⟩ superscript 2 𝛽 1 3 , is observed to be 0
+9509/astro-ph9509078.html 26 𝑅 Constant  Discipline specified    5 ⁢ kpc subscript 𝑅 8
+9509/astro-ph9509078.html 27 kpc unit descriptor      Target variable not found in this file
+9509/astro-ph9509078.html 29 𝜌 Variable Scalar     ⁢ ( R ) ∝ 1 1 + ( R / R core ) 2 proportional-to 𝜌 𝑅 1 1 superscript 𝑅 subscript 𝑅 core 2 (2) The R 
+9509/astro-ph9509078.html 34 ¯ Operator  Local    ntial halo with source density ∝ exp ⁡ ( - R / r ¯ ) proportional-to absent 𝑅 ¯ 𝑟 
+9509/astro-ph9509078.html 35 𝑟 Variable Scalar     ∝ exp ⁡ ( - R / r ¯ ) proportional-to absent 𝑅 ¯ 𝑟 
+9509/astro-ph9509078.html 36 𝑓 Operator  Local    consider a model with fraction f aniso subscript 𝑓 aniso of the locations drawn from the Watson dist
+9509/astro-ph9509078.html 38 𝜋 Constant  Global    010 2 𝜋 T 9160 365
+9509/astro-ph9509083.html 0 𝑍 Constant  Local     ions of all elements from H through Zn ( Z = 30 𝑍 30 )
+9509/astro-ph9509083.html 3 𝑛 Variable Scalar      A + n + e - → A + n - 1 + h ⁢ ν → superscript A 𝑛 superscript 𝑒 superscript A 𝑛 1 ℎ 𝜈 ; dielectroni
+9509/astro-ph9509083.html 4 𝑒 Constant  Discipline specified     A + n - 1 + h ⁢ ν → superscript A 𝑛 superscript 𝑒 superscript A 𝑛 1 ℎ 𝜈 ; dielectronic recombinatio
+9509/astro-ph9509083.html 5 ℎ Constant  Local     superscript A 𝑛 superscript 𝑒 superscript A 𝑛 1 ℎ 𝜈 ; dielectronic recombination, A + n + e - → A *
+9509/astro-ph9509083.html 6 𝜈 Constant  Local    uperscript A 𝑛 superscript 𝑒 superscript A 𝑛 1 ℎ 𝜈 ; dielectronic recombination, A + n + e - → A * ,
+9509/astro-ph9509083.html 8 𝑇 Variable Scalar     te at nebular ( T ≲ 10 4 less-than-or-similar-to 𝑇 superscript 10 4 K) temperatures
+9509/astro-ph9509083.html 9 𝛼 Operator  Local    α r ⁢ ( T ) = A ⁢ ( T 10 4 ⁢ K ) - η , subscript 𝛼 r 𝑇 𝐴 superscript 𝑇 superscript 10 4 K 𝜂 (1) wher
+9509/astro-ph9509083.html 11 𝐴 Operator  Local    ( T ) = A ⁢ ( T 10 4 ⁢ K ) - η , subscript 𝛼 r 𝑇 𝐴 superscript 𝑇 superscript 10 4 K 𝜂 (1) where T 𝑇 
+9509/astro-ph9509083.html 13 𝜂 Operator  Local    bscript 𝛼 r 𝑇 𝐴 superscript 𝑇 superscript 10 4 K 𝜂 (1) where T 𝑇 is temperature, A 𝐴 and η 𝜂 are the
+9509/astro-ph9509083.html 14 𝑧 Variable Scalar     cm 3 ⁢ s - 1 , subscript 𝛼 r 𝑇 superscript 10 13 𝑧 𝑎 superscript 𝑡 𝑏 1 𝑐 superscript 𝑡 𝑑 superscript
+9509/astro-ph9509083.html 15 𝑎 Operator  Local     3 ⁢ s - 1 , subscript 𝛼 r 𝑇 superscript 10 13 𝑧 𝑎 superscript 𝑡 𝑏 1 𝑐 superscript 𝑡 𝑑 superscript c
+9509/astro-ph9509083.html 16 𝑡 Constant  Local    ubscript 𝛼 r 𝑇 superscript 10 13 𝑧 𝑎 superscript 𝑡 𝑏 1 𝑐 superscript 𝑡 𝑑 superscript cm 3 superscrip
+9509/astro-ph9509083.html 17 𝑏 Operator  Local    script 𝛼 r 𝑇 superscript 10 13 𝑧 𝑎 superscript 𝑡 𝑏 1 𝑐 superscript 𝑡 𝑑 superscript cm 3 superscript 
+9509/astro-ph9509083.html 18 𝑐 Operator  Local    pt 𝛼 r 𝑇 superscript 10 13 𝑧 𝑎 superscript 𝑡 𝑏 1 𝑐 superscript 𝑡 𝑑 superscript cm 3 superscript s 1 
+9509/astro-ph9509083.html 19 𝑑 Operator  Local    ript 10 13 𝑧 𝑎 superscript 𝑡 𝑏 1 𝑐 superscript 𝑡 𝑑 superscript cm 3 superscript s 1 (2) where z 𝑧 is
+9509/astro-ph9509083.html 20 cm unit descriptor      Target variable not found in this file
+9509/astro-ph9509083.html 21 s unit descriptor      Atomic data for astrophysics
+9509/astro-ph9509083.html 22 𝛽 Operator  Local    cript 𝛼 r 𝑇 𝐴 superscript 𝑇 superscript 10 4 K 𝛼 𝛽 subscript 10 𝑇 superscript 10 4 K (3) where A 𝐴 ,
+9509/astro-ph9509083.html 23 𝐸 Variable Scalar      the cross sections up to 10 ⁢ E th 10 subscript 𝐸 th only, where E th subscript 𝐸 th is the ionizat
+9509/astro-ph9509083.html 25 𝑙 Constant  Discipline specified     𝑙 , where l 𝑙 is a subshell orbital quantum number,
+9509/astro-ph9509083.html 26 𝑆 Constant  Global    s with n < 10 𝑛 10 ( l < 3 𝑙 3 ; S 1 superscript 𝑆 1 , P o 1 superscript superscript 𝑃 o 1 , D 1 sup
+9509/astro-ph9509083.html 27 𝑃 Constant  Global     superscript 𝑆 1 , P o 1 superscript superscript 𝑃 o 1 , D 1 superscript 𝐷 1 , S 3 superscript 𝑆 3 ,
+9509/astro-ph9509083.html 29 𝐷 Constant  Global     superscript superscript 𝑃 o 1 , D 1 superscript 𝐷 1 , S 3 superscript 𝑆 3 , P o 3 superscript super
+9509/astro-ph9509083.html 30 𝜆 Constant  Local    197 superscript 10 14 𝑍 superscript 𝜆 1 2 delimited-[] 0
+9509/astro-ph9509100.html 0 𝑉 Variable Scalar     6 𝑉 28
+9509/astro-ph9509100.html 4 𝜎 Operator  Global     σ 𝜎 of the background, this pixel was flagged for fur
+9509/astro-ph9509100.html 7 𝜃 Variable Vector     ate with respect to the background stars ( θ ˙ ˙ 𝜃 ) and the angle the orbit makes with the ecliptic
+9509/astro-ph9509100.html 8 italic-ϕ Variable Scalar     Target variable not found in this file
+9509/astro-ph9509100.html 9 𝑎 Constant  Local    4 𝑎 39
+9509/astro-ph9509100.html 10 𝐸 Operator  Local    ly i = | ϕ - ϕ E | 𝑖 italic-ϕ subscript italic-ϕ 𝐸 , where ϕ E = 0
+9509/astro-ph9509100.html 11 𝜒 Operator  Discipline specified    A χ 2 superscript 𝜒 2 analysis shows that the probability that these 
+9509/astro-ph9509100.html 12 𝑝 Operator  Local    s a function of magnitude, p r ⁢ ( V ) subscript 𝑝 𝑟 𝑉 , from the histograms shown in Figure 1: p r 
+9509/astro-ph9509100.html 14 𝑁 Variable Scalar     o ⁢ ( V ) subscript 𝑝 𝑟 𝑉 delimited-[] subscript 𝑁 𝑝 𝑟 𝑜 𝑉 subscript 𝑁 𝑟 𝑒 𝑡 𝑟 𝑜 𝑉 subscript 𝑁 𝑝 𝑟 𝑜
+9509/astro-ph9509100.html 18 𝑓 Variable Scalar     jects by calculating the fraction, f V subscript 𝑓 𝑉 , of the volume of space that we searched (as d
+9509/astro-ph9509100.html 20 𝑅 Variable Scalar      We then calculated its radius, R 𝑅 , assuming an albedo of 0
+9509/astro-ph9509100.html 21 𝑤 Operator  Local     to the candidate, w = p r / ( p d ⁢ f V ⁢ f F ) 𝑤 subscript 𝑝 𝑟 subscript 𝑝 𝑑 subscript 𝑓 𝑉 subscri
+9509/astro-ph9509102.html 0 𝑛 Variable Scalar     ch produces non-Gaussianity generating reduced n 𝑛 -point correlation functions
+9509/astro-ph9509102.html 1 italic-ϕ Operator  Local    Target variable not found in this file
+9509/astro-ph9509102.html 2 𝑥 Variable Scalar     x ) = ∑ k ∈ Z p k ⁢ ϕ ⁢ ( 2 ⁢ x - k ) , italic-ϕ 𝑥 subscript 𝑘 𝑍 subscript 𝑝 𝑘 italic-ϕ 2 𝑥 𝑘 (1) wh
+9509/astro-ph9509102.html 3 𝑘 Constant  Local    Z p k ⁢ ϕ ⁢ ( 2 ⁢ x - k ) , italic-ϕ 𝑥 subscript 𝑘 𝑍 subscript 𝑝 𝑘 italic-ϕ 2 𝑥 𝑘 (1) where { p k } 
+9509/astro-ph9509102.html 4 𝑍 Variable Vector     p k ⁢ ϕ ⁢ ( 2 ⁢ x - k ) , italic-ϕ 𝑥 subscript 𝑘 𝑍 subscript 𝑝 𝑘 italic-ϕ 2 𝑥 𝑘 (1) where { p k } su
+9509/astro-ph9509102.html 5 𝑝 Operator  Local    2 ⁢ x - k ) , italic-ϕ 𝑥 subscript 𝑘 𝑍 subscript 𝑝 𝑘 italic-ϕ 2 𝑥 𝑘 (1) where { p k } subscript 𝑝 𝑘 
+9509/astro-ph9509102.html 6 𝑖 Variable Scalar     unctions of Fourier analysis are exp ⁡ i ⁢ k ⁢ x 𝑖 𝑘 𝑥 which can be regarded as dilation of exp ⁡ i 
+9509/astro-ph9509102.html 7 𝑗 Variable Scalar     Discrete wavelet analysis uses 2 j superscript 2 𝑗 dilation and the k / 2 j 𝑘 superscript 2 𝑗 transl
+9509/astro-ph9509102.html 8 𝑉 Operator  Local    Let V j subscript 𝑉 𝑗 be the space spanned by the scaling functions o
+9509/astro-ph9509102.html 10 𝜓 Operator  Local    𝜓 𝑥 subscript 𝑘 𝑍 subscript 𝑞 𝑘 italic-ϕ 2 𝑥 𝑘 (3) 
+9509/astro-ph9509102.html 11 𝑞 Variable Vector     𝜓 𝑥 subscript 𝑘 𝑍 subscript 𝑞 𝑘 italic-ϕ 2 𝑥 𝑘 (3) Here the sequence { q k } su
+9509/astro-ph9509102.html 12 𝑊 Operator  Local    Let W j subscript 𝑊 𝑗 be the space spanned by the wavelet functions o
+9509/astro-ph9509102.html 13 𝑓 Operator  Local    Now, an arbitrary function f j ∈ V j subscript 𝑓 𝑗 subscript 𝑉 𝑗 can be expressed as f j ⁢ ( x ) =
+9509/astro-ph9509102.html 14 𝑐 Constant  Local    ubscript 𝑓 𝑗 𝑥 subscript 𝑘 superscript subscript 𝑐 𝑘 𝑗 italic-ϕ superscript 2 𝑗 𝑥 𝑘 (4) where c k ( 
+9509/astro-ph9509102.html 15 𝑔 Operator  Local     j - 1 , subscript 𝑓 𝑗 subscript 𝑓 𝑗 1 subscript 𝑔 𝑗 1 (6) where g j ⁢ ( x ) = ∑ k d k ( j ) ⁢ ψ ⁢ (
+9509/astro-ph9509102.html 16 𝑑 Constant  Local    ubscript 𝑔 𝑗 𝑥 subscript 𝑘 superscript subscript 𝑑 𝑘 𝑗 𝜓 superscript 2 𝑗 𝑥 𝑘 (7) Here, the expansion
+9509/astro-ph9509102.html 17 𝑡 Variable Scalar      ⁡ x ⁢ [ v ⁢ ( x , t ) ⁢ ( 1 + δ ⁢ ( x , t ) ) ] 𝑡 𝛿 𝑥 𝑡 1 𝑎 𝑡 𝑥 delimited-[] 𝑣 𝑥 𝑡 1 𝛿 𝑥 𝑡 = 0 , 0 
+9509/astro-ph9509102.html 18 𝛿 Operator  Local     x ⁢ [ v ⁢ ( x , t ) ⁢ ( 1 + δ ⁢ ( x , t ) ) ] 𝑡 𝛿 𝑥 𝑡 1 𝑎 𝑡 𝑥 delimited-[] 𝑣 𝑥 𝑡 1 𝛿 𝑥 𝑡 = 0 , 0 (1
+9509/astro-ph9509102.html 19 𝑎 Operator  Local     ⁢ ( x , t ) ⁢ ( 1 + δ ⁢ ( x , t ) ) ] 𝑡 𝛿 𝑥 𝑡 1 𝑎 𝑡 𝑥 delimited-[] 𝑣 𝑥 𝑡 1 𝛿 𝑥 𝑡 = 0 , 0 (10) ∂ ∂ ⁡
+9509/astro-ph9509102.html 20 𝑣 Operator  Local    + δ ⁢ ( x , t ) ) ] 𝑡 𝛿 𝑥 𝑡 1 𝑎 𝑡 𝑥 delimited-[] 𝑣 𝑥 𝑡 1 𝛿 𝑥 𝑡 = 0 , 0 (10) ∂ ∂ ⁡ t ⁢ v ⁢ ( x , t ) 
+9509/astro-ph9509102.html 23 𝐵 Operator  Local    coordinates: x = q + B ⁢ ( t ) ⁢ S ⁢ ( q ) , 𝑥 𝑞 𝐵 𝑡 𝑆 𝑞 (13) where B ⁢ ( t ) 𝐵 𝑡 is a function of t
+9509/astro-ph9509102.html 24 𝑆 Operator  Local    dinates: x = q + B ⁢ ( t ) ⁢ S ⁢ ( q ) , 𝑥 𝑞 𝐵 𝑡 𝑆 𝑞 (13) where B ⁢ ( t ) 𝐵 𝑡 is a function of time 
+9509/astro-ph9509102.html 28 𝛼 Constant  Local    cript italic-ϵ 𝑛 superscript 𝑘 𝑛 1 𝑘 𝑞 subscript 𝛼 𝑘 (17) where ϵ n subscript italic-ϵ 𝑛 is independ
+9509/astro-ph9509102.html 29 𝑃 Operator  Local    m of the initial density fluctuations, P ⁢ ( k ) 𝑃 𝑘 , is essentially characterized by the spectral 
+9509/astro-ph9509102.html 30 𝜋 Constant  Global    ary condition on a range x ∈ [ 0 , 2 ⁢ π ] 𝑥 0 2 𝜋 in one-dimension
+9509/astro-ph9509125.html 0 yr unit descriptor      Target variable not found in this file
+9509/astro-ph9509125.html 1 𝐻 Constant  Discipline specified    ospect of obtaining an estimate of H 0 subscript 𝐻 0 directly from a cosmologically distant source, 
+9509/astro-ph9509125.html 2 Δ Operator  Global    orenstein, & Shapiro 1991) and the “time delay,” Δ ⁢ τ Δ 𝜏 , the difference in propagation times fro
+9509/astro-ph9509125.html 3 𝜏 Variable Scalar     n, & Shapiro 1991) and the “time delay,” Δ ⁢ τ Δ 𝜏 , the difference in propagation times from source
+9509/astro-ph9509125.html 4 𝐵 Variable Scalar     83 GHz and the recorded bandwidth B 𝐵 was 56 MHz, except at the VLA where B = 48 𝐵 48 M
+9509/astro-ph9509125.html 8 mJy unit descriptor      Target variable not found in this file
+9509/astro-ph9509125.html 12 cm unit descriptor      Target variable not found in this file
+9509/astro-ph9509125.html 13 𝑅 Operator  Local    ts a crude estimate of Δ ⁢ τ Δ 𝜏 and the ratio R 𝑅 of the magnification of the core of the B image t
+9509/astro-ph9509125.html 14 𝜒 Operator  Discipline specified     1989), and the total χ 2 superscript 𝜒 2 
+9509/astro-ph9509143.html 0 𝑟 Operator  Local    If the range r 0 = μ - 1 subscript 𝑟 0 superscript 𝜇 1 is 25 25 kpc, then this additio
+9509/astro-ph9509143.html 1 𝜇 Variable Scalar      the range r 0 = μ - 1 subscript 𝑟 0 superscript 𝜇 1 is 25 25 kpc, then this additional potential du
+9509/astro-ph9509143.html 2 𝐿 Operator  Discipline specified    es and the Tully-Fisher law ( L ∼ v 4 similar-to 𝐿 superscript 𝑣 4 ) without the dark matter hypothe
+9509/astro-ph9509143.html 3 𝑣 Operator  Discipline specified    ly-Fisher law ( L ∼ v 4 similar-to 𝐿 superscript 𝑣 4 ) without the dark matter hypothesis
+9509/astro-ph9509143.html 4 𝑎 Operator  Local     ) ⁢ f ′ ⁢ ( r ) r 4 + f 2 ⁢ ( r ) ) , subscript 𝑎 ngt 𝑟 𝜆 𝛾 𝑟 superscript 𝑐 2 𝛼 𝑟 superscript 1 𝜆 𝛾
+9509/astro-ph9509143.html 6 𝜆 Constant  Local     ⁢ ( r ) r 4 + f 2 ⁢ ( r ) ) , subscript 𝑎 ngt 𝑟 𝜆 𝛾 𝑟 superscript 𝑐 2 𝛼 𝑟 superscript 1 𝜆 𝛾 𝑟 super
+9509/astro-ph9509143.html 7 𝛾 Operator  Local     ( r ) r 4 + f 2 ⁢ ( r ) ) , subscript 𝑎 ngt 𝑟 𝜆 𝛾 𝑟 superscript 𝑐 2 𝛼 𝑟 superscript 1 𝜆 𝛾 𝑟 supersc
+9509/astro-ph9509143.html 8 𝑐 Constant  Global     ⁢ ( r ) ) , subscript 𝑎 ngt 𝑟 𝜆 𝛾 𝑟 superscript 𝑐 2 𝛼 𝑟 superscript 1 𝜆 𝛾 𝑟 superscript 𝑓 ′ 𝑟 super
+9509/astro-ph9509143.html 9 𝛼 Operator  Local     r ) ) , subscript 𝑎 ngt 𝑟 𝜆 𝛾 𝑟 superscript 𝑐 2 𝛼 𝑟 superscript 1 𝜆 𝛾 𝑟 superscript 𝑓 ′ 𝑟 superscri
+9509/astro-ph9509143.html 10 𝑓 Operator  Local    erscript 𝑐 2 𝛼 𝑟 superscript 1 𝜆 𝛾 𝑟 superscript 𝑓 ′ 𝑟 superscript 𝑟 4 superscript 𝑓 2 𝑟 1 𝑑 𝑑 𝑟 𝛾 𝑟
+9509/astro-ph9509143.html 12 𝑑 Operator  Global    script 𝑓 ′ 𝑟 superscript 𝑟 4 superscript 𝑓 2 𝑟 1 𝑑 𝑑 𝑟 𝛾 𝑟 superscript 𝑓 ′ 𝑟 superscript 𝑟 4 supersc
+9509/astro-ph9509143.html 13 𝐺 Constant  Global    𝛾 𝑟 𝛼 superscript 𝑟 1 1 2 𝐺 𝑀 superscript 𝑐 2 𝑟 (2) Moreover, f ⁢ ( r ) 𝑓 𝑟 i
+9509/astro-ph9509143.html 14 𝑀 Variable Scalar     𝛾 𝑟 𝛼 superscript 𝑟 1 1 2 𝐺 𝑀 superscript 𝑐 2 𝑟 (2) Moreover, f ⁢ ( r ) 𝑓 𝑟 is 
+9509/astro-ph9509143.html 15 𝑔 Variable Matrix     g[23] is the only non-zero component of the antisymmetric part g[µν] of the nonsymmetric tensor
+9509/astro-ph9509143.html 16 𝜃 Variable Scalar      ) ⁢ sin ⁡ θ , subscript 𝑔 delimited-[] 23 𝑟 𝑓 𝑟 𝜃 (3) where g [ 23 ] subscript 𝑔 delimited-[] 23 is
+9509/astro-ph9509143.html 18 𝐶 Constant  Local     C ⁢ exp ⁡ ( - r / r 0 ) ⁢ ( 1 + r / r 0 ) , 𝑓 𝑟 𝐶 𝑟 subscript 𝑟 0 1 𝑟 subscript 𝑟 0 (4) where C 𝐶 i
+9509/astro-ph9509143.html 20 𝜎 Operator  Global     + r / r 0 ) , 𝑎 𝑟 subscript 𝐺 𝑀 superscript 𝑟 2 𝜎 𝑀 𝑟 subscript 𝑟 0 superscript 𝑟 2 1 𝑟 subscript 𝑟
+9509/astro-ph9509143.html 21 𝑁 unit descriptor      73 superscript 10 11 𝑁 𝑘 𝑔 superscript 𝑚 2 , for distances that are smal
+9509/astro-ph9509143.html 23 𝑚 unit descriptor      73 superscript 10 11 𝑁 𝑘 𝑔 superscript 𝑚 2 , for distances that are smaller than the galax
+9509/astro-ph9509143.html 26 𝛽 Variable Scalar     aw, for which L β ∼ v 4 similar-to superscript 𝐿 𝛽 superscript 𝑣 4 where β = 1 𝛽 1 
+9509/astro-ph9509143.html 28 𝑏 Constant  Local    5 𝐿 subscript 𝐿 direct-product 𝑏 , where b 𝑏 is a constant
+9509/astro-ph9509143.html 29 𝑅 Variable Scalar     sider a point mass approximation, the distance R 𝑅 between the galaxy center and the deflected light
+9509/astro-ph9509143.html 30 Δ Operator  Global    For this case, we find the angle of deflection Δ ⁢ ϕ Δ italic-ϕ , obtained from a post-Newtonian e
+9509/astro-ph9509143.html 31 italic-ϕ Variable Scalar     Target variable not found in this file
+9509/astro-ph9509143.html 33 𝛿 Operator  Local    𝛿 𝑎 𝑟 𝑎 𝑟 subscript 𝑎 ngt 𝑟 subscript 𝑎 Newton 𝑟 1 
+9509/astro-ph9509144.html 0 𝑀 Constant  Discipline specified     exceeds 10 - 3 ⁢ M ⊙ superscript 10 3 subscript 𝑀 direct-product y - 1 1 
+9509/astro-ph9509144.html 4 𝑧 unit descriptor      to avoid the complications associated with the z 𝑧 -axis which corresponds to a singularity of the c
+9509/astro-ph9509144.html 5 𝜌 Variable Scalar     e particles reach a critical density ( ρ > 10 13 𝜌 superscript 10 13 g cm - 3 3 ) and electron fract
+9509/astro-ph9509144.html 6 𝑌 Variable Scalar     1 subscript 𝑌 𝑒 0
+9509/astro-ph9509144.html 10 𝐿 Variable Scalar     absorbed neutrino luminosity ( L ν abs subscript 𝐿 subscript 𝜈 abs ) in this regime is much less tha
+9509/astro-ph9509144.html 15 𝜋 Constant  Global     2 ⁢ ρ ⁢ ( v 2 + c s 2 ) 1 / 2 subscript ˙ 𝑀 B 4 𝜋 superscript subscript 𝑟 𝐵 2 𝜌 superscript supersc
+9509/astro-ph9509144.html 16 𝑟 Operator  Local     1 / 2 subscript ˙ 𝑀 B 4 𝜋 superscript subscript 𝑟 𝐵 2 𝜌 superscript superscript 𝑣 2 superscript sub
+9509/astro-ph9509144.html 18 𝑣 Variable Vector     script subscript 𝑟 𝐵 2 𝜌 superscript superscript 𝑣 2 superscript subscript 𝑐 𝑠 2 1 2 (1) where the B
+9509/astro-ph9509144.html 19 𝑐 Constant  Global    uperscript superscript 𝑣 2 superscript subscript 𝑐 𝑠 2 1 2 (1) where the Bondi infall radius is r B 
+9509/astro-ph9509144.html 21 𝐺 Constant  Global    us is r B = G ⁢ M NS v 2 + c s 2 , subscript 𝑟 𝐵 𝐺 subscript 𝑀 NS superscript 𝑣 2 superscript subscr
+9509/astro-ph9509144.html 24 𝑗 Variable Vector      ˙ = 1 4 ⁢ ( 6 ⁢ ϵ v - ϵ ρ ) ⁢ V ⁢ r B subscript 𝑗 𝑧 ˙ subscript 𝐽 𝑧 ˙ 𝑀 1 4 6 subscript italic-ϵ 𝑣 
+9509/astro-ph9509144.html 26 italic-ϵ Operator  Local    Target variable not found in this file
+9509/astro-ph9509144.html 27 𝑉 Variable Vector      1 4 6 subscript italic-ϵ 𝑣 subscript italic-ϵ 𝜌 𝑉 subscript 𝑟 𝐵 (3) where J z ˙ ˙ subscript 𝐽 𝑧 is 
+9509/astro-ph9509144.html 28 𝐻 Variable Scalar     v subscript italic-ϵ 𝜌 𝑣 subscript 𝑟 𝐵 subscript 𝐻 𝜌 𝑣 (4) where H ρ , v subscript 𝐻 𝜌 𝑣 is the scal
+9509/astro-ph9509144.html 30 𝛼 Variable Scalar     For a thick α 𝛼 disk, the timescale for the outward transport of 
+9509/astro-ph9509144.html 31 𝑡 Variable Vector      s formulae-sequence similar-to subscript 𝑡 in superscript subscript 𝑟 ang 2 𝛼 subscript 𝑐 𝑠 
+9509/astro-ph9509144.html 33 s unit descriptor      he Dynamics and Outcomes of Rapid Infall onto Neutron Stars T
+9509/astro-ph9509144.html 35 𝐸 Variable Scalar     ⁢ ( 1 + S rad / 55 ) ⁢ s subscript 𝜏 𝜈 subscript 𝐸 reg subscript 𝐿 reg 3
+9509/astro-ph9509144.html 37 𝑆 Variable Scalar      superscript 10 12 superscript subscript 𝑆 rad 6 1 subscript 𝑆 rad 55 𝑠 (6) and τ γ ≈ r scal
+9509/astro-ph9509144.html 40 𝜆 Variable Scalar     script subscript 𝑟 scale 2 superscript subscript 𝜆 mfp 2 subscript 𝜆 mfp 𝑐 (7) where E reg subscript
+9509/astro-ph9509144.html 43 𝜅 Variable Scalar     ⁡ ( M ˙ ⁢ κ 4 ⁢ π ⁢ c , r B ) subscript 𝑟 tr ˙ 𝑀 𝜅 4 𝜋 𝑐 subscript 𝑟 𝐵 (8) where M ˙ ˙ 𝑀 is the mass
+9509/astro-ph9509144.html 49 𝑃 Variable Scalar      (C89): P sh = γ + 1 2 ⁢ ρ ff ⁢ v ff 2 subscript 𝑃 sh 𝛾 1 2 subscript 𝜌 ff superscript subscript 𝑣 f
+9509/astro-ph9509144.html 54 𝐹 Variable Vector     ervation , 𝑣 𝑡 ∇ superscript 𝑣 2 2 𝑃 𝜌 subscript 𝐹 𝑇 momentum conservation (17) and P ∝ ρ γ adiabati
+9509/astro-ph9509144.html 61 𝜎 Operator  Global    nteraction with matter ( σ ν = 10 - 43 subscript 𝜎 𝜈 superscript 10 43 cm 2 2 vs
+9509/astro-ph9509144.html 62 𝑑 Operator  Global    𝑑 subscript italic-ϵ nuc 𝑑 𝑡 2 superscript 10 18 su
+9509/astro-ph9509144.html 65 erg unit descriptor      Target variable not found in this file
+9509/astro-ph9509144.html 66 g unit descriptor       the neutron star and structure of the surrounding medium is such that the Bondi-Hoyle accretion exc
+9509/astro-ph9509144.html 68 Δ Variable Scalar     tial energy due to accretion; 4 ⁢ π ⁢ r NS 2 ⁢ ( Δ ⁢ r ER ) ⁢ ρ ⁢ d ⁢ ϵ tot d ⁢ t = G ⁢ M NS ⁢ M B ˙
+9509/astro-ph9509144.html 72 km unit descriptor      Target variable not found in this file
+9509/astro-ph9509144.html 73 cm unit descriptor      Target variable not found in this file
+9509/astro-ph9509144.html 75 𝑁 Variable Scalar     approximated using the Brunt-Väisäla frequency N 𝑁 (see Cox, Vauclair, & Zahn 1983): N 2 = g ρ ⁢ ( ∂
+9509/astro-ph9509144.html 76 𝑔 Constant  Global    superscript 𝑁 2 𝑔 𝜌 subscript 𝜌 𝑆 𝑃 𝑆 𝑟 (30) For ∂ ⁡ S / ∂ ⁡ z < 0 
+9509/astro-ph9509144.html 81 𝑚 Variable Scalar      subscript 𝜏 BH 1 subscript 𝐿 𝜈 𝐺 subscript 𝑀 NS 𝑚 subscript 𝑟 NS (33) where L ν subscript 𝐿 𝜈 is th
+9509/astro-ph9509144.html 89 𝐾 Variable Scalar      less-than-or-similar-to absent superscript 10 9 𝐾 )
+9509/astro-ph9509144.html 95 𝜂 Operator  Local    script 𝑎 buo subscript 𝑎 vis 𝑔 1 𝜌 subscript 𝜌 𝑐 𝜂 𝜌 superscript ∇ 2 𝑣 subscript 𝜃 turb 𝑉 𝜌 (A2) whe
+9509/astro-ph9509144.html 96 𝜃 Variable Vector      𝜌 subscript 𝜌 𝑐 𝜂 𝜌 superscript ∇ 2 𝑣 subscript 𝜃 turb 𝑉 𝜌 (A2) where g 𝑔 is the gravitational acce
+9509/astro-ph9509144.html 99 𝑙 Variable Scalar     ⁢ ρ 𝜂 subscript 𝜂 th subscript 𝜂 rad 𝜌 subscript 𝑙 mfp subscript 𝑣 th 𝑎 superscript 𝑇 4 𝑐 𝜅 𝜌 (A3) w
+9509/astro-ph9509144.html 100 𝑓 Constant  Local     / ( f ⁢ H p ) 2 superscript ∇ 2 𝑣 𝑣 superscript 𝑓 subscript 𝐻 𝑝 2 where f < 1 𝑓 1 (in our calculati
+9509/astro-ph9509144.html 101 𝐶 Constant  Local     turb ⁢ ρ ⁢ v 2 ⁢ A 2 subscript 𝜃 turb subscript 𝐶 turb 𝜌 superscript 𝑣 2 𝐴 2 (A4) where C turb subs
+9509/astro-ph9509144.html 102 𝑥 Variable Scalar     - ( L + M ) ⁢ t + ln ⁡ ( ( L + M L - M ) + 1 c ) 𝑥 𝐿 𝑀 𝐿 𝑀 superscript 𝑒 2 𝐿 𝑐 𝑡 1 𝑐 𝐿 𝑀 𝑡 𝐿 𝑀 𝐿 𝑀 1
+9509/astro-ph9509144.html 105 𝑅 Constant  Local    us entropy for two sizes of atmosphere: R = 10 9 𝑅 superscript 10 9 cm and 10 13 superscript 10 13 c
+9509/atom-ph9509006.html 12 𝜎 Operator  Discipline specified     2 ⁢ G q ⁢ q ′ ⁢ ( x ) x , superscript subscript 𝜎 𝑞 superscript 𝑞 ′ 𝑒 𝑥 𝑐 𝑥 8 𝜋 3 𝜋 superscript sub
+9509/atom-ph9509006.html 13 𝑞 Operator  Discipline specified     ⁢ G q ⁢ q ′ ⁢ ( x ) x , superscript subscript 𝜎 𝑞 superscript 𝑞 ′ 𝑒 𝑥 𝑐 𝑥 8 𝜋 3 𝜋 superscript subsc
+9509/atom-ph9509006.html 18 𝜋 Constant  Global    erscript subscript 𝜎 𝑞 superscript 𝑞 ′ 𝑒 𝑥 𝑐 𝑥 8 𝜋 3 𝜋 superscript subscript 𝑎 𝑜 2 subscript 𝑓 𝑞 sup
+9509/atom-ph9509006.html 19 𝑎 Constant  Discipline specified    script 𝑞 ′ 𝑒 𝑥 𝑐 𝑥 8 𝜋 3 𝜋 superscript subscript 𝑎 𝑜 2 subscript 𝑓 𝑞 superscript 𝑞 ′ 𝑅 superscript 𝑦
+9509/atom-ph9509006.html 21 𝑓 Variable Scalar      𝑥 8 𝜋 3 𝜋 superscript subscript 𝑎 𝑜 2 subscript 𝑓 𝑞 superscript 𝑞 ′ 𝑅 superscript 𝑦 2 superscript s
+9509/atom-ph9509006.html 22 𝑅 Constant  Discipline specified    pt subscript 𝑎 𝑜 2 subscript 𝑓 𝑞 superscript 𝑞 ′ 𝑅 superscript 𝑦 2 superscript subscript 𝐸 𝑞 supersc
+9509/atom-ph9509006.html 24 𝐸 Variable Scalar     ript 𝑞 ′ 𝑅 superscript 𝑦 2 superscript subscript 𝐸 𝑞 superscript 𝑞 ′ 2 subscript 𝐺 𝑞 superscript 𝑞 ′
+9509/atom-ph9509006.html 25 𝐺 Operator  Discipline specified    script subscript 𝐸 𝑞 superscript 𝑞 ′ 2 subscript 𝐺 𝑞 superscript 𝑞 ′ 𝑥 𝑥 (1) which is derived for si
+9509/atom-ph9509006.html 26 𝜀 Variable Scalar      state q ′ superscript 𝑞 ′ , x = ε / E q ⁢ q ′ 𝑥 𝜀 subscript 𝐸 𝑞 superscript 𝑞 ′ , ε 𝜀 is the kineti
+9509/atom-ph9509006.html 27 Δ Operator  Local    r multiply-charged ions; and to transitions with Δ ⁢ n = 0 Δ 𝑛 0 or Δ ⁢ n > 0 Δ 𝑛 0 [4,8-10,14-16] 
+9509/atom-ph9509006.html 28 𝑛 Variable Scalar     harged ions; and to transitions with Δ ⁢ n = 0 Δ 𝑛 0 or Δ ⁢ n > 0 Δ 𝑛 0 [4,8-10,14-16] 
+9509/atom-ph9509006.html 35 𝐷 Variable Scalar      exp - G 0 ⁢ ( x k ) ∣ G 0 ⁢ ( x k ) , subscript 𝐷 𝑘 delimited-∣∣ superscript subscript 𝐺 𝑘 subscrip
+9509/chao-dyn9509008.html 0 𝛿 Operator  Local    / 3 ⁢ r p / 3 similar-to expectation superscript 𝛿 𝑣 𝑟 𝑝 subscript 𝐴 𝑝 superscript 𝑟 𝐿 𝑝 3 superscri
+9509/chao-dyn9509008.html 1 𝑣 Operator  Local    3 ⁢ r p / 3 similar-to expectation superscript 𝛿 𝑣 𝑟 𝑝 subscript 𝐴 𝑝 superscript 𝑟 𝐿 𝑝 3 superscript
+9509/chao-dyn9509008.html 2 𝑟 Variable Scalar     ⁢ r p / 3 similar-to expectation superscript 𝛿 𝑣 𝑟 𝑝 subscript 𝐴 𝑝 superscript 𝑟 𝐿 𝑝 3 superscript s
+9509/chao-dyn9509008.html 3 𝑝 Constant  Local    r p / 3 similar-to expectation superscript 𝛿 𝑣 𝑟 𝑝 subscript 𝐴 𝑝 superscript 𝑟 𝐿 𝑝 3 superscript sub
+9509/chao-dyn9509008.html 4 𝐴 Constant  Local    lar-to expectation superscript 𝛿 𝑣 𝑟 𝑝 subscript 𝐴 𝑝 superscript 𝑟 𝐿 𝑝 3 superscript subscript 𝑣 0 𝑝
+9509/chao-dyn9509008.html 5 𝐿 Variable Scalar      superscript 𝛿 𝑣 𝑟 𝑝 subscript 𝐴 𝑝 superscript 𝑟 𝐿 𝑝 3 superscript subscript 𝑣 0 𝑝 similar-to subscr
+9509/chao-dyn9509008.html 6 𝜀 Variable Scalar     cript 𝑣 0 𝑝 similar-to subscript 𝐴 𝑝 superscript 𝜀 𝑝 3 superscript 𝑟 𝑝 3 (1) where δ ⁢ v ⁢ ( r ) = v
+9509/chao-dyn9509008.html 7 𝑥 Variable Scalar      ⁢ v ⁢ ( r ) = v ⁢ ( x + r ) - v ⁢ ( x ) 𝛿 𝑣 𝑟 𝑣 𝑥 𝑟 𝑣 𝑥 is the difference of velocity at scale r 𝑟 
+9509/chao-dyn9509008.html 8 𝐵 Constant  Local    lar-to expectation superscript 𝛿 𝑣 𝑟 𝑝 subscript 𝐵 𝑝 superscript 𝑟 𝐿 𝜁 𝑝 superscript subscript 𝑣 0 𝑝
+9509/chao-dyn9509008.html 9 𝜁 Operator  Local    uperscript 𝛿 𝑣 𝑟 𝑝 subscript 𝐵 𝑝 superscript 𝑟 𝐿 𝜁 𝑝 superscript subscript 𝑣 0 𝑝 (2) where ζ ⁢ ( p )
+9509/chao-dyn9509008.html 17 𝜋 Constant  Global    ⁢ n ⁢ ( 8 ⁢ π L ⁢ z ) absent → 𝑣 → 𝑥 ^ 𝑥 𝑠 𝑖 𝑛 8 𝜋 𝐿 𝑧 , where x ^ ^ 𝑥 is the versor in the directio
+9509/chao-dyn9509008.html 18 𝑧 Variable Vector     ⁢ ( 8 ⁢ π L ⁢ z ) absent → 𝑣 → 𝑥 ^ 𝑥 𝑠 𝑖 𝑛 8 𝜋 𝐿 𝑧 , where x ^ ^ 𝑥 is the versor in the direction x 
+9509/chao-dyn9509008.html 26 𝛾 Constant  Local    and γ 3 = 2/3
+9509/chao-dyn9509008.html 27 𝐺 Constant  Local    subscript 𝐺 𝑝 𝑟 absent superscript 𝛿 𝑣 𝑟 𝑝 absent absent supe
+9509/chao-dyn9509008.html 29 𝑓 Operator  Local   In the Log-Poisson model [9], for example, we have f(p) = 1 − ( 2 3 ) p/3
+9509/chao-dyn9509013.html 0 𝛿 Operator  Local    ements δ ⁢ v ⁢ ( r ) ≡ v ⁢ ( x + r ) - v ⁢ ( x ) 𝛿 𝑣 𝑟 𝑣 𝑥 𝑟 𝑣 𝑥 , where v ⁢ ( x + r ) 𝑣 𝑥 𝑟 and v ⁢
+9509/chao-dyn9509013.html 1 𝑣 Variable Vector     ents δ ⁢ v ⁢ ( r ) ≡ v ⁢ ( x + r ) - v ⁢ ( x ) 𝛿 𝑣 𝑟 𝑣 𝑥 𝑟 𝑣 𝑥 , where v ⁢ ( x + r ) 𝑣 𝑥 𝑟 and v ⁢ (
+9509/chao-dyn9509013.html 2 𝑟 Variable Scalar     ts δ ⁢ v ⁢ ( r ) ≡ v ⁢ ( x + r ) - v ⁢ ( x ) 𝛿 𝑣 𝑟 𝑣 𝑥 𝑟 𝑣 𝑥 , where v ⁢ ( x + r ) 𝑣 𝑥 𝑟 and v ⁢ ( x
+9509/chao-dyn9509013.html 3 𝑥 Variable Scalar      ⁢ v ⁢ ( r ) ≡ v ⁢ ( x + r ) - v ⁢ ( x ) 𝛿 𝑣 𝑟 𝑣 𝑥 𝑟 𝑣 𝑥 , where v ⁢ ( x + r ) 𝑣 𝑥 𝑟 and v ⁢ ( x ) 𝑣
+9509/chao-dyn9509013.html 5 𝜂 Operator  Local    η ≪ r ≪ L much-less-than 𝜂 𝑟 much-less-than 𝐿 , L 𝐿 being the integral scale
+9509/chao-dyn9509013.html 6 𝐿 Operator  Local    η ≪ r ≪ L much-less-than 𝜂 𝑟 much-less-than 𝐿 , L 𝐿 being the integral scale of turbulence and 
+9509/chao-dyn9509013.html 7 𝜈 Variable Vector     nd η ≡ ( ν 3 ϵ ) 1 / 4 𝜂 superscript superscript 𝜈 3 italic-ϵ 1 4 the inner or Kolmogorov scale, whe
+9509/chao-dyn9509013.html 8 𝑝 Variable Scalar      p / 3 similar-to delimited-⟨⟩ 𝛿 𝑣 superscript 𝑟 𝑝 superscript italic-ϵ 𝑝 3 superscript 𝑟 𝑝 3 (1) Al
+9509/chao-dyn9509013.html 9 𝜁 Operator  Local    o delimited-⟨⟩ 𝛿 𝑣 superscript 𝑟 𝑝 superscript 𝑟 𝜁 𝑝 (2) where ζ ⁢ ( p ) 𝜁 𝑝 is a non linear convex 
+9509/chao-dyn9509013.html 10 𝜇 Operator  Local     delimited-⟨⟩ 𝛿 𝑣 superscript 𝑟 𝑝 differential-d 𝜇 ℎ superscript 𝑟 ℎ 𝑝 superscript 𝑟 3 𝐷 ℎ (4) ζ ⁢ (
+9509/chao-dyn9509013.html 11 ℎ Variable Scalar     elimited-⟨⟩ 𝛿 𝑣 superscript 𝑟 𝑝 differential-d 𝜇 ℎ superscript 𝑟 ℎ 𝑝 superscript 𝑟 3 𝐷 ℎ (4) ζ ⁢ ( p
+9509/chao-dyn9509013.html 12 𝐷 Operator  Local    erential-d 𝜇 ℎ superscript 𝑟 ℎ 𝑝 superscript 𝑟 3 𝐷 ℎ (4) ζ ⁢ ( p ) = inf h ⁡ [ h ⁢ p + 3 - D ⁢ ( h )
+9509/chao-dyn9509013.html 13 𝑑 Operator  Global    s scaling ( 2 ), namely: ⟨ δ ⁢ v ⁢ ( r ) p ⟩ ∼ ∫ 𝑑 μ ⁢ ( h ) ⁢ r h ⁢ p ⁢ r 3 - D ⁢ ( h ) similar-to 
+9509/chao-dyn9509013.html 14 𝑓 Operator  Discipline specified     - d 0 ⁢ f ⁢ ( h - h 0 d 0 ) 𝐷 ℎ 3 subscript 𝑑 0 𝑓 ℎ subscript ℎ 0 subscript 𝑑 0 (6) Different model
+9509/chao-dyn9509013.html 15 𝐻 Operator  Local     0 ⁢ H ⁢ ( p ) 𝜁 𝑝 subscript ℎ 0 𝑝 subscript 𝑑 0 𝐻 𝑝 (7) where H ⁢ ( p ) = inf x ⁡ [ p ⁢ x + f ⁢ ( x
+9509/chao-dyn9509013.html 16 𝑃 Variable Scalar     Thus, the probability P 𝑃 to observe a local scaling δ ⁢ v ⁢ ( r ) ∼ r h 0 
+9509/chao-dyn9509013.html 22 𝑞 Variable Scalar      0 ⁢ p + H ⁢ ( p ) h 0 d 0 ⁢ q + H ⁢ ( q ) 𝜁 𝑝 𝜁 𝑞 subscript ℎ 0 subscript 𝑑 0 𝑝 𝐻 𝑝 subscript ℎ 0 s
+9509/chao-dyn9509013.html 25 𝐺 Operator  Local     ⁢ ( r ) p ⟩ ⟨ δ ⁢ v ⁢ ( r ) 3 ⟩ p / 3 subscript 𝐺 𝑝 𝑟 delimited-⟨⟩ 𝛿 𝑣 superscript 𝑟 𝑝 superscript 
+9509/chao-dyn9509013.html 26 𝜌 Operator  Local    r-to subscript 𝐺 𝑝 𝑟 subscript 𝐺 𝑞 superscript 𝑟 𝜌 𝑝 𝑞 (11) regardless of any boundary layer, shear 
+9509/chao-dyn9509013.html 27 𝑆 Operator  Local    The figure shows log ⁡ S 6 ⁢ ( r ) subscript 𝑆 6 𝑟 plotted against log ⁡ S 5 ⁢ ( r ) subscript 𝑆
+9509/chao-dyn9509013.html 28 𝑧 Constant  Local    efers to the hot wire measurement taken at z = 7 𝑧 7 mm of a boundary layer (courtesy of G
+9509/chao-dyn9509016.html 0 𝑏 Variable Scalar     ixed density of discretization on the boundary b 𝑏 ( b 𝑏 = number of numerical nodes on the boundary
+9509/chao-dyn9509016.html 1 ∇ Operator  Discipline specified    empt to numerically solve the Helmholtz equation ∇ 𝐫 2 ⁡ ψ ⁢ ( 𝐫 ) + k 2 ⁢ ψ ⁢ ( 𝐫 ) = 0 , superscri
+9509/chao-dyn9509016.html 2 𝐫 Variable Scalar     pt to numerically solve the Helmholtz equation ∇ 𝐫 2 ⁡ ψ ⁢ ( 𝐫 ) + k 2 ⁢ ψ ⁢ ( 𝐫 ) = 0 , superscript
+9509/chao-dyn9509016.html 3 𝜓 Operator  Local     2 ⁢ ψ ⁢ ( 𝐫 ) = 0 , superscript subscript ∇ 𝐫 2 𝜓 𝐫 superscript 𝑘 2 𝜓 𝐫 0 (1) satisfied by the scal
+9509/chao-dyn9509016.html 4 𝑘 Variable Scalar      0 , superscript subscript ∇ 𝐫 2 𝜓 𝐫 superscript 𝑘 2 𝜓 𝐫 0 (1) satisfied by the scalar solution ψ ⁢ 
+9509/chao-dyn9509016.html 5 𝐸 Variable Scalar      solution ψ ⁢ ( 𝐫 ) 𝜓 𝐫 with eigenenergy E = k 2 𝐸 superscript 𝑘 2 inside a connected plane domain ℬ
+9509/chao-dyn9509016.html 6 ℬ Operator  Local     superscript 𝑘 2 inside a connected plane domain ℬ ℬ with the Dirichlet boundary condition ψ ⁢ ( 𝐫 )
+9509/chao-dyn9509016.html 10 𝑁 Variable Scalar      ⁢ j ⁢ y + ϕ j ) , 𝜓 𝐫 superscript subscript 𝑗 1 𝑁 subscript 𝑎 𝑗 subscript 𝑘 𝑥 𝑗 𝑥 subscript 𝑘 𝑦 𝑗 𝑦
+9509/chao-dyn9509016.html 11 𝑎 Operator  Local     j ) , 𝜓 𝐫 superscript subscript 𝑗 1 𝑁 subscript 𝑎 𝑗 subscript 𝑘 𝑥 𝑗 𝑥 subscript 𝑘 𝑦 𝑗 𝑦 subscript i
+9509/chao-dyn9509016.html 15 𝜃 Operator  Local     E formulae-sequence subscript 𝑘 𝑥 𝑗 𝑘 subscript 𝜃 𝑗 formulae-sequence subscript 𝑘 𝑦 𝑗 𝑘 subscript 𝜃
+9509/chao-dyn9509016.html 16 𝜋 Constant  Global    ases , drawn from the interval [ 0 , 2 ⁢ π ) 0 2 𝜋 , assuming uniform distribution, and θ j = 2 ⁢ j 
+9509/chao-dyn9509016.html 17 𝑀 Variable Scalar      wavefunction equal to zero at a finite number M 𝑀 of boundary points (primary nodes) and equal to 1
+9509/chao-dyn9509016.html 18 ℒ Variable Scalar     ience shows that we should take at least N = 3 ⁢ ℒ / λ d ⁢ e ⁢ B ⁢ r ⁢ o ⁢ g ⁢ l ⁢ i ⁢ e 𝑁 3 ℒ subsc
+9509/chao-dyn9509016.html 19 𝜆 Operator  Local     ⁢ e ⁢ B ⁢ r ⁢ o ⁢ g ⁢ l ⁢ i ⁢ e 𝑁 3 ℒ subscript 𝜆 𝑑 𝑒 𝐵 𝑟 𝑜 𝑔 𝑙 𝑖 𝑒 , and M = N 𝑀 𝑁 , where ℒ ℒ is 
+9509/chao-dyn9509016.html 27 Δ Operator  Discipline specified    e dependence of the systematical numerical error Δ ⁢ E Δ 𝐸 (i
+9509/chao-dyn9509016.html 28 𝒜 Variable Scalar     leading term of Weyl formula is equal to 4 ⁢ π / 𝒜 4 𝜋 𝒜 where 𝒜 𝒜 is the area of the billiard ℬ ℬ 
+9509/chao-dyn9509016.html 29 𝐴 Constant  Local    | Δ ⁢ E | > absent Δ 𝐸 absent = A ⁢ b - α absent 𝐴 superscript 𝑏 𝛼 with very large α 𝛼 for sufficien
+9509/chao-dyn9509016.html 30 𝛼 Variable Scalar     nt Δ 𝐸 absent = A ⁢ b - α absent 𝐴 superscript 𝑏 𝛼 with very large α 𝛼 for sufficiently small b 𝑏 , 
+9509/chao-dyn9509016.html 32 𝜌 Variable Scalar      the chaotic component (denoted by ρ 2 subscript 𝜌 2 ) is certainly expected
+9509/chao-dyn9509016.html 33 𝑤 Operator  Local    uadratic (complex) conformal map w = z + λ ⁢ z 2 𝑤 𝑧 𝜆 superscript 𝑧 2 from the unit disk | z | ≤ 1 
+9509/chao-dyn9509016.html 34 𝑧 Variable Scalar     dratic (complex) conformal map w = z + λ ⁢ z 2 𝑤 𝑧 𝜆 superscript 𝑧 2 from the unit disk | z | ≤ 1 𝑧 
+9509/chao-dyn9509016.html 35 ℎ Variable Scalar     the Lyapunov exponent and Kolmogorov entropy ( h ℎ ) vary also quite smoothly with λ 𝜆 , suggesting 
+9509/chao-dyn9509016.html 37 𝑅 Variable Scalar      figure 1b, where the shape parameter is a / R 𝑎 𝑅 and we have looked at the results for 0 ≤ a / R ≤
+9509/chao-dyn9509016.html 38 𝑡 Variable Scalar     han the break time t b ⁢ r ⁢ e ⁢ a ⁢ k subscript 𝑡 𝑏 𝑟 𝑒 𝑎 𝑘 ( t b ⁢ r ⁢ e ⁢ a ⁢ k = ℏ / D subscript
+9509/chao-dyn9509018.html 0 𝛿 Operator  Local     ≡ v x ⁢ ( x ¯ + r ¯ ) - v x ⁢ ( x ¯ ) subscript 𝛿 𝑟 𝑣 subscript 𝑣 𝑥 ¯ 𝑥 ¯ 𝑟 subscript 𝑣 𝑥 ¯ 𝑥 , i
+9509/chao-dyn9509018.html 2 𝑣 Variable Vector      x ⁢ ( x ¯ + r ¯ ) - v x ⁢ ( x ¯ ) subscript 𝛿 𝑟 𝑣 subscript 𝑣 𝑥 ¯ 𝑥 ¯ 𝑟 subscript 𝑣 𝑥 ¯ 𝑥 , i
+9509/chao-dyn9509018.html 3 𝑥 Variable Scalar      ¯ ) - v x ⁢ ( x ¯ ) subscript 𝛿 𝑟 𝑣 subscript 𝑣 𝑥 ¯ 𝑥 ¯ 𝑟 subscript 𝑣 𝑥 ¯ 𝑥 , i
+9509/chao-dyn9509018.html 4 ¯ Operator  Local    n of the velocity increments δ r ⁢ v ≡ v x ⁢ ( x ¯ + r ¯ ) - v x ⁢ ( x ¯ ) subscript 𝛿 𝑟 𝑣 subscript
+9509/chao-dyn9509018.html 5 𝐹 Operator  Local    subscript 𝐹 𝑛 𝑟 delimited-⟨⟩ superscript subscript 𝛿 𝑟 𝑣 𝑛 (1
+9509/chao-dyn9509018.html 7 𝜂 Operator  Discipline specified     called inertial range, η ≪ r ≪ L much-less-than 𝜂 𝑟 much-less-than 𝐿 ,( L 𝐿 being the integral scal
+9509/chao-dyn9509018.html 8 𝐿 Operator  Discipline specified    nge, η ≪ r ≪ L much-less-than 𝜂 𝑟 much-less-than 𝐿 ,( L 𝐿 being the integral scale of the flow and η
+9509/chao-dyn9509018.html 9 𝐴 Constant  Local     = A n ⁢ ( ϵ ⁢ r ) n 3 subscript 𝐹 𝑛 𝑟 subscript 𝐴 𝑛 superscript italic-ϵ 𝑟 𝑛 3 (2) where A n subscr
+9509/chao-dyn9509018.html 11 𝜁 Operator  Local    g law with scaling exponents ζ n ≠ n 3 subscript 𝜁 𝑛 𝑛 3 
+9509/chao-dyn9509018.html 12 𝐵 Constant  Local    subscript italic-ϵ 𝑟 1 superscript 𝑟 3 subscript 𝐵 𝑟 italic-ϵ ¯ 𝑥 superscript 𝑑 3 𝑥 At present, most
+9509/chao-dyn9509018.html 13 𝑑 Operator  Global    cript 𝑟 3 subscript 𝐵 𝑟 italic-ϵ ¯ 𝑥 superscript 𝑑 3 𝑥 At present, most of the efforts, both theoret
+9509/chao-dyn9509018.html 16 𝑚 Variable Scalar     ( n , m ) similar-to subscript 𝐹 𝑛 𝑟 subscript 𝐹 𝑚 superscript 𝑟 𝛽 𝑛 𝑚 (4) In particular it is expec
+9509/chao-dyn9509018.html 17 𝛽 Operator  Local    r-to subscript 𝐹 𝑛 𝑟 subscript 𝐹 𝑚 superscript 𝑟 𝛽 𝑛 𝑚 (4) In particular it is expected that, at lea
+9509/chao-dyn9509018.html 19 𝐶 Constant  Local     ⁢ f p ⁢ ( r η ) ] ζ p subscript 𝐹 𝑝 𝑟 subscript 𝐶 𝑝 superscript subscript 𝑈 0 𝑝 superscript delimit
+9509/chao-dyn9509018.html 20 𝑈 Operator  Local    script 𝐹 𝑝 𝑟 subscript 𝐶 𝑝 superscript subscript 𝑈 0 𝑝 superscript delimited-[] 𝑟 𝐿 subscript 𝑓 𝑝 𝑟 
+9509/chao-dyn9509018.html 21 𝑓 Operator  Local    ipt 𝑈 0 𝑝 superscript delimited-[] 𝑟 𝐿 subscript 𝑓 𝑝 𝑟 𝜂 subscript 𝜁 𝑝 (5) with U 0 3 = F 3 ⁢ ( r ) 
+9509/chao-dyn9509018.html 22 𝜌 Variable Scalar     ing a viscous, incompressible fluid of density ρ 𝜌 , and velocity field v → ⁢ ( x ¯ , t ) → 𝑣 ¯ 𝑥 𝑡 
+9509/chao-dyn9509018.html 23 → Operator  Discipline specified    ible fluid of density ρ 𝜌 , and velocity field v → ⁢ ( x ¯ , t ) → 𝑣 ¯ 𝑥 𝑡 : ∂ t ⁡ v → + ( v → ⋅ ∇ →
+9509/chao-dyn9509018.html 24 𝑡 Variable Scalar     𝜌 , and velocity field v → ⁢ ( x ¯ , t ) → 𝑣 ¯ 𝑥 𝑡 : ∂ t ⁡ v → + ( v → ⋅ ∇ → ) ⁢ v → = - 1 ρ ⁢ ∇ → ⁢
+9509/chao-dyn9509018.html 26 ∇ Variable Vector      → ⁢ ( x ¯ , t ) → 𝑣 ¯ 𝑥 𝑡 : ∂ t ⁡ v → + ( v → ⋅ ∇ → ) ⁢ v → = - 1 ρ ⁢ ∇ → ⁢ p + ν ⁢ Δ ⁢ v → + f → s
+9509/chao-dyn9509018.html 27 𝜈 Variable Vector      → + f → subscript 𝑡 → 𝑣 ⋅ → 𝑣 → ∇ → 𝑣 1 𝜌 → ∇ 𝑝 𝜈 Δ → 𝑣 → 𝑓 (6) ∇ → ⋅ v → = 0 ⋅ → ∇ → 𝑣 0 Let us in
+9509/chao-dyn9509018.html 28 Δ Operator  Local     → + ( v → ⋅ ∇ → ) ⁢ v → = - 1 ρ ⁢ ∇ → ⁢ p + ν ⁢ Δ ⁢ v → + f → subscript 𝑡 → 𝑣 ⋅ → 𝑣 → ∇ → 𝑣 1 𝜌 → ∇
+9509/chao-dyn9509018.html 29 𝑤 Variable Vector      → 𝑈 , and define the turbulent velocities w → → 𝑤 as: v → = U → + w → 
+9509/chao-dyn9509018.html 32 𝑆 Variable Scalar      𝑥 𝑈 𝑧 and d ⁢ U x d ⁢ z = S 𝑑 subscript 𝑈 𝑥 𝑑 𝑧 𝑆 , so there is an evident lack of isotropy in the 
+9509/chao-dyn9509018.html 34 𝑉 Variable Scalar     late a 3 3 D fluid occupying a volume of V = L 3 𝑉 superscript 𝐿 3 sites with L = 160 𝐿 160 , viscos
+9509/chao-dyn9509018.html 36 𝑘 Operator  Local    ormulae-sequence subscript 𝑈 𝑥 𝐴 𝑠 𝑖 𝑛 subscript 𝑘 𝑧 𝑧 formulae-sequence subscript 𝑈 𝑦 0 subscript 𝑈
+9509/chao-dyn9509018.html 37 𝜋 Constant  Global    ubscript 𝑈 𝑧 0 (8) k z = 8 ⁢ π L subscript 𝑘 𝑧 8 𝜋 𝐿 being the wave vector corresponding to the inte
+9509/chao-dyn9509018.html 40 𝐸 Variable Scalar      mean value of ( 2 3 ⁢ E ) 1 / 2 superscript 2 3 𝐸 1 2 
+9509/chao-dyn9509018.html 41 𝜆 Variable Scalar     t R ⁢ e λ = λ ⁢ v r ⁢ m ⁢ s ν ∼ 40 𝑅 subscript 𝑒 𝜆 𝜆 subscript 𝑣 𝑟 𝑚 𝑠 𝜈 similar-to 40 , with λ ∼ 15
+9509/chao-dyn9509018.html 42 𝜏 Variable Scalar     times τ 0 ∼ L / v r ⁢ m ⁢ s similar-to subscript 𝜏 0 𝐿 subscript 𝑣 𝑟 𝑚 𝑠 : 40 40 velocity configurat
+9509/chao-dyn9509018.html 43 𝑂 Operator  Local    delimited-⟨⟩ 𝑂 ¯ 𝑟 𝑡 1 𝑇 superscript subscript 0 𝑇 differential-
+9509/chao-dyn9509018.html 44 𝑇 Variable Scalar     delimited-⟨⟩ 𝑂 ¯ 𝑟 𝑡 1 𝑇 superscript subscript 0 𝑇 differential-d 𝑡 1 supe
+9509/comp-gas9509001.html 1 𝑥 Variable Scalar      simulation on our prototype, for example, the x 𝑥 and y 𝑦 offsets for each bit-field that can be in
+9509/comp-gas9509001.html 2 𝑦 Variable Scalar     ion on our prototype, for example, the x 𝑥 and y 𝑦 offsets for each bit-field that can be incorporat
+9509/comp-gas9509003.html 0 𝑓 Operator  Local    Next, a selected feature function f 𝑓 is evaluated for the original time series 𝐱 𝐱 and
+9509/comp-gas9509003.html 1 𝐱 Variable Scalar     on f 𝑓 is evaluated for the original time series 𝐱 𝐱 and for each of thesurrogates
+9509/comp-gas9509003.html 2 𝜇 Variable Scalar     an be characterized by its mean μ surr subscript 𝜇 surr andstandard deviation σ surr subscript 𝜎 sur
+9509/comp-gas9509003.html 4 𝜎 Variable Scalar     pt 𝜇 surr andstandard deviation σ surr subscript 𝜎 surr 
+9509/comp-gas9509003.html 5 𝑧 Variable Scalar     as thedistance z = | μ surr - f ⁢ ( 𝐱 ) | σ surr 𝑧 subscript 𝜇 surr 𝑓 𝐱 subscript 𝜎 surr 
+9509/comp-gas9509003.html 6 𝑆 Operator  Local    s Fouriertransform, the power spectrum S ⁢ ( ω ) 𝑆 𝜔 
+9509/comp-gas9509003.html 7 𝜔 Variable Scalar     Fouriertransform, the power spectrum S ⁢ ( ω ) 𝑆 𝜔 
+9509/comp-gas9509003.html 9 𝐻 Variable Scalar     istic f 𝑓 when the null hypothesis H 0 subscript 𝐻 0 is true,i
+9509/comp-gas9509003.html 10 𝑝 Operator  Discipline specified     p ⁢ ( f | H 0 ) 𝑝 conditional 𝑓 subscript 𝐻 0 
+9509/comp-gas9509003.html 11 𝑥 Operator  Local    gativefrequencies with x ⁢ ( - ω ) = x ⁢ ( ω ) ∗ 𝑥 𝜔 𝑥 superscript 𝜔 ∗ to obtain a real timeseries b
+9509/comp-gas9509003.html 13 𝑁 Variable Scalar      t = 1 N - 1 | x ⁢ ( t + 1 ) - x ⁢ ( t ) | 𝑓 𝐱 1 𝑁 1 superscript subscript 𝑡 1 𝑁 1 𝑥 𝑡 1 𝑥 𝑡 (1) † †
+9509/comp-gas9509003.html 14 𝑡 Variable Scalar      ) - x ⁢ ( t ) | 𝑓 𝐱 1 𝑁 1 superscript subscript 𝑡 1 𝑁 1 𝑥 𝑡 1 𝑥 𝑡 (1) † † margin: Please locate fig
+9509/comp-gas9509003.html 16 𝜋 Constant  Global    12 ⁢ … 2 𝜋 1
+9509/comp-gas9509003.html 17 … Operator  Global    12 ⁢ … 2 𝜋 1
+9509/comp-gas9509003.html 18 𝑟 Variable Scalar      for ”gaussified” data of the logisticmap, r = 4 𝑟 4 , which shows also a flat spectrum, it is 1
+9509/comp-gas9509003.html 19 𝑎 Constant  Local    formulae-sequence 𝑥 𝑡 subscript 𝑎 1 𝑥 𝑡 1 subscript 𝑎 2 𝑥 𝑡 2 italic-ϵ 𝑡 similar-to
+9509/comp-gas9509003.html 21 𝒩 Operator  Local     + a 2 ⁢ x ⁢ ( t - 2 ) + ϵ ⁢ ( t ) , ϵ ⁢ ( t ) ∼ 𝒩 ⁢ ( 0 , σ 2 ) 
+9509/comp-gas9509003.html 22 𝑖 Variable Scalar      ( t - j ) + ϵ ⁢ ( t ) 𝑥 𝑡 superscript subscript 𝑖 1 𝑝 subscript 𝑎 𝑖 𝑥 𝑡 𝑖 superscript subscript 𝑗 1
+9509/comp-gas9509003.html 23 𝑗 Variable Scalar      𝑖 1 𝑝 subscript 𝑎 𝑖 𝑥 𝑡 𝑖 superscript subscript 𝑗 1 𝑞 subscript 𝑏 𝑗 italic-ϵ 𝑡 𝑗 italic-ϵ 𝑡 (3) Sta
+9509/comp-gas9509003.html 24 𝑞 Constant  Local     𝑝 subscript 𝑎 𝑖 𝑥 𝑡 𝑖 superscript subscript 𝑗 1 𝑞 subscript 𝑏 𝑗 italic-ϵ 𝑡 𝑗 italic-ϵ 𝑡 (3) State s
+9509/comp-gas9509003.html 25 𝑏 Constant  Local     𝑎 𝑖 𝑥 𝑡 𝑖 superscript subscript 𝑗 1 𝑞 subscript 𝑏 𝑗 italic-ϵ 𝑡 𝑗 italic-ϵ 𝑡 (3) State space models 
+9509/comp-gas9509003.html 27 𝐀 Operator  Local    tion with observation noise: x → ⁢ ( t ) → 𝑥 𝑡 = 𝐀 ⁢ x → ⁢ ( t - 1 ) + ϵ → ⁢ ( t ) 𝐀 → 𝑥 𝑡 1 → itali
+9509/comp-gas9509003.html 28 𝐐 Variable Matrix     where Q is the covariance matrix of the dynamical noise
+9509/comp-gas9509003.html 29 𝑦 Variable Scalar     0 , 𝐐 ) similar-to → italic-ϵ 𝑡 𝒩 0 𝐐 y ⁢ ( t ) 𝑦 𝑡 = 𝐂 ⁢ x → ⁢ ( t ) + η ⁢ ( t ) 𝐂 → 𝑥 𝑡 𝜂 𝑡 η ∼ 𝒩
+9509/comp-gas9509003.html 30 𝐂 Operator  Local     ) similar-to → italic-ϵ 𝑡 𝒩 0 𝐐 y ⁢ ( t ) 𝑦 𝑡 = 𝐂 ⁢ x → ⁢ ( t ) + η ⁢ ( t ) 𝐂 → 𝑥 𝑡 𝜂 𝑡 η ∼ 𝒩 ⁢ ( 0
+9509/comp-gas9509003.html 31 𝜂 Operator  Local     ( t ) 𝑦 𝑡 = 𝐂 ⁢ x → ⁢ ( t ) + η ⁢ ( t ) 𝐂 → 𝑥 𝑡 𝜂 𝑡 η ∼ 𝒩 ⁢ ( 0 , 𝐑 ) , similar-to 𝜂 𝒩 0 𝐑 where 𝐐 
+9509/comp-gas9509003.html 32 𝐑 Variable Scalar      → ⁢ ( t ) + η ⁢ ( t ) 𝐂 → 𝑥 𝑡 𝜂 𝑡 η ∼ 𝒩 ⁢ ( 0 , 𝐑 ) , similar-to 𝜂 𝒩 0 𝐑 where 𝐐 𝐐 is the covarianc
+9509/comp-gas9509003.html 33 𝜏 Variable Scalar     by 𝐑 ⁢ ( τ ) ≡ ⟨ x ⁢ ( t ) ⁢ x ⁢ ( t + τ ) ⟩ , 𝐑 𝜏 delimited-⟨⟩ 𝑥 𝑡 𝑥 𝑡 𝜏 and the spectrum is define
+9509/comp-gas9509003.html 34 𝑒 Constant  Global     t | 2 ⟩ superscript subscript 𝑡 𝐑 𝑡 superscript 𝑒 𝑖 𝜔 𝑡 delimited-⟨⟩ superscript 1 𝑁 subscript 𝑡 𝑥 
+9509/comp-gas9509003.html 36 𝜒 Operator  Discipline specified     ( 7 ) to be a χ 2 superscript 𝜒 2 distritubion withtwo degrees of freedom χ 2 2 s
+9509/comp-gas9509003.html 39 𝑃 Operator  Local     0 superscript subscript ˙ 𝑥 𝑖 0 subscript 𝜔 𝑖 2 𝑃 𝑒 𝑟 subscript 𝜔 𝑖 y ⁢ ( t ) 𝑦 𝑡 = ∑ i = 1 N / 2 x
+9509/comp-gas9509003.html 40 Δ Operator  Global    • For each frequency ω i = i N ⁢ Δ ⁢ t , i = 1 , … , N 2 formulae-sequence subscript
+9509/comp-gas9509003.html 42 𝑛 Variable Scalar     ybins included in the smoothing by n s subscript 𝑛 𝑠 , one can show that in thelimit of N → ∞ → 𝑁 an
+9509/comp-gas9509003.html 44 𝑐 Operator  Local     t x ⁢ ( t ) ⁢ x ⁢ ( t + τ 1 ) ⁢ x ⁢ ( t + τ 2 ) 𝑐 subscript 𝜏 1 subscript 𝜏 2 subscript 𝑡 𝑥 𝑡 𝑥 𝑡 s
+9509/comp-gas9509004.html 21 𝑋 Variable Vector      X → n + 1 = F ⁢ ( X → n , P → n ) , subscript → 𝑋 𝑛 1 𝐹 subscript → 𝑋 𝑛 subscript → 𝑃 𝑛 (1) P → n +
+9509/comp-gas9509004.html 22 𝐹 Operator  Local     + 1 = F ⁢ ( X → n , P → n ) , subscript → 𝑋 𝑛 1 𝐹 subscript → 𝑋 𝑛 subscript → 𝑃 𝑛 (1) P → n + 1 = G
+9509/comp-gas9509004.html 23 𝑃 Variable Vector      subscript → 𝑋 𝑛 1 𝐹 subscript → 𝑋 𝑛 subscript → 𝑃 𝑛 (1) P → n + 1 = G ⁢ ( P → n ) + P → n 
+9509/comp-gas9509004.html 24 𝐺 Operator  Local    subscript → 𝑃 𝑛 1 𝐺 subscript → 𝑃 𝑛 subscript → 𝑃 𝑛 (2) where X → n s
+9509/comp-gas9509004.html 25 𝛿 Operator  Discipline specified    ential equations with very small time step δ ⁢ t 𝛿 𝑡 , G ⁢ ( P → n ) → 0 → 𝐺 subscript → 𝑃 𝑛 0 as δ 
+9509/comp-gas9509004.html 28 𝜇 Variable Scalar      μ n + δ ⁢ μ , cases subscript 𝑥 𝑛 1 𝑓 subscript 𝜇 𝑛 subscript 𝑥 𝑛 1 subscript 𝜇 𝑛 superscript subsc
+9509/comp-gas9509004.html 31 ⋯ Operator  Global    erscript 𝑥 of thefollowing map x n + p = f ∘ f ∘ ⋯ ∘ f ⁢ ( μ , x n ) ⏟ p ⁢ times 
+9509/comp-gas9509004.html 34 𝐴 Constant  Local     diminishes as e - A ⁢ | μ - μ c | superscript 𝑒 𝐴 𝜇 subscript 𝜇 𝑐 for each iterate of themap (4) at
+9509/comp-gas9509004.html 35 𝑘 Constant  Local    onsider that we go forward k 𝑘 steps from μ = μ c 𝜇 subscript 𝜇 𝑐 of map (4) and
+9509/comp-gas9509004.html 36 Δ Operator  Global    y, we get the scalinglaw for the parameter shift Δ ⁢ μ Δ 𝜇 of the crisis with respectto the controll
+9509/comp-gas9509004.html 37 𝜆 Variable Scalar     wing Δ ⁢ μ ∝ δ ⁢ μ / λ , proportional-to Δ 𝜇 𝛿 𝜇 𝜆 (6) where λ 𝜆 is the maximal Lyapunov exponent
+9509/cond-mat9509005.html 0 𝑑 unit descriptor      ws one to express the partition functionof the d 𝑑 -dimensional Ising model withrandom nearest neigh
+9509/cond-mat9509005.html 1 𝐽 Operator  Local     ng that assumethe values J i ⁢ j = ± 1 subscript 𝐽 𝑖 𝑗 plus-or-minus 1 with equal probability
+9509/cond-mat9509005.html 2 𝑖 Variable Scalar      that assumethe values J i ⁢ j = ± 1 subscript 𝐽 𝑖 𝑗 plus-or-minus 1 with equal probability
+9509/cond-mat9509005.html 3 𝑗 Variable Scalar     hat assumethe values J i ⁢ j = ± 1 subscript 𝐽 𝑖 𝑗 plus-or-minus 1 with equal probability
+9509/cond-mat9509005.html 4 𝑁 Constant  Local    e d 𝑑 -dimensional Ising modelson a lattice of N 𝑁 siteswith nearest neighbour couplings J i ⁢ j sub
+9509/cond-mat9509005.html 5 𝑍 Operator  Local     j ) exp ⁡ ( β ⁢ J i ⁢ j ⁢ σ i ⁢ σ j ) subscript 𝑍 𝑁 𝛽 subscript 𝐽 𝑖 𝑗 subscript 𝜎 subscript product
+9509/cond-mat9509005.html 6 𝛽 Constant  Discipline specified     exp ⁡ ( β ⁢ J i ⁢ j ⁢ σ i ⁢ σ j ) subscript 𝑍 𝑁 𝛽 subscript 𝐽 𝑖 𝑗 subscript 𝜎 subscript product 𝑖 𝑗
+9509/cond-mat9509005.html 7 𝜎 Operator  Global     σ j ) subscript 𝑍 𝑁 𝛽 subscript 𝐽 𝑖 𝑗 subscript 𝜎 subscript product 𝑖 𝑗 𝛽 subscript 𝐽 𝑖 𝑗 subscript
+9509/cond-mat9509005.html 8 𝑓 Operator  Local    free energy f = - lim N → ∞ ⁡ 1 β ⁢ N ⁢ ln ⁡ Z ¯ 𝑓 subscript → 𝑁 1 𝛽 𝑁 ¯ 𝑍 ( 2 ) 2 where A ¯ ¯ 𝐴 ind
+9509/cond-mat9509005.html 11 𝐴 Variable Scalar      ¯ 𝑓 subscript → 𝑁 1 𝛽 𝑁 ¯ 𝑍 ( 2 ) 2 where A ¯ ¯ 𝐴 indicates the average of an observable A 𝐴 over t
+9509/cond-mat9509005.html 12 𝑎 Constant  Local    = - lim N → ∞ ⁡ 1 β ⁢ N ⁢ ln ⁡ Z ¯ , subscript 𝑓 𝑎 subscript → 𝑁 1 𝛽 𝑁 ¯ 𝑍 ( 3 ) 3 corresponding to 
+9509/cond-mat9509005.html 13 𝑥 Variable Scalar      the link variable x i ⁢ j = σ i ⁢ σ j subscript 𝑥 𝑖 𝑗 subscript 𝜎 𝑖 subscript 𝜎 𝑗 ,since only terms
+9509/cond-mat9509005.html 14 𝑏 Constant  Local    roduct subscript 𝑥 𝑖 𝑗 subscript 𝜎 𝑎 subscript 𝜎 𝑏 for a path from the site a 𝑎 to the site b 𝑏 
+9509/cond-mat9509005.html 15 𝒫 Constant  Local    cript 𝑥 𝑖 𝑗 1 on theelementary square plaquettes 𝒫 𝒫 to automatically fix it on all the close loops
+9509/cond-mat9509005.html 17 ~ Operator  Discipline specified     { J i ⁢ j } ) = ∑ { x i ⁢ j } ∏ i = 1 N p 1 + x ~ i 2 ⁢ ∏ ( i , j ) e β ⁢ J i ⁢ j ⁢ x i ⁢ j subscri
+9509/cond-mat9509005.html 18 𝑒 Constant  Global    script ~ 𝑥 𝑖 2 subscript product 𝑖 𝑗 superscript 𝑒 𝛽 subscript 𝐽 𝑖 𝑗 subscript 𝑥 𝑖 𝑗 ( 5 ) 5 where t
+9509/cond-mat9509005.html 23 𝑘 Constant  Local    roduct 𝑖 𝑗 superscript subscript 𝑥 𝑖 𝑗 subscript 𝑘 𝑖 𝑗 1 subscript ~ 𝜎 𝑘 2 subscript product 𝑖 𝑗 sup
+9509/cond-mat9509005.html 24 𝑃 Operator  Local     product 𝑖 𝑗 superscript 1 superscript subscript 𝑃 𝑑 𝑖 𝑗 𝛽 ( 10 ) 10 where ∑ k ∈ ( i , j ) subscript
+9509/cond-mat9509005.html 25 𝑇 Variable Scalar     that vanishes when the temperature T = β - 1 → 0 𝑇 superscript 𝛽 1 → 0 
+9509/cond-mat9509005.html 26 𝒵 Operator  Local    ~ ⁢ ( β ~ ) = - lim N p → ∞ ⁡ 1 β ~ ⁢ N p ⁢ ln ⁡ 𝒵 N p ~ 𝑓 ~ 𝛽 subscript → subscript 𝑁 𝑝 1 ~ 𝛽 subsc
+9509/cond-mat9509005.html 27 𝐾 Operator  Local     𝑖 𝑗 superscript subscript 𝑃 𝑑 𝑖 𝑗 superscript 1 𝐾 subscript ~ 𝜎 𝑖 subscript ~ 𝐽 𝑖 ( 16 ) 16 and K =
+9509/cond-mat9509005.html 28 𝜋 Constant  Global     subscript 𝑖 1 subscript 𝑁 𝑃 1 subscript ~ 𝜎 𝑖 2 𝜋 𝑖 subscript ~ 𝐽 𝑖 ( 17 ) 17 Since the Hamiltonian
+9509/cond-mat9509005.html 29 𝐻 Operator  Local     𝒵 subscript 𝑁 𝑝 subscript ~ 𝜎 superscript 𝑒 ~ 𝛽 𝐻 ,from (16) one sees that H = - ∑ ( i , j ) P d ( 
+9509/cond-mat9509005.html 30 𝑚 Operator  Local    tization m = lim N p → ∞ ⁡ 1 N p ⁢ ∑ i N p σ ~ i 𝑚 subscript → subscript 𝑁 𝑝 1 subscript 𝑁 𝑝 supersc
+9509/cond-mat9509005.html 31 Φ Variable Vector     mean field solution, by using an auxiliary field Φ Φ 
+9509/cond-mat9509005.html 32 𝐶 Constant  Local    where the constant Cd is determined by maximizing the argument of the exponential
+9509/cond-mat9509005.html 34 𝛾 Constant  Local    with γd = 2 Cd d.
+9509/cond-mat9509005.html 36 𝐸 Variable Scalar      For instance, the zero temperature energy of themean field solution is E0 = 
+9509/cond-mat9509019.html 0 𝑇 Variable Scalar     ology The Boson Mediators of High- T c subscript 𝑇 𝑐 Superconductivity:Phonons Versus Composite Boso
+9509/cond-mat9509019.html 3 Γ Variable Scalar     The vertex Γ Γ depends on the mechanismunder consideration
+9509/cond-mat9509019.html 4 Δ Operator  Global    erconducting state appears,a superconducting gap Δ g subscript Δ 𝑔 opens in all momentum directions,
+9509/cond-mat9509019.html 6 𝜉 Variable Scalar      thatthe coherence length of superconductivity ξ 𝜉 in high- T c subscript 𝑇 𝑐 materialsis shorter th
+9509/cond-mat9509019.html 7 𝑙 Variable Scalar      𝑐 materialsis shorter than the mean free path l 𝑙 for scatteringby non magnetic impurities or defec
+9509/cond-mat9509019.html 9 Ω Variable Scalar      and Ωmin is the minimal energy of the boson spectrum. 
+9509/cond-mat9509019.html 13 𝐸 Variable Scalar     energy E I ⁢ R = 2 ⁢ Δ I ⁢ R ≈ 8 ⁢ T c subscript 𝐸 𝐼 𝑅 2 subscript Δ 𝐼 𝑅 8 subscript 𝑇 𝑐 [ 10 ] 
+9509/cond-mat9509019.html 22 𝑒 unit descriptor       thisspectral region 25 - 50 ⁢ m ⁢ e ⁢ V 25 50 𝑚 𝑒 𝑉 [ 18 ] 
+9509/cond-mat9509019.html 23 𝑉 unit descriptor      hisspectral region 25 - 50 ⁢ m ⁢ e ⁢ V 25 50 𝑚 𝑒 𝑉 [ 18 ] 
+9509/cond-mat9509019.html 24 𝜎 Operator  Global    t in thenormal state σ 1 ⁢ s / σ 1 ⁢ n subscript 𝜎 1 𝑠 subscript 𝜎 1 𝑛 [ 24 , 25 , 26 ] 
+9509/cond-mat9509019.html 26 𝑘 Constant  Local    rons with q / k F ≪ 1 much-less-than 𝑞 subscript 𝑘 𝐹 1 phonons
+9509/cond-mat9509019.html 31 𝜆 Constant  Local    here λ = 2.7
+9509/cond-mat9509021.html 1 𝑊 Operator  Local     cle propagatingin a one-body potential W ⁢ ( x ) 𝑊 𝑥 
+9509/cond-mat9509021.html 2 𝑥 Variable Scalar     e propagatingin a one-body potential W ⁢ ( x ) 𝑊 𝑥 
+9509/cond-mat9509021.html 3 𝜓 Operator  Local     the one-particle wave-function by ψ ⁢ ( x , t ) 𝜓 𝑥 𝑡 , we have - ℏ 2 2 ⁢ m ⁢ ∂ 2 ⁡ ψ ⁢ ( x , t ) ∂
+9509/cond-mat9509021.html 4 𝑡 Variable Scalar      one-particle wave-function by ψ ⁢ ( x , t ) 𝜓 𝑥 𝑡 , we have - ℏ 2 2 ⁢ m ⁢ ∂ 2 ⁡ ψ ⁢ ( x , t ) ∂ ⁡ x
+9509/cond-mat9509021.html 5 𝑚 Constant  Local    superscript Planck-constant-over-2-pi 2 2 𝑚 superscript 2 𝜓 𝑥 𝑡 superscript 𝑥 2 𝑊 𝑥 𝜓 𝑥 𝑡 𝑖 P
+9509/cond-mat9509021.html 9 𝜌 Operator  Local     ) = ρ ⁢ ( x , t ) ⁢ e i ⁢ θ ⁢ ( x , t ) , 𝜓 𝑥 𝑡 𝜌 𝑥 𝑡 superscript e 𝑖 𝜃 𝑥 𝑡 (5) where ρ 𝜌 and θ 𝜃 a
+9509/cond-mat9509021.html 11 𝜃 Operator  Local     i ⁢ θ ⁢ ( x , t ) , 𝜓 𝑥 𝑡 𝜌 𝑥 𝑡 superscript e 𝑖 𝜃 𝑥 𝑡 (5) where ρ 𝜌 and θ 𝜃 are real
+9509/cond-mat9509021.html 14 𝜏 Operator  Local     τ ⁢ ( x , t ) + W ⁢ ( x ) ⁢ ρ = - ℏ ⁢ ρ ⁢ θ ˙ , 𝜏 𝑥 𝑡 𝑊 𝑥 𝜌 Planck-constant-over-2-pi 𝜌 ˙ 𝜃 (8) whe
+9509/cond-mat9509021.html 17 𝑑 Operator  Discipline specified    e is thetotal derivative m ⁢ ( d ⁢ v / d ⁢ t ) 𝑚 𝑑 𝑣 𝑑 𝑡 , and vanishes for uniform propagationveloc
+9509/cond-mat9509021.html 18 𝑁 Constant  Local    he hamiltonian for N 𝑁 -particles is given by H = - ℏ 2 2 ⁢ m ⁢ ∑ i = 1 
+9509/cond-mat9509021.html 19 𝐻 Operator  Discipline specified     i - x j ) 2 + 1 2 ⁢ m ⁢ ω 2 ⁢ ∑ i = 1 N x i 2 , 𝐻 superscript Planck-constant-over-2-pi 2 2 𝑚 subsc
+9509/cond-mat9509021.html 20 𝑔 Variable Scalar      where g is dimensionless and may take any value ≥ −1/2.
+9509/cond-mat9509021.html 22 𝜔 Constant  Local      the thermodynamic limit is taken by letting ω → 0 as N −1.
+9509/cond-mat9509021.html 23 𝛼 Variable Scalar      𝑔 0 it is related to the statisticalparameter α 𝛼 of exclusion statistics [ 10 ] bythe relation g =
+9509/cond-mat9509021.html 25 𝑦 Variable Scalar     tant-over-2-pi 2 𝑚 𝑔 𝑥 P superscript subscript 𝜌 𝑦 𝑑 𝑦 𝑥 𝑦 (16) with a finite normalization correspo
+9509/cond-mat9509021.html 26 𝑞 Variable Scalar     finite normalization corresponding to a charge q 𝑞 : ∫ - ∞ ∞ ρ ⁢ ( y ) ⁢ 𝑑 y = q 
+9509/cond-mat9509021.html 27 𝑐 Constant  Local    where c is an arbitrary positive parameter. 
+9509/cond-mat9509021.html 28 𝜋 Constant  Global     ρ ⁢ ( x ) = c 4 ⁢ π ⁢ g ⁢ 1 x 2 + c 2 , 𝜌 𝑥 𝑐 4 𝜋 𝑔 1 superscript 𝑥 2 superscript 𝑐 2 (21) where c 
+9509/cond-mat9509021.html 29 𝐿 Variable Scalar     y-particle system on a circle of circumference L 𝐿 isgiven by H = - ℏ 2 2 ⁢ m ⁢ ∑ i ∂ 2 ∂ ⁡ x i 2 + 
+9509/cond-mat9509021.html 34 𝜆 Variable Scalar       Our solution (26) may be recovered from Eq. (28) by shifting x → (x + λ/2), and by setting nλ = L.
+9509/cond-mat9509031.html 0 𝑛 Operator  Local    field dependent density, n * ⁢ ( B ) superscript 𝑛 𝐵 
+9509/cond-mat9509031.html 1 𝐵 Variable Scalar     eld dependent density, n * ⁢ ( B ) superscript 𝑛 𝐵 
+9509/cond-mat9509031.html 2 𝐼 Variable Scalar     𝐼 𝜇 𝑐 𝑑 superscript 𝑛 𝐵 𝑑 𝐵 (1) In the edge-state p
+9509/cond-mat9509031.html 3 𝜇 Variable Scalar     𝐼 𝜇 𝑐 𝑑 superscript 𝑛 𝐵 𝑑 𝐵 (1) In the edge-state pic
+9509/cond-mat9509031.html 4 𝑐 Constant  Local    𝐼 𝜇 𝑐 𝑑 superscript 𝑛 𝐵 𝑑 𝐵 (1) In the edge-state pictu
+9509/cond-mat9509031.html 5 𝑑 Operator  Global    𝐼 𝜇 𝑐 𝑑 superscript 𝑛 𝐵 𝑑 𝐵 (1) In the edge-state picture
+9509/cond-mat9509031.html 6 𝜈 Variable Scalar     es at fractionalLandau level filling factors ( ν 𝜈 ), which are of many-body origin,Wen’s chiral Lut
+9509/cond-mat9509031.html 7 𝑚 Variable Scalar     ssible ground stateswhich occur at ν = 1 / m 𝜈 1 𝑚 for m 𝑚 odd
+9509/cond-mat9509031.html 8 𝜌 Operator  Local    𝜌 𝑞 𝜌 superscript 𝑞 ′ 𝜈 𝑞 𝐿 2 𝜋 subscript 𝛿 𝑞 super
+9509/cond-mat9509031.html 9 𝑞 Variable Scalar     𝜌 𝑞 𝜌 superscript 𝑞 ′ 𝜈 𝑞 𝐿 2 𝜋 subscript 𝛿 𝑞 supersc
+9509/cond-mat9509031.html 10 ′ Operator  Discipline specified    f the 1D charge density: [ ρ ⁢ ( q ) , ρ ⁢ ( - q ′ ) ] = ν ⁢ q ⁢ L 2 ⁢ π ⁢ δ q , q ′ 
+9509/cond-mat9509031.html 11 𝐿 Variable Scalar     𝜌 𝑞 𝜌 superscript 𝑞 ′ 𝜈 𝑞 𝐿 2 𝜋 subscript 𝛿 𝑞 superscript 𝑞 ′ (2) For ν = 1 𝜈
+9509/cond-mat9509031.html 12 𝜋 Constant  Global    𝜌 𝑞 𝜌 superscript 𝑞 ′ 𝜈 𝑞 𝐿 2 𝜋 subscript 𝛿 𝑞 superscript 𝑞 ′ (2) For ν = 1 𝜈 1 E
+9509/cond-mat9509031.html 13 𝛿 Operator  Local     𝜌 𝑞 𝜌 superscript 𝑞 ′ 𝜈 𝑞 𝐿 2 𝜋 subscript 𝛿 𝑞 superscript 𝑞 ′ (2) For ν = 1 𝜈 1 Eq
+9509/cond-mat9509031.html 14 Ω Variable Scalar      where Ω0 is the frequency characterizing the parabolic confining potential
+9509/cond-mat9509031.html 15 ℓ Variable Scalar      and ℓ = (¯hc/eB) 1/2 is the magnetic length.
+9509/cond-mat9509031.html 16 𝑒 Constant  Global     1 / 2 ℓ superscript Planck-constant-over-2-pi 𝑐 𝑒 𝐵 1 2 is the magnetic length
+9509/cond-mat9509031.html 17 Ψ Operator  Local    pic model system theincompressible ground states Ψ 0 m ⁢ ( N ) subscript superscript Ψ 𝑚 0 𝑁 associa
+9509/cond-mat9509031.html 18 𝑁 Constant  Local    states Ψ 0 m ⁢ ( N ) subscript superscript Ψ 𝑚 0 𝑁 associated with the ν = 1 / m 𝜈 1 𝑚 fractional QH
+9509/cond-mat9509031.html 19 𝑀 Variable Vector     total angular momentum M = M 0 ⁢ ( m , N ) = m ⁢ N ⁢ ( N - 1 ) / 2 𝑀 subscript 𝑀 0 𝑚 𝑁 𝑚 𝑁 𝑁 1 2 with N 𝑁 being the nu
+9509/cond-mat9509031.html 21 Δ Operator  Global    y are the following:i) For M = M 0 ⁢ ( m , N ) + Δ ⁢ M 𝑀 subscript 𝑀 0 𝑚 𝑁 Δ 𝑀 the spectrum has alow
+9509/cond-mat9509031.html 22 𝐸 Variable Scalar     e eigenenergies given by E = E 0 + ∑ l n l ⁢ e l 𝐸 subscript 𝐸 0 subscript 𝑙 subscript 𝑛 𝑙 subscript
+9509/cond-mat9509031.html 23 𝑙 Constant  Local     = E 0 + ∑ l n l ⁢ e l 𝐸 subscript 𝐸 0 subscript 𝑙 subscript 𝑛 𝑙 subscript 𝑒 𝑙 where ∑ l l ⁢ n l = Δ
+9509/cond-mat9509031.html 25 𝜓 Operator  Local     θ ) ] ⁢ exp ⁡ [ - ϕ ^ - ⁢ ( θ ) ] superscript ^ 𝜓 † 𝜃 𝑧 subscript ^ italic-ϕ 𝜃 subscript ^ italic-ϕ
+9509/cond-mat9509031.html 27 𝜃 Variable Scalar      ] ⁢ exp ⁡ [ - ϕ ^ - ⁢ ( θ ) ] superscript ^ 𝜓 † 𝜃 𝑧 subscript ^ italic-ϕ 𝜃 subscript ^ italic-ϕ 𝜃 (
+9509/cond-mat9509031.html 28 𝑧 Constant  Local    z is a constant which is not fixed in the CLL theory,
+9509/cond-mat9509031.html 30 𝑎 Operator  Discipline specified    a†l is a boson creation operator
+9509/cond-mat9509031.html 34 𝑆 Operator  Discipline specified      A set of microscopic operators  proposed by Stone  𝑆 † Δ 𝑀 subscript 𝑚 superscript 𝑚 Δ 𝑀 𝑚 1 2 supersc
+9509/cond-mat9509031.html 35 𝐽 Operator  Discipline specified      Recently, Oaknin et al. [20] identified a modified set of operators 𝐽 † Δ 𝑀 subscript 𝑚 superscript 𝑚 𝑚 Δ 𝑀 1 2 supersc
+9509/cond-mat9509031.html 36 𝐷 Constant  Discipline specified     D is the Vandermonde determinant
+9509/cond-mat9509031.html 38 𝐴 Variable Matrix      proportional to the sum of the squared matrix elements 𝐴 Δ 𝑀 𝑧 Δ 𝑀 𝑚 1 Δ 𝑀 𝑚 1 (6) For Δ ⁢ M ≫ ( m - 1 ) m
+9509/cond-mat9509031.html 39 𝑘 Variable Vector     nt is increased by a factor of 3 k superscript 3 𝑘 where k = ∑ l n l 𝑘 subscript 𝑙 subscript 𝑛 𝑙 
+9509/cond-mat9509033.html 0 𝜏 Variable Scalar      i ⁢ ω = τ α ⁢ cos ⁡ ( ω ⁢ log ⁡ τ ) superscript 𝜏 𝛼 𝑖 𝜔 superscript 𝜏 𝛼 𝜔 𝜏 )Evidence for such log-
+9509/cond-mat9509033.html 1 𝛼 Constant  Discipline specified     ⁢ ω = τ α ⁢ cos ⁡ ( ω ⁢ log ⁡ τ ) superscript 𝜏 𝛼 𝑖 𝜔 superscript 𝜏 𝛼 𝜔 𝜏 )Evidence for such log-pe
+9509/cond-mat9509033.html 2 𝑖 Constant  Discipline specified     ω = τ α ⁢ cos ⁡ ( ω ⁢ log ⁡ τ ) superscript 𝜏 𝛼 𝑖 𝜔 superscript 𝜏 𝛼 𝜔 𝜏 )Evidence for such log-peri
+9509/cond-mat9509033.html 3 𝜔 Constant  Discipline specified     = τ α ⁢ cos ⁡ ( ω ⁢ log ⁡ τ ) superscript 𝜏 𝛼 𝑖 𝜔 superscript 𝜏 𝛼 𝜔 𝜏 )Evidence for such log-period
+9509/cond-mat9509033.html 8 𝑡 Variable Scalar      The scaling variable is againtime t 𝑡 
+9509/cond-mat9509033.html 9 𝑐 Operator  Local     Call c ⁢ ( t ) 𝑐 𝑡 the index as a function of time
+9509/cond-mat9509033.html 10 𝐴 Constant  Local    𝑐 𝑡 𝐴 𝐵 superscript subscript 𝑡 𝑐 𝑡 𝛼 delimited-[] 1 𝐶 
+9509/cond-mat9509033.html 11 𝐵 Constant  Local    𝑐 𝑡 𝐴 𝐵 superscript subscript 𝑡 𝑐 𝑡 𝛼 delimited-[] 1 𝐶 𝜔 
+9509/cond-mat9509033.html 12 𝜑 Constant  Local    cript 𝑡 𝑐 𝑡 𝛼 delimited-[] 1 𝐶 𝜔 subscript 𝑡 𝑐 𝑡 𝜑 ( 1 ) 1 As a first test of this idea let us consi
+9509/cond-mat9509033.html 13 𝜒 Operator  Discipline specified      oint for purposes of calculating χ 2 superscript 𝜒 2 
+9509/cond-mat9509037.html 0 𝐵 Operator  Discipline specified    namical assumptions,of B ⁢ ( x , y , H ⁢ ( t ) ) 𝐵 𝑥 𝑦 𝐻 𝑡 , M ⁢ ( H ⁢ ( t ) ) 𝑀 𝐻 𝑡 , and J c ⁢ ( H
+9509/cond-mat9509037.html 1 𝑥 Variable Scalar     mical assumptions,of B ⁢ ( x , y , H ⁢ ( t ) ) 𝐵 𝑥 𝑦 𝐻 𝑡 , M ⁢ ( H ⁢ ( t ) ) 𝑀 𝐻 𝑡 , and J c ⁢ ( H ⁢
+9509/cond-mat9509037.html 2 𝑦 Variable Scalar     cal assumptions,of B ⁢ ( x , y , H ⁢ ( t ) ) 𝐵 𝑥 𝑦 𝐻 𝑡 , M ⁢ ( H ⁢ ( t ) ) 𝑀 𝐻 𝑡 , and J c ⁢ ( H ⁢ (
+9509/cond-mat9509037.html 3 𝐻 Operator  Discipline specified    l assumptions,of B ⁢ ( x , y , H ⁢ ( t ) ) 𝐵 𝑥 𝑦 𝐻 𝑡 , M ⁢ ( H ⁢ ( t ) ) 𝑀 𝐻 𝑡 , and J c ⁢ ( H ⁢ ( t
+9509/cond-mat9509037.html 4 𝑡 Variable Scalar     assumptions,of B ⁢ ( x , y , H ⁢ ( t ) ) 𝐵 𝑥 𝑦 𝐻 𝑡 , M ⁢ ( H ⁢ ( t ) ) 𝑀 𝐻 𝑡 , and J c ⁢ ( H ⁢ ( t )
+9509/cond-mat9509037.html 5 𝑀 Operator  Discipline specified     , y , H ⁢ ( t ) ) 𝐵 𝑥 𝑦 𝐻 𝑡 , M ⁢ ( H ⁢ ( t ) ) 𝑀 𝐻 𝑡 , and J c ⁢ ( H ⁢ ( t ) ) subscript 𝐽 𝑐 𝐻 𝑡 ,
+9509/cond-mat9509037.html 6 𝐽 Constant  Discipline specified     Jc =constant, was modified several times by Kim et al.
+9509/cond-mat9509037.html 8 𝑛 Constant  Local    6 similar-to subscript 𝐽 𝑐 𝐵 subscript 𝑛 𝑝 superscript subscript 𝑓 𝑝 1
+9509/cond-mat9509037.html 10 𝑓 Operator  Local    script 𝐽 𝑐 𝐵 subscript 𝑛 𝑝 superscript subscript 𝑓 𝑝 1
+9509/cond-mat9509037.html 11 𝐁 Variable Vector     s independent of the local magnetic flux density 𝐁 ⁢ ( x , y , t ) 𝐁 𝑥 𝑦 𝑡 
+9509/cond-mat9509037.html 13 𝑏 Constant  Local    ( b 0 + B ) similar-to subscript 𝐽 𝑐 1 subscript 𝑏 0 𝐵 [3 b 𝑏 ,3 c 𝑐 ] where bi are constants.
+9509/cond-mat9509037.html 16 𝜆 Variable Scalar     re distances in units ofthe penetration length λ 𝜆 
+9509/cond-mat9509037.html 17 𝑇 Variable Scalar     itions areallowed to evolve according to a T = 0 𝑇 0 MD algorithm
+9509/cond-mat9509037.html 19 𝐫 Variable Scalar     nit length [ 1 ] between two vortices located at 𝐫 i subscript 𝐫 𝑖 and 𝐫 j subscript 𝐫 𝑗 is f v ⁢ v 
+9509/cond-mat9509037.html 22 𝜋 Constant  Global     𝑓 𝑣 𝑣 superscript subscript Φ 0 2 8 superscript 𝜋 2 superscript 𝜆 3 subscript 𝐾 1 subscript 𝐫 𝑖 sub
+9509/cond-mat9509037.html 23 𝐾 Operator  Discipline specified     We model the vortex-vortex force interaction in its exact form by using the modified Bessel function K1.
+9509/cond-mat9509037.html 24 𝐟 Operator  Local     i 𝑖 due to other vortices (ignoring cutoffs) is 𝐟 i v ⁢ v = ∑ j = 1 N v f v ⁢ K 1 ⁢ ( | 𝐫 i - 𝐫 j |
+9509/cond-mat9509037.html 25 𝑁 Constant  Local    ript 𝐟 𝑖 𝑣 𝑣 superscript subscript 𝑗 1 subscript 𝑁 𝑣 subscript 𝑓 𝑣 subscript 𝐾 1 subscript 𝐫 𝑖 subsc
+9509/cond-mat9509037.html 28 𝜂 Variable Scalar    a vortex moving with velocity v 𝑣 is f = η ⁢ v 𝑓 𝜂 𝑣 , where η 𝜂 is the viscosity( ≈ Φ 0 ⁢ H c ⁢ 2 /
+9509/cond-mat9509037.html 29 𝜌 Variable Scalar     n absent subscript Φ 0 subscript 𝐻 𝑐 2 subscript 𝜌 𝑛 , with ρ n subscript 𝜌 𝑛 being the normal-state resistivity
+9509/cond-mat9509037.html 32 𝜉 Variable Scalar     Here, Θ is the Heaviside step function, ξp is the range of the pinning potential, and fp is the strength 
+9509/cond-mat9509037.html 33 Θ Operator  Discipline specified    4) + ∑ k = 1 N p f p ξ p ⁢ | 𝐫 i - 𝐫 k ( p ) | ⁢ Θ ⁢ Here, Θ is the Heaviside step function,
+9509/cond-mat9509037.html 34 𝑑 Variable Scalar     age distance between pinning sites d p subscript 𝑑 𝑝 (which determines the pinning density n p subsc
+9509/cond-mat9509037.html 35 𝜅 Variable Scalar      ⁡ κ / 4 ⁢ π ) ⁢ ( Φ 0 / λ 2 ) 𝐻 subscript 𝐻 𝑐 1 𝜅 4 𝜋 subscript Φ 0 superscript 𝜆 2 ,where κ = λ / ξ
+9509/cond-mat9509037.html 37 𝑉 Variable Scalar      ¯ 𝑀 1 4 𝜋 𝑉 𝐻 𝐵 differential-d 𝑉 (5) In Fig
+9509/cond-mat9509037.html 38 𝜇 Constant  Discipline specified    uation d ⁢ B / d ⁢ x = μ 0 ⁢ J 𝑑 𝐵 𝑑 𝑥 subscript 𝜇 0 𝐽 
+9509/cond-mat9509037.html 39 𝛼 Variable Scalar     current dependson B 𝐵 as α = J c ⁢ ( B + b 0 ) , where α is field-independent and has units of force per unit volume. 
+9509/cond-mat9509041.html 0 𝑇 Variable Scalar     mall numberof atoms, the resulting T c subscript 𝑇 𝑐 deviates slightly from our result obtainedby ex
+9509/cond-mat9509041.html 2 𝑁 Variable Scalar     ven by N = N 0 + ∑ i 1 e ( ε i - μ ) / k ⁢ T - 1 𝑁 subscript 𝑁 0 subscript 𝑖 1 superscript 𝑒 subscri
+9509/cond-mat9509041.html 3 𝑖 Constant  Local     ε i - μ ) / k ⁢ T - 1 𝑁 subscript 𝑁 0 subscript 𝑖 1 superscript 𝑒 subscript 𝜀 𝑖 𝜇 𝑘 𝑇 1 (1) where N
+9509/cond-mat9509041.html 4 𝑒 Constant  Global     T - 1 𝑁 subscript 𝑁 0 subscript 𝑖 1 superscript 𝑒 subscript 𝜀 𝑖 𝜇 𝑘 𝑇 1 (1) where N 0 subscript 𝑁 0
+9509/cond-mat9509041.html 5 𝜀 Variable Scalar     script 𝑁 0 subscript 𝑖 1 superscript 𝑒 subscript 𝜀 𝑖 𝜇 𝑘 𝑇 1 (1) where N 0 subscript 𝑁 0 is the numb
+9509/cond-mat9509041.html 6 𝜇 Variable Scalar     µ is the chemical potential and the sum runs over all one-particle states.
+9509/cond-mat9509041.html 7 𝑘 Constant  Discipline specified     𝑁 0 subscript 𝑖 1 superscript 𝑒 subscript 𝜀 𝑖 𝜇 𝑘 𝑇 1 (1) where N 0 subscript 𝑁 0 is the number of 
+9509/cond-mat9509041.html 8 𝑑 Operator  Discipline specified     H - μ ) / k ⁢ T - 1 𝑁 subscript 𝑁 0 superscript 𝑑 3 𝐱 superscript 𝑑 3 𝐩 superscript 2 𝜋 Planck-cons
+9509/cond-mat9509041.html 9 𝐱 Variable Scalar     um by the phase-space integral N = N 0 + ∫ d 3 ⁢ 𝐱 ⁢ d 3 ⁢ 𝐩 ( 2 ⁢ π ⁢ ℏ ) 3 ⁢ 1 e ( H - μ ) / k ⁢ T
+9509/cond-mat9509041.html 10 𝐩 Variable Scalar     phase-space integral N = N 0 + ∫ d 3 ⁢ 𝐱 ⁢ d 3 ⁢ 𝐩 ( 2 ⁢ π ⁢ ℏ ) 3 ⁢ 1 e ( H - μ ) / k ⁢ T - 1 𝑁 sub
+9509/cond-mat9509041.html 11 𝜋 Constant  Global    uperscript 𝑑 3 𝐱 superscript 𝑑 3 𝐩 superscript 2 𝜋 Planck-constant-over-2-pi 3 1 superscript 𝑒 𝐻 𝜇 𝑘
+9509/cond-mat9509041.html 12 𝐻 Variable Scalar      2 𝜋 Planck-constant-over-2-pi 3 1 superscript 𝑒 𝐻 𝜇 𝑘 𝑇 1 (2) In our case the classical Hamiltonian
+9509/cond-mat9509041.html 13 𝑚 Variable Scalar      2 + y 2 ) + 1 2 ⁢ m ⁢ ω z 2 𝐻 superscript 𝐩 2 2 𝑚 1 2 𝑚 superscript 𝜔 2 superscript 𝑥 2 superscript
+9509/cond-mat9509041.html 14 𝜔 Variable Scalar      ⁢ ω z 2 𝐻 superscript 𝐩 2 2 𝑚 1 2 𝑚 superscript 𝜔 2 superscript 𝑥 2 superscript 𝑦 2 1 2 𝑚 superscri
+9509/cond-mat9509041.html 15 𝑥 Variable Scalar     script 𝐩 2 2 𝑚 1 2 𝑚 superscript 𝜔 2 superscript 𝑥 2 superscript 𝑦 2 1 2 𝑚 superscript subscript 𝜔 𝑧
+9509/cond-mat9509041.html 16 𝑦 Variable Scalar      2 𝑚 superscript 𝜔 2 superscript 𝑥 2 superscript 𝑦 2 1 2 𝑚 superscript subscript 𝜔 𝑧 2 and the integ
+9509/cond-mat9509041.html 18 𝜁 Operator  Discipline specified     𝑘 superscript subscript 𝜔 𝑧 𝜔 1 3 superscript 𝑁 𝜁 3 1 3 (3) where ζ ⁢ ( 3 ) = 1
+9509/cond-mat9509041.html 19 𝐸 Variable Scalar      Similarly the internal energy is given by  ⁢ 𝐩 ( 2 ⁢ π ⁢ ℏ ) 3 ⁢ H e ( H - μ ) / k ⁢ T - 1 𝐸 𝑇 
+9509/cond-mat9509041.html 20 𝐶 Variable Scalar      𝜇 𝑘 𝑇 1 (4) The heat capacity C = ∂ ⁡ E / ∂ ⁡ T 𝐶 𝐸 𝑇 isseen to be a function of ∂ ⁡ μ / ∂ ⁡ T 𝜇 𝑇 
+9509/cond-mat9509041.html 21 Δ Operator  Discipline specified    1 𝑁 𝑘 (5) Δ ⁢ C = C ⁢ ( T c - ) - C ⁢ ( T c + ) Δ 𝐶 𝐶 supersc
+9509/cond-mat9509041.html 22 𝑎 Variable Scalar      corrections dependent of the scatteringlength a 𝑎 [ 4 ] , which for the rubidium gas is determined 
+9509/cond-mat9509042.html 0 𝑇 Variable Scalar     ibutions of the transmittances T m ⁢ n subscript 𝑇 𝑚 𝑛 and T n = ∑ m T m ⁢ n subscript 𝑇 𝑛 subscript
+9509/cond-mat9509042.html 1 𝑚 Variable Scalar     utions of the transmittances T m ⁢ n subscript 𝑇 𝑚 𝑛 and T n = ∑ m T m ⁢ n subscript 𝑇 𝑛 subscript 𝑚
+9509/cond-mat9509042.html 2 𝑛 Variable Scalar     ions of the transmittances T m ⁢ n subscript 𝑇 𝑚 𝑛 and T n = ∑ m T m ⁢ n subscript 𝑇 𝑛 subscript 𝑚 s
+9509/cond-mat9509042.html 3 𝑃 Operator  Local     computed the probability distribution P ⁢ ( T ) 𝑃 𝑇 of the transmittance T 𝑇 of asingle-mode wavegu
+9509/cond-mat9509042.html 4 𝑁 Variable Scalar     markably difficult to extend thisresult to the N 𝑁 -mode case
+9509/cond-mat9509042.html 5 𝑡 Variable Matrix     one then has an N × N transmission matrix tmn and three types of transmittances
+9509/cond-mat9509042.html 6 𝑒 Constant  Discipline specified    onductance in units of 2 ⁢ e 2 / h 2 superscript 𝑒 2 ℎ 
+9509/cond-mat9509042.html 7 ℎ Constant  Discipline specified    ctance in units of 2 ⁢ e 2 / h 2 superscript 𝑒 2 ℎ 
+9509/cond-mat9509042.html 8 𝜉 Variable Scalar     in the single-mode case the localizationlength ξ 𝜉 is of the same order of magnitude as the mean fre
+9509/cond-mat9509042.html 9 𝑙 Variable Scalar      same order of magnitude as the mean free path l 𝑙 , the mode couplingincreases ξ 𝜉 by a factor of N
+9509/cond-mat9509042.html 10 𝐿 Variable Scalar      much-greater-than 𝑁 1 , a waveguide of length L 𝐿 can be in two distinct regimes: the diffusive reg
+9509/cond-mat9509042.html 11 𝑊 Variable Scalar      waveguide (length L 𝐿 much greater than width W 𝑊 ) and assume weak disorder (mean free path l 𝑙 mu
+9509/cond-mat9509042.html 12 𝜆 Variable Scalar     ean free path l 𝑙 much greater than wavelength λ 𝜆 )
+9509/cond-mat9509042.html 13 𝑢 Variable Matrix     This matrix t = u ⁢ τ ⁢ v 𝑡 𝑢 𝜏 𝑣 is the product of twounitary matrices u 𝑢 and
+9509/cond-mat9509042.html 14 𝜏 Variable Matrix     This matrix t = u ⁢ τ ⁢ v 𝑡 𝑢 𝜏 𝑣 is the product of twounitary matrices u 𝑢 and v
+9509/cond-mat9509042.html 15 𝑣 Variable Matrix     This matrix t = u ⁢ τ ⁢ v 𝑡 𝑢 𝜏 𝑣 is the product of twounitary matrices u 𝑢 and v 𝑣
+9509/cond-mat9509042.html 18 𝑘 Constant  Local    formulae-sequence subscript 𝑇 𝑚 𝑛 subscript 𝑘 𝑙 subscript 𝑢 𝑚 𝑘 superscript subscript 𝑢 𝑚 𝑙 ∗ s
+9509/cond-mat9509042.html 20 𝒯 Variable Scalar      (2) We seek the probability distributions P ⁢ ( 𝒯 m ⁢ n ) = ⟨ δ ⁢ ( 𝒯 m ⁢ n - N 2 ⁢ T m ⁢ n ) ⟩ , 𝑃
+9509/cond-mat9509042.html 21 𝛿 Operator  Local    2 ⁢ T m ⁢ n ) ⟩ , 𝑃 subscript 𝒯 𝑚 𝑛 delimited-⟨⟩ 𝛿 subscript 𝒯 𝑚 𝑛 superscript 𝑁 2 subscript 𝑇 𝑚 𝑛 (
+9509/cond-mat9509042.html 22 ⋯ Operator  Local     The brackets ⟨ ⋯ ⟩ delimited-⟨⟩ ⋯ denotean average over the disord
+9509/cond-mat9509042.html 23 𝐹 Operator  Discipline specified     0 ∞ 𝑑 𝒯 n ⁢ exp ⁡ ( - s ⁢ 𝒯 n ) ⁢ P ⁢ ( 𝒯 n ) , 𝐹 𝑠 superscript subscript 0 differential-d subscrip
+9509/cond-mat9509042.html 24 𝑠 Variable Scalar      ∞ 𝑑 𝒯 n ⁢ exp ⁡ ( - s ⁢ 𝒯 n ) ⁢ P ⁢ ( 𝒯 n ) , 𝐹 𝑠 superscript subscript 0 differential-d subscript 
+9509/cond-mat9509042.html 26 𝛽 Variable Scalar     al symmetry is present ornot (indicated by β = 1 𝛽 1 or 2 2 , respectively)
+9509/cond-mat9509042.html 28 𝜎 Operator  Discipline specified    ach which leads to a supersymmetric non-linear σ 𝜎 model [ 12 ] 
+9509/cond-mat9509042.html 29 𝑝 Constant  Local     ( 1 + 2 ⁢ s ) , 𝐹 𝑠 1 2 𝑠 superscript subscript 𝑝 0 superscript subscript 0 differential-d 𝑘 subscr
+9509/cond-mat9509042.html 30 𝑓 Operator  Local    perscript subscript 0 differential-d 𝑘 subscript 𝑓 𝑝 𝑘 1 2 𝜋 𝑘 subscript 𝑃 1 2 i 𝑘 1 1 2 𝑠 f p ⁢ ( k
+9509/cond-mat9509042.html 31 𝜋 Constant  Global    subscript 0 differential-d 𝑘 subscript 𝑓 𝑝 𝑘 1 2 𝜋 𝑘 subscript 𝑃 1 2 i 𝑘 1 1 2 𝑠 f p ⁢ ( k ) = ( 2 ⁢
+9509/cond-mat9509042.html 33 𝐾 Operator  Local    ubscript 𝑓 𝑝 𝑘 1 2 𝜋 𝑘 subscript 𝒯 𝑛 2 subscript 𝐾 1 2 i 𝑘 1 2 subscript 𝒯 𝑛 superscript superscript
+9509/cond-mat9509042.html 38 𝐴 Variable Scalar     he linear statistic A = ∑ k ln ⁡ ( 1 + s ⁢ τ k ) 𝐴 subscript 𝑘 1 𝑠 subscript 𝜏 𝑘 : ln ⁡ F ⁢ ( s ) ≡ 
+9509/cond-mat9509042.html 40 𝒪 Operator  Local    s ) ≡ ln ⁡ ⟨ e - A ⟩ = - ⟨ A ⟩ + 1 2 ⁢ Var ⁢ A + 𝒪 ⁢ ( L / N ⁢ l ) 
+9509/cond-mat9509043.html 0 𝑛 Variable Scalar     et n 𝑛 be a non-negative integer, and put O = ( 0 , 0 ) 
+9509/cond-mat9509043.html 1 𝑂 Constant  Local    be a non-negative integer, and put O = ( 0 , 0 ) 𝑂 0 0 , a n = ( 2 n , 0 ) subscript 𝑎 𝑛 superscript
+9509/cond-mat9509043.html 2 𝑎 Variable Vector      = ( 0 , 0 ) 𝑂 0 0 , a n = ( 2 n , 0 ) subscript 𝑎 𝑛 superscript 2 𝑛 0 ,and b n = ( 2 n - 1 , 2 n - 
+9509/cond-mat9509043.html 3 𝑏 Variable Vector     0 ,and b n = ( 2 n - 1 , 2 n - 1 ⁢ 3 ) subscript 𝑏 𝑛 superscript 2 𝑛 1 superscript 2 𝑛 1 3 
+9509/cond-mat9509043.html 5 𝑥 unit descriptor      f resistance 1 1 with each bond parallel tothe x 𝑥 -axis, and a resistor of resistance r > 1 𝑟 1 wit
+9509/cond-mat9509043.html 6 𝑟 Variable Scalar     he x 𝑥 -axis, and a resistor of resistance r > 1 𝑟 1 with the remaining bonds
+9509/cond-mat9509043.html 9 𝑅 Operator  Local     resistances R n x ⁢ ( r ) subscript superscript 𝑅 𝑥 𝑛 𝑟 in the horizontal bond O ⁢ a n 𝑂 subscript 
+9509/cond-mat9509043.html 11 𝐻 Operator  Discipline specified    Hn(r) measures the effective anisotropy of △Oanbn composed of resistance elements
+9509/cond-mat9509043.html 12 𝑓 Operator  Local     n ⁢ ( r ) - 1 ) subscript 𝐻 𝑛 1 superscript 𝑟 1 𝑓 subscript 𝐻 𝑛 superscript 𝑟 1 , where f ⁢ ( x ) =
+9509/cond-mat9509043.html 14 𝐹 Operator  Local     ) = z - ( 3 / 2 ) ⁢ z 2 + ( 39 / 14 ) ⁢ z 3 + ⋯ 𝐹 𝑧 subscript → 𝑛 superscript 𝑓 𝑛 superscript 3 4 𝑛
+9509/cond-mat9509043.html 15 𝑧 Variable Scalar      = z - ( 3 / 2 ) ⁢ z 2 + ( 39 / 14 ) ⁢ z 3 + ⋯ 𝐹 𝑧 subscript → 𝑛 superscript 𝑓 𝑛 superscript 3 4 𝑛 𝑧
+9509/cond-mat9509043.html 18 𝐾 Variable Scalar      R n b + R n c ) subscript superscript 𝑅 𝑎 𝑛 1 4 𝐾 subscript superscript 𝑅 𝑎 𝑛 subscript superscript
+9509/cond-mat9509043.html 19 𝑣 Operator  Local    hepotential (voltage) distribution v ⁢ ( x , y ) 𝑣 𝑥 𝑦 is ( ∂ ⁡ v ∂ ⁡ x ) 2 + 1 r ⁢ ( ∂ ⁡ v ∂ ⁡ y ) 
+9509/cond-mat9509043.html 21 𝐶 Constant  Local    Theorem 1 —There is a finite constant C ≥ 1 𝐶 1 , independent of r 𝑟 and n 𝑛 ,such that for any
+9509/cond-mat9509043.html 23 𝑠 Variable Scalar     This result says that while s = (7/9)n r and n are large, Hn(r) decreases like 
+9509/cond-mat9509043.html 24 𝜌 Constant  Local    ρ = 1.25148 ± 1 × 10−5 is the growth exponent for the effective resistance
+9509/cond-mat9509043.html 25 𝑑 Variable Scalar     We need more data to determine d, but the calculations become rapidly time consuming as n or r is increased
+9509/cond-mat9509057.html 0 𝐸 Variable Scalar     t a special point in the spectrum, E c subscript 𝐸 𝑐 , where a sublatticedecomposition obtains
+9509/cond-mat9509057.html 2 𝑟 Variable Scalar     nce allowing an indirectdetermination of 1 / r 1 𝑟 for the typical spatial decay ofeigenstates
+9509/cond-mat9509057.html 3 𝑛 Operator  Local    (I) the diffusion of a scalar density, n ⁢ ( 𝐱 ) 𝑛 𝐱 , advected by a quenched random velocity field,
+9509/cond-mat9509057.html 4 𝐱 Variable Scalar     ld: (I) the diffusion of a scalar density, n ⁢ ( 𝐱 ) 𝑛 𝐱 , advected by a quenched random velocity fi
+9509/cond-mat9509057.html 5 𝐀 Operator  Local     , advected by a quenched random velocity field, 𝐀 ⁢ ( 𝐱 ) 𝐀 𝐱 , described by the Fokker-Planckequat
+9509/cond-mat9509057.html 7 ℒ Operator  Discipline specified    d by the Fokker-Planckequation [ 1 ] : ∂ t ⁡ n = ℒ f ⁢ p ⁢ n ≡ D ⁢ ∇ 2 ⁡ n - ∇ ⋅ ( 𝐀 ⁢ n ) subscript
+9509/cond-mat9509057.html 10 𝐷 Variable Scalar      where D is the diffusivity;
+9509/cond-mat9509057.html 13 𝐵 Variable Vector     magnetic field B ≡ ∇ × 𝐀 ≡ ∂ x ⁡ A y - ∂ y ⁡ A x 𝐵 ∇ 𝐀 subscript 𝑥 subscript 𝐴 𝑦 subscript 𝑦 subscri
+9509/cond-mat9509057.html 14 𝑥 unit descriptor       ≡ ∇ × 𝐀 ≡ ∂ x ⁡ A y - ∂ y ⁡ A x 𝐵 ∇ 𝐀 subscript 𝑥 subscript 𝐴 𝑦 subscript 𝑦 subscript 𝐴 𝑥 , where 𝐀
+9509/cond-mat9509057.html 15 𝐴 Variable Vector      where A now denotes the vector potential, described by the Schrodinger equation
+9509/cond-mat9509057.html 16 𝑦 unit descriptor       ⁡ A y - ∂ y ⁡ A x 𝐵 ∇ 𝐀 subscript 𝑥 subscript 𝐴 𝑦 subscript 𝑦 subscript 𝐴 𝑥 , where 𝐀 𝐀 now denotes
+9509/cond-mat9509057.html 17 𝑖 Constant  Discipline specified     ∂ t ⁡ ψ = ℒ r ⁢ f ⁢ ψ ≡ { ( 𝐩 - 𝐀 ) 2 + V } ⁢ ψ 𝑖 subscript 𝑡 𝜓 subscript ℒ 𝑟 𝑓 𝜓 superscript 𝐩 𝐀 2
+9509/cond-mat9509057.html 18 𝜓 Operator  Discipline specified    ψ being the (complex) quantum wave function, p ≡ −i∇ the momentum operator,
+9509/cond-mat9509057.html 19 𝐩 Operator  Local    ψ being the (complex) quantum wave function, p ≡ −i∇ the momentum operator,
+9509/cond-mat9509057.html 20 𝑉 Variable Scalar     p ≡ −i∇ the momentum operator, and V (x) the (scalar) potential disorder 
+9509/cond-mat9509057.html 21 𝜈 Constant  Local    the quantum Hall effect at fillingfactor ν = 1 2 𝜈 1 2 [ 2 ] 
+9509/cond-mat9509057.html 22 𝜉 Variable Scalar     dependence of the localization length, ξ ⁢ ( E ) 𝜉 𝐸 ,moving inward from the band edge, with authors
+9509/cond-mat9509057.html 25 𝜒 Variable Scalar     e velocity in model (I) as 𝐀 = ∇ ⁡ χ + ∇ × ϕ 𝐀 ∇ 𝜒 ∇ italic-ϕ , we observethat the curl-free part, ∇
+9509/cond-mat9509057.html 27 𝜔 Variable Scalar     (the source of vorticity ω = ∇ × A = −∇ 2φ)
+9509/cond-mat9509057.html 28 𝑧 Variable Scalar      𝑓 𝑝 is not self-adjoint, and its eigenvalues, z 𝑧 ,occupy in general an area in the complex plane
+9509/cond-mat9509057.html 29 𝐿 Variable Scalar     n 𝑛 is discretized on a square latticeof width L 𝐿 , length m 𝑚 
+9509/cond-mat9509057.html 30 𝑚 Variable Scalar     tized on a square latticeof width L 𝐿 , length m 𝑚 
+9509/cond-mat9509057.html 31 Δ Operator  Global    e define lattice difference operators Δ μ + ⁢ ϕ 𝐱 ≡ ϕ 𝐱 + 𝐞 μ - ϕ 𝐱 superscript subscript
+9509/cond-mat9509057.html 32 𝜇 Variable Vector     where e µ , µ = x, y, are orthogonal lattice basis vectors.
+9509/cond-mat9509057.html 33 𝐞 Constant  Global    where e µ , µ = x, y, are orthogonal lattice basis vectors.
+9509/cond-mat9509057.html 34 𝐉 Variable Scalar     Defining thecurrent 𝐉 = D ⁢ Δ + ⁢ n - 𝐀 ⁢ n 𝐉 𝐷 superscript Δ 𝑛 𝐀 𝑛 , w
+9509/cond-mat9509057.html 37 𝑊 Variable Matrix     × 2 ⁢ L 2 𝐿 2 𝐿 transfer-matrices, W k subscript 𝑊 𝑘 , which yieldvalues of ψ 𝜓 or n 𝑛 in lattice co
+9509/cond-mat9509057.html 41 𝜆 Variable Scalar      1 / λ L ⁢ ( z ) ⁢ L subscript 𝜉 𝐿 𝑧 1 subscript 𝜆 𝐿 𝑧 𝐿 ,where λ L ⁢ ( z ) subscript 𝜆 𝐿 𝑧 is the exponent smallest in magnitude.
+9509/cond-mat9509057.html 42 𝑤 Variable Scalar     istributed uniformly overan interval [ - w , w ] 𝑤 𝑤 
+9509/cond-mat9509057.html 43 𝑑 Constant  Local    lic-ϕ 0 the eigenvaluesfill (uniformly, in d = 2 𝑑 2 ) the real interval [ - 8 ⁢ D , 0 ] 8 𝐷 0 
+9509/cond-mat9509057.html 47 𝐼 Variable Matrix      where IL is the L × L unit matrix
+9509/cond-mat9509057.html 48 𝒬 Variable Matrix     form operatingon λ ^ ^ 𝜆 : ℒ f ⁢ p = ( E c ⁢ I L 𝒬 𝒬 ~ E c ⁢ I L ) , subscript ℒ 𝑓 𝑝 subscript 𝐸 𝑐 s
+9509/cond-mat9509057.html 50 𝑇 Variable Scalar     L × L 𝐿 𝐿 unit matrix, 𝒬 ~ = T ⁢ 𝒬 ⊤ ⁢ T - 1 ~ 𝒬 𝑇 superscript 𝒬 top superscript 𝑇 1 , and T time reversal
+9509/cond-mat9509057.html 52 𝜎 Operator  Global     ≡ ( n + * - n - * ) subscript ^ 𝜆 ¯ 𝑧 subscript 𝜎 𝑧 superscript ^ 𝜆 FRACOP subscript superscript 𝑛 
+9509/cond-mat9509057.html 53 𝜋 Constant  Global    e fluxesare restricted to values 2 ⁢ π ⁢ n / q 2 𝜋 𝑛 𝑞 with q , n 𝑞 𝑛 integers
+9509/cond-mat9509057.html 54 𝑞 Variable Scalar     uxesare restricted to values 2 ⁢ π ⁢ n / q 2 𝜋 𝑛 𝑞 with q , n 𝑞 𝑛 integers
+9509/cond-mat9509057.html 55 Θ Variable Matrix     can write thetransfer-matrix in the form W k ≡ ( Θ k I L ⁢ - I L 0 ) subscript 𝑊 𝑘 FRACOP subscript 
+9509/cond-mat9509057.html 56 𝐽 Variable Matrix      W k † ⁢ J ⁢ W k = J superscript subscript 𝑊 𝑘 † 𝐽 subscript 𝑊 𝑘 𝐽 where J ≡ ( 0 I L ⁢ - I L 0 ) 𝐽 F
+9509/cond-mat9509057.html 58 𝑙 Variable Scalar     f L = 2 ⁢ l + 1 𝐿 2 𝑙 1 is odd, the number of componentsof n k ± supers
+9509/cond-mat9509057.html 59 𝜃 Variable Matrix     ice and the θk are no longer hermitian nor (for odd L) necessarily
+9509/cond-mat9509057.html 60 𝑁 Variable Scalar     For a lattice with an odd numberof sites, N 𝑁 , 𝒬 𝒬 is not square so that it hasa non-trivial k
+9509/cond-mat9509057.html 61 𝑢 Variable Matrix     at 0 0 , theymust take the form ( u ± v ) FRACOP 𝑢 plus-or-minus 𝑣 , u , v 𝑢 𝑣 theleft, right eigenv
+9509/cond-mat9509057.html 62 𝑣 Variable Matrix     t take the form ( u ± v ) FRACOP 𝑢 plus-or-minus 𝑣 , u , v 𝑢 𝑣 theleft, right eigenvectors of 𝒬 𝒬 so
+9509/cond-mat9509057.html 63 𝑄 Variable Vector     , right eigenvectors of 𝒬 𝒬 so that Q † ⁢ u = Q ⁢ v = 0 superscript 𝑄 † 𝑢 𝑄 𝑣 0 
+9509/cond-mat9509057.html 67 𝑅 Variable Scalar      [ 15 ] , the form R n ≡ ( n + x ) / x subscript 𝑅 𝑛 𝑛 𝑥 𝑥 for the ratio of Lyapunov exponentssugges
+9509/cond-mat9509057.html 68 𝜂 Variable Scalar      and typically decays as 1 / r η 1 superscript 𝑟 𝜂 ,where η = 2 ⁢ x 𝜂 2 𝑥 
+9509/cond-mat9509059.html 0 𝑃 Variable Scalar     m[2-8] ∂ ⁡ P ∂ ⁡ t = ∂ 2 ∂ ⁡ q 2 ⁢ D ⁢ ( q ) ⁢ P 𝑃 𝑡 superscript 2 superscript 𝑞 2 𝐷 𝑞 𝑃 or ∂ ⁡ P ∂ 
+9509/cond-mat9509059.html 1 𝑡 Variable Scalar     2-8] ∂ ⁡ P ∂ ⁡ t = ∂ 2 ∂ ⁡ q 2 ⁢ D ⁢ ( q ) ⁢ P 𝑃 𝑡 superscript 2 superscript 𝑞 2 𝐷 𝑞 𝑃 or ∂ ⁡ P ∂ ⁡ 
+9509/cond-mat9509059.html 2 𝑞 Variable Scalar      2 ⁢ D ⁢ ( q ) ⁢ P 𝑃 𝑡 superscript 2 superscript 𝑞 2 𝐷 𝑞 𝑃 or ∂ ⁡ P ∂ ⁡ t = ∂ ∂ ⁡ q ⁢ D ⁢ ( q ) ⁢ ∂ 
+9509/cond-mat9509059.html 3 𝐷 Operator  Discipline specified     D ⁢ ( q ) ⁢ P 𝑃 𝑡 superscript 2 superscript 𝑞 2 𝐷 𝑞 𝑃 or ∂ ⁡ P ∂ ⁡ t = ∂ ∂ ⁡ q ⁢ D ⁢ ( q ) ⁢ ∂ ⁡ P 
+9509/cond-mat9509059.html 5 𝜂 Constant  Local    onstant D 𝐷 = η - 1 ⁢ k B ⁢ T absent superscript 𝜂 1 subscript 𝑘 𝐵 𝑇 , where η 𝜂 is the friction coe
+9509/cond-mat9509059.html 6 𝑘 Constant  Discipline specified    η - 1 ⁢ k B ⁢ T absent superscript 𝜂 1 subscript 𝑘 𝐵 𝑇 , where η 𝜂 is the friction coefficient and T
+9509/cond-mat9509059.html 8 𝑇 Variable Scalar     1 ⁢ k B ⁢ T absent superscript 𝜂 1 subscript 𝑘 𝐵 𝑇 , where η 𝜂 is the friction coefficient and T 𝑇 t
+9509/cond-mat9509059.html 9 𝑄 Variable Scalar      (Brownian particle) describedby its cordinate Q 𝑄 and momentum P 𝑃 and subjected to an externalpote
+9509/cond-mat9509059.html 10 𝑉 Variable Scalar     ubjected to an externalpotential field V ⁢ ( Q ) 𝑉 𝑄 of the system
+9509/cond-mat9509059.html 12 𝑝 Variable Vector     tes q α subscript 𝑞 𝛼 and momentum p α subscript 𝑝 𝛼 with characteristic frequencies ω α subscript 𝜔
+9509/cond-mat9509059.html 13 𝜔 Variable Scalar      𝛼 with characteristic frequencies ω α subscript 𝜔 𝛼 
+9509/cond-mat9509059.html 14 ℋ Variable Scalar     ourcalculation we consider the total Hamiltonian ℋ = P 2 2 ⁢ M + V ⁢ ( Q ) + ∑ α [ p α 2 2 ⁢ m α + m
+9509/cond-mat9509059.html 15 𝑀 Variable Scalar      ⁢where M is the Brownian particle mass and mα are the masses of the bath oscillators.
+9509/cond-mat9509059.html 16 𝑚 Variable Scalar     where M is the Brownian particle mass and mα are the masses of the bath oscillators.
+9509/cond-mat9509059.html 17 𝜆 Variable Scalar     ript 𝜔 2 𝛼 2 superscript subscript 𝑞 𝛼 subscript 𝜆 𝛼 𝐴 𝑄 subscript 𝑚 𝛼 subscript superscript 𝜔 2 𝛼 2
+9509/cond-mat9509059.html 18 𝐴 Operator  Local     𝜔 2 𝛼 2 superscript subscript 𝑞 𝛼 subscript 𝜆 𝛼 𝐴 𝑄 subscript 𝑚 𝛼 subscript superscript 𝜔 2 𝛼 2 ( 1
+9509/cond-mat9509059.html 25 𝑓 Operator  Local    ted-[] superscript 𝐴 ′ 𝑄 2 𝑃 𝑀 superscript 𝐴 ′ 𝑄 𝑓 𝑡 ( 3 ⁢ b ) 3 𝑏 Thus, the effect of interaction o
+9509/cond-mat9509059.html 30 𝛿 Operator  Local    missing-subexpression absent 2 subscript 𝑘 𝐵 𝑇 𝜂 𝛿 𝑡 superscript 𝑡 ′ ( 4 ⁢ c ) 4 𝑐 To arrive at equa
+9509/cond-mat9509059.html 31 𝜌 Variable Scalar     Ohmic spectral density for the bath oscillators, i.e., ρ(ω)
+9509/cond-mat9509059.html 32 𝜋 Constant  Global    𝜌 𝜔 𝜋 2 subscript 𝛼 subscript superscript 𝜆 2 𝛼 subscri
+9509/cond-mat9509059.html 33 𝑒 Constant  Global     subscript 𝜔 𝛼 𝛿 𝜔 subscript 𝜔 𝑐 𝜂 𝜔 superscript 𝑒 𝜔 subscript 𝜔 𝑐 The upper cut-off frequency ω c s
+9509/cond-mat9509059.html 35 Δ Operator  Local    several small segmentsand represent the segments Δ ⁢ q Δ 𝑞 around q 𝑞 by indices i 𝑖 
+9509/cond-mat9509059.html 37 𝑔 Operator  Local    ⁢ ( t - t ′ ) absent 𝑓 𝑞 𝑡 𝑓 superscript 𝑞 ′ 𝑡 2 𝑔 𝑞 superscript 𝑞 ′ 𝛿 𝑡 superscript 𝑡 ′ with g ⁢ ( 
+9509/cond-mat9509059.html 38 𝑣 Constant  Discipline specified     We put M = 1 𝑀 1 so that p = v 𝑝 𝑣 , the velocity of the Brownian particle
+9509/cond-mat9509059.html 40 ∇ Variable Scalar     e equation (continuity equation) ∂ ⁡ ρ ∂ ⁡ t = - ∇ q ⋅ ( q ˙ ⁢ ρ ) - ∇ v ⋅ ( v ˙ ⁢ ρ ) 
+9509/cond-mat9509059.html 42 𝐶 Constant  Local     where C is a normalization constant.
+9509/cond-mat9509064.html 1 𝐵 Variable Vector     us perpendicular quantizing magnetic field B → → 𝐵 and a lateral periodic superlattice potential has
+9509/cond-mat9509064.html 2 𝑅 Variable Scalar     ron radius R c = l 2 ⁢ k F = v F / ω c subscript 𝑅 𝑐 superscript 𝑙 2 subscript 𝑘 𝐹 subscript 𝑣 𝐹 sub
+9509/cond-mat9509064.html 4 𝑙 Variable Scalar      l 2 ⁢ k F = v F / ω c subscript 𝑅 𝑐 superscript 𝑙 2 subscript 𝑘 𝐹 subscript 𝑣 𝐹 subscript 𝜔 𝑐 of th
+9509/cond-mat9509064.html 5 𝑘 Constant  Local     F / ω c subscript 𝑅 𝑐 superscript 𝑙 2 subscript 𝑘 𝐹 subscript 𝑣 𝐹 subscript 𝜔 𝑐 of the electrons at
+9509/cond-mat9509064.html 7 𝑣 Variable Vector     ript 𝑅 𝑐 superscript 𝑙 2 subscript 𝑘 𝐹 subscript 𝑣 𝐹 subscript 𝜔 𝑐 of the electrons at the Fermi ene
+9509/cond-mat9509064.html 8 𝜔 Variable Scalar     script 𝑙 2 subscript 𝑘 𝐹 subscript 𝑣 𝐹 subscript 𝜔 𝑐 of the electrons at the Fermi energy E F = ℏ 2 
+9509/cond-mat9509064.html 9 𝐸 Variable Scalar     energy E F = ℏ 2 ⁢ k F 2 / ( 2 ⁢ m * ) subscript 𝐸 𝐹 superscript Planck-constant-over-2-pi 2 subscri
+9509/cond-mat9509064.html 10 𝑚 Variable Scalar     2-pi 2 subscript superscript 𝑘 2 𝐹 2 superscript 𝑚 and the modulationperiod L 𝐿 , l = ( c ⁢ ℏ / e ⁢ 
+9509/cond-mat9509064.html 11 𝐿 Variable Scalar     𝑘 2 𝐹 2 superscript 𝑚 and the modulationperiod L 𝐿 , l = ( c ⁢ ℏ / e ⁢ B ) 1 / 2 𝑙 superscript 𝑐 Pla
+9509/cond-mat9509064.html 12 𝑒 Constant  Global     1 / 2 𝑙 superscript 𝑐 Planck-constant-over-2-pi 𝑒 𝐵 1 2 is the magneticlength
+9509/cond-mat9509064.html 13 𝜆 Variable Scalar     surability of the Fermi wavelength λ F subscript 𝜆 𝐹 and l 𝑙 
+9509/cond-mat9509064.html 14 𝑛 Constant  Local    00 similar-to 𝐿 300 nm n s = 3 × 10 11 subscript 𝑛 𝑠 3 superscript 10 11 cm - 2 2 )since usually sev
+9509/cond-mat9509064.html 17 𝑧 unit descriptor      erpendicularmagnetic field B → = B ⁢ z ^ → 𝐵 𝐵 ^ 𝑧 we employ a model of strictlytwo-dimensional elec
+9509/cond-mat9509064.html 18 𝑟 Variable Vector      e ⁢ n s ⁢ ( r → ) ⁢ δ ⁢ ( z ) 𝑒 subscript 𝑛 𝑠 → 𝑟 𝛿 𝑧 , and r → = ( x , y ) → 𝑟 𝑥 𝑦 
+9509/cond-mat9509064.html 19 𝛿 Operator  Global     ⁢ n s ⁢ ( r → ) ⁢ δ ⁢ ( z ) 𝑒 subscript 𝑛 𝑠 → 𝑟 𝛿 𝑧 , and r → = ( x , y ) → 𝑟 𝑥 𝑦 
+9509/cond-mat9509064.html 20 𝑥 unit descriptor       subscript 𝑛 𝑠 → 𝑟 𝛿 𝑧 , and r → = ( x , y ) → 𝑟 𝑥 𝑦 
+9509/cond-mat9509064.html 21 𝑦 unit descriptor      ubscript 𝑛 𝑠 → 𝑟 𝛿 𝑧 , and r → = ( x , y ) → 𝑟 𝑥 𝑦 
+9509/cond-mat9509064.html 22 𝑍 unit descriptor      ence → 𝑅 𝑚 subscript → 𝑙 1 𝑛 subscript → 𝑙 2 𝑛 𝑚 𝑍 (1) l → 1 = l 1 ⁢ x ^ subscript → 𝑙 1 subscript 𝑙
+9509/cond-mat9509064.html 23 ℬ Constant  Discipline specified    the primitivetranslations of the Bravais lattice ℬ ℬ 
+9509/cond-mat9509064.html 24 ℛ Constant  Discipline specified    he corresponding reciprocal lattice ℛ ℛ is spanned by G → = G 1 ⁢ g → 1 + G 2 ⁢ g → 2 ,
+9509/cond-mat9509064.html 25 𝐺 Variable Vector      2 ⁢ g → 2 , G 1 , G 2 ∈ Z , formulae-sequence → 𝐺 subscript 𝐺 1 subscript → 𝑔 1 subscript 𝐺 2 subsc
+9509/cond-mat9509064.html 26 𝑔 Variable Vector      formulae-sequence → 𝐺 subscript 𝐺 1 subscript → 𝑔 1 subscript 𝐺 2 subscript → 𝑔 2 subscript 𝐺 1 sub
+9509/cond-mat9509064.html 27 𝜋 Variable Vector      π ⁢ y ^ l 2 formulae-sequence subscript → 𝑔 1 2 𝜋 ^ 𝑥 subscript 𝑙 1 subscript → 𝑔 2 2 𝜋 ^ 𝑦 subscri
+9509/cond-mat9509064.html 28 𝑉 Operator  Local    𝑉 → 𝑟 subscript 𝑉 𝑥 subscript 𝑔 1 𝑥 subscript 𝑉 𝑦 s
+9509/cond-mat9509064.html 29 𝐻 Variable Scalar     iltonian H = H 0 + V H ⁢ ( r → ) + V ⁢ ( r → ) , 𝐻 subscript 𝐻 0 subscript 𝑉 𝐻 → 𝑟 𝑉 → 𝑟 (5) where V
+9509/cond-mat9509064.html 30 𝜅 Constant  Local    otential in a medium witha dielectric constant κ 𝜅 , V H ⁢ ( r → ) = e 2 κ ⁢ ∫ R 2 d 2 ⁢ r ′ ⁢ n s ⁢
+9509/cond-mat9509064.html 31 𝑑 Constant  Local    ript 𝑒 2 𝜅 subscript superscript 𝑅 2 superscript 𝑑 2 superscript 𝑟 ′ subscript 𝑛 𝑠 superscript → 𝑟 ′
+9509/cond-mat9509064.html 34 𝑇 Operator  Local    The translation operator T ⁢ ( R → ) = exp ⁡ ( - i ℏ ⁢ R → ⋅ p → ) , 𝑇 → 𝑅 ⋅ 𝑖 Planck-constant-over-2-pi → 𝑅 → 𝑝 (7) whe
+9509/cond-mat9509064.html 36 𝑖 Constant  Discipline specified     ( R → ) = exp ⁡ ( - i ℏ ⁢ R → ⋅ p → ) , 𝑇 → 𝑅 ⋅ 𝑖 Planck-constant-over-2-pi → 𝑅 → 𝑝 (7) where p → →
+9509/cond-mat9509064.html 37 𝑝 Variable Vector      → ) , 𝑇 → 𝑅 ⋅ 𝑖 Planck-constant-over-2-pi → 𝑅 → 𝑝 (7) where p → → 𝑝 is the momentum canonical to r 
+9509/cond-mat9509064.html 38 𝐴 Variable Vector     Due to thepresence of the vector potential A → → 𝐴 in H 0 subscript 𝐻 0 , H 0 = 1 2 ⁢ m ⁢ ( p → + e 
+9509/cond-mat9509064.html 39 ∇ Variable Vector      , H 0 = 1 2 ⁢ m ⁢ ( p → + e c ⁢ A → ) 2 , B → = ∇ → × A → formulae-sequence subscript 𝐻 0 1 2 𝑚 sup
+9509/cond-mat9509064.html 40 𝑆 Operator  Local     → ) = exp ⁡ ( i ⁢ e ℏ ⁢ c ⁢ χ ) ⁢ T ⁢ ( R → ) , 𝑆 → 𝑅 𝑖 𝑒 Planck-constant-over-2-pi 𝑐 𝜒 𝑇 → 𝑅 (9) w
+9509/cond-mat9509064.html 41 𝜒 Variable Scalar      ( R → ) , 𝑆 → 𝑅 𝑖 𝑒 Planck-constant-over-2-pi 𝑐 𝜒 𝑇 → 𝑅 (9) where χ 𝜒 is obtained from T - 1 ⁢ A → 
+9509/cond-mat9509064.html 42 Φ Variable Scalar     But if an integer number offlux quanta Φ 0 = ( h ⁢ c / e ) subscript Φ 0 ℎ 𝑐 𝑒 flows throu
+9509/cond-mat9509064.html 43 ℎ Constant  Discipline specified     offlux quanta Φ 0 = ( h ⁢ c / e ) subscript Φ 0 ℎ 𝑐 𝑒 flows through the lattice unit cell l → 1 × l
+9509/cond-mat9509064.html 44 𝜓 Variable Scalar      eigenvalues S ⁢ ( l → 1 ) ⁢ ψ 𝑆 subscript → 𝑙 1 𝜓 = e i ⁢ θ 1 ⁢ ψ superscript 𝑒 𝑖 subscript 𝜃 1 𝜓 S
+9509/cond-mat9509064.html 45 𝜃 Variable Scalar      𝑙 1 𝜓 = e i ⁢ θ 1 ⁢ ψ superscript 𝑒 𝑖 subscript 𝜃 1 𝜓 S ⁢ ( l → 2 ) ⁢ ψ 𝑆 subscript → 𝑙 2 𝜓 = e i ⁢
+9509/cond-mat9509064.html 46 𝑞 Variable Scalar     pt → 𝑙 1 𝑝 formulae-sequence → 𝑑 subscript → 𝑙 2 𝑞 formulae-sequence 𝑝 𝑞 subscript 𝑔 𝑙 𝑝 𝑞 𝑁 (14) Wi
+9509/cond-mat9509064.html 47 𝑁 unit descriptor       → 𝑙 2 𝑞 formulae-sequence 𝑝 𝑞 subscript 𝑔 𝑙 𝑝 𝑞 𝑁 (14) With the symmetric gauge A → = ( B / 2 ) ⁢ (
+9509/cond-mat9509064.html 49 𝜇 Variable Scalar     ϕ n l ⁢ ( r → ) , subscript superscript italic-ϕ 𝜇 𝜈 subscript 𝑛 𝑙 → 𝑟 1 𝑝 𝑞 subscript superscript 𝑚
+9509/cond-mat9509064.html 50 𝜈 Variable Scalar     n l ⁢ ( r → ) , subscript superscript italic-ϕ 𝜇 𝜈 subscript 𝑛 𝑙 → 𝑟 1 𝑝 𝑞 subscript superscript 𝑚 𝑛
+9509/cond-mat9509064.html 51 𝐼 unit descriptor       𝜃 1 2 𝜋 subscript 𝑛 1 𝑝 subscript 𝑛 1 subscript 𝐼 1 0 … 𝑝 1 ν 𝜈 = θ 2 + 2 ⁢ π ⁢ n 2 q , n 2 ∈ I 2 =
+9509/cond-mat9509064.html 53 ℋ unit descriptor      a complete orthogonal basis in the Hilbert space ℋ θ 1 ⁢ θ 2 subscript ℋ subscript 𝜃 1 subscript 𝜃 2
+9509/cond-mat9509064.html 56 Λ Constant  Local    (23) where T n 1 ⁢ n 2 n 1 ′ ⁢ n 2 ′ ⁢ ( G ) = ∑ Λ ⁢ Ω = - ∞ ∞ ( - 1 ) Λ ⁢ Ω ⁢ e ( μ ′ ⁢ Λ + ν ′ ⁢ Ω
+9509/cond-mat9509064.html 57 Ω Constant  Local     where T n 1 ⁢ n 2 n 1 ′ ⁢ n 2 ′ ⁢ ( G ) = ∑ Λ ⁢ Ω = - ∞ ∞ ( - 1 ) Λ ⁢ Ω ⁢ e ( μ ′ ⁢ Λ + ν ′ ⁢ Ω ) ⁢
+9509/cond-mat9509064.html 59 𝑀 Variable Scalar     pt 𝐺 1 subscript superscript 𝑛 ′ 1 subscript 𝑛 1 𝑀 𝑝 and G 2 = n 2 ′ - n 2 - N ⁢ q subscript 𝐺 2 sub
+9509/cond-mat9509064.html 60 Δ Operator  Local     are V H ⁢ ( G → ) = { 2 ⁢ π ⁢ e 2 κ ⁢ | G → | ⁢ Δ ⁢ n s ⁢ ( G → ) if G → ≠ 0 0 if G → = 0 , subscri
+9509/cond-mat9509064.html 61 𝑓 Operator  Local    ial-d subscript 𝜃 1 differential-d subscript 𝜃 2 𝑓 subscript italic-ϵ 𝛼 𝜇 superscript subscript 𝜓 𝛼 
+9509/cond-mat9509064.html 62 𝐷 Variable Scalar       observed in the thermodynamic density of states DT
+9509/cond-mat9509099.html 0 𝑝 Variable Scalar     antiomeric pendant groups, with concentrations p 𝑝 and 1 - p 1 𝑝 ,respectively [ 13 ] 
+9509/cond-mat9509099.html 1 𝜎 Variable Scalar     Let the Ising spin σ i = ± 1 subscript 𝜎 𝑖 plus-or-minus 1 represent the sense of the poly
+9509/cond-mat9509099.html 3 𝐻 Variable Scalar      The energy of a polymer can then be written as 𝐻 𝐽 superscript subscript 𝑖 1 𝑁 1 subscript 𝜎 𝑖 sub
+9509/cond-mat9509099.html 4 𝐽 Variable Scalar     The parameter 2J is the energy cost of a helix reversal.
+9509/cond-mat9509099.html 5 𝑁 Constant  Local    𝐻 𝐽 superscript subscript 𝑖 1 𝑁 1 subscript 𝜎 𝑖 subscript 𝜎 𝑖 1 superscript subsc
+9509/cond-mat9509099.html 6 ℎ Variable Scalar     ℎ 𝑖 subscript 𝜎 𝑖 (1) Here, the random field h i specifies the enantiomeric identity
+9509/cond-mat9509099.html 7 𝑇 Variable Scalar     pure homopolymers as a function of temperature T 𝑇 give 2 ⁢ J ≈ 17 2 𝐽 17 kJ/mol (4 kcal/mol) [ 18 ]
+9509/cond-mat9509099.html 8 𝑘 Variable Scalar     5 subscript 𝑘 𝐵 𝑇 2
+9509/cond-mat9509099.html 10 𝑀 Variable Scalar     The magnetization of the Ising model, M = ⟨ 1 N ⁢ ∑ i = 1 N σ i ⟩ ,
+9509/cond-mat9509099.html 11 𝐿 Variable Scalar     roximation, supposethat each domain has length L 𝐿 , which is to be determined
+9509/cond-mat9509099.html 13 𝑃 Variable Scalar      over the probability distribution P ⁢ ( h tot ) 𝑃 subscript ℎ tot , we obtain M = ∫ - ∞ ∞ 𝑑 h tot ⁢
+9509/cond-mat9509099.html 17 𝑒 Constant  Global    2 ⁢ J / k B ⁢ T ≈ 800 subscript 𝐿 th superscript 𝑒 2 𝐽 subscript 𝑘 𝐵 𝑇 800 , and the chain length is
+9509/cond-mat9509099.html 19 𝛼 Variable Scalar      Optical activity [ α ] D subscript delimited-[] 𝛼 𝐷 of the random copolymerat the sodium D-line as 
+9509/cond-mat9509101.html 2 𝑞 Variable Vector     ave vectors the q z ∼ π / L similar-to subscript 𝑞 𝑧 𝜋 𝐿 , where Lis the interlayer spacing, for bot
+9509/cond-mat9509101.html 4 𝜋 Constant  Global    vectors the q z ∼ π / L similar-to subscript 𝑞 𝑧 𝜋 𝐿 , where Lis the interlayer spacing, for both th
+9509/cond-mat9509101.html 5 𝐿 Variable Scalar     ctors the q z ∼ π / L similar-to subscript 𝑞 𝑧 𝜋 𝐿 , where Lis the interlayer spacing, for both the 
+9509/cond-mat9509101.html 6 𝐪 Variable Scalar     11 , 12 ] ,or a non-Fermi liquidarea formed in ( 𝐪 , ω 𝐪 𝜔 ) space near two-dimensional van-Hovesing
+9509/cond-mat9509101.html 7 𝜔 Variable Scalar     ] ,or a non-Fermi liquidarea formed in ( 𝐪 , ω 𝐪 𝜔 ) space near two-dimensional van-Hovesingularity 
+9509/cond-mat9509101.html 8 𝐻 Operator  Discipline specified     i ⁢ α ↑ ⁢ n i ⁢ α ↓ - μ ⁢ ∑ i ⁢ α n i ⁢ α ⁢ σ , 𝐻 subscript 𝑖 𝛼 𝑗 𝛽 𝜎 subscript 𝑡 𝑖 𝛼 𝑗 𝛽 superscri
+9509/cond-mat9509101.html 9 𝑖 Variable Scalar      i ⁢ α ↓ - μ ⁢ ∑ i ⁢ α n i ⁢ α ⁢ σ , 𝐻 subscript 𝑖 𝛼 𝑗 𝛽 𝜎 subscript 𝑡 𝑖 𝛼 𝑗 𝛽 superscript subscript
+9509/cond-mat9509101.html 10 𝛼 Variable Scalar      ⁢ α ↓ - μ ⁢ ∑ i ⁢ α n i ⁢ α ⁢ σ , 𝐻 subscript 𝑖 𝛼 𝑗 𝛽 𝜎 subscript 𝑡 𝑖 𝛼 𝑗 𝛽 superscript subscript 𝑐
+9509/cond-mat9509101.html 11 𝑗 Variable Scalar      α ↓ - μ ⁢ ∑ i ⁢ α n i ⁢ α ⁢ σ , 𝐻 subscript 𝑖 𝛼 𝑗 𝛽 𝜎 subscript 𝑡 𝑖 𝛼 𝑗 𝛽 superscript subscript 𝑐 𝑖
+9509/cond-mat9509101.html 12 𝛽 Variable Scalar      ↓ - μ ⁢ ∑ i ⁢ α n i ⁢ α ⁢ σ , 𝐻 subscript 𝑖 𝛼 𝑗 𝛽 𝜎 subscript 𝑡 𝑖 𝛼 𝑗 𝛽 superscript subscript 𝑐 𝑖 𝛼
+9509/cond-mat9509101.html 13 𝜎 Variable Scalar      - μ ⁢ ∑ i ⁢ α n i ⁢ α ⁢ σ , 𝐻 subscript 𝑖 𝛼 𝑗 𝛽 𝜎 subscript 𝑡 𝑖 𝛼 𝑗 𝛽 superscript subscript 𝑐 𝑖 𝛼 𝜎
+9509/cond-mat9509101.html 14 𝑡 Variable Scalar      α n i ⁢ α ⁢ σ , 𝐻 subscript 𝑖 𝛼 𝑗 𝛽 𝜎 subscript 𝑡 𝑖 𝛼 𝑗 𝛽 superscript subscript 𝑐 𝑖 𝛼 𝜎 † subscript
+9509/cond-mat9509101.html 17 𝑈 Constant  Discipline specified    U is the on-site Coulomb repulsion and µ is the chemical potential.
+9509/cond-mat9509101.html 18 𝑛 Constant  Local     n = ( 2 ⁢ n + 1 ) ⁢ π ⁢ T subscript 𝜔 𝑛 2 𝑛 1 𝜋 𝑇  with n an integer and T the system temperature.
+9509/cond-mat9509101.html 21 𝜇 Variable Scalar     U is the on-site Coulomb repulsion and µ is the chemical potential.
+9509/cond-mat9509101.html 22 𝜀 Operator  Local    hich gives the energybands ε n ⁢ ( 𝐤 ) subscript 𝜀 𝑛 𝐤 , i ⁢ ( j ) 𝑖 𝑗 are the site indices inside t
+9509/cond-mat9509101.html 23 𝐤 Variable Scalar     ng integrals which gives the energybands ε n ⁢ ( 𝐤 ) subscript 𝜀 𝑛 𝐤 , i ⁢ ( j ) 𝑖 𝑗 are the site in
+9509/cond-mat9509101.html 26 𝑘 Variable Scalar      k y - subscript 𝜀 plus-or-minus 𝐤 2 𝑡 subscript 𝑘 𝑥 subscript 𝑘 𝑦 limit-from 4 superscript 𝑡 ′ subs
+9509/cond-mat9509101.html 27 Γ Operator  Local    𝜋 ) pointsand no splitting in the direction from Γ ⁢ ( 0 , 0 ) Γ 0 0 to M( π , π 𝜋 𝜋 )
+9509/cond-mat9509101.html 29 𝐺 Operator  Local     ± ⁢ ( 𝐤 ) - μ ] - Σ ± ⁢ ( 𝐤 , ω n ) , subscript 𝐺 plus-or-minus 𝐤 subscript 𝜔 𝑛 1 𝑖 subscript 𝜔 𝑛 d
+9509/cond-mat9509101.html 30 Σ Operator  Global     ( 𝐤 , ω n ) = 1 i ⁢ ω n - [ ε ± ⁢ ( 𝐤 ) - μ ] - Σ ± ⁢ ( 𝐤 , ω n ) , subscript 𝐺 plus-or-minus 𝐤 sub
+9509/cond-mat9509101.html 31 𝑇 Variable Scalar      n = ( 2 ⁢ n + 1 ) ⁢ π ⁢ T subscript 𝜔 𝑛 2 𝑛 1 𝜋 𝑇  with n an integer and T the system temperature.
+9509/cond-mat9509101.html 32 𝑁 Variable Scalar      ω n subscript 𝑘 𝑇 2 𝑁 subscript 𝐤 subscript 𝜔 𝑛 , where N is the total number of momentum points.
+9509/cond-mat9509101.html 33 𝑉 Operator  Local     where the contribution to effective potential V±(q) =
+9509/cond-mat9509101.html 35 𝜒 Operator  Local     𝑉 𝑠 plus-or-minus 3 2 superscript 𝑈 2 subscript 𝜒 plus-or-minus 1 𝑈 subscript 𝜒 plus-or-minus subsc
+9509/cond-mat9509101.html 36 𝛿 Constant  Local    4 𝛿 0
+9509/cond-mat9509101.html 37 𝐴 Operator  Local     ⁢ I ⁢ m ⁢ ( G + ⁢ ( 𝐤 , ω ) + G - ⁢ ( 𝐤 , ω ) ) 𝐴 𝐤 𝜔 1 𝜋 𝐼 𝑚 subscript 𝐺 𝐤 𝜔 subscript 𝐺 𝐤 𝜔 forho
+9509/cond-mat9509101.html 38 𝐼 Constant  Discipline specified     ( G + ⁢ ( 𝐤 , ω ) + G - ⁢ ( 𝐤 , ω ) ) 𝐴 𝐤 𝜔 1 𝜋 𝐼 𝑚 subscript 𝐺 𝐤 𝜔 subscript 𝐺 𝐤 𝜔 forhole doping 
+9509/cond-mat9509101.html 39 𝑚 Variable Scalar      G + ⁢ ( 𝐤 , ω ) + G - ⁢ ( 𝐤 , ω ) ) 𝐴 𝐤 𝜔 1 𝜋 𝐼 𝑚 subscript 𝐺 𝐤 𝜔 subscript 𝐺 𝐤 𝜔 forhole doping δ 
+9509/cond-mat9509101.html 43 𝑀 Operator  Local     ( π / 2 , 0 ) Γ 2 𝜋 2 0 , M / 2 ≡ ( π , π / 2 ) 𝑀 2 𝜋 𝜋 2 ( δ 𝛿 =0
+9509/cond-mat9509101.html 44 𝜆 Variable Scalar     aximum eigenvalue: λ max ⁢ ( T c ) > 1 subscript 𝜆 subscript 𝑇 𝑐 1 of the following superconducting 
+9509/cond-mat9509101.html 45 𝑅 Operator  Local     ⁢ c ⁢ G - ⁢ ( k ) ⁢ G - ⁢ ( - k ) ) , subscript 𝑅 superscript 𝑘 ′ 𝑘 superscript subscript 𝑉 𝑠 𝑐 sub
+9509/cond-mat9509103.html 0 𝐸 Variable Vector      particle jumps are affected by adriving field E 𝐸 
+9509/cond-mat9509103.html 1 𝑇 Variable Scalar     ransition(at the Néel temperature, T N subscript 𝑇 𝑁 ) belonging to the Isinguniversality class
+9509/cond-mat9509103.html 3 𝑛 Variable Scalar     d by a set of occupation variables n i subscript 𝑛 𝑖 taking the values 1 or 0 if a particle is prese
+9509/cond-mat9509103.html 5 𝑐 Constant  Local    n the half-filled ( c = 1 / 2 𝑐 1 2 ) system the particles can jump to one of the
+9509/cond-mat9509103.html 6 𝑘 Constant  Local    At the level of k 𝑘 -point approximation the translation invariant st
+9509/cond-mat9509103.html 7 𝑝 Operator  Local    y the quantity p k ⁢ ( n 1 , … , n k ) subscript 𝑝 𝑘 subscript 𝑛 1 … subscript 𝑛 𝑘 which describes t
+9509/cond-mat9509103.html 9 𝑥 unit descriptor      d vertical pairs reflects the violation of x - y 𝑥 𝑦 symmetry
+9509/cond-mat9509103.html 10 𝑦 unit descriptor      vertical pairs reflects the violation of x - y 𝑥 𝑦 symmetry
+9509/cond-mat9509103.html 12 𝜉 Variable Scalar     where ξ = −1/ ln[2p(1, 0)] defines a characteristic length.
+9509/cond-mat9509106.html 2 Φ Variable Scalar      structureis penetrated by an Aharonov-Bohm flux Φ Φ and is connectedto a quantum dot
+9509/cond-mat9509106.html 3 𝐶 Variable Scalar     apacitance C μ = e ⁢ d ⁢ ⟨ Q ⟩ / d ⁢ μ subscript 𝐶 𝜇 𝑒 𝑑 delimited-⟨⟩ 𝑄 𝑑 𝜇 and theflux-induced capa
+9509/cond-mat9509106.html 4 𝜇 Variable Scalar     acitance C μ = e ⁢ d ⁢ ⟨ Q ⟩ / d ⁢ μ subscript 𝐶 𝜇 𝑒 𝑑 delimited-⟨⟩ 𝑄 𝑑 𝜇 and theflux-induced capaci
+9509/cond-mat9509106.html 8 𝐼 Operator  Local    n odd function of flux I ⁢ ( Φ ) = - I ⁢ ( - Φ ) 𝐼 Φ 𝐼 Φ 
+9509/cond-mat9509106.html 9 𝑉 Variable Scalar     xternal metallic gates at voltages V 1 subscript 𝑉 1 and V 2 subscript 𝑉 2 withcapacitance coefficie
+9509/cond-mat9509106.html 14 𝑛 Constant  Local     dot Q = ∑ n ⁢ σ d n ⁢ σ † ⁢ d n ⁢ σ 𝑄 subscript 𝑛 𝜎 subscript superscript 𝑑 † 𝑛 𝜎 subscript 𝑑 𝑛 𝜎 ,
+9509/cond-mat9509106.html 15 𝜎 Operator  Global    ot Q = ∑ n ⁢ σ d n ⁢ σ † ⁢ d n ⁢ σ 𝑄 subscript 𝑛 𝜎 subscript superscript 𝑑 † 𝑛 𝜎 subscript 𝑑 𝑛 𝜎 ,a 
+9509/cond-mat9509106.html 16 𝐻 Variable Matrix     , the Hamiltonian then reduces to a 2 × 2 matrix,
+9509/cond-mat9509106.html 18 𝑘 Constant  Local     n ⁢ d n ⁢ σ † ⁢ d n ⁢ σ subscript 𝐻 0 subscript 𝑘 𝜎 subscript italic-ϵ 𝑎 𝑘 subscript superscript 𝑐 
+9509/cond-mat9509106.html 22 𝑡 Variable Scalar     ) subscript 𝐻 𝑇 subscript 𝑘 𝑛 𝜎 subscript 𝑡 𝑘 𝑛 subscript superscript 𝑑 † 𝑛 𝜎 subscript 𝑐 𝑘 𝜎
+9509/cond-mat9509106.html 24 𝐸 Variable Scalar     urrent I = - c ⁢ d ⁢ E 0 / d ⁢ Φ 𝐼 𝑐 𝑑 subscript 𝐸 0 𝑑 Φ and the electrochemical capacitance C μ = -
+9509/cond-mat9509106.html 25 𝑤 Variable Matrix     The matrix element w 𝑤 of the kinetic energy operatorbetween nearest-nei
+9509/cond-mat9509106.html 26 Δ Operator  Global    2a,b, separated by Δ ⁢ Q 0 ∼ e similar-to Δ subscript 𝑄 0 𝑒 ,correspon
+9509/cond-mat9509106.html 28 𝑁 Variable Scalar     nity of thecharge transfer resonance N → N + 1 → 𝑁 𝑁 1 , where N is the number of electrons in the dot
+9509/cond-mat9509106.html 33 𝜋 Constant  Global     subscript 𝑡 𝐿 2 2 subscript 𝑡 𝑅 subscript 𝑡 𝐿 2 𝜋 Φ subscript Φ 0 (4) where the + sign holds for M 
+9509/cond-mat9509106.html 35 𝛿 Operator  Global    e fluctuations of the type δ ⁢ Q = ⟨ Q - N ⁢ e ⟩ 𝛿 𝑄 delimited-⟨⟩ 𝑄 𝑁 𝑒 ,which contribute to the cap
+9509/cond-mat9509106.html 36 𝜔 Variable Scalar     B-flux d ⁢ Φ ⁢ ( ω ) ⁢ exp ⁡ ( - i ⁢ ω ⁢ t ) 𝑑 Φ 𝜔 𝑖 𝜔 𝑡 superimposed on the static AB-flux,and is g
+9509/cond-mat9509107.html 0 𝛾 Variable Scalar     ystem shows two stable discommensurate phases, γ 𝛾 and β 𝛽 , very close in saturation coverages but 
+9509/cond-mat9509107.html 1 𝛽 Variable Scalar     ows two stable discommensurate phases, γ 𝛾 and β 𝛽 , very close in saturation coverages but with qui
+9509/cond-mat9509107.html 4 𝑅 Operator  Discipline specified    he fact that a commensurate 3 × 3 ⁢ R ⁢ 30 o 3 3 𝑅 superscript 30 o phase( 3 3 hereafter) is stable 
+9509/cond-mat9509107.html 6 Ω Constant  Local    he surface energy (per surface unit cell Ω Ω ) is definedas [ 13 ] E s = ( E s ⁢ l ⁢ a ⁢ b -
+9509/cond-mat9509107.html 7 𝐸 Variable Scalar      a ⁢ d ⁢ E a ⁢ d a ⁢ t ⁢ o ⁢ m ) / 2 , subscript 𝐸 𝑠 subscript 𝐸 𝑠 𝑙 𝑎 𝑏 subscript 𝑁 𝑠 𝑢 𝑏 𝑠 supersc
+9509/cond-mat9509107.html 12 𝑁 Variable Scalar       and Nsubs and Nad are the number of atoms of substrate and adsorbate species,
+9509/cond-mat9509107.html 25 𝛿 Operator  Global    of adsorbate coverage at the domainwalls δ ⁢ θ w 𝛿 subscript 𝜃 𝑤 (negative in the case of light wall
+9509/cond-mat9509107.html 26 𝜃 Variable Scalar      coverage at the domainwalls δ ⁢ θ w 𝛿 subscript 𝜃 𝑤 (negative in the case of light walls like forSi
+9509/cond-mat9509107.html 27 𝜒 Variable Scalar      𝑎 𝑟 (2) The energy of a discommensurate phase χ 𝜒 is then expressed as E s χ = E s l ⁢ o ⁢ w , χ + 
+9509/cond-mat9509107.html 28 𝜇 Variable Scalar     their internal energy perGa atom, μ Ga subscript 𝜇 Ga , can be approximated by the corresponding val
+9509/cond-mat9509107.html 31 ℰ Variable Scalar     enient to use in the diagrams the reduced energy ℰ s = E s - μ Ga b ⁢ u ⁢ l ⁢ k ⁢ θ Ga 
+9509/cond-mat9509127.html 0 𝜈 Variable Scalar     the rotation, 200 cm - 1 1 for the ν 2 subscript 𝜈 2 mode), whereas both motions are non-trivially m
+9509/cond-mat9509127.html 4 𝐻 Variable Scalar     c rotor [10] ( H o = B ⁢ l 2 - D ⁢ l 4 subscript 𝐻 o 𝐵 superscript 𝑙 2 𝐷 superscript 𝑙 4 , l 𝑙 being
+9509/cond-mat9509127.html 7 𝑙 Variable Vector      = B ⁢ l 2 - D ⁢ l 4 subscript 𝐻 o 𝐵 superscript 𝑙 2 𝐷 superscript 𝑙 4 , l 𝑙 being the angular momentum
+9509/cond-mat9509127.html 10 𝐴 Variable Scalar      ′ = ( A / 2 ) ⁢ cos ⁡ ( 6 ⁢ ϕ ) superscript 𝐻 ′ 𝐴 2 6 italic-ϕ with an amplitude A ≈ 0.6 meV.
+9509/cond-mat9509127.html 12 𝑟 Variable Scalar     s the oxygen distance to BC around rO = 0.58 ˚A
+9509/cond-mat9509127.html 14 𝜔 Variable Scalar    superscript 𝜔 2 [10] in thehindered rotor model gives a value for ω of the magnitude of the frequency
+9509/cond-mat9509127.html 15 𝑢 Operator  Discipline specified    ns, ⟨ u i ⁢ u j ⟩ ⁢ ( ω ) delimited-⟨⟩ subscript 𝑢 𝑖 subscript 𝑢 𝑗 𝜔 of oxygen and neighboring germa
+9509/cond-mat9509130.html 2 𝐸 Variable Scalar     w that, as the Fermi level E c + δ ⁢ E subscript 𝐸 𝑐 𝛿 𝐸 approaches the center of the band, E c subs
+9509/cond-mat9509130.html 4 𝛿 Operator  Global    at, as the Fermi level E c + δ ⁢ E subscript 𝐸 𝑐 𝛿 𝐸 approaches the center of the band, E c subscrip
+9509/cond-mat9509130.html 5 𝜁 Variable Scalar     and, E c subscript 𝐸 𝑐 , the correlationlength ζ 𝜁 diverges: ζ ∝ | δ ⁢ E | - ν q proportional-to 𝜁 s
+9509/cond-mat9509130.html 6 𝜈 Constant  Local     ν q proportional-to 𝜁 superscript 𝛿 𝐸 subscript 𝜈 𝑞 , where ν q ≈ 7 / 3 subscript 𝜈 𝑞 7 3 
+9509/cond-mat9509130.html 8 𝐵 Variable Vector     In a strong magnetic field B 𝐵 , eigenstates are confinedto equal-energy contour
+9509/cond-mat9509130.html 9 𝑙 Variable Scalar     c length l B = ( ℏ ⁢ c / e ⁢ B ) 1 / 2 subscript 𝑙 𝐵 superscript Planck-constant-over-2-pi 𝑐 𝑒 𝐵 1 2
+9509/cond-mat9509130.html 10 𝑒 Constant  Global    ript 𝑙 𝐵 superscript Planck-constant-over-2-pi 𝑐 𝑒 𝐵 1 2 
+9509/cond-mat9509130.html 11 𝑉 Variable Scalar      generic random, symmetric potential V ⁢ ( r → ) 𝑉 → 𝑟 with characteristiclength [ 2 ] λ 0 subscript
+9509/cond-mat9509130.html 13 𝑟 Variable Vector     eric random, symmetric potential V ⁢ ( r → ) 𝑉 → 𝑟 with characteristiclength [ 2 ] λ 0 subscript 𝜆 0
+9509/cond-mat9509130.html 14 𝜆 Variable Scalar      𝑟 with characteristiclength [ 2 ] λ 0 subscript 𝜆 0 , each of these equipotentials,for energies not
+9509/cond-mat9509130.html 15 𝐿 Variable Scalar     dimensional wave-functionson a strip of length L 𝐿 and width M 𝑀 lattice constants a 𝑎 
+9509/cond-mat9509130.html 16 𝑀 Variable Scalar     ve-functionson a strip of length L 𝐿 and width M 𝑀 lattice constants a 𝑎 
+9509/cond-mat9509130.html 17 𝐻 Variable Scalar     } 𝐻 subscript 𝑖 subscript 𝑉 𝑖 ket 𝑖 bra 𝑖 subscript 𝑖
+9509/cond-mat9509130.html 20 𝑡 Variable Matrix      and the hopping matrix elements tij vanish except for nearest neighbors
+9509/cond-mat9509130.html 22 𝜃 Operator  Local     ⁢ θ ⁢ ( i - M / 2 ) subscript 𝐵 𝑖 subscript 𝐵 0 𝜃 𝑀 2 𝑖 subscript 𝐵 0 𝜃 𝑖 𝑀 2 ,random potential V 𝑉
+9509/cond-mat9509130.html 23 𝑊 Variable Scalar      𝑉 is chosen on the interval [ - W / 2 , W / 2 ] 𝑊 2 𝑊 2 
+9509/cond-mat9509130.html 24 𝑦 unit descriptor      so allowed our edgesto meander randomly in the y 𝑦 direction, and theirtransverse separation to fluc
+9509/cond-mat9509130.html 25 𝑆 Variable Scalar     ce of the longitudinallocalization length upon S 𝑆 , the width of the stripesin units of the lattice
+9509/cond-mat9509130.html 26 𝜋 Constant  Global    or B 0 = π / 4 subscript 𝐵 0 𝜋 4 , this mobility edge disappearsas indicated by 
+9509/cond-mat9509130.html 28 𝛼 Constant  Local     M α proportional-to subscript 𝜆 𝑀 superscript 𝑀 𝛼 with α ≃ 2 similar-to-or-equals 𝛼 2 ;however, we 
+9509/cond-mat9509130.html 29 Λ Variable Scalar     where Λ represents a length scale determined by properties of the bulk.
+9509/cond-mat9509130.html 30 ℓ Variable Scalar     f the typical island size ℓ ℓ is ℓ ≫ S much-greater-than ℓ 𝑆 , then we expect
+9509/cond-mat9509130.html 31 Δ Variable Scalar     When the disorder is small enough, W ≪ Δ much-less-than 𝑊 Δ , Δ Δ the gap between magnetic
+9509/cond-mat9509130.html 32 𝜎 Operator  Global     order to maintain a vanishing σ x ⁢ y subscript 𝜎 𝑥 𝑦 , they stipulated that each node describe equ
+9509/cond-mat9509130.html 34 𝑠 Variable Scalar      1 subscript 𝜃 2 with sinh ⁡ ( θ ) = s , 1 / s 𝜃 𝑠 1 𝑠 on the alternate sublattices [ 12 ] showdecre
+9509/cond-mat9509137.html 1 𝐼 Variable Scalar     he tunneling current I 𝐼 is determined by the transparency of thethick emi
+9509/cond-mat9509137.html 2 𝜈 Variable Scalar     ell as by the local tunnelingdensity of states ν 𝜈 in the emitter at the position of thespectrometer
+9509/cond-mat9509137.html 3 𝑉 Variable Scalar     As a bias voltage V 𝑉 is applied,the spectrometer scans the LDOS below 
+9509/cond-mat9509137.html 4 𝛿 Operator  Discipline specified    LDOS fluctuations, δ ⁢ I ∝ δ ⁢ ν proportional-to 𝛿 𝐼 𝛿 𝜈 ,since the emitter-barrier transparency is 
+9509/cond-mat9509137.html 6 𝜇 unit descriptor      e was used with an ac excitation voltage of 15 μ 𝜇 V amplitude and13 Hz frequency superimposed on th
+9509/cond-mat9509137.html 7 𝑇 Variable Scalar      ) 𝐼 𝑉 measured atthe base temperature of T ≈ 30 𝑇 30 mK of the dilution refrigerator
+9509/cond-mat9509137.html 8 𝐸 Variable Scalar     es the electrochemical potential μ E subscript 𝜇 𝐸 in the emitter contact, see sketch on top of Fig
+9509/cond-mat9509137.html 9 𝛼 Constant  Local    rgy scale by E = α ⁢ e ⁢ V + c ⁢ o ⁢ n ⁢ s ⁢ t 𝐸 𝛼 𝑒 𝑉 𝑐 𝑜 𝑛 𝑠 𝑡 with α ≈ 0
+9509/cond-mat9509137.html 10 𝑒 unit descriptor      y scale by E = α ⁢ e ⁢ V + c ⁢ o ⁢ n ⁢ s ⁢ t 𝐸 𝛼 𝑒 𝑉 𝑐 𝑜 𝑛 𝑠 𝑡 with α ≈ 0
+9509/cond-mat9509137.html 15 𝐺 Variable Scalar     asureddifferential conductance G = d ⁢ I / d ⁢ V 𝐺 𝑑 𝐼 𝑑 𝑉 plotted inFig
+9509/cond-mat9509137.html 16 𝑑 Operator  Global    ureddifferential conductance G = d ⁢ I / d ⁢ V 𝐺 𝑑 𝐼 𝑑 𝑉 plotted inFig
+9509/cond-mat9509137.html 17 𝐵 Variable Vector     both the bias voltage V 𝑉 and a magnetic field B 𝐵 parallel to the current flow
+9509/cond-mat9509137.html 18 𝑟 Variable Scalar     higher fieldsyield a radius of r ∼ 10 similar-to 𝑟 10 nm for the energetically-lowest state(in analo
+9509/cond-mat9509137.html 19 𝛾 Variable Scalar     is deduced from the width of the first conductance resonance as γ ≈ 0.2 meV
+9509/cond-mat9509137.html 20 𝐾 Operator  Local    / var B ⁢ G ⟩ V subscript delimited-⟨⟩ subscript 𝐾 Δ 𝐵 𝑉 subscript delimited-⟨⟩ subscript delimited-
+9509/cond-mat9509137.html 21 Δ Operator  Discipline specified    3 (a) represents the autocorrelationfunction ⟨ K Δ ⁢ B ⟩ V = ⟨ ⟨ δ ⁢ G ⁢ ( B ) ⁢ δ ⁢ G ⁢ ( B + Δ ⁢ B
+9509/cond-mat9509137.html 24 𝜃 Variable Scalar      independent of the magnetic-field orientation θ 𝜃 with respect to the direction of the current
+9509/cond-mat9509137.html 25 𝑓 Operator  Local    subscript delimited-⟨⟩ subscript 𝑆 𝐵 𝑉 subscript 𝑓 𝐵 subscript 𝐵 𝑐 yieldsagain B c ≈ 0
+9509/cond-mat9509137.html 28 𝜏 Variable Vector     milar-to subscript 𝐸 𝑐 Planck-constant-over-2-pi 𝜏 Planck-constant-over-2-pi 𝑣 𝑙 with τ 𝜏 the moment
+9509/cond-mat9509137.html 29 𝑣 Variable Vector     𝜏 Planck-constant-over-2-pi 𝑣 𝑙 with τ 𝜏 the momentumrelaxation time and v 𝑣 the Fermi velocity.
+9509/cond-mat9509137.html 30 𝜆 Variable Scalar     / l ) 2 similar-to 𝜈 superscript 𝜈 2 superscript 𝜆 𝑙 2 with λ 𝜆 being the Fermi wavelength
+9509/cond-mat9509137.html 31 𝜔 Constant  Discipline specified    rons in the doped contact, ω c ⁢ τ ≤ 1 subscript 𝜔 𝑐 𝜏 1 
+9509/cond-mat9509140.html 0 𝑇 Variable Scalar     temperature region below the transition into disorder at T c ⁢ 1 subscript 𝑇 𝑐 1 
+9509/cond-mat9509140.html 2 𝐻 Variable Scalar     g Hamiltonian: H = K ⁢ ∑ ⟨ i , j ⟩ δ s i , s j , 𝐻 𝐾 subscript 𝑖 𝑗 subscript 𝛿 subscript 𝑠 𝑖 subscri
+9509/cond-mat9509140.html 3 𝐾 Constant  Local    K = J/kBT is a dimensionless coupling constant.
+9509/cond-mat9509140.html 4 𝑖 Constant  Local     H = K ⁢ ∑ ⟨ i , j ⟩ δ s i , s j , 𝐻 𝐾 subscript 𝑖 𝑗 subscript 𝛿 subscript 𝑠 𝑖 subscript 𝑠 𝑗 ( 1 ) 1
+9509/cond-mat9509140.html 5 𝑗 Constant  Local     = K ⁢ ∑ ⟨ i , j ⟩ δ s i , s j , 𝐻 𝐾 subscript 𝑖 𝑗 subscript 𝛿 subscript 𝑠 𝑖 subscript 𝑠 𝑗 ( 1 ) 1 w
+9509/cond-mat9509140.html 6 𝛿 Operator  Discipline specified      and δ is the Kronecker delta
+9509/cond-mat9509140.html 7 𝑠 Variable Scalar      , s j , 𝐻 𝐾 subscript 𝑖 𝑗 subscript 𝛿 subscript 𝑠 𝑖 subscript 𝑠 𝑗 ( 1 ) 1 where the spins take on t
+9509/cond-mat9509140.html 9 𝑞 Variable Scalar     e values s i = 1 , 2 , … , q subscript 𝑠 𝑖 1 2 … 𝑞 , the sum is overnearest neighbor pairs on sites 
+9509/cond-mat9509140.html 10 𝑎 Variable Scalar     e lattice can be split up into two sublattices a 𝑎 and b 𝑏 , such that allnearest neighbors of any s
+9509/cond-mat9509140.html 11 𝑏 Variable Scalar     e can be split up into two sublattices a 𝑎 and b 𝑏 , such that allnearest neighbors of any site belo
+9509/cond-mat9509140.html 12 𝐽 Variable Scalar     K = J / k B ⁢ T 𝐾 𝐽 subscript 𝑘 𝐵 𝑇 is a dimensionless coupling const
+9509/cond-mat9509140.html 13 𝑘 Constant  Discipline specified     K = J / k B ⁢ T 𝐾 𝐽 subscript 𝑘 𝐵 𝑇 is a dimensionless coupling constant
+9509/cond-mat9509140.html 15 𝐿 Variable Scalar      and L is the linear system size.
+9509/cond-mat9509140.html 16 𝑀 Variable Vector      p 2 j - p 3 j | + | p 3 j - p 1 j | ) subscript 𝑀 𝑗 1 2 superscript subscript 𝑝 1 𝑗 superscript sub
+9509/cond-mat9509140.html 18 Δ Operator  Global    itz [ 7 ] to obtain thedifference in free energy Δ ⁢ F Δ 𝐹 betweenstates of M = 0 𝑀 0 and values of 
+9509/cond-mat9509140.html 19 𝐹 Variable Scalar     ] to obtain thedifference in free energy Δ ⁢ F Δ 𝐹 betweenstates of M = 0 𝑀 0 and values of ± M plus
+9509/cond-mat9509140.html 20 𝜉 Operator  Local    meters ξ 1 = 3 2 ⁢ ( c 3 b - c 3 a ) , subscript 𝜉 1 3 2 superscript subscript 𝑐 3 𝑏 superscript sub
+9509/cond-mat9509140.html 21 italic-ϕ Operator  Local    Target variable not found in this file
+9509/cond-mat9509140.html 23 𝑛 Constant  Local    ξ 2 / ξ 1 ) = n ⁢ π / 3 italic-ϕ 𝑡 𝑎 superscript 𝑛 1 subscript 𝜉 2 subscript 𝜉 1 𝑛 𝜋 3 , while PSS s
+9509/cond-mat9509140.html 24 𝜋 Constant  Global     𝑎 superscript 𝑛 1 subscript 𝜉 2 subscript 𝜉 1 𝑛 𝜋 3 , while PSS states are at ϕ = ( 2 ⁢ n + 1 ) ⁢ π
+9509/cond-mat9509146.html 0 𝑃 Operator  Local    e level spacing distribution functions P ⁢ ( s ) 𝑃 𝑠 ’sare found to be independent of thesystem size
+9509/cond-mat9509146.html 1 𝑠 Variable Scalar     level spacing distribution functions P ⁢ ( s ) 𝑃 𝑠 ’sare found to be independent of thesystem size o
+9509/cond-mat9509146.html 2 𝜈 Constant  Discipline specified    e-independent [ 2 ] ,and the critical exponent ν 𝜈 for the localization length can be extracted from
+9509/cond-mat9509146.html 3 𝐵 Constant  Local     with A and B determined by the normalization condition,
+9509/cond-mat9509146.html 4 𝛾 Operator  Local    B ⁢ s 2 - γ ) , similar-to 𝑃 𝑠 𝐵 superscript 𝑠 2 𝛾 (1) with γ = 1 - 1 / d ⁢ ν 𝛾 1 1 𝑑 𝜈 , d 𝑑 being 
+9509/cond-mat9509146.html 5 𝑑 Operator  Global    perscript 𝑠 2 𝛾 (1) with γ = 1 - 1 / d ⁢ ν 𝛾 1 1 𝑑 𝜈 , d 𝑑 being the dimensionality of the system
+9509/cond-mat9509146.html 6 𝐴 Constant  Local      with A and B determined by the normalization condition,
+9509/cond-mat9509146.html 7 𝛽 Variable Scalar      , and β by the symmetry of the system.
+9509/cond-mat9509146.html 8 𝜅 Constant  Discipline specified     ⁢ ( s ) ∝ exp ⁡ ( - κ ⁢ s ) proportional-to 𝑃 𝑠 𝜅 𝑠 in large s 𝑠 limit, with κ < 1 𝜅 1 
+9509/cond-mat9509146.html 9 𝐸 Variable Scalar      localization lengthas 1 / | E | ν 1 superscript 𝐸 𝜈 , E 𝐸 being the energy measured from theLandau 
+9509/cond-mat9509146.html 10 𝛿 Operator  Global    The disordered potential is assumed to be δ 𝛿 -correlated
+9509/cond-mat9509146.html 11 𝜋 Constant  Global     varied from200 to 800 in units of 2 ⁢ π ⁢ ℓ 2 2 𝜋 superscript ℓ 2 with ℓ ℓ the magnetic length
+9509/cond-mat9509146.html 12 ℓ Variable Scalar     ple is varied from200 to 800 in units of 2 ⁢ π ⁢ ℓ 2 2 𝜋 superscript ℓ 2 with ℓ ℓ the magnetic length
+9509/cond-mat9509146.html 13 𝑉 Operator  Discipline specified    tio between the spin flip transfer V 2 subscript 𝑉 2 and the total transfer V = V 1 2 + V 2 2 𝑉 supe
+9509/cond-mat9509146.html 14 𝑊 Constant  Local     and the critical disorder W c subscript 𝑊 c is found to be 5.75V and 6.7V for box distribution
+9509/cond-mat9509148.html 0 𝐺 Variable Scalar      ensemble averaged conductance < G > expectation 𝐺 of small structures ofdimensions of order 10- 20 
+9509/cond-mat9509148.html 3 𝐿 Variable Scalar     or a diffusive system of size L 𝐿 , with diffusion coefficient D 𝐷 ,early theoretic
+9509/cond-mat9509148.html 4 𝐷 Constant  Local    ystem of size L 𝐿 , with diffusion coefficient D 𝐷 ,early theoretical work [ 20 ] , [ 21 ] predicted
+9509/cond-mat9509148.html 5 𝑇 Variable Scalar     dicted thatin the high temperature limit T > T * 𝑇 superscript 𝑇 , where k B ⁢ T * = h ⁢ D / L 2 sub
+9509/cond-mat9509148.html 6 𝑘 Constant  Discipline specified    ript 𝑇 , where k B ⁢ T * = h ⁢ D / L 2 subscript 𝑘 𝐵 superscript 𝑇 ℎ 𝐷 superscript 𝐿 2 , the ensembl
+9509/cond-mat9509148.html 8 ℎ Constant  Discipline specified     ⁢ T * = h ⁢ D / L 2 subscript 𝑘 𝐵 superscript 𝑇 ℎ 𝐷 superscript 𝐿 2 , the ensemble averaged conduct
+9509/cond-mat9509148.html 9 𝜋 Constant  Global    nction of ϕ italic-ϕ , with fundamental period π 𝜋 ,whereas in the low temperature regime T < T * 𝑇 
+9509/cond-mat9509148.html 10 𝑒 Constant  Discipline specified    tance much larger than 2 ⁢ e 2 / h 2 superscript 𝑒 2 ℎ , canbe neglected
+9509/cond-mat9509148.html 12 𝑔 Operator  Local    ion for the quasi-classical Green function g ^ ^ 𝑔 in the diffusivelimit D ⁢ ∂ r ⁡ ( g ^ ⁢ ∂ r ⁡ g ^
+9509/cond-mat9509148.html 15 𝐸 Variable Scalar      𝑟 ^ 𝑔 italic-ı 𝐸 subscript ^ 𝜏 𝑧 ^ 𝑔 0 ,where E is the quasi-particle excitation energy
+9509/cond-mat9509148.html 16 𝜏 Variable Matrix     ipt 𝑟 ^ 𝑔 subscript 𝑟 ^ 𝑔 italic-ı 𝐸 subscript ^ 𝜏 𝑧 ^ 𝑔 0 ,where E 𝐸 is the quasi-particle excitati
+9509/cond-mat9509148.html 18 𝜉 Variable Scalar      satisfy the inequalities L ≪ ξ much-less-than 𝐿 𝜉 ,where ξ 2 = D / Δ 0 superscript 𝜉 2 𝐷 subscript 
+9509/cond-mat9509148.html 20 𝑉 Variable Scalar      0 subscript Δ 0 the energy gapand E = e ⁢ V 𝐸 𝑒 𝑉 , where V 𝑉 isthe applied voltage
+9509/cond-mat9509148.html 27 𝜃 Variable Scalar      , 1 𝐺 1 subscript 𝐺 𝑑 𝑖 𝑓 𝑓 1 subscript 𝐺 𝑡 𝑢 𝑛 𝜃 (1) where θ 𝜃 is a solution of the transcendental
+9509/cond-mat9509148.html 29 𝑅 Variable Scalar     ieldthe resistance R t ⁢ o ⁢ t = 1 / G subscript 𝑅 𝑡 𝑜 𝑡 1 𝐺 of the system as afunction of G d ⁢ i ⁢
+9509/cond-mat9509148.html 33 𝑁 Constant  Local    ecting the reservoirs to the scatterercontains N 𝑁 open channels,these satisfy R 0 + T 0 + R a + T a
+9509/cond-mat9509148.html 34 𝐻 Variable Scalar     𝐻 subscript 𝐻 0 Δ superscript Δ superscript subscri
+9509/cond-mat9509148.html 36 𝑚 Constant  Local    ϵ 𝑛 ket 𝑛 quantum-operator-product 𝑛 subscript 𝑛 𝑚 subscript 𝑉 𝑛 𝑚 𝑛 bra 𝑚 (11) To model a given phy
+9509/cond-mat9509148.html 37 𝛾 Constant  Local    field, one chooses V n , m = - γ subscript 𝑉 𝑛 𝑚 𝛾 fornearest neighbour pairs ( n , m ) 𝑛 𝑚 
+9509/cond-mat9509148.html 38 𝑊 Constant  Local    distributed between ϵ 0 - W subscript italic-ϵ 0 𝑊 and ϵ 0 + W subscript italic-ϵ 0 𝑊 
+9509/cond-mat9509148.html 39 𝜇 Variable Scalar     lative to the band bottom is μ = ϵ 0 + 2 ⁢ d ⁢ γ 𝜇 subscript italic-ϵ 0 2 𝑑 𝛾 ,the bandwidth is 4 ⁢ 
+9509/cond-mat9509148.html 42 𝑀 Variable Scalar     t 𝐸 , which for a diffusive structure of width M 𝑀 ,length L d ⁢ i ⁢ f ⁢ f subscript 𝐿 𝑑 𝑖 𝑓 𝑓 and n
+9509/cond-mat9509148.html 43 𝑙 Variable Scalar     eter is the normal-state,elastic mean-freepath l 𝑙 , which for a diffusive sample connected to exter
+9509/cond-mat9509148.html 46 𝛿 Operator  Global    𝑓 and the standard deviation δ ⁢ G d ⁢ i ⁢ f ⁢ f 𝛿 subscript 𝐺 𝑑 𝑖 𝑓 𝑓 were calculated
+9509/cond-mat9509148.html 48 𝜎 Variable Scalar      = ⟨ ( G ⁢ ( Δ 0 ) - ⟨ G ⁢ ( Δ 0 ) ⟩ ) 2 ⟩ 1 / 2 𝜎 superscript delimited-⟨⟩ superscript 𝐺 subscript 

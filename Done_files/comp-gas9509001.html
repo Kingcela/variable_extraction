@@ -1,0 +1,1757 @@
+<!DOCTYPE html><html>
+<head>
+<title>CAM-8: a computer architecture based on cellular automataThis research was supported by the Advanced Research Projects Agency, grant N0014-89-J-1988.</title>
+<!--Generated on Sat Jul  6 13:17:18 2019 by LaTeXML (version 0.8.4) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on December 15, 1993.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document ltx_authors_1line">
+<h1 class="ltx_title ltx_title_document">CAM-8: a computer architecture based on cellular automata<span id="id1" class="ltx_note ltx_role_thanks"><sup class="ltx_note_mark">†</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">†</sup><span class="ltx_note_type">thanks: </span>This research was supported by the Advanced
+Research Projects Agency, grant N0014-89-J-1988.</span></span></span>
+</h1>
+<div class="ltx_authors">
+<span class="ltx_creator ltx_role_author">
+<span class="ltx_personname">Norman Margolus
+
+<br class="ltx_break">MIT Laboratory For Computer Science
+
+<br class="ltx_break">Cambridge Massachusetts 02139
+</span></span>
+</div>
+<div class="ltx_date ltx_role_creation">December 15, 1993</div>
+
+<div class="ltx_abstract">
+<h6 class="ltx_title ltx_title_abstract">Abstract</h6>
+<p id="id2" class="ltx_p">The maximum computational density allowed by the laws of physics is
+available only in a format that mimics the basic spatial locality of
+physical law. Fine-grained uniform computations with this kind of
+local interconnectivity (Cellular Automata) are particularly good
+candidates for efficient and massive micro-physical implementation.</p>
+<p id="id3" class="ltx_p">Conventional computers are ill suited to run CA models, and so
+discourage their development. Nevertheless, we have recently seen
+examples of interesting physical systems for which the best
+computational models are cellular automata running on ordinary
+computers. By simply rearranging the same quantity and quality of
+hardware as one might find in a low-end workstation today, we have
+made a low-cost CA multiprocessor that is about as good at large CA
+calculations as any existing supercomputer. This machine’s
+architecture is scalable in size (and performance) by orders of
+magnitude, since its 3D spatial mesh organization is indefinitely
+extendable.</p>
+<p id="id4" class="ltx_p">Using a relatively small degree of parallelism, such machines make
+possible a level of performance at CA calculations much superior to
+that of existing supercomputers, but vastly inferior to what a fully
+parallel CA machine could achieve. By creating an intermediate
+hardware platform that makes a broad range of new CA algorithms
+practical for real applications, we hope to whet the appetite of
+researchers for the astronomical computing power that can be harnessed
+in microphysics in a CA format.</p>
+</div>
+<section id="S1" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">1 </span>Introduction</h2>
+
+<div id="S1.p1" class="ltx_para">
+<p id="S1.p1.1" class="ltx_p">Within the Information Mechanics Group at the MIT Laboratory for
+Computer Science, a primary focus of our research has been on the
+question: “How can computations and computers best be adapted to the
+constraints and opportunities afforded by microscopic physics?” This
+has led us to study spatially organized computations, since the
+maximum computational density allowed by the laws of physics is
+available only in a format that mimics the basic spatial locality of
+physical law. Fine-grained uniform computations with this kind of
+local interconnectivity (Cellular Automata) are particularly good
+candidates for efficient and massive micro-physical implementation.</p>
+</div>
+<div id="S1.p2" class="ltx_para">
+<p id="S1.p2.1" class="ltx_p">We have been involved for over a decade in the design and use of
+machines optimized for studying Cellular Automata (CA) computations
+<cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib42" title="" class="ltx_ref">42</a>, <a href="#bib.bib23" title="" class="ltx_ref">23</a>, <a href="#bib.bib30" title="" class="ltx_ref">30</a>, <a href="#bib.bib46" title="" class="ltx_ref">46</a>, <a href="#bib.bib28" title="" class="ltx_ref">28</a>]</cite>. This
+involvement began in response to our need for more powerful CA
+simulation tools—suitable for investigating the large-scale behavior
+of CA systems. Using our early CA machines (<span id="S1.p2.1.1" class="ltx_text ltx_font_smallcaps">cam</span>s) we developed a
+number of new CA models and modeling techniques for physics and for
+spatially-structured computation <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib46" title="" class="ltx_ref">46</a>]</cite>. Eventually we
+“published” a commercial version of our CA machines, along with a
+collection of models as software examples <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib46" title="" class="ltx_ref">46</a>, <a href="#bib.bib24" title="" class="ltx_ref">24</a>]</cite>.</p>
+</div>
+<div id="S1.p3" class="ltx_para">
+<p id="S1.p3.1" class="ltx_p">Some of our earliest models were reversible <span id="S1.p3.1.1" class="ltx_text ltx_font_italic">lattice gases</span> that
+simulated a billiard-ball computer <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib23" title="" class="ltx_ref">23</a>]</cite>. It was a
+natural step to use these and related lattice gases to try to simulate
+fluid flow <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib43" title="" class="ltx_ref">43</a>]</cite>. Although only the linear hydrodynamics worked
+correctly (see Figure <a href="#S3.F7" title="Figure 7 ‣ 3.4 Spacetime circuitry ‣ 3 Applications ‣ CAM-8: a computer architecture based on cellular automataThis research was supported by the Advanced Research Projects Agency, grant N0014-89-J-1988." class="ltx_ref"><span class="ltx_text ltx_ref_tag">7</span></a>), our <span id="S1.p3.1.2" class="ltx_text ltx_font_smallcaps">cam</span> simulations made
+Pomeau and others realize that lattice gases were not just conceptual
+models, but might be turned into powerful computational tools (cf. the seminal “FHP” lattice-gas paper <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib12" title="" class="ltx_ref">12</a>]</cite>, and our companion
+paper <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib30" title="" class="ltx_ref">30</a>]</cite>).</p>
+</div>
+<div id="S1.p4" class="ltx_para">
+<p id="S1.p4.1" class="ltx_p">The design of our latest CA machine, <span id="S1.p4.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8, builds upon our
+accumulated experience with previous cellular automata machine
+designs, and represents both a conceptual and practical breakthrough
+in our understanding of how to efficiently simulate CA systems
+<cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib27" title="" class="ltx_ref">27</a>, <a href="#bib.bib28" title="" class="ltx_ref">28</a>]</cite>. This new machine is an indefinitely
+scalable three-dimensional mesh-network multiprocessor optimized for
+large inexpensive simulations, rather than for ultimate performance.
+Our small-scale prototype—with an amount and kind of hardware
+comparable to that in a low-end workstation—already performs a wide
+range of CA simulations at speeds comparable to the best numbers
+reported for any
+supercomputer <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib3" title="" class="ltx_ref">3</a>, <a href="#bib.bib18" title="" class="ltx_ref">18</a>, <a href="#bib.bib31" title="" class="ltx_ref">31</a>, <a href="#bib.bib53" title="" class="ltx_ref">53</a>]</cite>. Machines
+orders of magnitude bigger and proportionately faster can be built
+immediately.</p>
+</div>
+<div id="S1.p5" class="ltx_para">
+<p id="S1.p5.1" class="ltx_p">Most of the current exploration of cellular automata as computational
+models for science is being done using machines which were designed
+for very different purposes. Such experimentation doesn’t make
+apparent the tremendous computational power that is potentially
+available to models tailored for uniform arrays of simple processors.
+Nevertheless, we already have seen examples of interesting physical
+systems for which the best computational models are cellular automata
+running on ordinary computers
+(cf. <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib17" title="" class="ltx_ref">17</a>, <a href="#bib.bib35" title="" class="ltx_ref">35</a>, <a href="#bib.bib36" title="" class="ltx_ref">36</a>]</cite>). <span id="S1.p5.1.1" class="ltx_text ltx_font_smallcaps">Cam</span>-8—using a
+relatively small degree of parallelism—makes possible a level of
+performance at CA calculations much superior to that of existing
+supercomputers, but vastly inferior to what a fully parallel CA
+machine could achieve. By creating an intermediate hardware platform
+that makes a broad range of new CA algorithms practical for real
+applications, we hope to whet the appetite of researchers for the
+astronomical computing power that can be harnessed in microphysics in
+a CA format.
+</p>
+</div>
+</section>
+<section id="S2" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">2 </span>An architecture based on cellular automata</h2>
+
+<figure id="S2.F1" class="ltx_figure">
+<table id="S2.Ex1" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S2.Ex1.m1.1" class="ltx_Math" alttext="\hfill\psfig{height=144.54pt}\hfill" display="block"><semantics id="S2.Ex1.m1.1a"><mtext mathcolor="red" id="S2.Ex1.m1.1.2" xref="S2.Ex1.m1.1.2b.cmml"><img src="x1.png" id="S2.Ex1.m1.1.2.g1nest" class="ltx_graphics" width="485" height="225" alt=""></mtext><annotation-xml encoding="MathML-Content" id="S2.Ex1.m1.1b"><ci id="S2.Ex1.m1.1.2b.cmml" xref="S2.Ex1.m1.1.2"><mtext mathcolor="red" id="S2.Ex1.m1.1.2.cmml" xref="S2.Ex1.m1.1.2"><img src="x1.png" id="S2.Ex1.m1.1.2.g1anest" class="ltx_graphics" width="485" height="225" alt=""></mtext></ci></annotation-xml><annotation encoding="application/x-tex" id="S2.Ex1.m1.1c">\hfill\psfig{height=144.54pt}\hfill</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<figcaption class="ltx_caption"><span class="ltx_tag ltx_tag_figure">Figure 1: </span><span id="S2.F1.6" class="ltx_text ltx_font_smallcaps">Cam</span>-8 system diagram. (a) A single processing node, with <span id="S2.F1.7" class="ltx_text ltx_font_smallcaps">dram</span>
+site data flowing through an <span id="S2.F1.8" class="ltx_text ltx_font_smallcaps">sram</span> lookup table and back into <span id="S2.F1.9" class="ltx_text ltx_font_smallcaps">dram</span>.
+(b) Spatial array of <span id="S2.F1.10" class="ltx_text ltx_font_smallcaps">cam</span>-8 nodes, with nearest-neighbor (mesh)
+interconnect (one wire per bit-slice in each direction).</figcaption>
+</figure>
+<div id="S2.p1" class="ltx_para ltx_noindent">
+<p id="S2.p1.1" class="ltx_p">In nature, we have a uniform and local law in the world that is
+operating everywhere in parallel. A CA model is a synchronous digital
+analog of such a law. As a basis for a computer architecture, CA’s
+have the advantage that there can be a direct mapping between the
+computation and its physical implementation: a small region of the
+computer can implement a small region of the CA space, and adjacent
+regions of physical space can implement adjacent regions of the CA
+space. Thus locality is preserved, and very efficient realizations
+are in principle possible. This efficiency, however, comes at the
+cost of requiring that all models run on the machine must be spatially
+organized. Thus the unavoidable problem of ultimately making your
+computation fit into a uniform and local physical world is shifted
+into the software domain: you must directly embed your software
+problems into a uniform and local spatial matrix.</p>
+</div>
+<div id="S2.p2" class="ltx_para">
+<p id="S2.p2.1" class="ltx_p"><span id="S2.p2.1.1" class="ltx_text ltx_font_smallcaps">Cam</span>-8 is a parallel computer built on this spatial paradigm. For
+technological convenience, it time-shares individual processors over
+“chunks” of space—and also time-shares the wires connecting each
+processor with its neighboring processors. The time-sharing of
+communication resources reduces the number of interprocessor wires
+dramatically and thus allows the scalability that is inherent in the
+CA paradigm to be practically achieved using current technology, even
+in three dimensions. The time-sharing of processors allows a highly
+efficient “assembly-line” processing of spatial data, in which
+exactly the same operations are repeated for every spatial site in a
+predetermined order.</p>
+</div>
+<div id="S2.p3" class="ltx_para">
+<p id="S2.p3.1" class="ltx_p">From the viewpoint of the programmer, this <span id="S2.p3.1.1" class="ltx_text ltx_font_italic">virtualization</span> of
+the spatial sites is not apparent: you simply program the local
+dynamics in a uniform CA space.</p>
+</div>
+<section id="S2.SS1" class="ltx_subsection">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">2.1 </span>System overview</h3>
+
+<div id="S2.SS1.p1" class="ltx_para">
+<p id="S2.SS1.p1.1" class="ltx_p">Figure <a href="#S2.F1" title="Figure 1 ‣ 2 An architecture based on cellular automata ‣ CAM-8: a computer architecture based on cellular automataThis research was supported by the Advanced Research Projects Agency, grant N0014-89-J-1988." class="ltx_ref"><span class="ltx_text ltx_ref_tag">1</span></a> is a schematic diagram of a <span id="S2.SS1.p1.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8 system. On
+the left is a single hardware module—the elementary “chunk” of the
+architecture. On the right is an indefinitely extendable array of
+modules (drawn for convenience as two-dimensional, the array is
+normally three-dimensional). A uniform spatial calculation is divided
+up evenly among these modules, with each module simulating a volume of
+up to millions of fine-grained spatial sites in a sequential fashion.</p>
+</div>
+<div id="S2.SS1.p2" class="ltx_para">
+<p id="S2.SS1.p2.1" class="ltx_p">In the diagram, the solid lines between modules indicate a local <span id="S2.SS1.p2.1.1" class="ltx_text ltx_font_italic">mesh</span> interconnection. These wires are used for spatial data
+movement. There is also a tree network (not shown) connecting all
+modules to the front-end workstation that controls the CA machine.
+The workstation uses this tree to broadcast simulation parameters to
+some or all modules, and to read back data from selected modules.
+Normally, the parameters of the next updating scan of the space are
+broadcast while the current scan is in progress, and analysis data
+from the modules are also read back while the current scan runs.</p>
+</div>
+<div id="S2.SS1.p3" class="ltx_para">
+<p id="S2.SS1.p3.1" class="ltx_p">Each module contains a separate copy of the current program for
+updating the space (data transformation parameters, data movement
+parameters, etc.), and all modules operate in lockstep. This allows
+both the computation within modules and communication between modules
+to be pipelined, so that one virtual processor within each module
+completes its update (including all communication) at each machine
+clock.</p>
+</div>
+<div id="S2.SS1.p4" class="ltx_para">
+<p id="S2.SS1.p4.1" class="ltx_p">Spatial site data is kept in conventional <span id="S2.SS1.p4.1.1" class="ltx_text ltx_font_smallcaps">dram</span> chips which are all
+accessed continuously in a predictable and optimized scan order,
+achieving 100% utilization of the available memory bandwidth. Within
+a module, each <span id="S2.SS1.p4.1.2" class="ltx_text ltx_font_smallcaps">dram</span> chip belongs to a separate <span id="S2.SS1.p4.1.3" class="ltx_text ltx_font_italic">bit-slice</span>, and
+each <span id="S2.SS1.p4.1.4" class="ltx_text ltx_font_smallcaps">dram</span> chip has its address controlled separately from the rest.
+The group of bits that are scanned simultaneously (one bit from each
+bit-slice) constitute a <span id="S2.SS1.p4.1.5" class="ltx_text ltx_font_italic">hardware cell</span>. Data is reshuffled
+between hardware cells by controlling the relative scan order of the
+<span id="S2.SS1.p4.1.6" class="ltx_text ltx_font_smallcaps">dram</span> bit-slices.</p>
+</div>
+<div id="S2.SS1.p5" class="ltx_para">
+<p id="S2.SS1.p5.1" class="ltx_p">Updating is by table lookup. Data comes out of the cell-array,
+is passed through a lookup table, and put back exactly where it came
+from (Figure <a href="#S2.F1" title="Figure 1 ‣ 2 An architecture based on cellular automata ‣ CAM-8: a computer architecture based on cellular automataThis research was supported by the Advanced Research Projects Agency, grant N0014-89-J-1988." class="ltx_ref"><span class="ltx_text ltx_ref_tag">1</span></a>a). The lookup tables are double
+buffered, so that the front-end workstation can send a new table while
+the <span id="S2.SS1.p5.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-modules are busy using the previous table to update the
+space. There are also hardware provisions for replacing the lookup
+tables with pipelined logic (to allow versions of <span id="S2.SS1.p5.1.2" class="ltx_text ltx_font_smallcaps">cam</span>-8 with a large
+number of bits in the hardware cell—too many to update by table
+lookup), and for connecting external data sources or analysis
+hardware.</p>
+</div>
+<div id="S2.SS1.p6" class="ltx_para">
+<p id="S2.SS1.p6.1" class="ltx_p">There are only a handful of connections between modules—one per
+bit-slice to each of the six adjacent modules. Uniform data shifts
+across the entire three-dimensional space are achieved by combining
+<span id="S2.SS1.p6.1.1" class="ltx_text ltx_font_smallcaps">dram</span> address manipulation with static
+routing <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib25" title="" class="ltx_ref">25</a>, <a href="#bib.bib19" title="" class="ltx_ref">19</a>]</cite>: data are sent over the
+intermodule wires at preordained times, exactly when they are needed
+by adjacent modules.</p>
+</div>
+<section id="S2.SS1.SSS1" class="ltx_subsubsection">
+<h4 class="ltx_title ltx_title_subsubsection">
+<span class="ltx_tag ltx_tag_subsubsection">2.1.1 </span>A sample implementation</h4>
+
+<div id="S2.SS1.SSS1.p1" class="ltx_para">
+<p id="S2.SS1.SSS1.p1.1" class="ltx_p">For comparison purposes, here is a description of the amount and kind
+of technology used in one of our prototype 8-module <span id="S2.SS1.SSS1.p1.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8 units:</p>
+</div>
+<div id="S2.SS1.SSS1.p2" class="ltx_para">
+<ul id="S2.I1" class="ltx_itemize">
+<li id="S2.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S2.I1.i1.p1" class="ltx_para">
+<p id="S2.I1.i1.p1.1" class="ltx_p"><span id="S2.I1.i1.p1.1.1" class="ltx_text ltx_font_bold">System clock: </span> 25 MHz</p>
+</div>
+</li>
+<li id="S2.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S2.I1.i2.p1" class="ltx_para">
+<p id="S2.I1.i2.p1.1" class="ltx_p"><span id="S2.I1.i2.p1.1.1" class="ltx_text ltx_font_bold">DRAM: </span> 64 Megabytes (4 Megabit
+<br class="ltx_break">chips, 70ns)</p>
+</div>
+</li>
+<li id="S2.I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S2.I1.i3.p1" class="ltx_para">
+<p id="S2.I1.i3.p1.1" class="ltx_p"><span id="S2.I1.i3.p1.1.1" class="ltx_text ltx_font_bold">SRAM: </span> 2 Megabytes (256 Kilobit
+<br class="ltx_break">chips, 20ns)</p>
+</div>
+</li>
+<li id="S2.I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S2.I1.i4.p1" class="ltx_para">
+<p id="S2.I1.i4.p1.1" class="ltx_p"><span id="S2.I1.i4.p1.1.1" class="ltx_text ltx_font_bold">Logic: </span> about 2 Million gates total</p>
+</div>
+</li>
+<li id="S2.I1.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S2.I1.i5.p1" class="ltx_para">
+<p id="S2.I1.i5.p1.1" class="ltx_p"><span id="S2.I1.i5.p1.1.1" class="ltx_text ltx_font_bold">Logic technology: </span> 1.2 micron CMOS</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="S2.SS1.SSS1.p3" class="ltx_para ltx_noindent">
+<p id="S2.SS1.SSS1.p3.1" class="ltx_p">This level of technology is comparable to what is used in a low-end
+workstation—a small <span id="S2.SS1.SSS1.p3.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8 unit is really a CA <span id="S2.SS1.SSS1.p3.1.2" class="ltx_text ltx_font_italic">personal
+computer</span>.<span id="footnote1" class="ltx_note ltx_role_footnote"><sup class="ltx_note_mark">1</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">1</sup><span class="ltx_tag ltx_tag_note">1</span>In comparing the performance of this unit against
+numbers reported for simulations on supercomputers (which have a
+similar performance) one should also take availability into account: a
+personal computer can be run on a single problem for a very long
+period of time. Economies of scale (mass production) are also
+potentially available to personal-computer level hardware.</span></span></span> For CA
+rules with one bit per site, this 8 module machine runs simulations at
+a rate of about 3 billion site updates per second on spaces of up to
+half a billion sites; with 16 bits per site, simulations run at about
+200 million site updates per second on spaces of up to 32 million
+sites. Several of our 8-module prototypes can be connected together
+to construct bigger machines—repackaging the modules would be
+desirable for constructing substantially larger machines.</p>
+</div>
+<div id="S2.SS1.SSS1.p4" class="ltx_para">
+<p id="S2.SS1.SSS1.p4.1" class="ltx_p">Our <span id="S2.SS1.SSS1.p4.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8 prototype can directly accumulate and format data for a
+real-time video display; provision is also made to accept data
+directly from a video camera, in order to allow <span id="S2.SS1.SSS1.p4.1.2" class="ltx_text ltx_font_smallcaps">cam</span>-8 to perform
+real-time video processing with CA rules. For a detailed description
+of the prototype <span id="S2.SS1.SSS1.p4.1.3" class="ltx_text ltx_font_smallcaps">cam</span>-8 implementation, including the <span id="S2.SS1.SSS1.p4.1.4" class="ltx_text ltx_font_smallcaps">cam</span>-8 register
+model, the workstation interface, and system configuration and
+initialization, see “STEP: a Space Time Event
+Processor <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib29" title="" class="ltx_ref">29</a>]</cite>.”</p>
+</div>
+</section>
+</section>
+<section id="S2.SS2" class="ltx_subsection">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">2.2 </span>Programmer’s model</h3>
+
+<div id="S2.SS2.p1" class="ltx_para">
+<p id="S2.SS2.p1.1" class="ltx_p">In addition to more specialized resources having to do with display,
+analysis, and I/O, the main programmable resources in <span id="S2.SS2.p1.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8 are:</p>
+</div>
+<div id="S2.SS2.p2" class="ltx_para">
+<ul id="S2.I2" class="ltx_itemize">
+<li id="S2.I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S2.I2.i1.p1" class="ltx_para">
+<p id="S2.I2.i1.p1.1" class="ltx_p">Number of dimensions.</p>
+</div>
+</li>
+<li id="S2.I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S2.I2.i2.p1" class="ltx_para">
+<p id="S2.I2.i2.p1.1" class="ltx_p">Size and shape of the space.</p>
+</div>
+</li>
+<li id="S2.I2.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S2.I2.i3.p1" class="ltx_para">
+<p id="S2.I2.i3.p1.1" class="ltx_p">Number of bits at a site.
+</p>
+</div>
+</li>
+<li id="S2.I2.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S2.I2.i4.p1" class="ltx_para">
+<p id="S2.I2.i4.p1.1" class="ltx_p">Initial state of the space.</p>
+</div>
+</li>
+<li id="S2.I2.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S2.I2.i5.p1" class="ltx_para">
+<p id="S2.I2.i5.p1.1" class="ltx_p">Directions and distances of data
+<br class="ltx_break">movement.</p>
+</div>
+</li>
+<li id="S2.I2.i6" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S2.I2.i6.p1" class="ltx_para">
+<p id="S2.I2.i6.p1.1" class="ltx_p">Rules for data interaction.</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="S2.SS2.p3" class="ltx_para ltx_noindent">
+<p id="S2.SS2.p3.1" class="ltx_p">All of these parameters are normally specified as part of a <span id="S2.SS2.p3.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8
+experiment. Often the data movement and data interaction will change
+with time, either cyclically or progressively as the simulation runs:
+the overhead associated with changing these parameters before every
+update of the space is negligible.</p>
+</div>
+<section id="S2.SS2.SSS1" class="ltx_subsubsection">
+<h4 class="ltx_title ltx_title_subsubsection">
+<span class="ltx_tag ltx_tag_subsubsection">2.2.1 </span>The space</h4>
+
+<div id="S2.SS2.SSS1.p1" class="ltx_para">
+<p id="S2.SS2.SSS1.p1.1" class="ltx_p">Our earlier <span id="S2.SS2.SSS1.p1.1.1" class="ltx_text ltx_font_smallcaps">cam</span> machines were all 2-dimensional, with severe
+restrictions on the overall size of the space and the number of bits
+at each spatial site. In <span id="S2.SS2.SSS1.p1.1.2" class="ltx_text ltx_font_smallcaps">cam</span>-8, these parameters may be freely
+specified.</p>
+</div>
+<div id="S2.SS2.SSS1.p2" class="ltx_para">
+<p id="S2.SS2.SSS1.p2.1" class="ltx_p">The overall space-array is configured as a multi-dimensional Cartesian
+lattice with a chosen size, shape, number of bits per site, and number
+of dimensions. The boundaries are periodic—if you move from site to
+site along any dimension, you eventually get back to your starting
+point. Three of the dimensions can be arbitrarily extended by adding
+“chunks” of hardware (<span id="S2.SS2.SSS1.p2.1.1" class="ltx_text ltx_font_italic">modules</span>). The maximum number of bits in
+the array is of course governed by the total amount of storage in all
+of the modules (64 Megabytes in our prototype): each module processes
+an equal fraction of the overall space-array. There is no
+architectural limit on how many modules a <span id="S2.SS2.SSS1.p2.1.2" class="ltx_text ltx_font_smallcaps">cam</span>-8 machine can have.</p>
+</div>
+</section>
+<section id="S2.SS2.SSS2" class="ltx_subsubsection">
+<h4 class="ltx_title ltx_title_subsubsection">
+<span class="ltx_tag ltx_tag_subsubsection">2.2.2 </span>Data movement</h4>
+
+<div id="S2.SS2.SSS2.p1" class="ltx_para">
+<p id="S2.SS2.SSS2.p1.1" class="ltx_p">In earlier <span id="S2.SS2.SSS2.p1.1.1" class="ltx_text ltx_font_smallcaps">cam</span> machines, there were severe constraints on <span id="S2.SS2.SSS2.p1.1.2" class="ltx_text ltx_font_italic">neighborhoods</span>: restrictions on which data from sites near a given
+site could be seen by the CA update rule acting at that site. In
+<span id="S2.SS2.SSS2.p1.1.3" class="ltx_text ltx_font_smallcaps">cam</span>-8, we have eliminated these constraints. This was accomplished
+by abandoning the use of traditional CA neighborhoods, and basing our
+machine on the kind of data partitioning characteristic of lattice gas
+models. Instead of having a fixed set of neighborhood data visible
+from each site, we shift data around in our space in order to
+communicate information from one place to another.</p>
+</div>
+<div id="S2.SS2.SSS2.p2" class="ltx_para">
+<p id="S2.SS2.SSS2.p2.1" class="ltx_p">In traditional CA rules, each bit at a given site is visible to all
+neighbors. In contrast, the pure data-movement used in <span id="S2.SS2.SSS2.p2.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8 sends
+each bit in only one direction. <span id="S2.SS2.SSS2.p2.1.2" class="ltx_text ltx_font_italic">Information fields</span> move
+uniformly in various directions, each carrying corresponding bits from
+every spatial site along with them—in two dimensions think of
+uniformly shifting bit-planes, in higher dimensions
+bit-hyperplanes.<span id="footnote2" class="ltx_note ltx_role_footnote"><sup class="ltx_note_mark">2</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">2</sup><span class="ltx_tag ltx_tag_note">2</span>The term <span id="footnote2.1" class="ltx_text ltx_font_italic">information field</span> is a bit
+of a pun, since we intend by this both the computer science meaning,
+namely a fixed set of bits in every “record” (spatial site), and
+also the physics meaning of a field, which is a number attached to
+each site in space.</span></span></span> Interactions act separately on the data that land
+at each lattice point, transforming this block of data into a new set
+of bits. If some piece of data needs to be sent in two directions,
+the interaction must make two copies.</p>
+</div>
+<div id="S2.SS2.SSS2.p3" class="ltx_para">
+<p id="S2.SS2.SSS2.p3.1" class="ltx_p">There is a constraint on how far bit-fields can move in one updating
+step, but it is quite mild. Each bit-field can independently shift by
+a large amount in any direction—the maximum shift-component along
+each dimension is one that would transfer the entire <span id="S2.SS2.SSS2.p3.1.1" class="ltx_text ltx_font_italic">sector</span> of a
+bit-field contained in one hardware module into an adjacent module.
+For a two dimensional simulation on our prototype, for example, the
+<math id="S2.SS2.SSS2.p3.1.m1.1" class="ltx_Math" alttext="x" display="inline"><semantics id="S2.SS2.SSS2.p3.1.m1.1a"><mi id="S2.SS2.SSS2.p3.1.m1.1.1" xref="S2.SS2.SSS2.p3.1.m1.1.1.cmml">x</mi><annotation-xml encoding="MathML-Content" id="S2.SS2.SSS2.p3.1.m1.1b"><ci id="S2.SS2.SSS2.p3.1.m1.1.1.cmml" xref="S2.SS2.SSS2.p3.1.m1.1.1">𝑥</ci></annotation-xml><annotation encoding="application/x-llamapun" id="S2.SS2.SSS2.p3.1.m1.1c">italic-x</annotation><annotation encoding="application/x-tex" id="S2.SS2.SSS2.p3.1.m1.1d">x</annotation></semantics></math> and <math id="S2.SS2.SSS2.p3.1.m2.1" class="ltx_Math" alttext="y" display="inline"><semantics id="S2.SS2.SSS2.p3.1.m2.1a"><mi id="S2.SS2.SSS2.p3.1.m2.1.1" xref="S2.SS2.SSS2.p3.1.m2.1.1.cmml">y</mi><annotation-xml encoding="MathML-Content" id="S2.SS2.SSS2.p3.1.m2.1b"><ci id="S2.SS2.SSS2.p3.1.m2.1.1.cmml" xref="S2.SS2.SSS2.p3.1.m2.1.1">𝑦</ci></annotation-xml><annotation encoding="application/x-llamapun" id="S2.SS2.SSS2.p3.1.m2.1c">italic-y</annotation><annotation encoding="application/x-tex" id="S2.SS2.SSS2.p3.1.m2.1d">y</annotation></semantics></math> offsets for each bit-field that can be incorporated as
+part of a single updating step can be any pair of signed integers with
+magnitudes of up to a few <span id="S2.SS2.SSS2.p3.1.2" class="ltx_text ltx_font_italic">thousand</span>. In general (for any number
+of dimensions), each updating event brings together a selection of
+bits chosen from the few <span id="S2.SS2.SSS2.p3.1.3" class="ltx_text ltx_font_italic">million</span> neighboring sites.</p>
+</div>
+</section>
+<section id="S2.SS2.SSS3" class="ltx_subsubsection">
+<h4 class="ltx_title ltx_title_subsubsection">
+<span class="ltx_tag ltx_tag_subsubsection">2.2.3 </span>Data interaction</h4>
+
+<div id="S2.SS2.SSS3.p1" class="ltx_para">
+<p id="S2.SS2.SSS3.p1.1" class="ltx_p">Data movement and data interaction alternate: once we have all the
+data in the right place, we update each site using only the
+information present at that site.<span id="footnote3" class="ltx_note ltx_role_footnote"><sup class="ltx_note_mark">3</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">3</sup><span class="ltx_tag ltx_tag_note">3</span>Actually, the hardware does
+both movement and updating in a single pipelined operation.</span></span></span> In our
+prototype, there is a constraint that only 16 bit-fields can be moved
+in independent directions simultaneously, and only 16 bits at a time
+can interact and be updated arbitrarily (by table lookup).<span id="footnote4" class="ltx_note ltx_role_footnote"><sup class="ltx_note_mark">4</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">4</sup><span class="ltx_tag ltx_tag_note">4</span>Alternative implementations (using the same <span id="footnote4.1" class="ltx_text ltx_font_smallcaps">cam</span> data-movement
+chips) would allow many more simultaneously moving bit-fields, but
+would use pipelined logic in place of lookup tables, since tables grow
+in size exponentially with the number of inputs. Sufficiently wide
+programmable logic can perform any desired many-input function if
+there are enough levels of logic; an arbitrary number of levels can be
+simulated by changing the program for the logic from one scan of the
+space to the next. An interesting application of this would be for
+efficiently running lattice gases with large numbers of bits per site
+(cf. <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib20" title="" class="ltx_ref">20</a>]</cite>).</span></span></span></p>
+</div>
+<div id="S2.SS2.SSS3.p2" class="ltx_para">
+<p id="S2.SS2.SSS3.p2.1" class="ltx_p">Thus a program for this machine consists of a sequence of
+specifications of (wide ranging) particle-like data movements and
+(arbitrary) 16-bit interaction events. Simulations involving the
+interaction of large numbers of bits at each site have to be broken
+down into a sequence of 16-bit events—a space-time event program.
+</p>
+</div>
+</section>
+</section>
+</section>
+<section id="S3" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">3 </span>Applications</h2>
+
+<div id="S3.p1" class="ltx_para">
+<p id="S3.p1.1" class="ltx_p"><span id="S3.p1.1.1" class="ltx_text ltx_font_smallcaps">Cam</span>-8 is good at spatially moving data, and at making the data
+interact at lattice sites. This makes it well suited for simulating
+physical systems using lattice-gas-like dynamics. This also makes it
+appropriate for a wide range of other spatially organized calculations
+involving localized interactions.</p>
+</div>
+<div id="S3.p2" class="ltx_para">
+<p id="S3.p2.1" class="ltx_p">We are actively collaborating with several groups to develop sample
+applications which illustrate the use of this CA machine for physical
+simulations (e.g., fluid flow, chemical reactions, polymer dynamics),
+two and three dimensional image processing (e.g., document reading,
+medical imaging from 3D data), and large logic simulations (including
+the simulation of highly parallel CA machines). Of course all of the
+models developed for our earlier <span id="S3.p2.1.1" class="ltx_text ltx_font_smallcaps">cam</span> machines <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib46" title="" class="ltx_ref">46</a>]</cite> run
+well on <span id="S3.p2.1.2" class="ltx_text ltx_font_smallcaps">cam</span>-8, and can now be extended far beyond the capabilities of
+these earlier machines. Many spatial algorithms (systolic,
+<span id="S3.p2.1.3" class="ltx_text ltx_font_smallcaps">simd</span>, etc.) designed for other machines <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib19" title="" class="ltx_ref">19</a>, <a href="#bib.bib21" title="" class="ltx_ref">21</a>]</cite> can
+also be adapted to this architecture.</p>
+</div>
+<div id="S3.p3" class="ltx_para">
+<p id="S3.p3.1" class="ltx_p">As illustrations of the use of <span id="S3.p3.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8, some sample applications and
+simulation techniques are discussed below. All of these examples have
+been developed on the prototype machine discussed in
+Section <a href="#S2.SS1.SSS1" title="2.1.1 A sample implementation ‣ 2.1 System overview ‣ 2 An architecture based on cellular automata ‣ CAM-8: a computer architecture based on cellular automataThis research was supported by the Advanced Research Projects Agency, grant N0014-89-J-1988." class="ltx_ref"><span class="ltx_text ltx_ref_tag">2.1.1</span></a>, and performance figures are for this
+workstation-scale device.</p>
+</div>
+<section id="S3.SS1" class="ltx_subsection">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.1 </span>Lattice gases</h3>
+
+<figure id="S3.F2" class="ltx_figure">
+<table id="S3.Ex2" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S3.Ex2.m1.1" class="ltx_Math" alttext="\hfill\vbox{\psfig{width=173.448pt}}\hskip 11.5632pt\vbox{\psfig{width=173.448%
+pt, height=103.85199pt}}\hfill" display="block"><semantics id="S3.Ex2.m1.1a"><mrow id="S3.Ex2.m1.1.7" xref="S3.Ex2.m1.1.7.1.cmml"><mtext mathcolor="red" id="S3.Ex2.m1.1.2" xref="S3.Ex2.m1.1.2b.cmml"><img src="x2.png" id="S3.Ex2.m1.1.2.1.g1nest" class="ltx_graphics" width="269" height="178" alt=""></mtext><mo mathvariant="italic" separator="true" id="S3.Ex2.m1.1.6" xref="S3.Ex2.m1.1.7.1.cmml"> </mo><mtext mathcolor="red" id="S3.Ex2.m1.1.4" xref="S3.Ex2.m1.1.4b.cmml"><img src="x3.png" id="S3.Ex2.m1.1.4.1.g1nest" class="ltx_graphics" width="270" height="163" alt=""></mtext></mrow><annotation-xml encoding="MathML-Content" id="S3.Ex2.m1.1b"><list id="S3.Ex2.m1.1.7.1.cmml" xref="S3.Ex2.m1.1.7"><ci id="S3.Ex2.m1.1.2b.cmml" xref="S3.Ex2.m1.1.2"><mtext mathcolor="red" id="S3.Ex2.m1.1.2.cmml" xref="S3.Ex2.m1.1.2"><img src="x2.png" id="S3.Ex2.m1.1.2.1.g1anest" class="ltx_graphics" width="269" height="178" alt=""></mtext></ci><ci id="S3.Ex2.m1.1.4b.cmml" xref="S3.Ex2.m1.1.4"><mtext mathcolor="red" id="S3.Ex2.m1.1.4.cmml" xref="S3.Ex2.m1.1.4"><img src="x3.png" id="S3.Ex2.m1.1.4.1.g1anest" class="ltx_graphics" width="270" height="163" alt=""></mtext></ci></list></annotation-xml><annotation encoding="application/x-tex" id="S3.Ex2.m1.1c">\hfill\vbox{\psfig{width=173.448pt}}\hskip 11.5632pt\vbox{\psfig{width=173.448%
+pt, height=103.85199pt}}\hfill</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<figcaption class="ltx_caption"><span class="ltx_tag ltx_tag_figure">Figure 2: </span>Flows for two simulations using the FHP lattice gas. (a) Von
+Karman streets, (b) Kelvin-Helmholtz shear instability.</figcaption>
+</figure>
+<div id="S3.SS1.p1" class="ltx_para ltx_noindent">
+<p id="S3.SS1.p1.1" class="ltx_p"><span id="S3.SS1.p1.1.1" class="ltx_text ltx_font_smallcaps">Cam</span>-8 is at heart a lattice gas machine. Particle streaming is an
+efficient, low-level hardware operation, and the large spatial data
+shifts available make it convenient to investigate models with widely
+varying particle speeds. Multi-dimensional shifts are useful for
+investigating models with shallow extra dimensions.</p>
+</div>
+<div id="S3.SS1.p2" class="ltx_para">
+<p id="S3.SS1.p2.1" class="ltx_p">Our most advanced lattice gas collaboration is with Jeff Yepez and his
+group at the U.S. Air Force’s Phillips Laboratory. He and Phillips
+Labs have started a new initiative on geophysical simulation that
+involves the construction of a large <span id="S3.SS1.p2.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8 machine.</p>
+</div>
+<div id="S3.SS1.p3" class="ltx_para">
+<p id="S3.SS1.p3.1" class="ltx_p">Geophysical phenomena are good candidates for lattice dynamics
+modeling since there is so much distributed complexity involved, and
+since many of these phenomena are so hard to model using traditional
+differential equation techniques. With lattice gases, the simulation
+runs just as fast with the most complex boundary condition as with the
+simplest. One can use a great deal of physical intuition in
+incorporating desired properties into models by constructing
+simplified discrete versions of the actual physical dynamics. The
+process of making these models is closely akin to that of making
+models in statistical mechanics, where one strives to include only the
+essence of the phenomenon <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib52" title="" class="ltx_ref">52</a>]</cite>.</p>
+</div>
+<div id="S3.SS1.p4" class="ltx_para">
+<p id="S3.SS1.p4.1" class="ltx_p">Figures <a href="#S3.F2" title="Figure 2 ‣ 3.1 Lattice gases ‣ 3 Applications ‣ CAM-8: a computer architecture based on cellular automataThis research was supported by the Advanced Research Projects Agency, grant N0014-89-J-1988." class="ltx_ref"><span class="ltx_text ltx_ref_tag">2</span></a> and <a href="#S3.F3" title="Figure 3 ‣ 3.1 Lattice gases ‣ 3 Applications ‣ CAM-8: a computer architecture based on cellular automataThis research was supported by the Advanced Research Projects Agency, grant N0014-89-J-1988." class="ltx_ref"><span class="ltx_text ltx_ref_tag">3</span></a> illustrate some simple
+“warmup” calculations done in collaboration with Yepez that
+illustrate the use of <span id="S3.SS1.p4.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8’s statistics gathering hardware. Here,
+we split the system up into bins of a chosen size and use lookup
+tables to count a function of the state of the sites in each bin.
+These <span id="S3.SS1.p4.1.2" class="ltx_text ltx_font_italic">event counts</span> are continuously reported back to the
+workstation that is controlling the simulation.</p>
+</div>
+<div id="S3.SS1.p5" class="ltx_para">
+<p id="S3.SS1.p5.1" class="ltx_p">Figure <a href="#S3.F2" title="Figure 2 ‣ 3.1 Lattice gases ‣ 3 Applications ‣ CAM-8: a computer architecture based on cellular automataThis research was supported by the Advanced Research Projects Agency, grant N0014-89-J-1988." class="ltx_ref"><span class="ltx_text ltx_ref_tag">2</span></a>a shows momentum flow in a two-dimensional
+2K<math id="S3.SS1.p5.1.m1.1" class="ltx_Math" alttext="\times" display="inline"><semantics id="S3.SS1.p5.1.m1.1a"><mo id="S3.SS1.p5.1.m1.1.1" xref="S3.SS1.p5.1.m1.1.1.cmml">×</mo><annotation-xml encoding="MathML-Content" id="S3.SS1.p5.1.m1.1b"><times id="S3.SS1.p5.1.m1.1.1.cmml" xref="S3.SS1.p5.1.m1.1.1"></times></annotation-xml><annotation encoding="application/x-llamapun" id="S3.SS1.p5.1.m1.1c">MULOP:times</annotation><annotation encoding="application/x-tex" id="S3.SS1.p5.1.m1.1d">\times</annotation></semantics></math>1K lattice, illustrating vortex shedding in lattice-gas flow
+past a flat plate. Here we use a 7-bit “FHP” model, which runs on
+our prototype at a rate of 382 million site updates per second (for
+pure simulation). Both the time averages (over 100 steps) and the
+space averages (over 32<math id="S3.SS1.p5.1.m2.1" class="ltx_Math" alttext="\times" display="inline"><semantics id="S3.SS1.p5.1.m2.1a"><mo id="S3.SS1.p5.1.m2.1.1" xref="S3.SS1.p5.1.m2.1.1.cmml">×</mo><annotation-xml encoding="MathML-Content" id="S3.SS1.p5.1.m2.1b"><times id="S3.SS1.p5.1.m2.1.1.cmml" xref="S3.SS1.p5.1.m2.1.1"></times></annotation-xml><annotation encoding="application/x-llamapun" id="S3.SS1.p5.1.m2.1c">MULOP:times</annotation><annotation encoding="application/x-tex" id="S3.SS1.p5.1.m2.1d">\times</annotation></semantics></math>32 sites) were accumulated by <span id="S3.SS1.p5.1.1" class="ltx_text ltx_font_smallcaps">cam</span>;
+the workstation simply drew the arrows.</p>
+</div>
+<div id="S3.SS1.p6" class="ltx_para">
+<p id="S3.SS1.p6.1" class="ltx_p">Similarly, Figure <a href="#S3.F2" title="Figure 2 ‣ 3.1 Lattice gases ‣ 3 Applications ‣ CAM-8: a computer architecture based on cellular automataThis research was supported by the Advanced Research Projects Agency, grant N0014-89-J-1988." class="ltx_ref"><span class="ltx_text ltx_ref_tag">2</span></a>b uses the same model to illustrate a
+Kelvin-Helmholtz shear instability on a 4K<math id="S3.SS1.p6.1.m1.1" class="ltx_Math" alttext="\times" display="inline"><semantics id="S3.SS1.p6.1.m1.1a"><mo id="S3.SS1.p6.1.m1.1.1" xref="S3.SS1.p6.1.m1.1.1.cmml">×</mo><annotation-xml encoding="MathML-Content" id="S3.SS1.p6.1.m1.1b"><times id="S3.SS1.p6.1.m1.1.1.cmml" xref="S3.SS1.p6.1.m1.1.1"></times></annotation-xml><annotation encoding="application/x-llamapun" id="S3.SS1.p6.1.m1.1c">MULOP:times</annotation><annotation encoding="application/x-tex" id="S3.SS1.p6.1.m1.1d">\times</annotation></semantics></math>2K lattice. Most of
+the fluid was initially set in motion at Mach 0.4 to the right, except
+for a narrow strip in the middle which was started with the opposite
+velocity. The Figure shows the situation after 40,000 time steps
+(about 15 minutes of simulation). The averaging is over regions of
+128<math id="S3.SS1.p6.1.m2.1" class="ltx_Math" alttext="\times" display="inline"><semantics id="S3.SS1.p6.1.m2.1a"><mo id="S3.SS1.p6.1.m2.1.1" xref="S3.SS1.p6.1.m2.1.1.cmml">×</mo><annotation-xml encoding="MathML-Content" id="S3.SS1.p6.1.m2.1b"><times id="S3.SS1.p6.1.m2.1.1.cmml" xref="S3.SS1.p6.1.m2.1.1"></times></annotation-xml><annotation encoding="application/x-llamapun" id="S3.SS1.p6.1.m2.1c">MULOP:times</annotation><annotation encoding="application/x-tex" id="S3.SS1.p6.1.m2.1d">\times</annotation></semantics></math>128 sites, and over 50 time steps.</p>
+</div>
+<figure id="S3.F3" class="ltx_figure">
+<table id="S3.Ex3" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S3.Ex3.m1.1" class="ltx_Math" alttext="\hfill\vbox{\psfig{width=198.7425pt}}\hfill" display="block"><semantics id="S3.Ex3.m1.1a"><mtext mathcolor="red" id="S3.Ex3.m1.1.2" xref="S3.Ex3.m1.1.2b.cmml"><img src="x4.png" id="S3.Ex3.m1.1.2.1.g1nest" class="ltx_graphics" width="309" height="155" alt=""></mtext><annotation-xml encoding="MathML-Content" id="S3.Ex3.m1.1b"><ci id="S3.Ex3.m1.1.2b.cmml" xref="S3.Ex3.m1.1.2"><mtext mathcolor="red" id="S3.Ex3.m1.1.2.cmml" xref="S3.Ex3.m1.1.2"><img src="x4.png" id="S3.Ex3.m1.1.2.1.g1anest" class="ltx_graphics" width="309" height="155" alt=""></mtext></ci></annotation-xml><annotation encoding="application/x-tex" id="S3.Ex3.m1.1c">\hfill\vbox{\psfig{width=198.7425pt}}\hfill</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<figcaption class="ltx_caption"><span class="ltx_tag ltx_tag_figure">Figure 3: </span>Rayleigh-Bénard convection.</figcaption>
+</figure>
+<div id="S3.SS1.p7" class="ltx_para">
+<p id="S3.SS1.p7.1" class="ltx_p">Finally, Figure <a href="#S3.F3" title="Figure 3 ‣ 3.1 Lattice gases ‣ 3 Applications ‣ CAM-8: a computer architecture based on cellular automataThis research was supported by the Advanced Research Projects Agency, grant N0014-89-J-1988." class="ltx_ref"><span class="ltx_text ltx_ref_tag">3</span></a> illustrates Rayleigh-Bénard
+convection, following <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib4" title="" class="ltx_ref">4</a>]</cite>. The simulation uses a
+13-bit hexagonal lattice-gas, with 3 particle speeds, heating (at the
+bottom), cooling (at the top), walls around the box, and gravity. The
+simulation size is 1024<math id="S3.SS1.p7.1.m1.1" class="ltx_Math" alttext="\times" display="inline"><semantics id="S3.SS1.p7.1.m1.1a"><mo id="S3.SS1.p7.1.m1.1.1" xref="S3.SS1.p7.1.m1.1.1.cmml">×</mo><annotation-xml encoding="MathML-Content" id="S3.SS1.p7.1.m1.1b"><times id="S3.SS1.p7.1.m1.1.1.cmml" xref="S3.SS1.p7.1.m1.1.1"></times></annotation-xml><annotation encoding="application/x-llamapun" id="S3.SS1.p7.1.m1.1c">MULOP:times</annotation><annotation encoding="application/x-tex" id="S3.SS1.p7.1.m1.1d">\times</annotation></semantics></math>512, and the prototype runs this at a
+rate of 191 million site updates per second. The time and space
+averaging was done by <span id="S3.SS1.p7.1.1" class="ltx_text ltx_font_smallcaps">cam</span> as in the previous figures.</p>
+</div>
+<div id="S3.SS1.p8" class="ltx_para">
+<p id="S3.SS1.p8.1" class="ltx_p">We have also been working with Bruce Boghosian and Dan Rothman on
+three dimensional lattice gas models. Since the CM-2 also has 16-bit
+lookup tables, the “random isometry” techniques that were used to
+partition lattice-gas updates into a composition of 16-bit lookups
+on the Connection Machine carry over directly to
+<span id="S3.SS1.p8.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8 <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib8" title="" class="ltx_ref">8</a>, <a href="#bib.bib2" title="" class="ltx_ref">2</a>]</cite>: a 24-particle FCHC lattice
+gas with solid boundaries runs at about 7 million site-updates per
+second. We are using these techniques as the basis for implementing
+simulations of the flow of immiscible fluids through porous
+media <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib36" title="" class="ltx_ref">36</a>]</cite>.</p>
+</div>
+</section>
+<section id="S3.SS2" class="ltx_subsection">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.2 </span>Statistical mechanics</h3>
+
+<figure id="S3.F4" class="ltx_figure">
+<table id="S3.Ex4" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S3.Ex4.m1.1" class="ltx_Math" alttext="\hfill\vbox{\psfig{bbllx=99pt, bblly=200pt, bburx=499pt, bbury=599pt, height=1%
+44.54pt}\vskip 21.681pt\psfig{height=144.54pt}}\hskip 21.681pt\vbox{\psfig{bbl%
+lx=72pt, bblly=521pt, bburx=270pt, bbury=720pt, height=144.54pt}\vskip 21.681%
+pt\psfig{bbllx=72pt, bblly=521pt, bburx=270pt, bbury=720pt, height=144.54pt}
+}\hfill" display="block"><semantics id="S3.Ex4.m1.1a"><mrow id="S3.Ex4.m1.1.7" xref="S3.Ex4.m1.1.7.1.cmml"><mtext mathcolor="red" id="S3.Ex4.m1.1.2" xref="S3.Ex4.m1.1.2d.cmml">
+<span id="S3.Ex4.m1.1.2.1nest" class="ltx_inline-block ltx_align_bottom"><img src="x5.png" id="S3.Ex4.m1.1.2.1.g1nest" class="ltx_graphics" width="225" height="225" alt=""><img src="x6.png" id="S3.Ex4.m1.1.2.1.g2nest" class="ltx_graphics" width="224" height="224" alt="">
+</span></mtext><mo mathvariant="italic" separator="true" id="S3.Ex4.m1.1.6" xref="S3.Ex4.m1.1.7.1.cmml">   </mo><mtext mathcolor="red" id="S3.Ex4.m1.1.4" xref="S3.Ex4.m1.1.4d.cmml">
+<span id="S3.Ex4.m1.1.4.1nest" class="ltx_inline-block ltx_align_bottom"><img src="x7.png" id="S3.Ex4.m1.1.4.1.g1nest" class="ltx_graphics" width="174" height="223" alt=""><img src="x8.png" id="S3.Ex4.m1.1.4.1.g2nest" class="ltx_graphics" width="174" height="223" alt="">
+</span></mtext></mrow><annotation-xml encoding="MathML-Content" id="S3.Ex4.m1.1b"><list id="S3.Ex4.m1.1.7.1.cmml" xref="S3.Ex4.m1.1.7"><ci id="S3.Ex4.m1.1.2d.cmml" xref="S3.Ex4.m1.1.2"><mtext mathcolor="red" id="S3.Ex4.m1.1.2.cmml" xref="S3.Ex4.m1.1.2">
+<span id="S3.Ex4.m1.1.2.1anest" class="ltx_inline-block ltx_align_bottom"><img src="x5.png" id="S3.Ex4.m1.1.2.1.g1anest" class="ltx_graphics" width="225" height="225" alt=""><img src="x6.png" id="S3.Ex4.m1.1.2.1.g2anest" class="ltx_graphics" width="224" height="224" alt="">
+</span></mtext></ci><ci id="S3.Ex4.m1.1.4d.cmml" xref="S3.Ex4.m1.1.4"><mtext mathcolor="red" id="S3.Ex4.m1.1.4.cmml" xref="S3.Ex4.m1.1.4">
+<span id="S3.Ex4.m1.1.4.1anest" class="ltx_inline-block ltx_align_bottom"><img src="x7.png" id="S3.Ex4.m1.1.4.1.g1anest" class="ltx_graphics" width="174" height="223" alt=""><img src="x8.png" id="S3.Ex4.m1.1.4.1.g2anest" class="ltx_graphics" width="174" height="223" alt="">
+</span></mtext></ci></list></annotation-xml><annotation encoding="application/x-tex" id="S3.Ex4.m1.1c">\hfill\vbox{\psfig{bbllx=99pt, bblly=200pt, bburx=499pt, bbury=599pt, height=1%
+44.54pt}\vskip 21.681pt\psfig{height=144.54pt}}\hskip 21.681pt\vbox{\psfig{bbl%
+lx=72pt, bblly=521pt, bburx=270pt, bbury=720pt, height=144.54pt}\vskip 21.681%
+pt\psfig{bbllx=72pt, bblly=521pt, bburx=270pt, bbury=720pt, height=144.54pt}
+}\hfill</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<figcaption class="ltx_caption"><span class="ltx_tag ltx_tag_figure">Figure 4: </span>Four materials simulations. (a) Spongy three-dimensional structure
+obtained by “majority” annealing. (b) Typical texture produced by
+one of Griffeath’s large-neighborhood voting rules. (c) Diffusion
+limited aggregation. (c) Polymers diffusing from an initial
+concentrated region.</figcaption>
+</figure>
+<div id="S3.SS2.p1" class="ltx_para ltx_noindent">
+<p id="S3.SS2.p1.1" class="ltx_p">Physicists have long used discrete models in statistical mechanics to
+model material systems. In simulating such systems it is often
+important to have available large quantities of precisely controllable
+random variables. On <span id="S3.SS2.p1.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8, by independently applying large random
+spatial shifts to each of a few randomly filled bit fields (and by
+employing other related techniques), it is possible to avoid local
+correlations and continuously generate high quality random variables
+without slowing the simulation down. Using such random variables, we
+have run three dimensional thermalized annealing models
+<cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib49" title="" class="ltx_ref">49</a>]</cite> on our 8-module prototype at about 200
+million site-updates per second on a space of 16 million 16-bit sites
+(about 12 updates of the 3-dimensional space per second), with
+simultaneous rendering (by discrete ray tracing as part of the CA
+dynamics) and display. Figure <a href="#S3.F4" title="Figure 4 ‣ 3.2 Statistical mechanics ‣ 3 Applications ‣ CAM-8: a computer architecture based on cellular automataThis research was supported by the Advanced Research Projects Agency, grant N0014-89-J-1988." class="ltx_ref"><span class="ltx_text ltx_ref_tag">4</span></a>a shows one
+rendered image from the <span id="S3.SS2.p1.1.2" class="ltx_text ltx_font_smallcaps">cam</span>-8 display for a <math id="S3.SS2.p1.1.m1.1" class="ltx_Math" alttext="512\times 512\times 64" display="inline"><semantics id="S3.SS2.p1.1.m1.1a"><mrow id="S3.SS2.p1.1.m1.1.11" xref="S3.SS2.p1.1.m1.1.11.cmml"><mn id="S3.SS2.p1.1.m1.1.3" xref="S3.SS2.p1.1.m1.1.3.cmml">512</mn><mo id="S3.SS2.p1.1.m1.1.8" xref="S3.SS2.p1.1.m1.1.8.cmml">×</mo><mn id="S3.SS2.p1.1.m1.1.7" xref="S3.SS2.p1.1.m1.1.7.cmml">512</mn><mo id="S3.SS2.p1.1.m1.1.8a" xref="S3.SS2.p1.1.m1.1.8.cmml">×</mo><mn id="S3.SS2.p1.1.m1.1.10" xref="S3.SS2.p1.1.m1.1.10.cmml">64</mn></mrow><annotation-xml encoding="MathML-Content" id="S3.SS2.p1.1.m1.1b"><apply id="S3.SS2.p1.1.m1.1.11.cmml" xref="S3.SS2.p1.1.m1.1.11"><times id="S3.SS2.p1.1.m1.1.8.cmml" xref="S3.SS2.p1.1.m1.1.8"></times><cn type="integer" id="S3.SS2.p1.1.m1.1.3.cmml" xref="S3.SS2.p1.1.m1.1.3">512</cn><cn type="integer" id="S3.SS2.p1.1.m1.1.7.cmml" xref="S3.SS2.p1.1.m1.1.7">512</cn><cn type="integer" id="S3.SS2.p1.1.m1.1.10.cmml" xref="S3.SS2.p1.1.m1.1.10">64</cn></apply></annotation-xml><annotation encoding="application/x-llamapun" id="S3.SS2.p1.1.m1.1c">NUMBER:512 MULOP:times NUMBER:512 MULOP:times NUMBER:64</annotation><annotation encoding="application/x-tex" id="S3.SS2.p1.1.m1.1d">512\times 512\times 64</annotation></semantics></math>
+simulation.</p>
+</div>
+<div id="S3.SS2.p2" class="ltx_para">
+<p id="S3.SS2.p2.1" class="ltx_p">Figure <a href="#S3.F4" title="Figure 4 ‣ 3.2 Statistical mechanics ‣ 3 Applications ‣ CAM-8: a computer architecture based on cellular automataThis research was supported by the Advanced Research Projects Agency, grant N0014-89-J-1988." class="ltx_ref"><span class="ltx_text ltx_ref_tag">4</span></a>b shows a deterministic simulation of a model
+due to David Griffeath at the University of Wisconsin. He and some of
+his collaborators are engaged in the analysis of combinatorial
+mathematics problems that have spatial locality. They have been using
+our earlier, much more limited <span id="S3.SS2.p2.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-6 machine in this capacity for a
+number of years <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib13" title="" class="ltx_ref">13</a>]</cite>. The simulation shown is a kind of
+annealing rule: each site in the space (<math id="S3.SS2.p2.1.m1.1" class="ltx_Math" alttext="512\times 512" display="inline"><semantics id="S3.SS2.p2.1.m1.1a"><mrow id="S3.SS2.p2.1.m1.1.8" xref="S3.SS2.p2.1.m1.1.8.cmml"><mn id="S3.SS2.p2.1.m1.1.3" xref="S3.SS2.p2.1.m1.1.3.cmml">512</mn><mo id="S3.SS2.p2.1.m1.1.4" xref="S3.SS2.p2.1.m1.1.4.cmml">×</mo><mn id="S3.SS2.p2.1.m1.1.7" xref="S3.SS2.p2.1.m1.1.7.cmml">512</mn></mrow><annotation-xml encoding="MathML-Content" id="S3.SS2.p2.1.m1.1b"><apply id="S3.SS2.p2.1.m1.1.8.cmml" xref="S3.SS2.p2.1.m1.1.8"><times id="S3.SS2.p2.1.m1.1.4.cmml" xref="S3.SS2.p2.1.m1.1.4"></times><cn type="integer" id="S3.SS2.p2.1.m1.1.3.cmml" xref="S3.SS2.p2.1.m1.1.3">512</cn><cn type="integer" id="S3.SS2.p2.1.m1.1.7.cmml" xref="S3.SS2.p2.1.m1.1.7">512</cn></apply></annotation-xml><annotation encoding="application/x-llamapun" id="S3.SS2.p2.1.m1.1c">NUMBER:512 MULOP:times NUMBER:512</annotation><annotation encoding="application/x-tex" id="S3.SS2.p2.1.m1.1d">512\times 512</annotation></semantics></math>) takes on
+whatever value is in the majority in its neighborhood. The
+neighborhoods are quite large—they involve the 121 neighbors in an
+<math id="S3.SS2.p2.1.m2.1" class="ltx_Math" alttext="11\times 11" display="inline"><semantics id="S3.SS2.p2.1.m2.1a"><mrow id="S3.SS2.p2.1.m2.1.6" xref="S3.SS2.p2.1.m2.1.6.cmml"><mn id="S3.SS2.p2.1.m2.1.2" xref="S3.SS2.p2.1.m2.1.2.cmml">11</mn><mo id="S3.SS2.p2.1.m2.1.3" xref="S3.SS2.p2.1.m2.1.3.cmml">×</mo><mn id="S3.SS2.p2.1.m2.1.5" xref="S3.SS2.p2.1.m2.1.5.cmml">11</mn></mrow><annotation-xml encoding="MathML-Content" id="S3.SS2.p2.1.m2.1b"><apply id="S3.SS2.p2.1.m2.1.6.cmml" xref="S3.SS2.p2.1.m2.1.6"><times id="S3.SS2.p2.1.m2.1.3.cmml" xref="S3.SS2.p2.1.m2.1.3"></times><cn type="integer" id="S3.SS2.p2.1.m2.1.2.cmml" xref="S3.SS2.p2.1.m2.1.2">11</cn><cn type="integer" id="S3.SS2.p2.1.m2.1.5.cmml" xref="S3.SS2.p2.1.m2.1.5">11</cn></apply></annotation-xml><annotation encoding="application/x-llamapun" id="S3.SS2.p2.1.m2.1c">NUMBER:11 MULOP:times NUMBER:11</annotation><annotation encoding="application/x-tex" id="S3.SS2.p2.1.m2.1d">11\times 11</annotation></semantics></math> region surrounding each site. Since there are 5
+different species (3 bits of state), the updating rule must deal with
+363 bits of state in each neighborhood. This is done as a composition
+of about 70 distinct updating steps, and so we get about 10 complete
+updates of the space per second (about 2.5 million site updates per
+second). A better algorithm, that doesn’t recalculate the
+species-counts for overlapping regions of adjacent neighborhoods,
+would run an order of magnitude faster. In either case, this example
+serves to illustrate how rules that involve the interaction of large
+numbers of bits at each site are handled by composing updating
+steps.<span id="footnote5" class="ltx_note ltx_role_footnote"><sup class="ltx_note_mark">5</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">5</sup><span class="ltx_tag ltx_tag_note">5</span>At the opposite extreme of few bits per site, the
+“Bonds Only” <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib46" title="" class="ltx_ref">46</a>]</cite> version of Michael Creutz’s dynamical
+Ising model <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib6" title="" class="ltx_ref">6</a>]</cite> is a 1-bit per site partitioning rule that
+runs at a rate of about 3 billion site updates per second on our
+prototype.</span></span></span></p>
+</div>
+<div id="S3.SS2.p3" class="ltx_para">
+<p id="S3.SS2.p3.1" class="ltx_p">Figure <a href="#S3.F4" title="Figure 4 ‣ 3.2 Statistical mechanics ‣ 3 Applications ‣ CAM-8: a computer architecture based on cellular automataThis research was supported by the Advanced Research Projects Agency, grant N0014-89-J-1988." class="ltx_ref"><span class="ltx_text ltx_ref_tag">4</span></a>c shows a two-dimensional diffusion limited
+aggregation simulation on a <math id="S3.SS2.p3.1.m1.1" class="ltx_Math" alttext="1024\times 1024" display="inline"><semantics id="S3.SS2.p3.1.m1.1a"><mrow id="S3.SS2.p3.1.m1.1.10" xref="S3.SS2.p3.1.m1.1.10.cmml"><mn id="S3.SS2.p3.1.m1.1.4" xref="S3.SS2.p3.1.m1.1.4.cmml">1024</mn><mo id="S3.SS2.p3.1.m1.1.5" xref="S3.SS2.p3.1.m1.1.5.cmml">×</mo><mn id="S3.SS2.p3.1.m1.1.9" xref="S3.SS2.p3.1.m1.1.9.cmml">1024</mn></mrow><annotation-xml encoding="MathML-Content" id="S3.SS2.p3.1.m1.1b"><apply id="S3.SS2.p3.1.m1.1.10.cmml" xref="S3.SS2.p3.1.m1.1.10"><times id="S3.SS2.p3.1.m1.1.5.cmml" xref="S3.SS2.p3.1.m1.1.5"></times><cn type="integer" id="S3.SS2.p3.1.m1.1.4.cmml" xref="S3.SS2.p3.1.m1.1.4">1024</cn><cn type="integer" id="S3.SS2.p3.1.m1.1.9.cmml" xref="S3.SS2.p3.1.m1.1.9">1024</cn></apply></annotation-xml><annotation encoding="application/x-llamapun" id="S3.SS2.p3.1.m1.1c">NUMBER:1024 MULOP:times NUMBER:1024</annotation><annotation encoding="application/x-tex" id="S3.SS2.p3.1.m1.1d">1024\times 1024</annotation></semantics></math> space, driven by random
+variables. The system shown is started with a single fixed particle
+in the center of about 100,000 randomly diffusing particles. Whenever
+a diffuser touches a fixed particle, it becomes fixed at that
+position. This is a large version of a <span id="S3.SS2.p3.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-6
+experiment <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib46" title="" class="ltx_ref">46</a>]</cite>, but run more than two orders of magnitude
+faster than <span id="S3.SS2.p3.1.2" class="ltx_text ltx_font_smallcaps">cam</span>-6 could have run it. The simulation performs about
+800 million site updates per second, and the Figure shows the state of
+the system after about two minutes of evolution.</p>
+</div>
+<div id="S3.SS2.p4" class="ltx_para">
+<p id="S3.SS2.p4.1" class="ltx_p">Figure <a href="#S3.F4" title="Figure 4 ‣ 3.2 Statistical mechanics ‣ 3 Applications ‣ CAM-8: a computer architecture based on cellular automataThis research was supported by the Advanced Research Projects Agency, grant N0014-89-J-1988." class="ltx_ref"><span class="ltx_text ltx_ref_tag">4</span></a>d shows another statistical particle-based
+simulation: a CA polymer model due to Yaneer Bar-Yam (
+cf. <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib31" title="" class="ltx_ref">31</a>, <a href="#bib.bib39" title="" class="ltx_ref">39</a>]</cite>; the <span id="S3.SS2.p4.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8 program was written by
+Michael Biafore). This discrete model captures certain essential
+features of polymers: conservation of the total number of monomers,
+preservation of connectivity, monomers can’t overlap (excluded
+volume), etc. It employs a statistical dynamics (controlled by <span id="S3.SS2.p4.1.2" class="ltx_text ltx_font_smallcaps">cam</span>-8
+random variables) that uses space-partitioning to maintain these
+constraints <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib23" title="" class="ltx_ref">23</a>]</cite>. The simulation discussed in
+<cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib31" title="" class="ltx_ref">31</a>]</cite> ran at a rate of about 30 million site updates per
+second on a space <math id="S3.SS2.p4.1.m1.1" class="ltx_Math" alttext="512\times 512" display="inline"><semantics id="S3.SS2.p4.1.m1.1a"><mrow id="S3.SS2.p4.1.m1.1.8" xref="S3.SS2.p4.1.m1.1.8.cmml"><mn id="S3.SS2.p4.1.m1.1.3" xref="S3.SS2.p4.1.m1.1.3.cmml">512</mn><mo id="S3.SS2.p4.1.m1.1.4" xref="S3.SS2.p4.1.m1.1.4.cmml">×</mo><mn id="S3.SS2.p4.1.m1.1.7" xref="S3.SS2.p4.1.m1.1.7.cmml">512</mn></mrow><annotation-xml encoding="MathML-Content" id="S3.SS2.p4.1.m1.1b"><apply id="S3.SS2.p4.1.m1.1.8.cmml" xref="S3.SS2.p4.1.m1.1.8"><times id="S3.SS2.p4.1.m1.1.4.cmml" xref="S3.SS2.p4.1.m1.1.4"></times><cn type="integer" id="S3.SS2.p4.1.m1.1.3.cmml" xref="S3.SS2.p4.1.m1.1.3">512</cn><cn type="integer" id="S3.SS2.p4.1.m1.1.7.cmml" xref="S3.SS2.p4.1.m1.1.7">512</cn></apply></annotation-xml><annotation encoding="application/x-llamapun" id="S3.SS2.p4.1.m1.1c">NUMBER:512 MULOP:times NUMBER:512</annotation><annotation encoding="application/x-tex" id="S3.SS2.p4.1.m1.1d">512\times 512</annotation></semantics></math>. Problems that are being addressed
+with these models include dynamics in polymer melts, gelation and
+phase separation, polymer collapse, and pulsed field gel
+electrophoresis <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib40" title="" class="ltx_ref">40</a>]</cite>.</p>
+</div>
+<div id="S3.SS2.p5" class="ltx_para">
+<p id="S3.SS2.p5.1" class="ltx_p"><span id="S3.SS2.p5.1.1" class="ltx_text ltx_font_smallcaps">Cam</span>-8 is designed to numerically analyze the models run on
+it—largely through the use of the event counters <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib46" title="" class="ltx_ref">46</a>]</cite>. By
+appropriately augmenting the system dynamics with extra degrees of
+freedom, we can make essentially any desired property of the system
+quantitatively visible. For example, localized spatial averages (such
+as density, pressure, energy density, temperature, magnetization
+density) can be gathered as we did to produce the momentum flows in
+the previous section; global correlation statistics can be accumulated
+quickly for occurrences of given spatial patterns; autocorrelations
+can be computed by comparing the system to a copy of itself shifted in
+time and/or space <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib30" title="" class="ltx_ref">30</a>]</cite>; and block-spin transformations can be
+quickly performed, simplifying renormalization group calculations of
+critical exponents.</p>
+</div>
+</section>
+<section id="S3.SS3" class="ltx_subsection">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.3 </span>Data visualization and image processing</h3>
+
+<div id="S3.SS3.p1" class="ltx_para">
+<p id="S3.SS3.p1.1" class="ltx_p">Another area we’ve been exploring is two- and three-dimensional image
+processing. We were led into this area initially by the display needs
+of our physical simulations (e.g., see Figure <a href="#S3.F4" title="Figure 4 ‣ 3.2 Statistical mechanics ‣ 3 Applications ‣ CAM-8: a computer architecture based on cellular automataThis research was supported by the Advanced Research Projects Agency, grant N0014-89-J-1988." class="ltx_ref"><span class="ltx_text ltx_ref_tag">4</span></a>a,
+discussed above), but this activity has taken on a life of its own.</p>
+</div>
+<div id="S3.SS3.p2" class="ltx_para">
+<p id="S3.SS3.p2.1" class="ltx_p">Our <span id="S3.SS3.p2.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8 machine simulates a kind of raster-scan universe, in which
+each hardware module sequentially scans its chunk of the overall
+simulation space. This raster scan can in fact be programmed to be
+two dimensional, and synchronized and interfaced with an external
+video source. The necessary hardware is included as part of our
+prototype, and allows us to perform realtime image processing.
+Generic bit-map processing/smoothing/improving techniques are
+supported through a combination of local (CA) operations and global
+statistics gathering via the hardware event counters <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib33" title="" class="ltx_ref">33</a>]</cite>.
+Well-known CA image-processing algorithms, such as those used
+commercially for locating and counting objects in images, can also be
+run efficiently <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib34" title="" class="ltx_ref">34</a>, <a href="#bib.bib41" title="" class="ltx_ref">41</a>, <a href="#bib.bib50" title="" class="ltx_ref">50</a>]</cite>.</p>
+</div>
+<figure id="S3.F5" class="ltx_figure">
+<table id="S3.Ex5" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S3.Ex5.m1.1" class="ltx_Math" alttext="\hfill\vbox{\psfig{height=144.54pt}
+\vskip 21.681pt\psfig{height=144.54pt}
+}\hskip 21.681pt\vbox{\psfig{height=144.54pt}\vskip 21.681pt\psfig{height=144.%
+54pt}}\hfill" display="block"><semantics id="S3.Ex5.m1.1a"><mrow id="S3.Ex5.m1.1.7" xref="S3.Ex5.m1.1.7.1.cmml"><mtext mathcolor="red" id="S3.Ex5.m1.1.2" xref="S3.Ex5.m1.1.2d.cmml">
+<span id="S3.Ex5.m1.1.2.1nest" class="ltx_inline-block ltx_align_bottom"><img src="x9.png" id="S3.Ex5.m1.1.2.1.g1nest" class="ltx_graphics" width="224" height="224" alt=""><img src="x10.png" id="S3.Ex5.m1.1.2.1.g2nest" class="ltx_graphics" width="225" height="225" alt="">
+</span></mtext><mo mathvariant="italic" separator="true" id="S3.Ex5.m1.1.6" xref="S3.Ex5.m1.1.7.1.cmml">   </mo><mtext mathcolor="red" id="S3.Ex5.m1.1.4" xref="S3.Ex5.m1.1.4d.cmml">
+<span id="S3.Ex5.m1.1.4.1nest" class="ltx_inline-block ltx_align_bottom"><img src="x11.png" id="S3.Ex5.m1.1.4.1.g1nest" class="ltx_graphics" width="224" height="224" alt=""><img src="x12.png" id="S3.Ex5.m1.1.4.1.g2nest" class="ltx_graphics" width="225" height="225" alt="">
+</span></mtext></mrow><annotation-xml encoding="MathML-Content" id="S3.Ex5.m1.1b"><list id="S3.Ex5.m1.1.7.1.cmml" xref="S3.Ex5.m1.1.7"><ci id="S3.Ex5.m1.1.2d.cmml" xref="S3.Ex5.m1.1.2"><mtext mathcolor="red" id="S3.Ex5.m1.1.2.cmml" xref="S3.Ex5.m1.1.2">
+<span id="S3.Ex5.m1.1.2.1anest" class="ltx_inline-block ltx_align_bottom"><img src="x9.png" id="S3.Ex5.m1.1.2.1.g1anest" class="ltx_graphics" width="224" height="224" alt=""><img src="x10.png" id="S3.Ex5.m1.1.2.1.g2anest" class="ltx_graphics" width="225" height="225" alt="">
+</span></mtext></ci><ci id="S3.Ex5.m1.1.4d.cmml" xref="S3.Ex5.m1.1.4"><mtext mathcolor="red" id="S3.Ex5.m1.1.4.cmml" xref="S3.Ex5.m1.1.4">
+<span id="S3.Ex5.m1.1.4.1anest" class="ltx_inline-block ltx_align_bottom"><img src="x11.png" id="S3.Ex5.m1.1.4.1.g1anest" class="ltx_graphics" width="224" height="224" alt=""><img src="x12.png" id="S3.Ex5.m1.1.4.1.g2anest" class="ltx_graphics" width="225" height="225" alt="">
+</span></mtext></ci></list></annotation-xml><annotation encoding="application/x-tex" id="S3.Ex5.m1.1c">\hfill\vbox{\psfig{height=144.54pt}
+\vskip 21.681pt\psfig{height=144.54pt}
+}\hskip 21.681pt\vbox{\psfig{height=144.54pt}\vskip 21.681pt\psfig{height=144.%
+54pt}}\hfill</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<figcaption class="ltx_caption"><span class="ltx_tag ltx_tag_figure">Figure 5: </span>Continuous rotations on a CA machine. Top: 2D rotation of realtime
+video data. Bottom: 3D rotation of MRI data.</figcaption>
+</figure>
+<div id="S3.SS3.p3" class="ltx_para">
+<p id="S3.SS3.p3.1" class="ltx_p">Many novel algorithms are also directly supported by the architecture.
+For example, the 8-node prototype can rotate a <math id="S3.SS3.p3.1.m1.1" class="ltx_Math" alttext="512\times 512" display="inline"><semantics id="S3.SS3.p3.1.m1.1a"><mrow id="S3.SS3.p3.1.m1.1.8" xref="S3.SS3.p3.1.m1.1.8.cmml"><mn id="S3.SS3.p3.1.m1.1.3" xref="S3.SS3.p3.1.m1.1.3.cmml">512</mn><mo id="S3.SS3.p3.1.m1.1.4" xref="S3.SS3.p3.1.m1.1.4.cmml">×</mo><mn id="S3.SS3.p3.1.m1.1.7" xref="S3.SS3.p3.1.m1.1.7.cmml">512</mn></mrow><annotation-xml encoding="MathML-Content" id="S3.SS3.p3.1.m1.1b"><apply id="S3.SS3.p3.1.m1.1.8.cmml" xref="S3.SS3.p3.1.m1.1.8"><times id="S3.SS3.p3.1.m1.1.4.cmml" xref="S3.SS3.p3.1.m1.1.4"></times><cn type="integer" id="S3.SS3.p3.1.m1.1.3.cmml" xref="S3.SS3.p3.1.m1.1.3">512</cn><cn type="integer" id="S3.SS3.p3.1.m1.1.7.cmml" xref="S3.SS3.p3.1.m1.1.7">512</cn></apply></annotation-xml><annotation encoding="application/x-llamapun" id="S3.SS3.p3.1.m1.1c">NUMBER:512 MULOP:times NUMBER:512</annotation><annotation encoding="application/x-tex" id="S3.SS3.p3.1.m1.1d">512\times 512</annotation></semantics></math> bit-map
+image through an arbitrary angle in less than 10 milliseconds by
+permuting the arrangement of the pixels to move every pixel to within
+one pixel-width of its best possible rotated position.
+Figure <a href="#S3.F5" title="Figure 5 ‣ 3.3 Data visualization and image processing ‣ 3 Applications ‣ CAM-8: a computer architecture based on cellular automataThis research was supported by the Advanced Research Projects Agency, grant N0014-89-J-1988." class="ltx_ref"><span class="ltx_text ltx_ref_tag">5</span></a>a shows camera input of a closeup of the
+<span id="S3.SS3.p3.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8 chip (the semi-custom chip that knits memory chips together
+into a CA machine). Figure <a href="#S3.F5" title="Figure 5 ‣ 3.3 Data visualization and image processing ‣ 3 Applications ‣ CAM-8: a computer architecture based on cellular automataThis research was supported by the Advanced Research Projects Agency, grant N0014-89-J-1988." class="ltx_ref"><span class="ltx_text ltx_ref_tag">5</span></a>b shows the same image
+rotated by <span id="S3.SS3.p3.1.2" class="ltx_text ltx_font_smallcaps">cam</span>-8 through an angle of 35
+degrees <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib32" title="" class="ltx_ref">32</a>]</cite>.<span id="footnote6" class="ltx_note ltx_role_footnote"><sup class="ltx_note_mark">6</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">6</sup><span class="ltx_tag ltx_tag_note">6</span>This same kind of technique is
+applicable in other contexts. For example, a matrix transpose can be
+accomplished by a 90 degree rotation and a flip—this combined
+operation on <span id="footnote6.1" class="ltx_text ltx_font_smallcaps">cam</span>-8 takes the same time as the rotation alone. Some
+of our collaborators (Bryant York and Leilei Bao at Northeastern
+University) are performing combinatorial searches on <span id="footnote6.2" class="ltx_text ltx_font_smallcaps">cam</span>-8 by
+applying these kinds of techniques to large multidimensional
+matrices.</span></span></span></p>
+</div>
+<div id="S3.SS3.p4" class="ltx_para">
+<p id="S3.SS3.p4.1" class="ltx_p">In three dimensions, local CA techniques can be used to find and to
+smooth two-dimensional surfaces to be visualized. For example,
+magnetic resonance imaging can produce three-dimensional arrays of
+spatial density data that subsequently need to be visualized.
+Interesting features might be the surface of the brain, the surfaces
+of lesions, blood vessels, etc. Local rules can be used to trace
+features (e.g., blood vessels are regions connected to segments that
+have already been identified as blood vessels) and to smooth surfaces
+(e.g., using annealing rules that have surface tension). Once a
+surface has been distinguished, many bit-map oriented rendering
+techniques are available. The simplest is probably the same one used
+in Figure <a href="#S3.F4" title="Figure 4 ‣ 3.2 Statistical mechanics ‣ 3 Applications ‣ CAM-8: a computer architecture based on cellular automataThis research was supported by the Advanced Research Projects Agency, grant N0014-89-J-1988." class="ltx_ref"><span class="ltx_text ltx_ref_tag">4</span></a>a: just simulate “photons” of light moving
+from site to site, entering the system from one direction, and being
+observed from another. Figures <a href="#S3.F5" title="Figure 5 ‣ 3.3 Data visualization and image processing ‣ 3 Applications ‣ CAM-8: a computer architecture based on cellular automataThis research was supported by the Advanced Research Projects Agency, grant N0014-89-J-1988." class="ltx_ref"><span class="ltx_text ltx_ref_tag">5</span></a>c and <a href="#S3.F5" title="Figure 5 ‣ 3.3 Data visualization and image processing ‣ 3 Applications ‣ CAM-8: a computer architecture based on cellular automataThis research was supported by the Advanced Research Projects Agency, grant N0014-89-J-1988." class="ltx_ref"><span class="ltx_text ltx_ref_tag">5</span></a>d show
+the surface of the brain generated from MRI data, and rendered by such
+a technique. The two images are rotated versions of the same
+data—we can actually do an arbitrary three-dimensional rotation of
+site data using the same technique used in Figures <a href="#S3.F5" title="Figure 5 ‣ 3.3 Data visualization and image processing ‣ 3 Applications ‣ CAM-8: a computer architecture based on cellular automataThis research was supported by the Advanced Research Projects Agency, grant N0014-89-J-1988." class="ltx_ref"><span class="ltx_text ltx_ref_tag">5</span></a>a and
+<a href="#S3.F5" title="Figure 5 ‣ 3.3 Data visualization and image processing ‣ 3 Applications ‣ CAM-8: a computer architecture based on cellular automataThis research was supported by the Advanced Research Projects Agency, grant N0014-89-J-1988." class="ltx_ref"><span class="ltx_text ltx_ref_tag">5</span></a>b in just three updating scans of the space
+<cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib45" title="" class="ltx_ref">45</a>]</cite>.</p>
+</div>
+<div id="S3.SS3.p5" class="ltx_para">
+<p id="S3.SS3.p5.1" class="ltx_p">If you render a surface twice, once from each of two slightly
+separated vantage points, you can quickly produce stereo pairs. We
+have tested this technique<span id="footnote7" class="ltx_note ltx_role_footnote"><sup class="ltx_note_mark">7</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">7</sup><span class="ltx_tag ltx_tag_note">7</span>Mike Biafore led this effort.</span></span></span> in
+some of our physical simulations: we have run a version of the
+three-dimensional annealing simulation pictured in
+Figure <a href="#S3.F4" title="Figure 4 ‣ 3.2 Statistical mechanics ‣ 3 Applications ‣ CAM-8: a computer architecture based on cellular automataThis research was supported by the Advanced Research Projects Agency, grant N0014-89-J-1988." class="ltx_ref"><span class="ltx_text ltx_ref_tag">4</span></a>a while continuously generating such stereo
+pairs, without slowing the simulation down at all. Using this
+technique to generate images from many vantage points, one can quickly
+generate data needed for producing holograms from computer volumetric
+data.<span id="footnote8" class="ltx_note ltx_role_footnote"><sup class="ltx_note_mark">8</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">8</sup><span class="ltx_tag ltx_tag_note">8</span><span id="footnote8.1" class="ltx_text ltx_font_smallcaps">Cam</span>-8 should also be useful for reconstructing
+three-dimensional surfaces from holographic data. The algorithm
+implemented by the <span id="footnote8.2" class="ltx_text ltx_font_smallcaps">horn</span> machine <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib54" title="" class="ltx_ref">54</a>]</cite> should run faster on
+our <span id="footnote8.3" class="ltx_text ltx_font_smallcaps">cam</span>-8 prototype than on the special-purpose <span id="footnote8.4" class="ltx_text ltx_font_smallcaps">horn</span> hardware.</span></span></span></p>
+</div>
+</section>
+<section id="S3.SS4" class="ltx_subsection">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.4 </span>Spacetime circuitry</h3>
+
+<div id="S3.SS4.p1" class="ltx_para">
+<p id="S3.SS4.p1.1" class="ltx_p"><span id="S3.SS4.p1.1.1" class="ltx_text ltx_font_smallcaps">Cam</span>-8 can rapidly perform not only arbitrary rotations, but also
+affine transformations on its data—the hardware can skip or
+repeatedly scan sites during updating in order to rescale an image.
+Actually, we can do far better than this: <span id="S3.SS4.p1.1.2" class="ltx_text ltx_font_smallcaps">cam</span>-8 can perform <span id="S3.SS4.p1.1.3" class="ltx_text ltx_font_italic">arbitrary</span> rearrangements of bits, with any set of local, non-uniform
+operations along the way. To get an arbitrary transformation, you
+simply simulate the right logic circuit!</p>
+</div>
+<figure id="S3.F6" class="ltx_figure">
+<table id="S3.Ex6" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S3.Ex6.m1.1" class="ltx_Math" alttext="\hfill\vbox{\psfig{height=144.54pt}
+}\hskip 21.681pt\vbox{\psfig{height=144.54pt}}\hfill" display="block"><semantics id="S3.Ex6.m1.1a"><mrow id="S3.Ex6.m1.1.7" xref="S3.Ex6.m1.1.7.1.cmml"><mtext mathcolor="red" id="S3.Ex6.m1.1.2" xref="S3.Ex6.m1.1.2b.cmml"><img src="x13.png" id="S3.Ex6.m1.1.2.1.g1nest" class="ltx_graphics" width="225" height="225" alt=""></mtext><mo mathvariant="italic" separator="true" id="S3.Ex6.m1.1.6" xref="S3.Ex6.m1.1.7.1.cmml">   </mo><mtext mathcolor="red" id="S3.Ex6.m1.1.4" xref="S3.Ex6.m1.1.4b.cmml"><img src="x14.png" id="S3.Ex6.m1.1.4.1.g1nest" class="ltx_graphics" width="229" height="225" alt=""></mtext></mrow><annotation-xml encoding="MathML-Content" id="S3.Ex6.m1.1b"><list id="S3.Ex6.m1.1.7.1.cmml" xref="S3.Ex6.m1.1.7"><ci id="S3.Ex6.m1.1.2b.cmml" xref="S3.Ex6.m1.1.2"><mtext mathcolor="red" id="S3.Ex6.m1.1.2.cmml" xref="S3.Ex6.m1.1.2"><img src="x13.png" id="S3.Ex6.m1.1.2.1.g1anest" class="ltx_graphics" width="225" height="225" alt=""></mtext></ci><ci id="S3.Ex6.m1.1.4b.cmml" xref="S3.Ex6.m1.1.4"><mtext mathcolor="red" id="S3.Ex6.m1.1.4.cmml" xref="S3.Ex6.m1.1.4"><img src="x14.png" id="S3.Ex6.m1.1.4.1.g1anest" class="ltx_graphics" width="229" height="225" alt=""></mtext></ci></list></annotation-xml><annotation encoding="application/x-tex" id="S3.Ex6.m1.1c">\hfill\vbox{\psfig{height=144.54pt}
+}\hskip 21.681pt\vbox{\psfig{height=144.54pt}}\hfill</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<figcaption class="ltx_caption"><span class="ltx_tag ltx_tag_figure">Figure 6: </span>Logic simulation. (a) Gate-array-like CA simulation of a
+random number generator. (b) Spacetime wires reverse the bits in a
+1-dimensional space.</figcaption>
+</figure>
+<div id="S3.SS4.p2" class="ltx_para">
+<p id="S3.SS4.p2.1" class="ltx_p">A digital logic circuit is a physical system that (not surprisingly)
+can be simulated efficiently by a (digital) CA space.
+Figure <a href="#S3.F6" title="Figure 6 ‣ 3.4 Spacetime circuitry ‣ 3 Applications ‣ CAM-8: a computer architecture based on cellular automataThis research was supported by the Advanced Research Projects Agency, grant N0014-89-J-1988." class="ltx_ref"><span class="ltx_text ltx_ref_tag">6</span></a>a shows a straightforward simulation of logic
+using <span id="S3.SS4.p2.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8.<span id="footnote9" class="ltx_note ltx_role_footnote"><sup class="ltx_note_mark">9</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">9</sup><span class="ltx_tag ltx_tag_note">9</span>The circuit shown is due to Ruben Agin.</span></span></span> Here
+we have a CA space that simulates a kind of sea-of-gates gate-array,
+with one gate at each spatial site. Local routing information
+recorded at each site determines how data hops between bit-fields that
+shift in various directions, in order to implement the wires that
+connect the gates together. Large three dimensional logic simulations
+can be performed by <span id="S3.SS4.p2.1.2" class="ltx_text ltx_font_smallcaps">cam</span>-8 in this manner: just as with other
+spatially organized computations, the kind of virtualization of
+spatial sites (gates here) that <span id="S3.SS4.p2.1.3" class="ltx_text ltx_font_smallcaps">cam</span>-8 does makes such simulations
+practical.<span id="footnote10" class="ltx_note ltx_role_footnote"><sup class="ltx_note_mark">10</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">10</sup><span class="ltx_tag ltx_tag_note">10</span>Since <span id="footnote10.1" class="ltx_text ltx_font_smallcaps">cam</span>-8 shares each processor over up to a
+few million spatial sites, much higher performance specialized
+machines with a lower virtualization ratio can be made to implement
+specific <span id="footnote10.2" class="ltx_text ltx_font_smallcaps">cam</span>-8 rules—such as a logic simulation rule, or an image
+processing rule. You trade flexibility (large spatial shifts and
+large lookup tables) and simulation size for speed. Notice that even
+if <span id="footnote10.3" class="ltx_text ltx_font_smallcaps">fpga</span>’s are used for implementing these specialized machines, very
+high silicon utilization ratios can be achieved, since the regular
+structure of a CA maps naturally onto the regular structure of an
+<span id="footnote10.4" class="ltx_text ltx_font_smallcaps">fpga</span>.</span></span></span> The investigation of CA rules that permit efficient logic
+simulation is also important for highly-parallel fixed-rule CA
+hardware: if the fixed rule supports logic simulation, then the
+machine can simulate any other CA rule by tiling the simulation space
+with appropriate blocks of logic.<span id="footnote11" class="ltx_note ltx_role_footnote"><sup class="ltx_note_mark">11</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">11</sup><span class="ltx_tag ltx_tag_note">11</span>The idea of using CA’s to
+do logic is quite old. In fact, much of the present work on field
+programmable gate arrays carries forward ideas that originated in
+early work on CA’s (cf. <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib48" title="" class="ltx_ref">48</a>, <a href="#bib.bib16" title="" class="ltx_ref">16</a>, <a href="#bib.bib22" title="" class="ltx_ref">22</a>, <a href="#bib.bib38" title="" class="ltx_ref">38</a>]</cite>.)</span></span></span></p>
+</div>
+<div id="S3.SS4.p3" class="ltx_para">
+<p id="S3.SS4.p3.1" class="ltx_p">Now consider the problem of producing rather general transformations
+of the data in our CA space. One approach would be to directly
+simulate a gate-array-like rule that operates on the original data,
+and eventually produces the transformed data. An efficient technique
+for doing this on <span id="S3.SS4.p3.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8 is called <span id="S3.SS4.p3.1.2" class="ltx_text ltx_font_italic">spacetime circuitry</span>. This
+involves adding an extra dimension to your system to hold the
+transformation circuitry, laid out as a pipeline in which each stage
+is evaluated only once, as the data passes through
+it <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib19" title="" class="ltx_ref">19</a>, <a href="#bib.bib1" title="" class="ltx_ref">1</a>]</cite>.</p>
+</div>
+<div id="S3.SS4.p4" class="ltx_para">
+<p id="S3.SS4.p4.1" class="ltx_p">As a simple example, consider a 1-dimensional space where the desired
+transformation is to reverse the order of the data bits across the
+width of the space. We add a dimension (labeled <math id="S3.SS4.p4.1.m1.1" class="ltx_Math" alttext="u" display="inline"><semantics id="S3.SS4.p4.1.m1.1a"><mi id="S3.SS4.p4.1.m1.1.1" xref="S3.SS4.p4.1.m1.1.1.cmml">u</mi><annotation-xml encoding="MathML-Content" id="S3.SS4.p4.1.m1.1b"><ci id="S3.SS4.p4.1.m1.1.1.cmml" xref="S3.SS4.p4.1.m1.1.1">𝑢</ci></annotation-xml><annotation encoding="application/x-llamapun" id="S3.SS4.p4.1.m1.1c">italic-u</annotation><annotation encoding="application/x-tex" id="S3.SS4.p4.1.m1.1d">u</annotation></semantics></math> in
+Figure <a href="#S3.F6" title="Figure 6 ‣ 3.4 Spacetime circuitry ‣ 3 Applications ‣ CAM-8: a computer architecture based on cellular automataThis research was supported by the Advanced Research Projects Agency, grant N0014-89-J-1988." class="ltx_ref"><span class="ltx_text ltx_ref_tag">6</span></a>b) and draw a circuit that accomplishes the
+reversal—in this simple case, we only need wires. The circuit shown
+is a data pipeline that copies information up one row at each stage,
+and possibly over by one position right or left: the information about
+which way the data should go is stored locally. The <span id="S3.SS4.p4.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8 rule that
+achieves this transformation only involves 5-bit sites—two bits of
+stationary <span id="S3.SS4.p4.1.2" class="ltx_text ltx_font_italic">routing</span> information, and three shifting bit-fields to
+transport the signals. If we continually add new information at the
+bottom of the picture, reversed data continually appears, with a
+10-stage propagation delay, at the top. But if we only want to
+accomplish the transformation once, then we only need to update each
+consecutive row of the circuit once, moving the signals up to the next
+row before we update it in turn. In this case, instead of one update
+of the space moving the whole pipeline forward by one stage, the row
+by row update will move one set of data all the way through the
+pipeline!<span id="footnote12" class="ltx_note ltx_role_footnote"><sup class="ltx_note_mark">12</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">12</sup><span class="ltx_tag ltx_tag_note">12</span>The rendering algorithm of
+Figure <a href="#S3.F4" title="Figure 4 ‣ 3.2 Statistical mechanics ‣ 3 Applications ‣ CAM-8: a computer architecture based on cellular automataThis research was supported by the Advanced Research Projects Agency, grant N0014-89-J-1988." class="ltx_ref"><span class="ltx_text ltx_ref_tag">4</span></a>a uses essentially this technique to
+propagate the light all the way through the material system in a
+single scan of the space.</span></span></span> We still get one result per update of the
+space (exactly as before), but the propagation delay has been reduced
+to a single scan of the space! Thus given a CA space, by adding a
+dimension containing a sufficiently complicated pipelined circuit, any
+desired transformation of the original space can be achieved in one
+scan of the augmented space—limited only by the total amount of
+space available for the extra-dimensional circuitry.</p>
+</div>
+<div id="S3.SS4.p5" class="ltx_para">
+<p id="S3.SS4.p5.1" class="ltx_p">If the problem we’re interested in is the simulation of a clocked
+logic circuit, this technique can be used to greatly speed up the
+simulation. Instead of updating our CA space over and over again
+while signals propagate around the system, passing through gates and
+eventually being latched in preparation for the next clock cycle, we
+can pipeline this calculation using an extra dimension, and perform
+the entire clock cycle in a single update of the space. Since the
+total volume of space (number of sites) needed to represent all of the
+gates and wires should be comparable to the volume without the
+pipeline dimension,<span id="footnote13" class="ltx_note ltx_role_footnote"><sup class="ltx_note_mark">13</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">13</sup><span class="ltx_tag ltx_tag_note">13</span>Since routing signals in a higher
+dimension is generally much easier than in a lower dimension, the
+circuit should actually be more compact.</span></span></span> this represents an enormous
+speedup. If we think of the routing and gate information that is
+spread out in the pipeline dimension as being spread out in time, then
+we greatly reduce the space needed for the calculation by making what
+happens at each spot time dependent—hence the term <span id="S3.SS4.p5.1.1" class="ltx_text ltx_font_italic">spacetime
+circuitry</span>.</p>
+</div>
+<div id="S3.SS4.p6" class="ltx_para">
+<p id="S3.SS4.p6.1" class="ltx_p">An additional benefit of spacetime circuitry on <span id="S3.SS4.p6.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8 is that it
+allows us to take good advantage of the large spatial shifts that are
+available in this architecture. In the logic example, we could use
+big spatial shifts at some stages of the pipeline, and smaller ones at
+other stages, in order to route all signals in as few stages as
+possible—this provides a further speedup of the simulation. Of
+course these sorts of techniques (extra dimensions and big shifts)
+will not be applicable to fully parallel CA machines built at the most
+microscopic scale, but they add greatly to the power and flexibility
+of our virtual-processor implementation.</p>
+</div>
+<figure id="S3.F7" class="ltx_figure">
+<p id="S3.F7.1" class="ltx_p ltx_align_center"><math id="S3.F7.1.m1.1" class="ltx_Math" alttext="\vbox{\tiny\begin{verbatim}
+new-experiment        512 by 512 space
+
+%
+                      0 0 == north  1 1 == south
+%
+                      2 2 == east   3 3 == west
+
+%
+define-rule hpp-rule  north south =  east west =  and
+%
+                      if east &lt;-&gt; north  west &lt;-&gt; south then
+end-rule
+
+%
+define-step hpp-step  lut-data   hpp-rule
+%
+                      site-src   lut
+                      lut-src    site
+%
+                      kick       north field -1 y
+%
+                                 south field  1 y
+%
+                                 east  field  1 x
+%
+                                 west  field -1 x
+%
+                      run        new-table
+end-step
+\end{verbatim}}\hskip 36.1%
+35pt\vbox{\psfig{height=108.405pt}}" display="inline"><semantics id="S3.F7.1.m1.1a"><mrow id="S3.F7.1.m1.1.5" xref="S3.F7.1.m1.1.5.1.cmml"><mtext mathsize="50%" mathvariant="monospace" id="S3.F7.1.m1.1.1" xref="S3.F7.1.m1.1.1b.cmml"><pre id="S3.F7.1.m1.1.1.1.1nest" class="ltx_verbatim ltx_font_typewriter" style="font-size:50%;">
+new-experiment        512 by 512 space
+
+                      0 0 == north  1 1 == south
+                      2 2 == east   3 3 == west
+
+define-rule hpp-rule  north south =  east west =  and
+                      if east &lt;-&gt; north  west &lt;-&gt; south then
+end-rule
+
+define-step hpp-step  lut-data   hpp-rule
+                      site-src   lut
+                      lut-src    site
+                      kick       north field -1 y
+                                 south field  1 y
+                                 east  field  1 x
+                                 west  field -1 x
+                      run        new-table
+end-step
+</pre></mtext><mo mathvariant="italic" separator="true" id="S3.F7.1.m1.1.4" xref="S3.F7.1.m1.1.5.1.cmml">    </mo><mtext mathcolor="red" id="S3.F7.1.m1.1.3" xref="S3.F7.1.m1.1.3b.cmml"><img src="x15.png" id="S3.F7.1.m1.1.3.1.g1nest" class="ltx_graphics" width="168" height="170" alt=""></mtext></mrow><annotation-xml encoding="MathML-Content" id="S3.F7.1.m1.1b"><list id="S3.F7.1.m1.1.5.1.cmml" xref="S3.F7.1.m1.1.5"><ci id="S3.F7.1.m1.1.1b.cmml" xref="S3.F7.1.m1.1.1"><mtext mathsize="50%" mathvariant="monospace" id="S3.F7.1.m1.1.1.cmml" xref="S3.F7.1.m1.1.1"><pre id="S3.F7.1.m1.1.1.1.1anest" class="ltx_verbatim ltx_font_typewriter" style="font-size:50%;">
+new-experiment        512 by 512 space
+
+                      0 0 == north  1 1 == south
+                      2 2 == east   3 3 == west
+
+define-rule hpp-rule  north south =  east west =  and
+                      if east &lt;-&gt; north  west &lt;-&gt; south then
+end-rule
+
+define-step hpp-step  lut-data   hpp-rule
+                      site-src   lut
+                      lut-src    site
+                      kick       north field -1 y
+                                 south field  1 y
+                                 east  field  1 x
+                                 west  field -1 x
+                      run        new-table
+end-step
+</pre></mtext></ci><ci id="S3.F7.1.m1.1.3b.cmml" xref="S3.F7.1.m1.1.3"><mtext mathcolor="red" id="S3.F7.1.m1.1.3.cmml" xref="S3.F7.1.m1.1.3"><img src="x15.png" id="S3.F7.1.m1.1.3.1.g1anest" class="ltx_graphics" width="168" height="170" alt=""></mtext></ci></list></annotation-xml><annotation encoding="application/x-tex" id="S3.F7.1.m1.1c">\vbox{\tiny\begin{verbatim}
+new-experiment        512 by 512 space
+
+%
+                      0 0 == north  1 1 == south
+%
+                      2 2 == east   3 3 == west
+
+%
+define-rule hpp-rule  north south =  east west =  and
+%
+                      if east &lt;-&gt; north  west &lt;-&gt; south then
+end-rule
+
+%
+define-step hpp-step  lut-data   hpp-rule
+%
+                      site-src   lut
+                      lut-src    site
+%
+                      kick       north field -1 y
+%
+                                 south field  1 y
+%
+                                 east  field  1 x
+%
+                                 west  field -1 x
+%
+                      run        new-table
+end-step
+\end{verbatim}}\hskip 36.1%
+35pt\vbox{\psfig{height=108.405pt}}</annotation></semantics></math></p>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 7: </span>Sample experiment.</figcaption>
+</figure>
+</section>
+</section>
+<section id="S4" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">4 </span>Software</h2>
+
+<div id="S4.p1" class="ltx_para">
+<p id="S4.p1.1" class="ltx_p">During the design of the <span id="S4.p1.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8 <span id="S4.p1.1.2" class="ltx_text ltx_font_smallcaps">asic</span>, we decided to implement a
+version of the software that would drive the real hardware, and use
+that to drive complete system simulations of the <span id="S4.p1.1.3" class="ltx_text ltx_font_smallcaps">cam</span>-8 hardware,
+including the workstation interface hardware. Thus when the hardware
+arrived, we immediately had software that would drive it, and could
+run the same tests that we used to validate the design.
+</p>
+</div>
+<div id="S4.p2" class="ltx_para">
+<p id="S4.p2.1" class="ltx_p">This initial software was intentionally rather low level, since it was
+necessary to have low level access and control to thoroughly and
+efficiently drive gate-level simulations that ran eight orders of
+magnitude slower than a single module of the actual hardware. The
+present (still rather rudimentary) <span id="S4.p2.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8 systems software has been
+built as several layers on top of this initial work. It provides a
+prototypical programming environment for <span id="S4.p2.1.2" class="ltx_text ltx_font_smallcaps">cam</span>-8 which demonstrates how
+to access and control all facets of the hardware.</p>
+</div>
+<section id="S4.SS1" class="ltx_subsection">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">4.1 </span>A high level machine language</h3>
+
+<div id="S4.SS1.p1" class="ltx_para">
+<p id="S4.SS1.p1.1" class="ltx_p">For simple CA models running on regular crystal lattices, the mapping
+between the model and the <span id="S4.SS1.p1.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8 architecture is quite
+direct.<span id="footnote14" class="ltx_note ltx_role_footnote"><sup class="ltx_note_mark">14</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">14</sup><span class="ltx_tag ltx_tag_note">14</span>Embedding any regular lattice into <span id="footnote14.1" class="ltx_text ltx_font_smallcaps">cam</span>’s Cartesian
+lattice generally involves combining several adjacent sites of the
+original lattice into one <span id="footnote14.2" class="ltx_text ltx_font_smallcaps">cam</span> site.</span></span></span></p>
+</div>
+<div id="S4.SS1.p2" class="ltx_para">
+<p id="S4.SS1.p2.1" class="ltx_p">To illustrate this direct mapping for the simplest lattice gas model,
+Figure <a href="#S3.F7" title="Figure 7 ‣ 3.4 Spacetime circuitry ‣ 3 Applications ‣ CAM-8: a computer architecture based on cellular automataThis research was supported by the Advanced Research Projects Agency, grant N0014-89-J-1988." class="ltx_ref"><span class="ltx_text ltx_ref_tag">7</span></a> shows a <span id="S4.SS1.p2.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8 assembly language program for
+running the HPP lattice gas <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib15" title="" class="ltx_ref">15</a>]</cite>. This program translates into
+about a dozen <span id="S4.SS1.p2.1.2" class="ltx_text ltx_font_smallcaps">cam</span>-8 machine-language instructions to be broadcast to
+<span id="S4.SS1.p2.1.3" class="ltx_text ltx_font_smallcaps">cam</span>. It has two main parts: a rule definition, and a definition of
+what constitutes an updating step. The updating step broadcasts the
+rule, adjusts some <span id="S4.SS1.p2.1.4" class="ltx_text ltx_font_smallcaps">cam</span> data paths, specifies some uniform data
+movements of the four bit-fields used to transport particles, and
+initiates a scan of the space. Despite being at such a low level,
+this program runs without change on a machine with any number of
+modules.<span id="footnote15" class="ltx_note ltx_role_footnote"><sup class="ltx_note_mark">15</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">15</sup><span class="ltx_tag ltx_tag_note">15</span>Utilities that download initial patterns and that
+manage the video display are not shown here—the lowest-level
+interaction of these routines with <span id="footnote15.1" class="ltx_text ltx_font_smallcaps">cam</span> depends explicitly on the
+number of modules.</span></span></span> Issues such as making the data move smoothly
+across module boundaries are handled directly by the hardware.</p>
+</div>
+<div id="S4.SS1.p3" class="ltx_para">
+<p id="S4.SS1.p3.1" class="ltx_p">Figure <a href="#S3.F7" title="Figure 7 ‣ 3.4 Spacetime circuitry ‣ 3 Applications ‣ CAM-8: a computer architecture based on cellular automataThis research was supported by the Advanced Research Projects Agency, grant N0014-89-J-1988." class="ltx_ref"><span class="ltx_text ltx_ref_tag">7</span></a> also shows a “snapshot” from the <span id="S4.SS1.p3.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8
+display of a sound pulse resulting when this exact code is run from an
+initial pattern of random particle data with a cavity (a 64<math id="S4.SS1.p3.1.m1.1" class="ltx_Math" alttext="\times" display="inline"><semantics id="S4.SS1.p3.1.m1.1a"><mo id="S4.SS1.p3.1.m1.1.1" xref="S4.SS1.p3.1.m1.1.1.cmml">×</mo><annotation-xml encoding="MathML-Content" id="S4.SS1.p3.1.m1.1b"><times id="S4.SS1.p3.1.m1.1.1.cmml" xref="S4.SS1.p3.1.m1.1.1"></times></annotation-xml><annotation encoding="application/x-llamapun" id="S4.SS1.p3.1.m1.1c">MULOP:times</annotation><annotation encoding="application/x-tex" id="S4.SS1.p3.1.m1.1d">\times</annotation></semantics></math>64
+particle vacuum) in the center.</p>
+</div>
+</section>
+<section id="S4.SS2" class="ltx_subsection">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">4.2 </span>Zero-module scalability</h3>
+
+<div id="S4.SS2.p1" class="ltx_para">
+<p id="S4.SS2.p1.1" class="ltx_p">The <span id="S4.SS2.p1.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8 machine language is directly interpreted by the hardware
+interface that resides in the workstation that controls <span id="S4.SS2.p1.1.2" class="ltx_text ltx_font_smallcaps">cam</span>. This
+language forms a sharp and simple boundary between the software and
+the hardware—all interaction gets funneled through this interface.
+A software simulator of <span id="S4.SS2.p1.1.3" class="ltx_text ltx_font_smallcaps">cam</span>-8 has only to correctly interpret this
+machine language in order to be compatible with all higher level
+software written for <span id="S4.SS2.p1.1.4" class="ltx_text ltx_font_smallcaps">cam</span>.
+</p>
+</div>
+<div id="S4.SS2.p2" class="ltx_para">
+<p id="S4.SS2.p2.1" class="ltx_p">Since the <span id="S4.SS2.p2.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8 architecture depends so heavily on data movement by
+pointer manipulation and updating by table lookup, it is in fact very
+well suited to direct software simulation on serial machines. A
+functionally accurate software simulator of <span id="S4.SS2.p2.1.2" class="ltx_text ltx_font_smallcaps">cam</span>-8 has been
+constructed for the Sun SPARCstation which runs CA models about as
+fast as the best existing CA simulators for that machine—as fast as
+simulators that are not burdened with the constraint of also
+simulating <span id="S4.SS2.p2.1.3" class="ltx_text ltx_font_smallcaps">cam</span>-8 functionality <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib37" title="" class="ltx_ref">37</a>]</cite>.</p>
+</div>
+<div id="S4.SS2.p3" class="ltx_para">
+<p id="S4.SS2.p3.1" class="ltx_p">This property that <span id="S4.SS2.p3.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8 simulations have of running well even in a
+pure software context we sometimes refer to as <span id="S4.SS2.p3.1.2" class="ltx_text ltx_font_italic">zero-module
+scalability</span>. Efficient simulability on a variety of parallel and
+serial architectures should encourage the use of the <span id="S4.SS2.p3.1.3" class="ltx_text ltx_font_smallcaps">cam</span>-8 machine
+model as a standard for CA work—which would make other <span id="S4.SS2.p3.1.4" class="ltx_text ltx_font_smallcaps">cam</span>-8
+software efforts much more widely useful. Applications developed on
+faithful software simulators (and on small <span id="S4.SS2.p3.1.5" class="ltx_text ltx_font_smallcaps">cam</span>-8 installations) will
+be directly transferable to large <span id="S4.SS2.p3.1.6" class="ltx_text ltx_font_smallcaps">cam</span>-8 machines when faster or more
+massive simulations are needed.</p>
+</div>
+</section>
+<section id="S4.SS3" class="ltx_subsection">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">4.3 </span>Programming environment</h3>
+
+<div id="S4.SS3.p1" class="ltx_para">
+<p id="S4.SS3.p1.1" class="ltx_p">For specific applications, it will be the simulation context that
+defines the “high level” programming environment. For a logic
+simulation, the high level environment might include hardware
+description languages, logic synthesizers, chip-model libraries, etc.
+For a fluid simulation, the high level environment might allow one to
+“design” a wind-tunnel, obstacles, probes, etc. In general, one
+needs facilities for conveniently producing interesting initial
+conditions, for visualizing the state of the system, for monitoring
+and analyzing the progress of the simulation, etc. Our task here is
+to provide examples, utilities, and “hooks” to facilitate the
+construction and integration of such environments.</p>
+</div>
+<div id="S4.SS3.p2" class="ltx_para">
+<p id="S4.SS3.p2.1" class="ltx_p">For developing models, one great simplification has been the sharing
+of code that is possible between models that employ a similar spatial
+format. For example, we have constructed a set of libraries that
+specialize the <span id="S4.SS3.p2.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8 machine to run <span id="S4.SS3.p2.1.2" class="ltx_text ltx_font_smallcaps">cam</span>-6 style neighborhoods on
+variable-sized two-dimensional spaces. This allows generic mechanisms
+for display, analysis, etc. to be shared, allowing the programmer to
+concentrate on developing models. These libraries serve both to allow
+the experiments and experience of <span id="S4.SS3.p2.1.3" class="ltx_text ltx_font_smallcaps">cam</span>-6 to be applied rapidly to this
+new domain and to allow users to develop applications in a simplified
+and well documented context. The library routines also serve as
+examples of how to directly program <span id="S4.SS3.p2.1.4" class="ltx_text ltx_font_smallcaps">cam</span>-8 itself.</p>
+</div>
+<div id="S4.SS3.p3" class="ltx_para">
+<p id="S4.SS3.p3.1" class="ltx_p">The task of providing high-level tools for model development has
+barely begun. Some of the work involves only software engineering:
+for example, writing good compilers that can automatically partition a
+rule on sites with many bits into a composition of 16-bit operations
+would be a valuable aid (cf. <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib11" title="" class="ltx_ref">11</a>]</cite>). Compilers that can
+perform specified transformations on a space by constructing spacetime
+circuitry would be similarly valuable. Access to arithmetic array
+operations directly on <span id="S4.SS3.p3.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8 would be useful not only for model
+building, but for model analysis. High level debugging tools that let
+one quickly compare a model’s behavior against expectations are
+essential. Where adequate models exist, work needs to be done on
+parameterizing known modeling techniques and ways of combining models.</p>
+</div>
+</section>
+<section id="S4.SS4" class="ltx_subsection">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">4.4 </span>Theoretical challenges</h3>
+
+<div id="S4.SS4.p1" class="ltx_para">
+<p id="S4.SS4.p1.1" class="ltx_p">Ideally, one would like to be able to specify a very high level
+description of a physical system, and have software use some set of
+correspondence rules to generate an efficient, fine-grained CA model
+of that system. In general, we don’t know how to do this. Present
+modeling techniques are rather ad hoc, and the best progress has been
+made by “dressing up” lattice gases by adding additional particle
+species and interactions, resulting in complex models with large
+numbers of bits at each site. Such models are ill suited to an
+ultimate goal of harnessing fine-grained, high-density microphysical
+systems for CA computations. Furthermore, there are at present no
+fine-grained CA models of many basic physical phenomena, such as
+motion of an elastic-solid, long-range forces, or relativistic
+effects.</p>
+</div>
+<div id="S4.SS4.p2" class="ltx_para">
+<p id="S4.SS4.p2.1" class="ltx_p">We know that more general methods of constructing models are possible.
+For example, the numerical integration of a finite difference equation
+is actually a type of CA computation, and it can reproduce a
+differential equation. This correspondence, however, yields a rather
+restricted class of CA rules, constrained to use only arithmetic
+operations and large numbers of bits at each site. Without these
+constraints, other general methods may be possible which yield much
+simpler CA rules that also reproduce a desired macroscopic
+dynamics—rules better suited to high-density microphysical
+implementation. Finding such general methods is an open problem.</p>
+</div>
+<div id="S4.SS4.p3" class="ltx_para">
+<p id="S4.SS4.p3.1" class="ltx_p">Many basic questions remain in the development and analysis of CA
+models, and progress on their resolution will both facilitate, and be
+facilitated by, the use of CA machines.</p>
+</div>
+</section>
+</section>
+<section id="S5" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">5 </span>Conclusions</h2>
+
+<div id="S5.p1" class="ltx_para">
+<p id="S5.p1.1" class="ltx_p">By exploiting the uniformity of a virtual processor simulation of
+fully parallel CA hardware, we were able to make workstation-class
+hardware outperform supercomputers for many CA simulation tasks.
+Using the same technology, a new generation of largescale CA machines
+becomes possible that will make entirely new classes of spatially
+organized computations practicable. Our aim in all of this has been
+to promote the development of CA models that can begin to harness the
+astronomical computing power that is available, in a CA format, in
+microphysics.</p>
+</div>
+<div id="S5.p2" class="ltx_para">
+<p id="S5.p2.1" class="ltx_p">As stated, this goal is directed toward bringing computational models
+closer to physics in order to improve computation, not physics. But
+computational models that match well with microphysics also tell us
+something about the structure of information dynamics in physics.
+Since a finite physical system has a finite entropy, not only computer
+science but also physics itself must deal with the dynamics of
+finite-information systems at increasingly microscopic
+scales <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib26" title="" class="ltx_ref">26</a>]</cite>. Thus it seems possible that promoting the
+development of physics-like computational models will one day
+contribute to the conceptual development of physics itself.</p>
+</div>
+</section>
+<section id="Sx1" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">Acknowledgments</h2>
+
+<div id="Sx1.p1" class="ltx_para">
+<p id="Sx1.p1.1" class="ltx_p">Many people contributed to the successful conclusion of the <span id="Sx1.p1.1.1" class="ltx_text ltx_font_smallcaps">cam</span>-8
+hardware project. First I would like to thank our funding agency,
+<span id="Sx1.p1.1.2" class="ltx_text ltx_font_smallcaps">arpa</span>, which has strongly supported our CA machine research for
+over a decade. I would also like to acknowledge the intellectual debt
+that this machine owes to Tom Toffoli, who built the first <span id="Sx1.p1.1.3" class="ltx_text ltx_font_smallcaps">cam</span>
+machine and had the basic idea of time-sharing a lookup-table
+processor over a large array of cells. He was also a close
+collaborator in helping realize this design for a new CA machine,
+along with Michael Biafore (intensive functional testing), Tom Cloney
+(CM-2 simulator), Tom Durgavich (CAM chip design), Doug Faust and
+David Harnanan (interface design), Nate Osgood (backplane), Milan Shah
+(SPARC simulator), Mark Smith (early circuit prototyping), and Ken
+Streeter (project programmer, and also prototyped part of our SBus
+interface). Harris Gilliam (project programmer), Frank Honoré and
+Ken MacKenzie (board design), and David Zaig (technician) have been
+helping get copies of our prototypes into shape for our collaborators.
+In addition, I would like to thank Bill Dally and Tom Knight (MIT AI
+Lab) for advice and design reviews; John Gage, Bruce Reichlen and Emil
+Sarpa (Sun Microsystems) for help and encouragement; and Mike
+Dertouzos and Al Vezza (MIT LCS) for their support. Also, I’d like to
+thank Jonathan Babb and Russ Tessier (LCS) for pointing out to me the
+applicability of ideas about static routing to logic simulations on
+<span id="Sx1.p1.1.4" class="ltx_text ltx_font_smallcaps">cam</span>-8, and Gill Pratt, John Pezaris, and Steve Ward (LCS) for ideas
+about how to actually build a large 3D mesh. Finally, I’d like to
+thank Mark Smith and Jeff Yepez for comments on this manuscript.</p>
+</div>
+</section>
+<section id="bib" class="ltx_bibliography">
+<h2 class="ltx_title ltx_title_bibliography">References</h2>
+
+<ul class="ltx_biblist">
+<li id="bib.bib1" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[1]</span>
+<span class="ltx_bibblock"> Babb, J.,
+Tessier, R. and Agarwal, A. [1993] <span id="bib.bib1.1" class="ltx_text ltx_font_italic">Virtual wires: overcoming pin
+limitations in FPGA-based logic emulators,</span> in Proceedings of
+the IEEE Workshop on FPGAs for Custom Computing Machines, IEEE
+Comp. Soc. Press.
+
+</span>
+</li>
+<li id="bib.bib2" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[2]</span>
+<span class="ltx_bibblock"> Boghosian, B. M. and
+Levermore, C.D. [1989] Presentation at the NATO Advanced Research Workshop
+“Lattice gas methods for PDE’s: theory, applications, and hardware,”
+Los Alamos National Laboratory, September 6–8.
+
+</span>
+</li>
+<li id="bib.bib3" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[3]</span>
+<span class="ltx_bibblock"> Chen, S., Doolen, G.,
+Eggert, K., Grunau, D. and Loh, E. [1991a] <span id="bib.bib3.1" class="ltx_text ltx_font_italic">Lattice gas
+simulations of one and two-phase fluid flows using the connection
+machine-2,</span> Discrete Models of Fluid Dynamics, Series on
+Advances in Mathematics for Applied Sciences, Vol. 2, (A. Aves, ed.),
+232.
+
+</span>
+</li>
+<li id="bib.bib4" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[4]</span>
+<span class="ltx_bibblock"> Chen, S., Chen, H.,
+Doolen, G., Gutman, S. and Minxu, M. [1991b] <span id="bib.bib4.1" class="ltx_text ltx_font_italic">A lattice gas
+model for thermohydrodynamics,</span> J. Stat. Phys., <span id="bib.bib4.2" class="ltx_text ltx_font_bold">62</span>, 5/6,
+1121–1151.
+
+</span>
+</li>
+<li id="bib.bib5" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[5]</span>
+<span class="ltx_bibblock"> Clouqueur, A. and
+d’Humières, D. [1987] <span id="bib.bib5.1" class="ltx_text ltx_font_italic">RAP1, a cellular automaton machine for fluid
+dynamics,</span> Complex Systems <span id="bib.bib5.2" class="ltx_text ltx_font_bold">1</span>, 4, 585–597.
+
+</span>
+</li>
+<li id="bib.bib6" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[6]</span>
+<span class="ltx_bibblock"> Creutz, M. [1986] <span id="bib.bib6.1" class="ltx_text ltx_font_italic">Deterministic ising
+dynamics,</span> Ann. Phys., <span id="bib.bib6.2" class="ltx_text ltx_font_bold">167</span>, 62–76.
+
+</span>
+</li>
+<li id="bib.bib7" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[7]</span>
+<span class="ltx_bibblock"> Despain, A. <span id="bib.bib7.1" class="ltx_text ltx_font_italic">Prospects for a
+lattice-gas computer,</span> in <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib9" title="" class="ltx_ref">9</a>, p. 211–218]</cite>.
+
+</span>
+</li>
+<li id="bib.bib8" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[8]</span>
+<span class="ltx_bibblock"> d’Humières, D.,
+Lallemand, P. and Frisch, U. [1986] <span id="bib.bib8.1" class="ltx_text ltx_font_italic">Lattice gas models for 3D
+hydrodynamics,</span> Europhys. Lett., <span id="bib.bib8.2" class="ltx_text ltx_font_bold">2</span>, 291.
+
+</span>
+</li>
+<li id="bib.bib9" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[9]</span>
+<span class="ltx_bibblock"> Doolen, G., et al. (ed.), [1990] <span id="bib.bib9.1" class="ltx_text ltx_font_italic">Lattice-Gas Methods for Partial Differential Equations</span>,
+Addison-Wesley.
+
+</span>
+</li>
+<li id="bib.bib10" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[10]</span>
+<span class="ltx_bibblock"> Farmer, D., Toffoli, T. and
+Wolfram, S. (eds.) [1984] <span id="bib.bib10.1" class="ltx_text ltx_font_italic">Cellular Automata</span>, North-Holland.
+
+</span>
+</li>
+<li id="bib.bib11" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[11]</span>
+<span class="ltx_bibblock"> Francis, R., Rose, J. and Chung, K. [1990]
+<span id="bib.bib11.1" class="ltx_text ltx_font_italic">Chortle: a technology mapping program for lookup table based
+field programmable gate arrays</span>, 27th ACM IEEE Design Automation
+Conference, 613–619.
+
+</span>
+</li>
+<li id="bib.bib12" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[12]</span>
+<span class="ltx_bibblock"> Frisch, U., Hasslacher, B. and Pomeau, Y. [1986]
+<span id="bib.bib12.1" class="ltx_text ltx_font_italic">Lattice-gas automata for the navier-stokes equation,</span> Phys. Rev. Lett., <span id="bib.bib12.2" class="ltx_text ltx_font_bold">56</span>, 1505–1508.
+
+</span>
+</li>
+<li id="bib.bib13" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[13]</span>
+<span class="ltx_bibblock"> Fisch, R., Gravner, J. and Griffeath,
+D. [1993] <span id="bib.bib13.1" class="ltx_text ltx_font_italic">Metastability in the Greenberg-Hastings Model,</span> Ann. Appl. Prob., <span id="bib.bib13.2" class="ltx_text ltx_font_bold">3</span>, 935–967.
+
+</span>
+</li>
+<li id="bib.bib14" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[14]</span>
+<span class="ltx_bibblock"> Gutowitz, H. (ed.) [1991] <span id="bib.bib14.1" class="ltx_text ltx_font_italic">Cellular
+Automata: Theory and Experiment</span>, MIT / North Holland.
+
+</span>
+</li>
+<li id="bib.bib15" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[15]</span>
+<span class="ltx_bibblock"> Hardy, J., de Pazzis, O. and
+Pomeau, Y. [1976] <span id="bib.bib15.1" class="ltx_text ltx_font_italic">Molecular dynamics of a classical lattice gas:
+transport properties and time correlation functions,</span> Phys. Rev., <span id="bib.bib15.2" class="ltx_text ltx_font_bold">A13</span>, 1949–1960.
+
+</span>
+</li>
+<li id="bib.bib16" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[16]</span>
+<span class="ltx_bibblock"> Hennie, F., [1961] <span id="bib.bib16.1" class="ltx_text ltx_font_italic">Iterative
+arrays of logical circuits</span>, MIT/Wiley.
+
+</span>
+</li>
+<li id="bib.bib17" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[17]</span>
+<span class="ltx_bibblock"> Kadanoff, L., McNamara, G.
+and Zanetti, G. [1989] <span id="bib.bib17.1" class="ltx_text ltx_font_italic">From automata to fluid flow: comparisons of
+simulation and theory,</span> Phys. Rev. A, <span id="bib.bib17.2" class="ltx_text ltx_font_bold">40</span>,
+4527–4541.
+
+</span>
+</li>
+<li id="bib.bib18" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[18]</span>
+<span class="ltx_bibblock"> Kohring, G. [1991] <span id="bib.bib18.1" class="ltx_text ltx_font_italic">Parallelization of
+short- and long-range cellular automata on scalar, vector, SIMD and
+MIMD machines,</span> Int. J. Modern Phys. C.
+
+</span>
+</li>
+<li id="bib.bib19" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[19]</span>
+<span class="ltx_bibblock"> Kung, H.T. [1988] <span id="bib.bib19.1" class="ltx_text ltx_font_italic">Systolic communication</span>,
+in Proceedings of the International Conference on Systolic
+Arrays, San Diego, California, May.
+
+</span>
+</li>
+<li id="bib.bib20" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[20]</span>
+<span class="ltx_bibblock"> Lee, F.F. [1993] <span id="bib.bib20.1" class="ltx_text ltx_font_italic">A Scalable Computer
+Architecture for Lattice Gas Simulations</span>, Stanford Ph.D. Thesis.
+
+</span>
+</li>
+<li id="bib.bib21" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[21]</span>
+<span class="ltx_bibblock"> Leighton, F. T. [1992] <span id="bib.bib21.1" class="ltx_text ltx_font_italic">Introduction to
+Parallel Algorithms and Architectures</span>, Morgan Kaufmann.
+
+</span>
+</li>
+<li id="bib.bib22" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[22]</span>
+<span class="ltx_bibblock"> Minnick, R. [1964] <span id="bib.bib22.1" class="ltx_text ltx_font_italic">Cutpoint cellular
+logic</span>, IEEE Trans., <span id="bib.bib22.2" class="ltx_text ltx_font_bold">EC-13</span>, 327–340.
+
+</span>
+</li>
+<li id="bib.bib23" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[23]</span>
+<span class="ltx_bibblock"> Margolus, N. [1984] <span id="bib.bib23.1" class="ltx_text ltx_font_italic">Physics-like
+models of computation</span>, Physica, <span id="bib.bib23.2" class="ltx_text ltx_font_bold">10</span>, D, 81–95.
+
+</span>
+</li>
+<li id="bib.bib24" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[24]</span>
+<span class="ltx_bibblock"> Margolus, N., Toffoli, T., Bennett, C.H.,
+Vichniac, G., Smith, M.A. and Califano, A. [1984, 1987] <span id="bib.bib24.1" class="ltx_text ltx_font_italic">CAM-6
+Software,</span> Systems Concepts, San Francisco CA, <span id="bib.bib24.2" class="ltx_text ltx_font_italic">CAM-PC Software</span>,
+Automatrix Inc., Rexford, NY [1991].
+
+</span>
+</li>
+<li id="bib.bib25" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[25]</span>
+<span class="ltx_bibblock"> Margolus, N. [1988] <span id="bib.bib25.1" class="ltx_text ltx_font_italic">Physics
+and Computation</span>, (MIT Ph. D. Thesis). Reprinted as <span id="bib.bib25.2" class="ltx_text ltx_font_slanted">Tech. Rep. MIT/LCS/TR-415</span>, MIT Lab. for Computer Science.
+
+</span>
+</li>
+<li id="bib.bib26" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[26]</span>
+<span class="ltx_bibblock"> Margolus, N. [1990] <span id="bib.bib26.1" class="ltx_text ltx_font_italic">Parallel quantum
+computation,</span> Complexity, Entropy, and the Physics of
+Information, (W. Zurek, ed.), Addison-Wesley.
+
+</span>
+</li>
+<li id="bib.bib27" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[27]</span>
+<span class="ltx_bibblock"> Margolus, N. [1988] <span id="bib.bib27.1" class="ltx_text ltx_font_italic">Multidimensional
+cellular data array processing system which separately permutes stored
+data elements and applies transformation rules to permuted elements,</span>
+U.S. Patent No. 5,159,690, Filed 09/30/88, Issued 10/27/92.
+
+</span>
+</li>
+<li id="bib.bib28" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[28]</span>
+<span class="ltx_bibblock"> Margolus, N. and
+Toffoli, T. <span id="bib.bib28.1" class="ltx_text ltx_font_italic">Cellular Automata Machines,</span> in <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib9" title="" class="ltx_ref">9</a>, p. 219–249]</cite>.
+
+</span>
+</li>
+<li id="bib.bib29" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[29]</span>
+<span class="ltx_bibblock"> Margolus, N. and Toffoli, T. [1993] <span id="bib.bib29.1" class="ltx_text ltx_font_italic">STEP:
+A Space Time Event Processor,</span> Tech. Rep. MIT/LCS/TR-592, MIT Lab. for Computer Science. An updated version of this document, along with
+other CAM-8 documentation, is available from STEP Research Inc., 649
+E. Industrial Park Drive, Manchester, NH 03109. (CAM-8 hardware is
+also available from this source).
+
+</span>
+</li>
+<li id="bib.bib30" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[30]</span>
+<span class="ltx_bibblock"> Margolus, N., Toffoli, T.
+and Vichniac, G. [1986] <span id="bib.bib30.1" class="ltx_text ltx_font_italic">Cellular automata supercomputers for
+fluid dynamics modeling,</span> Phys. Rev. Lett., <span id="bib.bib30.2" class="ltx_text ltx_font_bold">56</span>,
+1694–1696.
+
+</span>
+</li>
+<li id="bib.bib31" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[31]</span>
+<span class="ltx_bibblock"> Ostrovsky, B., Smith, M.A.,
+Biafore, M., Bar-Yam, Y., Rabin, Y. Margolus, N.
+and Toffoli, T. [1993] <span id="bib.bib31.1" class="ltx_text ltx_font_italic">Massively parallel architectures and polymer
+simulations</span>, in the proceedings of 6th SIAM Conference on
+Parallel Processing for Scientific Computing, March.
+
+</span>
+</li>
+<li id="bib.bib32" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[32]</span>
+<span class="ltx_bibblock"> Paeth, A. W. [1990] <span id="bib.bib32.1" class="ltx_text ltx_font_italic">A fast
+algorithm for general raster rotation,</span> in Graphics Gems, (A.
+Glassner, ed.), Academic.
+
+</span>
+</li>
+<li id="bib.bib33" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[33]</span>
+<span class="ltx_bibblock"> Pratt, W., [1991] <span id="bib.bib33.1" class="ltx_text ltx_font_italic">Digital Image
+Processing</span>, Wiley-Interscience.
+
+</span>
+</li>
+<li id="bib.bib34" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[34]</span>
+<span class="ltx_bibblock"> Rosenfeld, A. [1983] <span id="bib.bib34.1" class="ltx_text ltx_font_italic">Parallel image
+processing using cellular arrays</span>, IEEE Computer, <span id="bib.bib34.2" class="ltx_text ltx_font_bold">16</span>.
+
+</span>
+</li>
+<li id="bib.bib35" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[35]</span>
+<span class="ltx_bibblock"> Rothman, D. [1990] <span id="bib.bib35.1" class="ltx_text ltx_font_italic">Macroscopic laws
+for immiscible two-phase flow in porous media: results from numerical
+experiments</span>, J. Geophys. Res., <span id="bib.bib35.2" class="ltx_text ltx_font_bold">95</span>, 8663.
+
+</span>
+</li>
+<li id="bib.bib36" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[36]</span>
+<span class="ltx_bibblock"> Rothman, D. [1992] <span id="bib.bib36.1" class="ltx_text ltx_font_italic">Simple
+models of complex fluids,</span> in Microscopic Simulations of Complex
+Hydrodynamics, (M. Mareschal and B. Holian, eds.), Plenum
+Press.
+
+</span>
+</li>
+<li id="bib.bib37" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[37]</span>
+<span class="ltx_bibblock"> Shah, M. [1992] <span id="bib.bib37.1" class="ltx_text ltx_font_italic">An optimized CAM-8 simulator
+for the SPARC architecture</span>, M. S. Thesis in EECS, MIT.
+
+</span>
+</li>
+<li id="bib.bib38" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[38]</span>
+<span class="ltx_bibblock"> Shoup, R. [1970] <span id="bib.bib38.1" class="ltx_text ltx_font_italic">Programmable cellular
+logic arrays,</span> Ph.D. Thesis, Carnegie-Mellon University.
+
+</span>
+</li>
+<li id="bib.bib39" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[39]</span>
+<span class="ltx_bibblock"> Smith, M.A., Bar-Yam, Y., Rabin, Y.,
+Ostrovsky, B., Bennett, C.H., Margolus, N. and Toffoli, T. [1992]
+<span id="bib.bib39.1" class="ltx_text ltx_font_italic">Parallel processing simulation of polymers,</span> Computational
+Polymer Science <span id="bib.bib39.2" class="ltx_text ltx_font_bold">2</span>:4, 165–171.
+
+</span>
+</li>
+<li id="bib.bib40" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[40]</span>
+<span class="ltx_bibblock"> Smith, M.A. and
+Bar-Yam, Y. [1993] <span id="bib.bib40.1" class="ltx_text ltx_font_italic">Cellular automaton simulation of pulsed field gel
+electrophoresis</span>, Electrophoresis, <span id="bib.bib40.2" class="ltx_text ltx_font_bold">14</span>, 337–343.
+
+</span>
+</li>
+<li id="bib.bib41" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[41]</span>
+<span class="ltx_bibblock"> Sternberg, S. [1983] <span id="bib.bib41.1" class="ltx_text ltx_font_italic">Biomedical image
+processing,</span> IEEE Computer, 22–34.
+
+</span>
+</li>
+<li id="bib.bib42" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[42]</span>
+<span class="ltx_bibblock"> Toffoli, T. [1984a] <span id="bib.bib42.1" class="ltx_text ltx_font_italic">CAM: A
+high performance cellular automaton machine</span>,Physica, <span id="bib.bib42.2" class="ltx_text ltx_font_bold">10D</span>,
+195–204.
+
+</span>
+</li>
+<li id="bib.bib43" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[43]</span>
+<span class="ltx_bibblock"> Toffoli, T. [1984b] <span id="bib.bib43.1" class="ltx_text ltx_font_italic">Cellular automata as
+an alternative to (rather than an approximation of) differential
+equations in modeling physics,</span> Physica, <span id="bib.bib43.2" class="ltx_text ltx_font_bold">10D</span>,
+117–127, and color plate at page 202.
+
+</span>
+</li>
+<li id="bib.bib44" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[44]</span>
+<span class="ltx_bibblock"> Toffoli, T. [1988] <span id="bib.bib44.1" class="ltx_text ltx_font_italic">Cellular automata
+machines as physics emulators,</span> in Impact of Digital
+Microelectronics and Microprocessors on Particle Physics, (
+Budinich et al., eds.), World Scientific, 154–160.
+
+</span>
+</li>
+<li id="bib.bib45" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[45]</span>
+<span class="ltx_bibblock"> Toffoli, T. [1993] <span id="bib.bib45.1" class="ltx_text ltx_font_italic">3-D rotations by
+composition of special shears</span>, MIT Information Mechanics Memo.
+
+</span>
+</li>
+<li id="bib.bib46" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[46]</span>
+<span class="ltx_bibblock"> Toffoli, T. and Margolus, N. [1987]
+<span id="bib.bib46.1" class="ltx_text ltx_font_italic">Cellular Automata Machines—a new environment for modeling</span>,
+MIT Press.
+
+</span>
+</li>
+<li id="bib.bib47" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[47]</span>
+<span class="ltx_bibblock"> Toffoli, T., and
+Margolus, N. [1991] <span id="bib.bib47.1" class="ltx_text ltx_font_italic">Programmable matter</span>, Physica D, <span id="bib.bib47.2" class="ltx_text ltx_font_bold">47</span>,
+263–272.
+
+</span>
+</li>
+<li id="bib.bib48" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[48]</span>
+<span class="ltx_bibblock"> Unger, S. [1958] <span id="bib.bib48.1" class="ltx_text ltx_font_italic">A computer oriented toward
+spatial problems</span>, Proc. IRE, <span id="bib.bib48.2" class="ltx_text ltx_font_bold">46</span>, 1744–1754.
+
+</span>
+</li>
+<li id="bib.bib49" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[49]</span>
+<span class="ltx_bibblock"> Vichniac, G. [1986] <span id="bib.bib49.1" class="ltx_text ltx_font_italic">Cellular
+automata models of disorder and organization</span>, in Disordered
+Systems and Biological Organization, (E. Bienenstock, F. Fogelman,
+and G. Weisbuch, eds.), Springer-Verlag.
+
+</span>
+</li>
+<li id="bib.bib50" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[50]</span>
+<span class="ltx_bibblock"> Wilson, S. [1992] <span id="bib.bib50.1" class="ltx_text ltx_font_italic">Training structuring
+elements in morphological networks</span>, in Mathematical Morphology
+in Image Processing, (E.R. Dougherty, ed.), Marcel Dekker,
+1–41.
+
+</span>
+</li>
+<li id="bib.bib51" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[51]</span>
+<span class="ltx_bibblock"> Wolfram, S. (ed.) [1986] <span id="bib.bib51.1" class="ltx_text ltx_font_italic">Theory and
+Applications of Cellular Automata</span>, World Scientific.
+
+</span>
+</li>
+<li id="bib.bib52" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[52]</span>
+<span class="ltx_bibblock"> Yepez, J. <span id="bib.bib52.1" class="ltx_text ltx_font_italic">A reversible
+lattice-gas with long-range interactions coupled to a heat bath,</span>
+(these proceedings).
+
+</span>
+</li>
+<li id="bib.bib53" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[53]</span>
+<span class="ltx_bibblock"> Yepez, J., Seeley, G. and
+Margolus, N. <span id="bib.bib53.1" class="ltx_text ltx_font_italic">Lattice-gas automata fluids on parallel
+supercomputers,</span> submitted to <span id="bib.bib53.2" class="ltx_text ltx_font_slanted">Computers In Physics</span>.
+
+</span>
+</li>
+<li id="bib.bib54" class="ltx_bibitem">
+<span class="ltx_tag ltx_tag_bibitem">[54]</span>
+<span class="ltx_bibblock"> Yabe, T., Ito, T. and Okazaki, M. [1993] <span id="bib.bib54.1" class="ltx_text ltx_font_italic">Holography machine HORN-1 for computer aided retrieval of virtual
+three dimensional image,</span> Jpn. J. Appl. Phys. <span id="bib.bib54.2" class="ltx_text ltx_font_bold">32</span>,
+L1359–L1361.
+
+</span>
+</li>
+</ul>
+</section>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Sat Jul  6 13:17:18 2019 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

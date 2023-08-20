@@ -1,0 +1,1901 @@
+<!DOCTYPE html><html>
+<head>
+<title>THE LIMITS OF MATHEMATICS</title>
+<!--Generated on Sat Jul  6 23:36:53 2019 by LaTeXML (version 0.8.4) http://dlmf.nist.gov/LaTeXML/.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document">
+<section id="Chx1" class="ltx_chapter">
+<h2 class="ltx_title ltx_title_chapter">THE LIMITS OF MATHEMATICS</h2>
+
+<section id="Chx1.Sx1" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">G. J. Chaitin,
+IBM Research Division,
+P. O. Box 704, Yorktown Heights, NY 10598,
+chaitin@watson.ibm.com</h3>
+
+</section>
+<section id="Chx1.Sx2" class="ltx_section">
+<h3 class="ltx_title ltx_title_section"></h3>
+
+</section>
+<section id="Chx1.Sx3" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">Introduction</h3>
+
+<div id="Chx1.Sx3.p1" class="ltx_para">
+<p id="Chx1.Sx3.p1.1" class="ltx_p">In a remarkable development, I have constructed a new definition for a
+self-delimiting universal Turing machine (UTM) that is easy to program
+and runs very quickly. This provides a new foundation for algorithmic
+information theory (AIT), which is the theory of the size in bits of
+programs for self-delimiting UTM’s. Previously, AIT had an abstract
+mathematical quality. Now it is possible to write down executable
+programs that embody the constructions in the proofs of theorems. So
+AIT goes from dealing with remote idealized mythical objects to being
+a theory about practical down-to-earth gadgets that one can actually
+play with and use.</p>
+</div>
+<div id="Chx1.Sx3.p2" class="ltx_para">
+<p id="Chx1.Sx3.p2.1" class="ltx_p">This new self-delimiting UTM is implemented via software written in a
+new version of LISP that I invented especially for this purpose. This
+LISP was designed by writing an interpreter for it in Mathematica that
+was then translated into C. I have tested this software by running it on
+IBM RS/6000 workstations with the AIX version of UNIX.</p>
+</div>
+<div id="Chx1.Sx3.p3" class="ltx_para">
+<p id="Chx1.Sx3.p3.1" class="ltx_p">Using this new software and the latest theoretical ideas, it
+is now possible to give a self-contained “hands on” mini-course
+presenting very concretely my latest proofs of my two fundamental
+information-theoretic incompleteness theorems. The first of these
+theorems states that an <math id="Chx1.Sx3.p3.1.m1.1" class="ltx_Math" alttext="N" display="inline"><semantics id="Chx1.Sx3.p3.1.m1.1a"><mi id="Chx1.Sx3.p3.1.m1.1.1" xref="Chx1.Sx3.p3.1.m1.1.1.cmml">N</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx3.p3.1.m1.1b"><ci id="Chx1.Sx3.p3.1.m1.1.1.cmml" xref="Chx1.Sx3.p3.1.m1.1.1">𝑁</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx3.p3.1.m1.1c">italic-N</annotation><annotation encoding="application/x-tex" id="Chx1.Sx3.p3.1.m1.1d">N</annotation></semantics></math>-bit formal axiomatic system cannot enable
+one to exhibit any specific object with program-size complexity
+greater than <math id="Chx1.Sx3.p3.1.m2.1" class="ltx_Math" alttext="N+c" display="inline"><semantics id="Chx1.Sx3.p3.1.m2.1a"><mrow id="Chx1.Sx3.p3.1.m2.1.4" xref="Chx1.Sx3.p3.1.m2.1.4.cmml"><mi id="Chx1.Sx3.p3.1.m2.1.1" xref="Chx1.Sx3.p3.1.m2.1.1.cmml">N</mi><mo id="Chx1.Sx3.p3.1.m2.1.2" xref="Chx1.Sx3.p3.1.m2.1.2.cmml">+</mo><mi id="Chx1.Sx3.p3.1.m2.1.3" xref="Chx1.Sx3.p3.1.m2.1.3.cmml">c</mi></mrow><annotation-xml encoding="MathML-Content" id="Chx1.Sx3.p3.1.m2.1b"><apply id="Chx1.Sx3.p3.1.m2.1.4.cmml" xref="Chx1.Sx3.p3.1.m2.1.4"><plus id="Chx1.Sx3.p3.1.m2.1.2.cmml" xref="Chx1.Sx3.p3.1.m2.1.2"></plus><ci id="Chx1.Sx3.p3.1.m2.1.1.cmml" xref="Chx1.Sx3.p3.1.m2.1.1">𝑁</ci><ci id="Chx1.Sx3.p3.1.m2.1.3.cmml" xref="Chx1.Sx3.p3.1.m2.1.3">𝑐</ci></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx3.p3.1.m2.1c">italic-N ADDOP:plus italic-c</annotation><annotation encoding="application/x-tex" id="Chx1.Sx3.p3.1.m2.1d">N+c</annotation></semantics></math>. The second of these theorems states that an
+<math id="Chx1.Sx3.p3.1.m3.1" class="ltx_Math" alttext="N" display="inline"><semantics id="Chx1.Sx3.p3.1.m3.1a"><mi id="Chx1.Sx3.p3.1.m3.1.1" xref="Chx1.Sx3.p3.1.m3.1.1.cmml">N</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx3.p3.1.m3.1b"><ci id="Chx1.Sx3.p3.1.m3.1.1.cmml" xref="Chx1.Sx3.p3.1.m3.1.1">𝑁</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx3.p3.1.m3.1c">italic-N</annotation><annotation encoding="application/x-tex" id="Chx1.Sx3.p3.1.m3.1d">N</annotation></semantics></math>-bit formal axiomatic system cannot enable one to determine more
+than <math id="Chx1.Sx3.p3.1.m4.1" class="ltx_Math" alttext="N+c^{\prime}" display="inline"><semantics id="Chx1.Sx3.p3.1.m4.1a"><mrow id="Chx1.Sx3.p3.1.m4.1.5" xref="Chx1.Sx3.p3.1.m4.1.5.cmml"><mi id="Chx1.Sx3.p3.1.m4.1.1" xref="Chx1.Sx3.p3.1.m4.1.1.cmml">N</mi><mo id="Chx1.Sx3.p3.1.m4.1.2" xref="Chx1.Sx3.p3.1.m4.1.2.cmml">+</mo><msup id="Chx1.Sx3.p3.1.m4.1.5.1" xref="Chx1.Sx3.p3.1.m4.1.5.1.cmml"><mi id="Chx1.Sx3.p3.1.m4.1.3" xref="Chx1.Sx3.p3.1.m4.1.3.cmml">c</mi><mo id="Chx1.Sx3.p3.1.m4.1.4.1" xref="Chx1.Sx3.p3.1.m4.1.4.1.cmml">′</mo></msup></mrow><annotation-xml encoding="MathML-Content" id="Chx1.Sx3.p3.1.m4.1b"><apply id="Chx1.Sx3.p3.1.m4.1.5.cmml" xref="Chx1.Sx3.p3.1.m4.1.5"><plus id="Chx1.Sx3.p3.1.m4.1.2.cmml" xref="Chx1.Sx3.p3.1.m4.1.2"></plus><ci id="Chx1.Sx3.p3.1.m4.1.1.cmml" xref="Chx1.Sx3.p3.1.m4.1.1">𝑁</ci><apply id="Chx1.Sx3.p3.1.m4.1.5.1.cmml" xref="Chx1.Sx3.p3.1.m4.1.5.1"><csymbol cd="ambiguous" id="Chx1.Sx3.p3.1.m4.1.5.1.1.cmml" xref="Chx1.Sx3.p3.1.m4.1.5.1">superscript</csymbol><ci id="Chx1.Sx3.p3.1.m4.1.3.cmml" xref="Chx1.Sx3.p3.1.m4.1.3">𝑐</ci><ci id="Chx1.Sx3.p3.1.m4.1.4.1.cmml" xref="Chx1.Sx3.p3.1.m4.1.4.1">′</ci></apply></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx3.p3.1.m4.1c">italic-N ADDOP:plus italic-c POSTSUPERSCRIPT:start SUPOP:prime POSTSUPERSCRIPT:end</annotation><annotation encoding="application/x-tex" id="Chx1.Sx3.p3.1.m4.1d">N+c^{\prime}</annotation></semantics></math> scattered bits of the halting probability <math id="Chx1.Sx3.p3.1.m5.1" class="ltx_Math" alttext="\Omega" display="inline"><semantics id="Chx1.Sx3.p3.1.m5.1a"><mi mathvariant="normal" id="Chx1.Sx3.p3.1.m5.1.1" xref="Chx1.Sx3.p3.1.m5.1.1.cmml">Ω</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx3.p3.1.m5.1b"><ci id="Chx1.Sx3.p3.1.m5.1.1.cmml" xref="Chx1.Sx3.p3.1.m5.1.1">Ω</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx3.p3.1.m5.1c">Omega</annotation><annotation encoding="application/x-tex" id="Chx1.Sx3.p3.1.m5.1d">\Omega</annotation></semantics></math>.</p>
+</div>
+<div id="Chx1.Sx3.p4" class="ltx_para">
+<p id="Chx1.Sx3.p4.1" class="ltx_p">Most people believe that anything that is true is true for a reason.
+These theorems show that some things are true for no reason at all,
+i.e., accidentally, or at random.</p>
+</div>
+<div id="Chx1.Sx3.p5" class="ltx_para">
+<p id="Chx1.Sx3.p5.1" class="ltx_p">As is shown in this course, the algorithms considered in the
+proofs of these two theorems are now easy to program and run, and by
+looking at the size in bits of these programs one can actually, for
+the first time, determine exact values for the constants <math id="Chx1.Sx3.p5.1.m1.1" class="ltx_Math" alttext="c" display="inline"><semantics id="Chx1.Sx3.p5.1.m1.1a"><mi id="Chx1.Sx3.p5.1.m1.1.1" xref="Chx1.Sx3.p5.1.m1.1.1.cmml">c</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx3.p5.1.m1.1b"><ci id="Chx1.Sx3.p5.1.m1.1.1.cmml" xref="Chx1.Sx3.p5.1.m1.1.1">𝑐</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx3.p5.1.m1.1c">italic-c</annotation><annotation encoding="application/x-tex" id="Chx1.Sx3.p5.1.m1.1d">c</annotation></semantics></math> and <math id="Chx1.Sx3.p5.1.m2.1" class="ltx_Math" alttext="c^{\prime}" display="inline"><semantics id="Chx1.Sx3.p5.1.m2.1a"><msup id="Chx1.Sx3.p5.1.m2.1.3" xref="Chx1.Sx3.p5.1.m2.1.3.cmml"><mi id="Chx1.Sx3.p5.1.m2.1.1" xref="Chx1.Sx3.p5.1.m2.1.1.cmml">c</mi><mo id="Chx1.Sx3.p5.1.m2.1.2.1" xref="Chx1.Sx3.p5.1.m2.1.2.1.cmml">′</mo></msup><annotation-xml encoding="MathML-Content" id="Chx1.Sx3.p5.1.m2.1b"><apply id="Chx1.Sx3.p5.1.m2.1.3.cmml" xref="Chx1.Sx3.p5.1.m2.1.3"><csymbol cd="ambiguous" id="Chx1.Sx3.p5.1.m2.1.3.1.cmml" xref="Chx1.Sx3.p5.1.m2.1.3">superscript</csymbol><ci id="Chx1.Sx3.p5.1.m2.1.1.cmml" xref="Chx1.Sx3.p5.1.m2.1.1">𝑐</ci><ci id="Chx1.Sx3.p5.1.m2.1.2.1.cmml" xref="Chx1.Sx3.p5.1.m2.1.2.1">′</ci></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx3.p5.1.m2.1c">italic-c POSTSUPERSCRIPT:start SUPOP:prime POSTSUPERSCRIPT:end</annotation><annotation encoding="application/x-tex" id="Chx1.Sx3.p5.1.m2.1d">c^{\prime}</annotation></semantics></math>.</p>
+</div>
+<div id="Chx1.Sx3.p6" class="ltx_para">
+<p id="Chx1.Sx3.p6.1" class="ltx_p">I used this approach and software in an intensive short course on the
+limits of mathematics that I gave at the University of Maine in Orono
+in the summer of 1994. I also lectured on this material during a
+stay at the Santa Fe Institute in the spring of 1995, and at a meeting
+at the Black Sea University in Romania in the summer of 1995. A
+summary of the approach that I used on these three occasions will
+appear under the title “A new version of algorithmic information
+theory” in a forthcoming issue of the new magazine <span id="Chx1.Sx3.p6.1.1" class="ltx_text ltx_font_italic">Complexity,</span>
+which has just been launched by the Santa Fe Institute and John Wiley
+and Sons. A less technical discussion of the basic ideas that are
+involved “How to run algorithmic information theory on a computer”
+will also appear in <span id="Chx1.Sx3.p6.1.2" class="ltx_text ltx_font_italic">Complexity.</span></p>
+</div>
+<div id="Chx1.Sx3.p7" class="ltx_para">
+<p id="Chx1.Sx3.p7.1" class="ltx_p">After presenting this material at these three different places, it
+became obvious to me that it is extremely difficult to understand it
+in its original form. So next time, at the Rovaniemi Institute of
+Technology in the spring of 1996, I am going to use the new, more
+understandable software in this report; everything has been redone in
+an attempt to make it as easy to understand as possible.</p>
+</div>
+<div id="Chx1.Sx3.p8" class="ltx_para">
+<p id="Chx1.Sx3.p8.1" class="ltx_p">For their stimulating invitations, I thank Prof. George Markowsky of
+the University of Maine, Prof. Cristian Calude of the
+University of Auckland, Prof. John Casti of the Santa Fe Institute,
+and Prof. Veikko Keränen of the Rovaniemi Institute of Technology.
+And I am grateful to IBM for supporting my research for almost thirty
+years, and to my current management chain at the IBM Research
+Division, Dan Prener, Christos Georgiou, Eric Kronstadt, Jeff Jaffe,
+and Jim McGroddy.</p>
+</div>
+<div id="Chx1.Sx3.p9" class="ltx_para">
+<p id="Chx1.Sx3.p9.1" class="ltx_p">This report includes the LISP runs <span id="Chx1.Sx3.p9.1.1" class="ltx_text ltx_font_typewriter">*.r</span> used to present the
+information-theoretic incompleteness theorems of algorithmic
+information theory. This report does not include the software used to
+produce these LISP runs. To obtain the software for this course via
+e-mail, please send requests to <span id="Chx1.Sx3.p9.1.2" class="ltx_text ltx_font_typewriter">chaitin@watson.ibm.com</span>.</p>
+</div>
+</section>
+<section id="Chx1.Sx4" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">The New Idea</h3>
+
+<div id="Chx1.Sx4.p1" class="ltx_para">
+<p id="Chx1.Sx4.p1.1" class="ltx_p">Here is a quick summary of this new LISP, in which atoms can now either be
+words or unsigned decimal integers. First of all, comments are
+written like this: <span id="Chx1.Sx4.p1.1.1" class="ltx_text ltx_font_typewriter">[comment]</span>. Each LISP primitive function has
+a fixed number of arguments. <span id="Chx1.Sx4.p1.1.2" class="ltx_text ltx_font_typewriter">’</span> is <span id="Chx1.Sx4.p1.1.3" class="ltx_text ltx_font_typewriter">QUOTE</span>, <span id="Chx1.Sx4.p1.1.4" class="ltx_text ltx_font_typewriter">=</span> is <span id="Chx1.Sx4.p1.1.5" class="ltx_text ltx_font_typewriter">EQ</span>, and <span id="Chx1.Sx4.p1.1.6" class="ltx_text ltx_font_typewriter">atom, car, cdr, cadr, caddr, cons</span> are provided with
+their usual meaning. We also have <span id="Chx1.Sx4.p1.1.7" class="ltx_text ltx_font_typewriter">lambda, define, let, if</span> and
+<span id="Chx1.Sx4.p1.1.8" class="ltx_text ltx_font_typewriter">display</span> and <span id="Chx1.Sx4.p1.1.9" class="ltx_text ltx_font_typewriter">eval</span>. The notation <span id="Chx1.Sx4.p1.1.10" class="ltx_text ltx_font_typewriter">"</span> indicates that an
+S-expression with explicit parentheses follows, not what is usually
+the case in this LISP, an M-expression, in which the parentheses for
+each primitive function are implicit. <span id="Chx1.Sx4.p1.1.11" class="ltx_text ltx_font_typewriter">nil</span> denotes the empty
+list <span id="Chx1.Sx4.p1.1.12" class="ltx_text ltx_font_typewriter">()</span>, and the logical truth values are <span id="Chx1.Sx4.p1.1.13" class="ltx_text ltx_font_typewriter">true</span> and <span id="Chx1.Sx4.p1.1.14" class="ltx_text ltx_font_typewriter">false</span>. For dealing with unsigned decimal integers we have <pre id="Chx1.Sx4.p1.1.15" class="ltx_verbatim ltx_font_typewriter">+,
+-, *, ^, &lt;, &gt;, &lt;=, &gt;=, base10-to-2, base2-to-10</pre>.</p>
+</div>
+<div id="Chx1.Sx4.p2" class="ltx_para">
+<p id="Chx1.Sx4.p2.1" class="ltx_p">So far this is fairly standard. The new idea is this. We define our
+standard self-delimiting universal Turing machine as follows. Its
+program is in binary, and appears on a tape in the following form.
+First comes a LISP expression, written in ASCII with 8 bits per
+character, and terminated by an end-of-line character <code id="Chx1.Sx4.p2.1.1" class="ltx_verbatim ltx_font_typewriter">’\n’</code>. The
+TM reads in this LISP expression, and then evaluates it. As it does
+this, two new primitive functions <span id="Chx1.Sx4.p2.1.2" class="ltx_text ltx_font_typewriter">read-bit</span> and <span id="Chx1.Sx4.p2.1.3" class="ltx_text ltx_font_typewriter">read-exp</span>
+with no arguments may be used to read more from the TM tape. Both of
+these functions explode if the tape is exhausted, killing the
+computation. <span id="Chx1.Sx4.p2.1.4" class="ltx_text ltx_font_typewriter">read-bit</span> reads a single bit from the tape.
+<span id="Chx1.Sx4.p2.1.5" class="ltx_text ltx_font_typewriter">read-exp</span> reads in an entire LISP expression, in 8-bit character
+chunks, until it reaches an end-of-line character <code id="Chx1.Sx4.p2.1.6" class="ltx_verbatim ltx_font_typewriter">’\n’</code>.</p>
+</div>
+<div id="Chx1.Sx4.p3" class="ltx_para">
+<p id="Chx1.Sx4.p3.1" class="ltx_p">This is the only way that information on the TM tape may be accessed,
+which forces it to be used in a self-delimiting fashion. This is
+because no algorithm can search for the end of the tape and then use
+the length of the tape as data in the computation. If an algorithm
+attempts to read a bit that is not on the tape, the algorithm aborts.</p>
+</div>
+<div id="Chx1.Sx4.p4" class="ltx_para">
+<p id="Chx1.Sx4.p4.1" class="ltx_p">How is information placed on the TM tape in the first place? Well, in
+the starting environment, the tape is empty and any attempt to read it
+will give an error message. To place information on the tape, one
+must use the primitive function <span id="Chx1.Sx4.p4.1.1" class="ltx_text ltx_font_typewriter">try</span> which tries to see if an
+expression can be evaluated.</p>
+</div>
+<div id="Chx1.Sx4.p5" class="ltx_para">
+<p id="Chx1.Sx4.p5.1" class="ltx_p">Consider the three arguments <math id="Chx1.Sx4.p5.1.m1.1" class="ltx_Math" alttext="\alpha" display="inline"><semantics id="Chx1.Sx4.p5.1.m1.1a"><mi id="Chx1.Sx4.p5.1.m1.1.1" xref="Chx1.Sx4.p5.1.m1.1.1.cmml">α</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p5.1.m1.1b"><ci id="Chx1.Sx4.p5.1.m1.1.1.cmml" xref="Chx1.Sx4.p5.1.m1.1.1">𝛼</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p5.1.m1.1c">italic-alpha</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p5.1.m1.1d">\alpha</annotation></semantics></math>, <math id="Chx1.Sx4.p5.1.m2.1" class="ltx_Math" alttext="\beta" display="inline"><semantics id="Chx1.Sx4.p5.1.m2.1a"><mi id="Chx1.Sx4.p5.1.m2.1.1" xref="Chx1.Sx4.p5.1.m2.1.1.cmml">β</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p5.1.m2.1b"><ci id="Chx1.Sx4.p5.1.m2.1.1.cmml" xref="Chx1.Sx4.p5.1.m2.1.1">𝛽</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p5.1.m2.1c">italic-beta</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p5.1.m2.1d">\beta</annotation></semantics></math> and <math id="Chx1.Sx4.p5.1.m3.1" class="ltx_Math" alttext="\gamma" display="inline"><semantics id="Chx1.Sx4.p5.1.m3.1a"><mi id="Chx1.Sx4.p5.1.m3.1.1" xref="Chx1.Sx4.p5.1.m3.1.1.cmml">γ</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p5.1.m3.1b"><ci id="Chx1.Sx4.p5.1.m3.1.1.cmml" xref="Chx1.Sx4.p5.1.m3.1.1">𝛾</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p5.1.m3.1c">italic-gamma</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p5.1.m3.1d">\gamma</annotation></semantics></math> of <span id="Chx1.Sx4.p5.1.1" class="ltx_text ltx_font_typewriter">try</span>. The meaning of the first argument is as follows. If <math id="Chx1.Sx4.p5.1.m4.1" class="ltx_Math" alttext="\alpha" display="inline"><semantics id="Chx1.Sx4.p5.1.m4.1a"><mi id="Chx1.Sx4.p5.1.m4.1.1" xref="Chx1.Sx4.p5.1.m4.1.1.cmml">α</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p5.1.m4.1b"><ci id="Chx1.Sx4.p5.1.m4.1.1.cmml" xref="Chx1.Sx4.p5.1.m4.1.1">𝛼</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p5.1.m4.1c">italic-alpha</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p5.1.m4.1d">\alpha</annotation></semantics></math>
+is <span id="Chx1.Sx4.p5.1.2" class="ltx_text ltx_font_typewriter">no-time-limit</span>, then there is no depth limit. Otherwise
+<math id="Chx1.Sx4.p5.1.m5.1" class="ltx_Math" alttext="\alpha" display="inline"><semantics id="Chx1.Sx4.p5.1.m5.1a"><mi id="Chx1.Sx4.p5.1.m5.1.1" xref="Chx1.Sx4.p5.1.m5.1.1.cmml">α</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p5.1.m5.1b"><ci id="Chx1.Sx4.p5.1.m5.1.1.cmml" xref="Chx1.Sx4.p5.1.m5.1.1">𝛼</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p5.1.m5.1c">italic-alpha</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p5.1.m5.1d">\alpha</annotation></semantics></math> must be an unsigned decimal integer, and gives the depth
+limit (limit on the nesting depth of function calls and
+re-evaluations). The second argument <math id="Chx1.Sx4.p5.1.m6.1" class="ltx_Math" alttext="\beta" display="inline"><semantics id="Chx1.Sx4.p5.1.m6.1a"><mi id="Chx1.Sx4.p5.1.m6.1.1" xref="Chx1.Sx4.p5.1.m6.1.1.cmml">β</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p5.1.m6.1b"><ci id="Chx1.Sx4.p5.1.m6.1.1.cmml" xref="Chx1.Sx4.p5.1.m6.1.1">𝛽</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p5.1.m6.1c">italic-beta</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p5.1.m6.1d">\beta</annotation></semantics></math> of <span id="Chx1.Sx4.p5.1.3" class="ltx_text ltx_font_typewriter">try</span> is the
+expression to be evaluated as long as the depth limit <math id="Chx1.Sx4.p5.1.m7.1" class="ltx_Math" alttext="\alpha" display="inline"><semantics id="Chx1.Sx4.p5.1.m7.1a"><mi id="Chx1.Sx4.p5.1.m7.1.1" xref="Chx1.Sx4.p5.1.m7.1.1.cmml">α</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p5.1.m7.1b"><ci id="Chx1.Sx4.p5.1.m7.1.1.cmml" xref="Chx1.Sx4.p5.1.m7.1.1">𝛼</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p5.1.m7.1c">italic-alpha</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p5.1.m7.1d">\alpha</annotation></semantics></math> is not
+exceeded. And the third argument <math id="Chx1.Sx4.p5.1.m8.1" class="ltx_Math" alttext="\gamma" display="inline"><semantics id="Chx1.Sx4.p5.1.m8.1a"><mi id="Chx1.Sx4.p5.1.m8.1.1" xref="Chx1.Sx4.p5.1.m8.1.1.cmml">γ</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p5.1.m8.1b"><ci id="Chx1.Sx4.p5.1.m8.1.1.cmml" xref="Chx1.Sx4.p5.1.m8.1.1">𝛾</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p5.1.m8.1c">italic-gamma</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p5.1.m8.1d">\gamma</annotation></semantics></math> of <span id="Chx1.Sx4.p5.1.4" class="ltx_text ltx_font_typewriter">try</span> is a list of
+bits to be used as the TM tape.
+</p>
+</div>
+<div id="Chx1.Sx4.p6" class="ltx_para">
+<p id="Chx1.Sx4.p6.1" class="ltx_p">The value <math id="Chx1.Sx4.p6.1.m1.1" class="ltx_Math" alttext="\nu" display="inline"><semantics id="Chx1.Sx4.p6.1.m1.1a"><mi id="Chx1.Sx4.p6.1.m1.1.1" xref="Chx1.Sx4.p6.1.m1.1.1.cmml">ν</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p6.1.m1.1b"><ci id="Chx1.Sx4.p6.1.m1.1.1.cmml" xref="Chx1.Sx4.p6.1.m1.1.1">𝜈</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p6.1.m1.1c">italic-nu</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p6.1.m1.1d">\nu</annotation></semantics></math> returned by the primitive function <span id="Chx1.Sx4.p6.1.1" class="ltx_text ltx_font_typewriter">try</span> is a
+triple. The first element of <math id="Chx1.Sx4.p6.1.m2.1" class="ltx_Math" alttext="\nu" display="inline"><semantics id="Chx1.Sx4.p6.1.m2.1a"><mi id="Chx1.Sx4.p6.1.m2.1.1" xref="Chx1.Sx4.p6.1.m2.1.1.cmml">ν</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p6.1.m2.1b"><ci id="Chx1.Sx4.p6.1.m2.1.1.cmml" xref="Chx1.Sx4.p6.1.m2.1.1">𝜈</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p6.1.m2.1c">italic-nu</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p6.1.m2.1d">\nu</annotation></semantics></math> is <span id="Chx1.Sx4.p6.1.2" class="ltx_text ltx_font_typewriter">success</span> if the evaluation
+of <math id="Chx1.Sx4.p6.1.m3.1" class="ltx_Math" alttext="\beta" display="inline"><semantics id="Chx1.Sx4.p6.1.m3.1a"><mi id="Chx1.Sx4.p6.1.m3.1.1" xref="Chx1.Sx4.p6.1.m3.1.1.cmml">β</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p6.1.m3.1b"><ci id="Chx1.Sx4.p6.1.m3.1.1.cmml" xref="Chx1.Sx4.p6.1.m3.1.1">𝛽</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p6.1.m3.1c">italic-beta</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p6.1.m3.1d">\beta</annotation></semantics></math> was completed successfully, and the first element of <math id="Chx1.Sx4.p6.1.m4.1" class="ltx_Math" alttext="\nu" display="inline"><semantics id="Chx1.Sx4.p6.1.m4.1a"><mi id="Chx1.Sx4.p6.1.m4.1.1" xref="Chx1.Sx4.p6.1.m4.1.1.cmml">ν</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p6.1.m4.1b"><ci id="Chx1.Sx4.p6.1.m4.1.1.cmml" xref="Chx1.Sx4.p6.1.m4.1.1">𝜈</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p6.1.m4.1c">italic-nu</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p6.1.m4.1d">\nu</annotation></semantics></math>
+is <span id="Chx1.Sx4.p6.1.3" class="ltx_text ltx_font_typewriter">failure</span> if this was not the case. The second element of
+<math id="Chx1.Sx4.p6.1.m5.1" class="ltx_Math" alttext="\nu" display="inline"><semantics id="Chx1.Sx4.p6.1.m5.1a"><mi id="Chx1.Sx4.p6.1.m5.1.1" xref="Chx1.Sx4.p6.1.m5.1.1.cmml">ν</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p6.1.m5.1b"><ci id="Chx1.Sx4.p6.1.m5.1.1.cmml" xref="Chx1.Sx4.p6.1.m5.1.1">𝜈</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p6.1.m5.1c">italic-nu</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p6.1.m5.1d">\nu</annotation></semantics></math> is <span id="Chx1.Sx4.p6.1.4" class="ltx_text ltx_font_typewriter">out-of-data</span> if the evaluation of <math id="Chx1.Sx4.p6.1.m6.1" class="ltx_Math" alttext="\beta" display="inline"><semantics id="Chx1.Sx4.p6.1.m6.1a"><mi id="Chx1.Sx4.p6.1.m6.1.1" xref="Chx1.Sx4.p6.1.m6.1.1.cmml">β</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p6.1.m6.1b"><ci id="Chx1.Sx4.p6.1.m6.1.1.cmml" xref="Chx1.Sx4.p6.1.m6.1.1">𝛽</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p6.1.m6.1c">italic-beta</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p6.1.m6.1d">\beta</annotation></semantics></math> aborted
+because an attempt was made to read a non-existent bit from the TM
+tape. The second element of <math id="Chx1.Sx4.p6.1.m7.1" class="ltx_Math" alttext="\nu" display="inline"><semantics id="Chx1.Sx4.p6.1.m7.1a"><mi id="Chx1.Sx4.p6.1.m7.1.1" xref="Chx1.Sx4.p6.1.m7.1.1.cmml">ν</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p6.1.m7.1b"><ci id="Chx1.Sx4.p6.1.m7.1.1.cmml" xref="Chx1.Sx4.p6.1.m7.1.1">𝜈</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p6.1.m7.1c">italic-nu</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p6.1.m7.1d">\nu</annotation></semantics></math> is <span id="Chx1.Sx4.p6.1.5" class="ltx_text ltx_font_typewriter">out-of-time</span> if evaluation
+of <math id="Chx1.Sx4.p6.1.m8.1" class="ltx_Math" alttext="\beta" display="inline"><semantics id="Chx1.Sx4.p6.1.m8.1a"><mi id="Chx1.Sx4.p6.1.m8.1.1" xref="Chx1.Sx4.p6.1.m8.1.1.cmml">β</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p6.1.m8.1b"><ci id="Chx1.Sx4.p6.1.m8.1.1.cmml" xref="Chx1.Sx4.p6.1.m8.1.1">𝛽</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p6.1.m8.1c">italic-beta</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p6.1.m8.1d">\beta</annotation></semantics></math> aborted because the depth limit <math id="Chx1.Sx4.p6.1.m9.1" class="ltx_Math" alttext="\alpha" display="inline"><semantics id="Chx1.Sx4.p6.1.m9.1a"><mi id="Chx1.Sx4.p6.1.m9.1.1" xref="Chx1.Sx4.p6.1.m9.1.1.cmml">α</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p6.1.m9.1b"><ci id="Chx1.Sx4.p6.1.m9.1.1.cmml" xref="Chx1.Sx4.p6.1.m9.1.1">𝛼</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p6.1.m9.1c">italic-alpha</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p6.1.m9.1d">\alpha</annotation></semantics></math> was exceeded.
+These are the only possible error flags, because this LISP is designed
+with maximally permissive semantics. If the computation <math id="Chx1.Sx4.p6.1.m10.1" class="ltx_Math" alttext="\beta" display="inline"><semantics id="Chx1.Sx4.p6.1.m10.1a"><mi id="Chx1.Sx4.p6.1.m10.1.1" xref="Chx1.Sx4.p6.1.m10.1.1.cmml">β</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p6.1.m10.1b"><ci id="Chx1.Sx4.p6.1.m10.1.1.cmml" xref="Chx1.Sx4.p6.1.m10.1.1">𝛽</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p6.1.m10.1c">italic-beta</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p6.1.m10.1d">\beta</annotation></semantics></math>
+terminated normally instead of aborting, the second element of <math id="Chx1.Sx4.p6.1.m11.1" class="ltx_Math" alttext="\nu" display="inline"><semantics id="Chx1.Sx4.p6.1.m11.1a"><mi id="Chx1.Sx4.p6.1.m11.1.1" xref="Chx1.Sx4.p6.1.m11.1.1.cmml">ν</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p6.1.m11.1b"><ci id="Chx1.Sx4.p6.1.m11.1.1.cmml" xref="Chx1.Sx4.p6.1.m11.1.1">𝜈</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p6.1.m11.1c">italic-nu</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p6.1.m11.1d">\nu</annotation></semantics></math>
+will be the result produced by the computation <math id="Chx1.Sx4.p6.1.m12.1" class="ltx_Math" alttext="\beta" display="inline"><semantics id="Chx1.Sx4.p6.1.m12.1a"><mi id="Chx1.Sx4.p6.1.m12.1.1" xref="Chx1.Sx4.p6.1.m12.1.1.cmml">β</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p6.1.m12.1b"><ci id="Chx1.Sx4.p6.1.m12.1.1.cmml" xref="Chx1.Sx4.p6.1.m12.1.1">𝛽</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p6.1.m12.1c">italic-beta</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p6.1.m12.1d">\beta</annotation></semantics></math>, i.e., its
+value. That’s the second element of the list <math id="Chx1.Sx4.p6.1.m13.1" class="ltx_Math" alttext="\nu" display="inline"><semantics id="Chx1.Sx4.p6.1.m13.1a"><mi id="Chx1.Sx4.p6.1.m13.1.1" xref="Chx1.Sx4.p6.1.m13.1.1.cmml">ν</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p6.1.m13.1b"><ci id="Chx1.Sx4.p6.1.m13.1.1.cmml" xref="Chx1.Sx4.p6.1.m13.1.1">𝜈</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p6.1.m13.1c">italic-nu</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p6.1.m13.1d">\nu</annotation></semantics></math> produced by the
+<span id="Chx1.Sx4.p6.1.6" class="ltx_text ltx_font_typewriter">try</span> primitive function.</p>
+</div>
+<div id="Chx1.Sx4.p7" class="ltx_para">
+<p id="Chx1.Sx4.p7.1" class="ltx_p">The third element of the value <math id="Chx1.Sx4.p7.1.m1.1" class="ltx_Math" alttext="\nu" display="inline"><semantics id="Chx1.Sx4.p7.1.m1.1a"><mi id="Chx1.Sx4.p7.1.m1.1.1" xref="Chx1.Sx4.p7.1.m1.1.1.cmml">ν</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p7.1.m1.1b"><ci id="Chx1.Sx4.p7.1.m1.1.1.cmml" xref="Chx1.Sx4.p7.1.m1.1.1">𝜈</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p7.1.m1.1c">italic-nu</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p7.1.m1.1d">\nu</annotation></semantics></math> is a list of all the arguments to
+the primitive function <span id="Chx1.Sx4.p7.1.1" class="ltx_text ltx_font_typewriter">display</span> that were encountered during the
+evaluation of <math id="Chx1.Sx4.p7.1.m2.1" class="ltx_Math" alttext="\beta" display="inline"><semantics id="Chx1.Sx4.p7.1.m2.1a"><mi id="Chx1.Sx4.p7.1.m2.1.1" xref="Chx1.Sx4.p7.1.m2.1.1.cmml">β</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p7.1.m2.1b"><ci id="Chx1.Sx4.p7.1.m2.1.1.cmml" xref="Chx1.Sx4.p7.1.m2.1.1">𝛽</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p7.1.m2.1c">italic-beta</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p7.1.m2.1d">\beta</annotation></semantics></math>. More precisely, if <span id="Chx1.Sx4.p7.1.2" class="ltx_text ltx_font_typewriter">display</span> was called
+<math id="Chx1.Sx4.p7.1.m3.1" class="ltx_Math" alttext="N" display="inline"><semantics id="Chx1.Sx4.p7.1.m3.1a"><mi id="Chx1.Sx4.p7.1.m3.1.1" xref="Chx1.Sx4.p7.1.m3.1.1.cmml">N</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p7.1.m3.1b"><ci id="Chx1.Sx4.p7.1.m3.1.1.cmml" xref="Chx1.Sx4.p7.1.m3.1.1">𝑁</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p7.1.m3.1c">italic-N</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p7.1.m3.1d">N</annotation></semantics></math> times during the evaluation of <math id="Chx1.Sx4.p7.1.m4.1" class="ltx_Math" alttext="\beta" display="inline"><semantics id="Chx1.Sx4.p7.1.m4.1a"><mi id="Chx1.Sx4.p7.1.m4.1.1" xref="Chx1.Sx4.p7.1.m4.1.1.cmml">β</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p7.1.m4.1b"><ci id="Chx1.Sx4.p7.1.m4.1.1.cmml" xref="Chx1.Sx4.p7.1.m4.1.1">𝛽</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p7.1.m4.1c">italic-beta</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p7.1.m4.1d">\beta</annotation></semantics></math>, then <math id="Chx1.Sx4.p7.1.m5.1" class="ltx_Math" alttext="\nu" display="inline"><semantics id="Chx1.Sx4.p7.1.m5.1a"><mi id="Chx1.Sx4.p7.1.m5.1.1" xref="Chx1.Sx4.p7.1.m5.1.1.cmml">ν</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p7.1.m5.1b"><ci id="Chx1.Sx4.p7.1.m5.1.1.cmml" xref="Chx1.Sx4.p7.1.m5.1.1">𝜈</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p7.1.m5.1c">italic-nu</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p7.1.m5.1d">\nu</annotation></semantics></math> will be a list
+of <math id="Chx1.Sx4.p7.1.m6.1" class="ltx_Math" alttext="N" display="inline"><semantics id="Chx1.Sx4.p7.1.m6.1a"><mi id="Chx1.Sx4.p7.1.m6.1.1" xref="Chx1.Sx4.p7.1.m6.1.1.cmml">N</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p7.1.m6.1b"><ci id="Chx1.Sx4.p7.1.m6.1.1.cmml" xref="Chx1.Sx4.p7.1.m6.1.1">𝑁</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p7.1.m6.1c">italic-N</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p7.1.m6.1d">N</annotation></semantics></math> elements. The <math id="Chx1.Sx4.p7.1.m7.1" class="ltx_Math" alttext="N" display="inline"><semantics id="Chx1.Sx4.p7.1.m7.1a"><mi id="Chx1.Sx4.p7.1.m7.1.1" xref="Chx1.Sx4.p7.1.m7.1.1.cmml">N</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p7.1.m7.1b"><ci id="Chx1.Sx4.p7.1.m7.1.1.cmml" xref="Chx1.Sx4.p7.1.m7.1.1">𝑁</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p7.1.m7.1c">italic-N</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p7.1.m7.1d">N</annotation></semantics></math> arguments of <span id="Chx1.Sx4.p7.1.3" class="ltx_text ltx_font_typewriter">display</span> appear in <math id="Chx1.Sx4.p7.1.m8.1" class="ltx_Math" alttext="\nu" display="inline"><semantics id="Chx1.Sx4.p7.1.m8.1a"><mi id="Chx1.Sx4.p7.1.m8.1.1" xref="Chx1.Sx4.p7.1.m8.1.1.cmml">ν</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p7.1.m8.1b"><ci id="Chx1.Sx4.p7.1.m8.1.1.cmml" xref="Chx1.Sx4.p7.1.m8.1.1">𝜈</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p7.1.m8.1c">italic-nu</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p7.1.m8.1d">\nu</annotation></semantics></math>
+in chronological order. Thus <span id="Chx1.Sx4.p7.1.4" class="ltx_text ltx_font_typewriter">try</span> can not only be used to
+determine if a computation <math id="Chx1.Sx4.p7.1.m9.1" class="ltx_Math" alttext="\beta" display="inline"><semantics id="Chx1.Sx4.p7.1.m9.1a"><mi id="Chx1.Sx4.p7.1.m9.1.1" xref="Chx1.Sx4.p7.1.m9.1.1.cmml">β</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p7.1.m9.1b"><ci id="Chx1.Sx4.p7.1.m9.1.1.cmml" xref="Chx1.Sx4.p7.1.m9.1.1">𝛽</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p7.1.m9.1c">italic-beta</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p7.1.m9.1d">\beta</annotation></semantics></math> reads too much tape or goes on too
+long (i.e., to greater depth than <math id="Chx1.Sx4.p7.1.m10.1" class="ltx_Math" alttext="\alpha" display="inline"><semantics id="Chx1.Sx4.p7.1.m10.1a"><mi id="Chx1.Sx4.p7.1.m10.1.1" xref="Chx1.Sx4.p7.1.m10.1.1.cmml">α</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p7.1.m10.1b"><ci id="Chx1.Sx4.p7.1.m10.1.1.cmml" xref="Chx1.Sx4.p7.1.m10.1.1">𝛼</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p7.1.m10.1c">italic-alpha</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p7.1.m10.1d">\alpha</annotation></semantics></math>), but <span id="Chx1.Sx4.p7.1.5" class="ltx_text ltx_font_typewriter">try</span> can also be
+used to capture all the output that <math id="Chx1.Sx4.p7.1.m11.1" class="ltx_Math" alttext="\beta" display="inline"><semantics id="Chx1.Sx4.p7.1.m11.1a"><mi id="Chx1.Sx4.p7.1.m11.1.1" xref="Chx1.Sx4.p7.1.m11.1.1.cmml">β</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p7.1.m11.1b"><ci id="Chx1.Sx4.p7.1.m11.1.1.cmml" xref="Chx1.Sx4.p7.1.m11.1.1">𝛽</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p7.1.m11.1c">italic-beta</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p7.1.m11.1d">\beta</annotation></semantics></math> displayed as it went
+along, whether the computation <math id="Chx1.Sx4.p7.1.m12.1" class="ltx_Math" alttext="\beta" display="inline"><semantics id="Chx1.Sx4.p7.1.m12.1a"><mi id="Chx1.Sx4.p7.1.m12.1.1" xref="Chx1.Sx4.p7.1.m12.1.1.cmml">β</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p7.1.m12.1b"><ci id="Chx1.Sx4.p7.1.m12.1.1.cmml" xref="Chx1.Sx4.p7.1.m12.1.1">𝛽</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p7.1.m12.1c">italic-beta</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p7.1.m12.1d">\beta</annotation></semantics></math> aborted or not.</p>
+</div>
+<div id="Chx1.Sx4.p8" class="ltx_para">
+<p id="Chx1.Sx4.p8.1" class="ltx_p">In summary, all that one has to do to simulate a self-delimiting
+universal Turing machine <math id="Chx1.Sx4.p8.1.m1.1" class="ltx_Math" alttext="U(p)" display="inline"><semantics id="Chx1.Sx4.p8.1.m1.1a"><mrow id="Chx1.Sx4.p8.1.m1.1.5" xref="Chx1.Sx4.p8.1.m1.1.5.cmml"><mi id="Chx1.Sx4.p8.1.m1.1.1" xref="Chx1.Sx4.p8.1.m1.1.1.cmml">U</mi><mo id="Chx1.Sx4.p8.1.m1.1.5.1" xref="Chx1.Sx4.p8.1.m1.1.5.1.cmml">⁢</mo><mrow id="Chx1.Sx4.p8.1.m1.1.5.2" xref="Chx1.Sx4.p8.1.m1.1.5.cmml"><mo stretchy="false" id="Chx1.Sx4.p8.1.m1.1.2" xref="Chx1.Sx4.p8.1.m1.1.5.cmml">(</mo><mi id="Chx1.Sx4.p8.1.m1.1.3" xref="Chx1.Sx4.p8.1.m1.1.3.cmml">p</mi><mo stretchy="false" id="Chx1.Sx4.p8.1.m1.1.4" xref="Chx1.Sx4.p8.1.m1.1.5.cmml">)</mo></mrow></mrow><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p8.1.m1.1b"><apply id="Chx1.Sx4.p8.1.m1.1.5.cmml" xref="Chx1.Sx4.p8.1.m1.1.5"><times id="Chx1.Sx4.p8.1.m1.1.5.1.cmml" xref="Chx1.Sx4.p8.1.m1.1.5.1"></times><ci id="Chx1.Sx4.p8.1.m1.1.1.cmml" xref="Chx1.Sx4.p8.1.m1.1.1">𝑈</ci><ci id="Chx1.Sx4.p8.1.m1.1.3.cmml" xref="Chx1.Sx4.p8.1.m1.1.3">𝑝</ci></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p8.1.m1.1c">italic-U OPEN:( italic-p CLOSE:)</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p8.1.m1.1d">U(p)</annotation></semantics></math> running on the binary program <math id="Chx1.Sx4.p8.1.m2.1" class="ltx_Math" alttext="p" display="inline"><semantics id="Chx1.Sx4.p8.1.m2.1a"><mi id="Chx1.Sx4.p8.1.m2.1.1" xref="Chx1.Sx4.p8.1.m2.1.1.cmml">p</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p8.1.m2.1b"><ci id="Chx1.Sx4.p8.1.m2.1.1.cmml" xref="Chx1.Sx4.p8.1.m2.1.1">𝑝</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p8.1.m2.1c">italic-p</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p8.1.m2.1d">p</annotation></semantics></math> is
+to write</p>
+<pre id="Chx1.Sx4.p8.2" class="ltx_verbatim ltx_font_typewriter">
+          try no-time-limit ’eval read-exp p
+</pre>
+<p id="Chx1.Sx4.p8.3" class="ltx_p">This is an M-expression with parentheses omitted from primitive
+functions. (Recall that all primitive functions have a fixed number
+of arguments.) With the parentheses supplied, it becomes the
+S-expression</p>
+<pre id="Chx1.Sx4.p8.4" class="ltx_verbatim ltx_font_typewriter">
+          (try no-time-limit (’(eval(read-exp))) p)
+</pre>
+<p id="Chx1.Sx4.p8.5" class="ltx_p">This says that one is to read a complete LISP S-expression from the TM
+tape <math id="Chx1.Sx4.p8.5.m1.1" class="ltx_Math" alttext="p" display="inline"><semantics id="Chx1.Sx4.p8.5.m1.1a"><mi id="Chx1.Sx4.p8.5.m1.1.1" xref="Chx1.Sx4.p8.5.m1.1.1.cmml">p</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p8.5.m1.1b"><ci id="Chx1.Sx4.p8.5.m1.1.1.cmml" xref="Chx1.Sx4.p8.5.m1.1.1">𝑝</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p8.5.m1.1c">italic-p</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p8.5.m1.1d">p</annotation></semantics></math> and then evaluate it without any time limit and using
+whatever is left on the tape <math id="Chx1.Sx4.p8.5.m2.1" class="ltx_Math" alttext="p" display="inline"><semantics id="Chx1.Sx4.p8.5.m2.1a"><mi id="Chx1.Sx4.p8.5.m2.1.1" xref="Chx1.Sx4.p8.5.m2.1.1.cmml">p</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p8.5.m2.1b"><ci id="Chx1.Sx4.p8.5.m2.1.1.cmml" xref="Chx1.Sx4.p8.5.m2.1.1">𝑝</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p8.5.m2.1c">italic-p</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p8.5.m2.1d">p</annotation></semantics></math>.</p>
+</div>
+<div id="Chx1.Sx4.p9" class="ltx_para">
+<p id="Chx1.Sx4.p9.1" class="ltx_p">Some more primitive functions have also been added. The 2-argument
+function <span id="Chx1.Sx4.p9.1.1" class="ltx_text ltx_font_typewriter">append</span> denotes list concatenation, and the 1-argument
+function <span id="Chx1.Sx4.p9.1.2" class="ltx_text ltx_font_typewriter">bits</span> converts an S-expression into the list of the bits
+in its ASCII character string representation. These are used for
+constructing the bit strings that are then put on the TM tape using
+<span id="Chx1.Sx4.p9.1.3" class="ltx_text ltx_font_typewriter">try</span>’s third argument <math id="Chx1.Sx4.p9.1.m1.1" class="ltx_Math" alttext="\gamma" display="inline"><semantics id="Chx1.Sx4.p9.1.m1.1a"><mi id="Chx1.Sx4.p9.1.m1.1.1" xref="Chx1.Sx4.p9.1.m1.1.1.cmml">γ</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p9.1.m1.1b"><ci id="Chx1.Sx4.p9.1.m1.1.1.cmml" xref="Chx1.Sx4.p9.1.m1.1.1">𝛾</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p9.1.m1.1c">italic-gamma</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p9.1.m1.1d">\gamma</annotation></semantics></math>. We also provide the 1-argument
+functions <span id="Chx1.Sx4.p9.1.4" class="ltx_text ltx_font_typewriter">size</span> and <span id="Chx1.Sx4.p9.1.5" class="ltx_text ltx_font_typewriter">length</span> that respectively give the
+number of characters in an S-expression, and the number of elements in
+a list. Note that the functions <span id="Chx1.Sx4.p9.1.6" class="ltx_text ltx_font_typewriter">append</span>, <span id="Chx1.Sx4.p9.1.7" class="ltx_text ltx_font_typewriter">size</span> and <span id="Chx1.Sx4.p9.1.8" class="ltx_text ltx_font_typewriter">length</span> could be programmed rather than included as built-in primitive
+functions, but it is extremely convenient and much much faster to
+provide them built in.</p>
+</div>
+<div id="Chx1.Sx4.p10" class="ltx_para">
+<p id="Chx1.Sx4.p10.1" class="ltx_p">Finally a new 1-argument identity function <span id="Chx1.Sx4.p10.1.1" class="ltx_text ltx_font_typewriter">debug</span> with the
+side-effect of outputting its argument is provided for debugging.
+Output produced by <span id="Chx1.Sx4.p10.1.2" class="ltx_text ltx_font_typewriter">debug</span> is invisible to the “official” <span id="Chx1.Sx4.p10.1.3" class="ltx_text ltx_font_typewriter">display</span> and <span id="Chx1.Sx4.p10.1.4" class="ltx_text ltx_font_typewriter">try</span> output mechanism. <span id="Chx1.Sx4.p10.1.5" class="ltx_text ltx_font_typewriter">debug</span> is needed
+because <span id="Chx1.Sx4.p10.1.6" class="ltx_text ltx_font_typewriter">try</span> <math id="Chx1.Sx4.p10.1.m1.1" class="ltx_Math" alttext="\alpha" display="inline"><semantics id="Chx1.Sx4.p10.1.m1.1a"><mi id="Chx1.Sx4.p10.1.m1.1.1" xref="Chx1.Sx4.p10.1.m1.1.1.cmml">α</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p10.1.m1.1b"><ci id="Chx1.Sx4.p10.1.m1.1.1.cmml" xref="Chx1.Sx4.p10.1.m1.1.1">𝛼</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p10.1.m1.1c">italic-alpha</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p10.1.m1.1d">\alpha</annotation></semantics></math> <math id="Chx1.Sx4.p10.1.m2.1" class="ltx_Math" alttext="\beta" display="inline"><semantics id="Chx1.Sx4.p10.1.m2.1a"><mi id="Chx1.Sx4.p10.1.m2.1.1" xref="Chx1.Sx4.p10.1.m2.1.1.cmml">β</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p10.1.m2.1b"><ci id="Chx1.Sx4.p10.1.m2.1.1.cmml" xref="Chx1.Sx4.p10.1.m2.1.1">𝛽</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p10.1.m2.1c">italic-beta</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p10.1.m2.1d">\beta</annotation></semantics></math> <math id="Chx1.Sx4.p10.1.m3.1" class="ltx_Math" alttext="\gamma" display="inline"><semantics id="Chx1.Sx4.p10.1.m3.1a"><mi id="Chx1.Sx4.p10.1.m3.1.1" xref="Chx1.Sx4.p10.1.m3.1.1.cmml">γ</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p10.1.m3.1b"><ci id="Chx1.Sx4.p10.1.m3.1.1.cmml" xref="Chx1.Sx4.p10.1.m3.1.1">𝛾</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p10.1.m3.1c">italic-gamma</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p10.1.m3.1d">\gamma</annotation></semantics></math> suppresses all output
+<math id="Chx1.Sx4.p10.1.m4.1" class="ltx_Math" alttext="\theta" display="inline"><semantics id="Chx1.Sx4.p10.1.m4.1a"><mi id="Chx1.Sx4.p10.1.m4.1.1" xref="Chx1.Sx4.p10.1.m4.1.1.cmml">θ</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p10.1.m4.1b"><ci id="Chx1.Sx4.p10.1.m4.1.1.cmml" xref="Chx1.Sx4.p10.1.m4.1.1">𝜃</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p10.1.m4.1c">italic-theta</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p10.1.m4.1d">\theta</annotation></semantics></math> produced within its depth-controlled evaluation of <math id="Chx1.Sx4.p10.1.m5.1" class="ltx_Math" alttext="\beta" display="inline"><semantics id="Chx1.Sx4.p10.1.m5.1a"><mi id="Chx1.Sx4.p10.1.m5.1.1" xref="Chx1.Sx4.p10.1.m5.1.1.cmml">β</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p10.1.m5.1b"><ci id="Chx1.Sx4.p10.1.m5.1.1.cmml" xref="Chx1.Sx4.p10.1.m5.1.1">𝛽</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p10.1.m5.1c">italic-beta</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p10.1.m5.1d">\beta</annotation></semantics></math>.
+Instead <span id="Chx1.Sx4.p10.1.7" class="ltx_text ltx_font_typewriter">try</span> collects all output <math id="Chx1.Sx4.p10.1.m6.1" class="ltx_Math" alttext="\theta" display="inline"><semantics id="Chx1.Sx4.p10.1.m6.1a"><mi id="Chx1.Sx4.p10.1.m6.1.1" xref="Chx1.Sx4.p10.1.m6.1.1.cmml">θ</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p10.1.m6.1b"><ci id="Chx1.Sx4.p10.1.m6.1.1.cmml" xref="Chx1.Sx4.p10.1.m6.1.1">𝜃</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p10.1.m6.1c">italic-theta</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p10.1.m6.1d">\theta</annotation></semantics></math> from within <math id="Chx1.Sx4.p10.1.m7.1" class="ltx_Math" alttext="\beta" display="inline"><semantics id="Chx1.Sx4.p10.1.m7.1a"><mi id="Chx1.Sx4.p10.1.m7.1.1" xref="Chx1.Sx4.p10.1.m7.1.1.cmml">β</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p10.1.m7.1b"><ci id="Chx1.Sx4.p10.1.m7.1.1.cmml" xref="Chx1.Sx4.p10.1.m7.1.1">𝛽</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p10.1.m7.1c">italic-beta</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p10.1.m7.1d">\beta</annotation></semantics></math> for
+inclusion in the final value <math id="Chx1.Sx4.p10.1.m8.1" class="ltx_Math" alttext="\nu" display="inline"><semantics id="Chx1.Sx4.p10.1.m8.1a"><mi id="Chx1.Sx4.p10.1.m8.1.1" xref="Chx1.Sx4.p10.1.m8.1.1.cmml">ν</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p10.1.m8.1b"><ci id="Chx1.Sx4.p10.1.m8.1.1.cmml" xref="Chx1.Sx4.p10.1.m8.1.1">𝜈</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p10.1.m8.1c">italic-nu</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p10.1.m8.1d">\nu</annotation></semantics></math> that <span id="Chx1.Sx4.p10.1.8" class="ltx_text ltx_font_typewriter">try</span> returns, namely <math id="Chx1.Sx4.p10.1.m9.1" class="ltx_Math" alttext="\nu=" display="inline"><semantics id="Chx1.Sx4.p10.1.m9.1a"><mrow id="Chx1.Sx4.p10.1.m9.1.3" xref="Chx1.Sx4.p10.1.m9.1.3.cmml"><mi id="Chx1.Sx4.p10.1.m9.1.1" xref="Chx1.Sx4.p10.1.m9.1.1.cmml">ν</mi><mo id="Chx1.Sx4.p10.1.m9.1.2" xref="Chx1.Sx4.p10.1.m9.1.2.cmml">=</mo><mi id="Chx1.Sx4.p10.1.m9.1.3.1" xref="Chx1.Sx4.p10.1.m9.1.3.1.cmml"></mi></mrow><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p10.1.m9.1b"><apply id="Chx1.Sx4.p10.1.m9.1.3.cmml" xref="Chx1.Sx4.p10.1.m9.1.3"><eq id="Chx1.Sx4.p10.1.m9.1.2.cmml" xref="Chx1.Sx4.p10.1.m9.1.2"></eq><ci id="Chx1.Sx4.p10.1.m9.1.1.cmml" xref="Chx1.Sx4.p10.1.m9.1.1">𝜈</ci><csymbol cd="latexml" id="Chx1.Sx4.p10.1.m9.1.3.1.cmml" xref="Chx1.Sx4.p10.1.m9.1.3.1">absent</csymbol></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p10.1.m9.1c">italic-nu RELOP:equals</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p10.1.m9.1d">\nu=</annotation></semantics></math> (success/failure, value of <math id="Chx1.Sx4.p10.1.m10.1" class="ltx_Math" alttext="\beta" display="inline"><semantics id="Chx1.Sx4.p10.1.m10.1a"><mi id="Chx1.Sx4.p10.1.m10.1.1" xref="Chx1.Sx4.p10.1.m10.1.1.cmml">β</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p10.1.m10.1b"><ci id="Chx1.Sx4.p10.1.m10.1.1.cmml" xref="Chx1.Sx4.p10.1.m10.1.1">𝛽</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p10.1.m10.1c">italic-beta</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p10.1.m10.1d">\beta</annotation></semantics></math>, <math id="Chx1.Sx4.p10.1.m11.1" class="ltx_Math" alttext="\theta" display="inline"><semantics id="Chx1.Sx4.p10.1.m11.1a"><mi id="Chx1.Sx4.p10.1.m11.1.1" xref="Chx1.Sx4.p10.1.m11.1.1.cmml">θ</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx4.p10.1.m11.1b"><ci id="Chx1.Sx4.p10.1.m11.1.1.cmml" xref="Chx1.Sx4.p10.1.m11.1.1">𝜃</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx4.p10.1.m11.1c">italic-theta</annotation><annotation encoding="application/x-tex" id="Chx1.Sx4.p10.1.m11.1d">\theta</annotation></semantics></math>).</p>
+</div>
+</section>
+<section id="Chx1.Sx5" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">Course Outline</h3>
+
+<div id="Chx1.Sx5.p1" class="ltx_para">
+<p id="Chx1.Sx5.p1.1" class="ltx_p">The course begins by explaining with examples my new LISP. See <span id="Chx1.Sx5.p1.1.1" class="ltx_text ltx_font_typewriter">examples.r</span>.</p>
+</div>
+<div id="Chx1.Sx5.p2" class="ltx_para">
+<p id="Chx1.Sx5.p2.1" class="ltx_p">Then the theory of LISP program-size complexity is developed a little
+bit. LISP program-size complexity is extremely simple and concrete.
+In particular, it is easy to show that it is impossible to prove that
+a self-contained LISP expression is elegant, i.e., that no smaller
+expression has the same value. To prove that an <math id="Chx1.Sx5.p2.1.m1.1" class="ltx_Math" alttext="N" display="inline"><semantics id="Chx1.Sx5.p2.1.m1.1a"><mi id="Chx1.Sx5.p2.1.m1.1.1" xref="Chx1.Sx5.p2.1.m1.1.1.cmml">N</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p2.1.m1.1b"><ci id="Chx1.Sx5.p2.1.m1.1.1.cmml" xref="Chx1.Sx5.p2.1.m1.1.1">𝑁</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p2.1.m1.1c">italic-N</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p2.1.m1.1d">N</annotation></semantics></math>-character LISP
+expression is elegant requires a formal axiomatic system that itself
+has at least LISP complexity <math id="Chx1.Sx5.p2.1.m2.1" class="ltx_Math" alttext="N-410" display="inline"><semantics id="Chx1.Sx5.p2.1.m2.1a"><mrow id="Chx1.Sx5.p2.1.m2.1.6" xref="Chx1.Sx5.p2.1.m2.1.6.cmml"><mi id="Chx1.Sx5.p2.1.m2.1.1" xref="Chx1.Sx5.p2.1.m2.1.1.cmml">N</mi><mo id="Chx1.Sx5.p2.1.m2.1.2" xref="Chx1.Sx5.p2.1.m2.1.2.cmml">-</mo><mn id="Chx1.Sx5.p2.1.m2.1.5" xref="Chx1.Sx5.p2.1.m2.1.5.cmml">410</mn></mrow><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p2.1.m2.1b"><apply id="Chx1.Sx5.p2.1.m2.1.6.cmml" xref="Chx1.Sx5.p2.1.m2.1.6"><minus id="Chx1.Sx5.p2.1.m2.1.2.cmml" xref="Chx1.Sx5.p2.1.m2.1.2"></minus><ci id="Chx1.Sx5.p2.1.m2.1.1.cmml" xref="Chx1.Sx5.p2.1.m2.1.1">𝑁</ci><cn type="integer" id="Chx1.Sx5.p2.1.m2.1.5.cmml" xref="Chx1.Sx5.p2.1.m2.1.5">410</cn></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p2.1.m2.1c">italic-N ADDOP:minus NUMBER:410</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p2.1.m2.1d">N-410</annotation></semantics></math>. See <span id="Chx1.Sx5.p2.1.1" class="ltx_text ltx_font_typewriter">godel.r</span>.</p>
+</div>
+<div id="Chx1.Sx5.p3" class="ltx_para">
+<p id="Chx1.Sx5.p3.1" class="ltx_p">Next we define our standard self-delimiting universal Turing machine
+<math id="Chx1.Sx5.p3.1.m1.1" class="ltx_Math" alttext="U(p)" display="inline"><semantics id="Chx1.Sx5.p3.1.m1.1a"><mrow id="Chx1.Sx5.p3.1.m1.1.5" xref="Chx1.Sx5.p3.1.m1.1.5.cmml"><mi id="Chx1.Sx5.p3.1.m1.1.1" xref="Chx1.Sx5.p3.1.m1.1.1.cmml">U</mi><mo id="Chx1.Sx5.p3.1.m1.1.5.1" xref="Chx1.Sx5.p3.1.m1.1.5.1.cmml">⁢</mo><mrow id="Chx1.Sx5.p3.1.m1.1.5.2" xref="Chx1.Sx5.p3.1.m1.1.5.cmml"><mo stretchy="false" id="Chx1.Sx5.p3.1.m1.1.2" xref="Chx1.Sx5.p3.1.m1.1.5.cmml">(</mo><mi id="Chx1.Sx5.p3.1.m1.1.3" xref="Chx1.Sx5.p3.1.m1.1.3.cmml">p</mi><mo stretchy="false" id="Chx1.Sx5.p3.1.m1.1.4" xref="Chx1.Sx5.p3.1.m1.1.5.cmml">)</mo></mrow></mrow><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p3.1.m1.1b"><apply id="Chx1.Sx5.p3.1.m1.1.5.cmml" xref="Chx1.Sx5.p3.1.m1.1.5"><times id="Chx1.Sx5.p3.1.m1.1.5.1.cmml" xref="Chx1.Sx5.p3.1.m1.1.5.1"></times><ci id="Chx1.Sx5.p3.1.m1.1.1.cmml" xref="Chx1.Sx5.p3.1.m1.1.1">𝑈</ci><ci id="Chx1.Sx5.p3.1.m1.1.3.cmml" xref="Chx1.Sx5.p3.1.m1.1.3">𝑝</ci></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p3.1.m1.1c">italic-U OPEN:( italic-p CLOSE:)</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p3.1.m1.1d">U(p)</annotation></semantics></math> using</p>
+<pre id="Chx1.Sx5.p3.2" class="ltx_verbatim ltx_font_typewriter">
+          cadr try no-time-limit ’eval read-exp p
+</pre>
+<p id="Chx1.Sx5.p3.3" class="ltx_p">as explained in the previous chapter.</p>
+</div>
+<div id="Chx1.Sx5.p4" class="ltx_para">
+<p id="Chx1.Sx5.p4.1" class="ltx_p">Next we show that</p>
+<table id="Chx1.Ex1" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Chx1.Ex1.m1.1" class="ltx_Math" alttext="H(x,y)\leq H(x)+H(y)+c" display="block"><semantics id="Chx1.Ex1.m1.1a"><mrow id="Chx1.Ex1.m1.1.19" xref="Chx1.Ex1.m1.1.19.cmml"><mrow id="Chx1.Ex1.m1.1.19.1" xref="Chx1.Ex1.m1.1.19.1.cmml"><mi id="Chx1.Ex1.m1.1.1" xref="Chx1.Ex1.m1.1.1.cmml">H</mi><mo id="Chx1.Ex1.m1.1.19.1.1" xref="Chx1.Ex1.m1.1.19.1.1.cmml">⁢</mo><mrow id="Chx1.Ex1.m1.1.19.1.2" xref="Chx1.Ex1.m1.1.19.1.2.1.cmml"><mo stretchy="false" id="Chx1.Ex1.m1.1.2" xref="Chx1.Ex1.m1.1.19.1.2.1.cmml">(</mo><mi id="Chx1.Ex1.m1.1.3" xref="Chx1.Ex1.m1.1.3.cmml">x</mi><mo id="Chx1.Ex1.m1.1.4" xref="Chx1.Ex1.m1.1.19.1.2.1.cmml">,</mo><mi id="Chx1.Ex1.m1.1.5" xref="Chx1.Ex1.m1.1.5.cmml">y</mi><mo stretchy="false" id="Chx1.Ex1.m1.1.6" xref="Chx1.Ex1.m1.1.19.1.2.1.cmml">)</mo></mrow></mrow><mo id="Chx1.Ex1.m1.1.7" xref="Chx1.Ex1.m1.1.7.cmml">≤</mo><mrow id="Chx1.Ex1.m1.1.19.2" xref="Chx1.Ex1.m1.1.19.2.cmml"><mrow id="Chx1.Ex1.m1.1.19.2.1" xref="Chx1.Ex1.m1.1.19.2.1.cmml"><mi id="Chx1.Ex1.m1.1.8" xref="Chx1.Ex1.m1.1.8.cmml">H</mi><mo id="Chx1.Ex1.m1.1.19.2.1.1" xref="Chx1.Ex1.m1.1.19.2.1.1.cmml">⁢</mo><mrow id="Chx1.Ex1.m1.1.19.2.1.2" xref="Chx1.Ex1.m1.1.19.2.1.cmml"><mo stretchy="false" id="Chx1.Ex1.m1.1.9" xref="Chx1.Ex1.m1.1.19.2.1.cmml">(</mo><mi id="Chx1.Ex1.m1.1.10" xref="Chx1.Ex1.m1.1.10.cmml">x</mi><mo stretchy="false" id="Chx1.Ex1.m1.1.11" xref="Chx1.Ex1.m1.1.19.2.1.cmml">)</mo></mrow></mrow><mo id="Chx1.Ex1.m1.1.12" xref="Chx1.Ex1.m1.1.12.cmml">+</mo><mrow id="Chx1.Ex1.m1.1.19.2.2" xref="Chx1.Ex1.m1.1.19.2.2.cmml"><mi id="Chx1.Ex1.m1.1.13" xref="Chx1.Ex1.m1.1.13.cmml">H</mi><mo id="Chx1.Ex1.m1.1.19.2.2.1" xref="Chx1.Ex1.m1.1.19.2.2.1.cmml">⁢</mo><mrow id="Chx1.Ex1.m1.1.19.2.2.2" xref="Chx1.Ex1.m1.1.19.2.2.cmml"><mo stretchy="false" id="Chx1.Ex1.m1.1.14" xref="Chx1.Ex1.m1.1.19.2.2.cmml">(</mo><mi id="Chx1.Ex1.m1.1.15" xref="Chx1.Ex1.m1.1.15.cmml">y</mi><mo stretchy="false" id="Chx1.Ex1.m1.1.16" xref="Chx1.Ex1.m1.1.19.2.2.cmml">)</mo></mrow></mrow><mo id="Chx1.Ex1.m1.1.12a" xref="Chx1.Ex1.m1.1.12.cmml">+</mo><mi id="Chx1.Ex1.m1.1.18" xref="Chx1.Ex1.m1.1.18.cmml">c</mi></mrow></mrow><annotation-xml encoding="MathML-Content" id="Chx1.Ex1.m1.1b"><apply id="Chx1.Ex1.m1.1.19.cmml" xref="Chx1.Ex1.m1.1.19"><leq id="Chx1.Ex1.m1.1.7.cmml" xref="Chx1.Ex1.m1.1.7"></leq><apply id="Chx1.Ex1.m1.1.19.1.cmml" xref="Chx1.Ex1.m1.1.19.1"><times id="Chx1.Ex1.m1.1.19.1.1.cmml" xref="Chx1.Ex1.m1.1.19.1.1"></times><ci id="Chx1.Ex1.m1.1.1.cmml" xref="Chx1.Ex1.m1.1.1">𝐻</ci><interval closure="open" id="Chx1.Ex1.m1.1.19.1.2.1.cmml" xref="Chx1.Ex1.m1.1.19.1.2"><ci id="Chx1.Ex1.m1.1.3.cmml" xref="Chx1.Ex1.m1.1.3">𝑥</ci><ci id="Chx1.Ex1.m1.1.5.cmml" xref="Chx1.Ex1.m1.1.5">𝑦</ci></interval></apply><apply id="Chx1.Ex1.m1.1.19.2.cmml" xref="Chx1.Ex1.m1.1.19.2"><plus id="Chx1.Ex1.m1.1.12.cmml" xref="Chx1.Ex1.m1.1.12"></plus><apply id="Chx1.Ex1.m1.1.19.2.1.cmml" xref="Chx1.Ex1.m1.1.19.2.1"><times id="Chx1.Ex1.m1.1.19.2.1.1.cmml" xref="Chx1.Ex1.m1.1.19.2.1.1"></times><ci id="Chx1.Ex1.m1.1.8.cmml" xref="Chx1.Ex1.m1.1.8">𝐻</ci><ci id="Chx1.Ex1.m1.1.10.cmml" xref="Chx1.Ex1.m1.1.10">𝑥</ci></apply><apply id="Chx1.Ex1.m1.1.19.2.2.cmml" xref="Chx1.Ex1.m1.1.19.2.2"><times id="Chx1.Ex1.m1.1.19.2.2.1.cmml" xref="Chx1.Ex1.m1.1.19.2.2.1"></times><ci id="Chx1.Ex1.m1.1.13.cmml" xref="Chx1.Ex1.m1.1.13">𝐻</ci><ci id="Chx1.Ex1.m1.1.15.cmml" xref="Chx1.Ex1.m1.1.15">𝑦</ci></apply><ci id="Chx1.Ex1.m1.1.18.cmml" xref="Chx1.Ex1.m1.1.18">𝑐</ci></apply></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Ex1.m1.1c">italic-H OPEN:( italic-x PUNCT:, italic-y CLOSE:) RELOP:less-than-or-equals italic-H OPEN:( italic-x CLOSE:) ADDOP:plus italic-H OPEN:( italic-y CLOSE:) ADDOP:plus italic-c</annotation><annotation encoding="application/x-tex" id="Chx1.Ex1.m1.1d">H(x,y)\leq H(x)+H(y)+c</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p id="Chx1.Sx5.p4.2" class="ltx_p">with <math id="Chx1.Sx5.p4.2.m1.1" class="ltx_Math" alttext="c=432." display="inline"><semantics id="Chx1.Sx5.p4.2.m1.1a"><mrow id="Chx1.Sx5.p4.2.m1.1.7" xref="Chx1.Sx5.p4.2.m1.1.7.2.cmml"><mrow id="Chx1.Sx5.p4.2.m1.1.7.2" xref="Chx1.Sx5.p4.2.m1.1.7.2.cmml"><mi id="Chx1.Sx5.p4.2.m1.1.1" xref="Chx1.Sx5.p4.2.m1.1.1.cmml">c</mi><mo id="Chx1.Sx5.p4.2.m1.1.2" xref="Chx1.Sx5.p4.2.m1.1.2.cmml">=</mo><mn id="Chx1.Sx5.p4.2.m1.1.5" xref="Chx1.Sx5.p4.2.m1.1.5.cmml">432</mn></mrow><mo id="Chx1.Sx5.p4.2.m1.1.6" xref="Chx1.Sx5.p4.2.m1.1.7.2.cmml">.</mo></mrow><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p4.2.m1.1b"><apply id="Chx1.Sx5.p4.2.m1.1.7.2.cmml" xref="Chx1.Sx5.p4.2.m1.1.7"><eq id="Chx1.Sx5.p4.2.m1.1.2.cmml" xref="Chx1.Sx5.p4.2.m1.1.2"></eq><ci id="Chx1.Sx5.p4.2.m1.1.1.cmml" xref="Chx1.Sx5.p4.2.m1.1.1">𝑐</ci><cn type="integer" id="Chx1.Sx5.p4.2.m1.1.5.cmml" xref="Chx1.Sx5.p4.2.m1.1.5">432</cn></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p4.2.m1.1c">italic-c RELOP:equals NUMBER:432 PERIOD:.</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p4.2.m1.1d">c=432.</annotation></semantics></math>
+Here <math id="Chx1.Sx5.p4.2.m2.1" class="ltx_Math" alttext="H(\cdots)" display="inline"><semantics id="Chx1.Sx5.p4.2.m2.1a"><mrow id="Chx1.Sx5.p4.2.m2.1.5" xref="Chx1.Sx5.p4.2.m2.1.5.cmml"><mi id="Chx1.Sx5.p4.2.m2.1.1" xref="Chx1.Sx5.p4.2.m2.1.1.cmml">H</mi><mo id="Chx1.Sx5.p4.2.m2.1.5.1" xref="Chx1.Sx5.p4.2.m2.1.5.1.cmml">⁢</mo><mrow id="Chx1.Sx5.p4.2.m2.1.5.2" xref="Chx1.Sx5.p4.2.m2.1.5.cmml"><mo stretchy="false" id="Chx1.Sx5.p4.2.m2.1.2" xref="Chx1.Sx5.p4.2.m2.1.5.cmml">(</mo><mi mathvariant="normal" id="Chx1.Sx5.p4.2.m2.1.3" xref="Chx1.Sx5.p4.2.m2.1.3.cmml">⋯</mi><mo stretchy="false" id="Chx1.Sx5.p4.2.m2.1.4" xref="Chx1.Sx5.p4.2.m2.1.5.cmml">)</mo></mrow></mrow><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p4.2.m2.1b"><apply id="Chx1.Sx5.p4.2.m2.1.5.cmml" xref="Chx1.Sx5.p4.2.m2.1.5"><times id="Chx1.Sx5.p4.2.m2.1.5.1.cmml" xref="Chx1.Sx5.p4.2.m2.1.5.1"></times><ci id="Chx1.Sx5.p4.2.m2.1.1.cmml" xref="Chx1.Sx5.p4.2.m2.1.1">𝐻</ci><ci id="Chx1.Sx5.p4.2.m2.1.3.cmml" xref="Chx1.Sx5.p4.2.m2.1.3">⋯</ci></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p4.2.m2.1c">italic-H OPEN:( ID:cdots CLOSE:)</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p4.2.m2.1d">H(\cdots)</annotation></semantics></math> denotes the size in bits of the smallest program that
+makes our standard universal Turing machine compute <math id="Chx1.Sx5.p4.2.m3.1" class="ltx_Math" alttext="\cdots" display="inline"><semantics id="Chx1.Sx5.p4.2.m3.1a"><mi mathvariant="normal" id="Chx1.Sx5.p4.2.m3.1.1" xref="Chx1.Sx5.p4.2.m3.1.1.cmml">⋯</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p4.2.m3.1b"><ci id="Chx1.Sx5.p4.2.m3.1.1.cmml" xref="Chx1.Sx5.p4.2.m3.1.1">⋯</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p4.2.m3.1c">ID:cdots</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p4.2.m3.1d">\cdots</annotation></semantics></math>. Thus
+this inequality states that the information needed to compute the pair
+<math id="Chx1.Sx5.p4.2.m4.1" class="ltx_Math" alttext="(x,y)" display="inline"><semantics id="Chx1.Sx5.p4.2.m4.1a"><mrow id="Chx1.Sx5.p4.2.m4.1.6" xref="Chx1.Sx5.p4.2.m4.1.6.1.cmml"><mo stretchy="false" id="Chx1.Sx5.p4.2.m4.1.1" xref="Chx1.Sx5.p4.2.m4.1.6.1.cmml">(</mo><mi id="Chx1.Sx5.p4.2.m4.1.2" xref="Chx1.Sx5.p4.2.m4.1.2.cmml">x</mi><mo id="Chx1.Sx5.p4.2.m4.1.3" xref="Chx1.Sx5.p4.2.m4.1.6.1.cmml">,</mo><mi id="Chx1.Sx5.p4.2.m4.1.4" xref="Chx1.Sx5.p4.2.m4.1.4.cmml">y</mi><mo stretchy="false" id="Chx1.Sx5.p4.2.m4.1.5" xref="Chx1.Sx5.p4.2.m4.1.6.1.cmml">)</mo></mrow><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p4.2.m4.1b"><interval closure="open" id="Chx1.Sx5.p4.2.m4.1.6.1.cmml" xref="Chx1.Sx5.p4.2.m4.1.6"><ci id="Chx1.Sx5.p4.2.m4.1.2.cmml" xref="Chx1.Sx5.p4.2.m4.1.2">𝑥</ci><ci id="Chx1.Sx5.p4.2.m4.1.4.cmml" xref="Chx1.Sx5.p4.2.m4.1.4">𝑦</ci></interval></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p4.2.m4.1c">OPEN:( italic-x PUNCT:, italic-y CLOSE:)</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p4.2.m4.1d">(x,y)</annotation></semantics></math> is bounded by a constant <math id="Chx1.Sx5.p4.2.m5.1" class="ltx_Math" alttext="c" display="inline"><semantics id="Chx1.Sx5.p4.2.m5.1a"><mi id="Chx1.Sx5.p4.2.m5.1.1" xref="Chx1.Sx5.p4.2.m5.1.1.cmml">c</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p4.2.m5.1b"><ci id="Chx1.Sx5.p4.2.m5.1.1.cmml" xref="Chx1.Sx5.p4.2.m5.1.1">𝑐</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p4.2.m5.1c">italic-c</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p4.2.m5.1d">c</annotation></semantics></math> plus the sum of the information
+needed to compute <math id="Chx1.Sx5.p4.2.m6.1" class="ltx_Math" alttext="x" display="inline"><semantics id="Chx1.Sx5.p4.2.m6.1a"><mi id="Chx1.Sx5.p4.2.m6.1.1" xref="Chx1.Sx5.p4.2.m6.1.1.cmml">x</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p4.2.m6.1b"><ci id="Chx1.Sx5.p4.2.m6.1.1.cmml" xref="Chx1.Sx5.p4.2.m6.1.1">𝑥</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p4.2.m6.1c">italic-x</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p4.2.m6.1d">x</annotation></semantics></math> and the information needed to compute <math id="Chx1.Sx5.p4.2.m7.1" class="ltx_Math" alttext="y" display="inline"><semantics id="Chx1.Sx5.p4.2.m7.1a"><mi id="Chx1.Sx5.p4.2.m7.1.1" xref="Chx1.Sx5.p4.2.m7.1.1.cmml">y</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p4.2.m7.1b"><ci id="Chx1.Sx5.p4.2.m7.1.1.cmml" xref="Chx1.Sx5.p4.2.m7.1.1">𝑦</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p4.2.m7.1c">italic-y</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p4.2.m7.1d">y</annotation></semantics></math>.
+Consider</p>
+<pre id="Chx1.Sx5.p4.3" class="ltx_verbatim ltx_font_typewriter">
+          cons eval read-exp
+          cons eval read-exp
+               nil
+</pre>
+<p id="Chx1.Sx5.p4.4" class="ltx_p">This is an M-expression with parentheses omitted from primitive
+functions. With all the parentheses supplied, it becomes the S-expression</p>
+<pre id="Chx1.Sx5.p4.5" class="ltx_verbatim ltx_font_typewriter">
+          (cons (eval (read-exp))
+          (cons (eval (read-exp))
+                nil))
+</pre>
+<p id="Chx1.Sx5.p4.6" class="ltx_p"><math id="Chx1.Sx5.p4.6.m1.1" class="ltx_Math" alttext="c=432" display="inline"><semantics id="Chx1.Sx5.p4.6.m1.1a"><mrow id="Chx1.Sx5.p4.6.m1.1.6" xref="Chx1.Sx5.p4.6.m1.1.6.cmml"><mi id="Chx1.Sx5.p4.6.m1.1.1" xref="Chx1.Sx5.p4.6.m1.1.1.cmml">c</mi><mo id="Chx1.Sx5.p4.6.m1.1.2" xref="Chx1.Sx5.p4.6.m1.1.2.cmml">=</mo><mn id="Chx1.Sx5.p4.6.m1.1.5" xref="Chx1.Sx5.p4.6.m1.1.5.cmml">432</mn></mrow><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p4.6.m1.1b"><apply id="Chx1.Sx5.p4.6.m1.1.6.cmml" xref="Chx1.Sx5.p4.6.m1.1.6"><eq id="Chx1.Sx5.p4.6.m1.1.2.cmml" xref="Chx1.Sx5.p4.6.m1.1.2"></eq><ci id="Chx1.Sx5.p4.6.m1.1.1.cmml" xref="Chx1.Sx5.p4.6.m1.1.1">𝑐</ci><cn type="integer" id="Chx1.Sx5.p4.6.m1.1.5.cmml" xref="Chx1.Sx5.p4.6.m1.1.5">432</cn></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p4.6.m1.1c">italic-c RELOP:equals NUMBER:432</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p4.6.m1.1d">c=432</annotation></semantics></math> is just 8 bits plus 8 times the size in characters of this LISP
+S-expression. See <span id="Chx1.Sx5.p4.6.1" class="ltx_text ltx_font_typewriter">utm.r</span>.</p>
+</div>
+<div id="Chx1.Sx5.p5" class="ltx_para">
+<p id="Chx1.Sx5.p5.1" class="ltx_p">Consider a binary string <math id="Chx1.Sx5.p5.1.m1.1" class="ltx_Math" alttext="x" display="inline"><semantics id="Chx1.Sx5.p5.1.m1.1a"><mi id="Chx1.Sx5.p5.1.m1.1.1" xref="Chx1.Sx5.p5.1.m1.1.1.cmml">x</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p5.1.m1.1b"><ci id="Chx1.Sx5.p5.1.m1.1.1.cmml" xref="Chx1.Sx5.p5.1.m1.1.1">𝑥</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p5.1.m1.1c">italic-x</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p5.1.m1.1d">x</annotation></semantics></math> whose size is <math id="Chx1.Sx5.p5.1.m2.1" class="ltx_Math" alttext="|x|" display="inline"><semantics id="Chx1.Sx5.p5.1.m2.1a"><mrow id="Chx1.Sx5.p5.1.m2.1.4" xref="Chx1.Sx5.p5.1.m2.1.4.1.cmml"><mo stretchy="false" id="Chx1.Sx5.p5.1.m2.1.1" xref="Chx1.Sx5.p5.1.m2.1.4.1.1.cmml">|</mo><mi id="Chx1.Sx5.p5.1.m2.1.2" xref="Chx1.Sx5.p5.1.m2.1.2.cmml">x</mi><mo stretchy="false" id="Chx1.Sx5.p5.1.m2.1.3" xref="Chx1.Sx5.p5.1.m2.1.4.1.1.cmml">|</mo></mrow><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p5.1.m2.1b"><apply id="Chx1.Sx5.p5.1.m2.1.4.1.cmml" xref="Chx1.Sx5.p5.1.m2.1.4"><abs id="Chx1.Sx5.p5.1.m2.1.4.1.1.cmml" xref="Chx1.Sx5.p5.1.m2.1.1"></abs><ci id="Chx1.Sx5.p5.1.m2.1.2.cmml" xref="Chx1.Sx5.p5.1.m2.1.2">𝑥</ci></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p5.1.m2.1c">VERTBAR:| italic-x VERTBAR:|</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p5.1.m2.1d">|x|</annotation></semantics></math> bits. In <span id="Chx1.Sx5.p5.1.1" class="ltx_text ltx_font_typewriter">utm.r</span> we also show that</p>
+<table id="Chx1.Ex2" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Chx1.Ex2.m1.1" class="ltx_Math" alttext="H(x)\leq 2|x|+c" display="block"><semantics id="Chx1.Ex2.m1.1a"><mrow id="Chx1.Ex2.m1.1.12" xref="Chx1.Ex2.m1.1.12.cmml"><mrow id="Chx1.Ex2.m1.1.12.1" xref="Chx1.Ex2.m1.1.12.1.cmml"><mi id="Chx1.Ex2.m1.1.1" xref="Chx1.Ex2.m1.1.1.cmml">H</mi><mo id="Chx1.Ex2.m1.1.12.1.1" xref="Chx1.Ex2.m1.1.12.1.1.cmml">⁢</mo><mrow id="Chx1.Ex2.m1.1.12.1.2" xref="Chx1.Ex2.m1.1.12.1.cmml"><mo stretchy="false" id="Chx1.Ex2.m1.1.2" xref="Chx1.Ex2.m1.1.12.1.cmml">(</mo><mi id="Chx1.Ex2.m1.1.3" xref="Chx1.Ex2.m1.1.3.cmml">x</mi><mo stretchy="false" id="Chx1.Ex2.m1.1.4" xref="Chx1.Ex2.m1.1.12.1.cmml">)</mo></mrow></mrow><mo id="Chx1.Ex2.m1.1.5" xref="Chx1.Ex2.m1.1.5.cmml">≤</mo><mrow id="Chx1.Ex2.m1.1.12.2" xref="Chx1.Ex2.m1.1.12.2.cmml"><mrow id="Chx1.Ex2.m1.1.12.2.1" xref="Chx1.Ex2.m1.1.12.2.1.cmml"><mn id="Chx1.Ex2.m1.1.6" xref="Chx1.Ex2.m1.1.6.cmml">2</mn><mo id="Chx1.Ex2.m1.1.12.2.1.1" xref="Chx1.Ex2.m1.1.12.2.1.1.cmml">⁢</mo><mrow id="Chx1.Ex2.m1.1.12.2.1.2" xref="Chx1.Ex2.m1.1.12.2.1.2.1.cmml"><mo stretchy="false" id="Chx1.Ex2.m1.1.7" xref="Chx1.Ex2.m1.1.12.2.1.2.1.1.cmml">|</mo><mi id="Chx1.Ex2.m1.1.8" xref="Chx1.Ex2.m1.1.8.cmml">x</mi><mo stretchy="false" id="Chx1.Ex2.m1.1.9" xref="Chx1.Ex2.m1.1.12.2.1.2.1.1.cmml">|</mo></mrow></mrow><mo id="Chx1.Ex2.m1.1.10" xref="Chx1.Ex2.m1.1.10.cmml">+</mo><mi id="Chx1.Ex2.m1.1.11" xref="Chx1.Ex2.m1.1.11.cmml">c</mi></mrow></mrow><annotation-xml encoding="MathML-Content" id="Chx1.Ex2.m1.1b"><apply id="Chx1.Ex2.m1.1.12.cmml" xref="Chx1.Ex2.m1.1.12"><leq id="Chx1.Ex2.m1.1.5.cmml" xref="Chx1.Ex2.m1.1.5"></leq><apply id="Chx1.Ex2.m1.1.12.1.cmml" xref="Chx1.Ex2.m1.1.12.1"><times id="Chx1.Ex2.m1.1.12.1.1.cmml" xref="Chx1.Ex2.m1.1.12.1.1"></times><ci id="Chx1.Ex2.m1.1.1.cmml" xref="Chx1.Ex2.m1.1.1">𝐻</ci><ci id="Chx1.Ex2.m1.1.3.cmml" xref="Chx1.Ex2.m1.1.3">𝑥</ci></apply><apply id="Chx1.Ex2.m1.1.12.2.cmml" xref="Chx1.Ex2.m1.1.12.2"><plus id="Chx1.Ex2.m1.1.10.cmml" xref="Chx1.Ex2.m1.1.10"></plus><apply id="Chx1.Ex2.m1.1.12.2.1.cmml" xref="Chx1.Ex2.m1.1.12.2.1"><times id="Chx1.Ex2.m1.1.12.2.1.1.cmml" xref="Chx1.Ex2.m1.1.12.2.1.1"></times><cn type="integer" id="Chx1.Ex2.m1.1.6.cmml" xref="Chx1.Ex2.m1.1.6">2</cn><apply id="Chx1.Ex2.m1.1.12.2.1.2.1.cmml" xref="Chx1.Ex2.m1.1.12.2.1.2"><abs id="Chx1.Ex2.m1.1.12.2.1.2.1.1.cmml" xref="Chx1.Ex2.m1.1.7"></abs><ci id="Chx1.Ex2.m1.1.8.cmml" xref="Chx1.Ex2.m1.1.8">𝑥</ci></apply></apply><ci id="Chx1.Ex2.m1.1.11.cmml" xref="Chx1.Ex2.m1.1.11">𝑐</ci></apply></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Ex2.m1.1c">italic-H OPEN:( italic-x CLOSE:) RELOP:less-than-or-equals NUMBER:2 VERTBAR:| italic-x VERTBAR:| ADDOP:plus italic-c</annotation><annotation encoding="application/x-tex" id="Chx1.Ex2.m1.1d">H(x)\leq 2|x|+c</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p id="Chx1.Sx5.p5.2" class="ltx_p">and</p>
+<table id="Chx1.Ex3" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Chx1.Ex3.m1.1" class="ltx_Math" alttext="H(x)\leq|x|+H(|x|)+c^{\prime}" display="block"><semantics id="Chx1.Ex3.m1.1a"><mrow id="Chx1.Ex3.m1.1.19" xref="Chx1.Ex3.m1.1.19.cmml"><mrow id="Chx1.Ex3.m1.1.19.1" xref="Chx1.Ex3.m1.1.19.1.cmml"><mi id="Chx1.Ex3.m1.1.1" xref="Chx1.Ex3.m1.1.1.cmml">H</mi><mo id="Chx1.Ex3.m1.1.19.1.1" xref="Chx1.Ex3.m1.1.19.1.1.cmml">⁢</mo><mrow id="Chx1.Ex3.m1.1.19.1.2" xref="Chx1.Ex3.m1.1.19.1.cmml"><mo stretchy="false" id="Chx1.Ex3.m1.1.2" xref="Chx1.Ex3.m1.1.19.1.cmml">(</mo><mi id="Chx1.Ex3.m1.1.3" xref="Chx1.Ex3.m1.1.3.cmml">x</mi><mo stretchy="false" id="Chx1.Ex3.m1.1.4" xref="Chx1.Ex3.m1.1.19.1.cmml">)</mo></mrow></mrow><mo id="Chx1.Ex3.m1.1.5" xref="Chx1.Ex3.m1.1.5.cmml">≤</mo><mrow id="Chx1.Ex3.m1.1.19.2" xref="Chx1.Ex3.m1.1.19.2.cmml"><mrow id="Chx1.Ex3.m1.1.19.2.1" xref="Chx1.Ex3.m1.1.19.2.1.1.cmml"><mo stretchy="false" id="Chx1.Ex3.m1.1.6" xref="Chx1.Ex3.m1.1.19.2.1.1.1.cmml">|</mo><mi id="Chx1.Ex3.m1.1.7" xref="Chx1.Ex3.m1.1.7.cmml">x</mi><mo stretchy="false" id="Chx1.Ex3.m1.1.8" xref="Chx1.Ex3.m1.1.19.2.1.1.1.cmml">|</mo></mrow><mo id="Chx1.Ex3.m1.1.9" xref="Chx1.Ex3.m1.1.9.cmml">+</mo><mrow id="Chx1.Ex3.m1.1.19.2.2" xref="Chx1.Ex3.m1.1.19.2.2.cmml"><mi id="Chx1.Ex3.m1.1.10" xref="Chx1.Ex3.m1.1.10.cmml">H</mi><mo id="Chx1.Ex3.m1.1.19.2.2.1" xref="Chx1.Ex3.m1.1.19.2.2.1.cmml">⁢</mo><mrow id="Chx1.Ex3.m1.1.19.2.2.2" xref="Chx1.Ex3.m1.1.19.2.2.cmml"><mo stretchy="false" id="Chx1.Ex3.m1.1.11" xref="Chx1.Ex3.m1.1.19.2.2.cmml">(</mo><mrow id="Chx1.Ex3.m1.1.19.2.2.2.2" xref="Chx1.Ex3.m1.1.19.2.2.2.2.1.cmml"><mo stretchy="false" id="Chx1.Ex3.m1.1.12" xref="Chx1.Ex3.m1.1.19.2.2.2.2.1.1.cmml">|</mo><mi id="Chx1.Ex3.m1.1.13" xref="Chx1.Ex3.m1.1.13.cmml">x</mi><mo stretchy="false" id="Chx1.Ex3.m1.1.14" xref="Chx1.Ex3.m1.1.19.2.2.2.2.1.1.cmml">|</mo></mrow><mo stretchy="false" id="Chx1.Ex3.m1.1.15" xref="Chx1.Ex3.m1.1.19.2.2.cmml">)</mo></mrow></mrow><mo id="Chx1.Ex3.m1.1.9a" xref="Chx1.Ex3.m1.1.9.cmml">+</mo><msup id="Chx1.Ex3.m1.1.19.2.3" xref="Chx1.Ex3.m1.1.19.2.3.cmml"><mi id="Chx1.Ex3.m1.1.17" xref="Chx1.Ex3.m1.1.17.cmml">c</mi><mo id="Chx1.Ex3.m1.1.18.1" xref="Chx1.Ex3.m1.1.18.1.cmml">′</mo></msup></mrow></mrow><annotation-xml encoding="MathML-Content" id="Chx1.Ex3.m1.1b"><apply id="Chx1.Ex3.m1.1.19.cmml" xref="Chx1.Ex3.m1.1.19"><leq id="Chx1.Ex3.m1.1.5.cmml" xref="Chx1.Ex3.m1.1.5"></leq><apply id="Chx1.Ex3.m1.1.19.1.cmml" xref="Chx1.Ex3.m1.1.19.1"><times id="Chx1.Ex3.m1.1.19.1.1.cmml" xref="Chx1.Ex3.m1.1.19.1.1"></times><ci id="Chx1.Ex3.m1.1.1.cmml" xref="Chx1.Ex3.m1.1.1">𝐻</ci><ci id="Chx1.Ex3.m1.1.3.cmml" xref="Chx1.Ex3.m1.1.3">𝑥</ci></apply><apply id="Chx1.Ex3.m1.1.19.2.cmml" xref="Chx1.Ex3.m1.1.19.2"><plus id="Chx1.Ex3.m1.1.9.cmml" xref="Chx1.Ex3.m1.1.9"></plus><apply id="Chx1.Ex3.m1.1.19.2.1.1.cmml" xref="Chx1.Ex3.m1.1.19.2.1"><abs id="Chx1.Ex3.m1.1.19.2.1.1.1.cmml" xref="Chx1.Ex3.m1.1.6"></abs><ci id="Chx1.Ex3.m1.1.7.cmml" xref="Chx1.Ex3.m1.1.7">𝑥</ci></apply><apply id="Chx1.Ex3.m1.1.19.2.2.cmml" xref="Chx1.Ex3.m1.1.19.2.2"><times id="Chx1.Ex3.m1.1.19.2.2.1.cmml" xref="Chx1.Ex3.m1.1.19.2.2.1"></times><ci id="Chx1.Ex3.m1.1.10.cmml" xref="Chx1.Ex3.m1.1.10">𝐻</ci><apply id="Chx1.Ex3.m1.1.19.2.2.2.2.1.cmml" xref="Chx1.Ex3.m1.1.19.2.2.2.2"><abs id="Chx1.Ex3.m1.1.19.2.2.2.2.1.1.cmml" xref="Chx1.Ex3.m1.1.12"></abs><ci id="Chx1.Ex3.m1.1.13.cmml" xref="Chx1.Ex3.m1.1.13">𝑥</ci></apply></apply><apply id="Chx1.Ex3.m1.1.19.2.3.cmml" xref="Chx1.Ex3.m1.1.19.2.3"><csymbol cd="ambiguous" id="Chx1.Ex3.m1.1.19.2.3.1.cmml" xref="Chx1.Ex3.m1.1.19.2.3">superscript</csymbol><ci id="Chx1.Ex3.m1.1.17.cmml" xref="Chx1.Ex3.m1.1.17">𝑐</ci><ci id="Chx1.Ex3.m1.1.18.1.cmml" xref="Chx1.Ex3.m1.1.18.1">′</ci></apply></apply></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Ex3.m1.1c">italic-H OPEN:( italic-x CLOSE:) RELOP:less-than-or-equals VERTBAR:| italic-x VERTBAR:| ADDOP:plus italic-H OPEN:( VERTBAR:| italic-x VERTBAR:| CLOSE:) ADDOP:plus italic-c POSTSUPERSCRIPT:start SUPOP:prime POSTSUPERSCRIPT:end</annotation><annotation encoding="application/x-tex" id="Chx1.Ex3.m1.1d">H(x)\leq|x|+H(|x|)+c^{\prime}</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p id="Chx1.Sx5.p5.3" class="ltx_p">with <math id="Chx1.Sx5.p5.3.m1.1" class="ltx_Math" alttext="c=1106" display="inline"><semantics id="Chx1.Sx5.p5.3.m1.1a"><mrow id="Chx1.Sx5.p5.3.m1.1.7" xref="Chx1.Sx5.p5.3.m1.1.7.cmml"><mi id="Chx1.Sx5.p5.3.m1.1.1" xref="Chx1.Sx5.p5.3.m1.1.1.cmml">c</mi><mo id="Chx1.Sx5.p5.3.m1.1.2" xref="Chx1.Sx5.p5.3.m1.1.2.cmml">=</mo><mn id="Chx1.Sx5.p5.3.m1.1.6" xref="Chx1.Sx5.p5.3.m1.1.6.cmml">1106</mn></mrow><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p5.3.m1.1b"><apply id="Chx1.Sx5.p5.3.m1.1.7.cmml" xref="Chx1.Sx5.p5.3.m1.1.7"><eq id="Chx1.Sx5.p5.3.m1.1.2.cmml" xref="Chx1.Sx5.p5.3.m1.1.2"></eq><ci id="Chx1.Sx5.p5.3.m1.1.1.cmml" xref="Chx1.Sx5.p5.3.m1.1.1">𝑐</ci><cn type="integer" id="Chx1.Sx5.p5.3.m1.1.6.cmml" xref="Chx1.Sx5.p5.3.m1.1.6">1106</cn></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p5.3.m1.1c">italic-c RELOP:equals NUMBER:1106</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p5.3.m1.1d">c=1106</annotation></semantics></math> and <math id="Chx1.Sx5.p5.3.m2.1" class="ltx_Math" alttext="c^{\prime}=1024" display="inline"><semantics id="Chx1.Sx5.p5.3.m2.1a"><mrow id="Chx1.Sx5.p5.3.m2.1.8" xref="Chx1.Sx5.p5.3.m2.1.8.cmml"><msup id="Chx1.Sx5.p5.3.m2.1.8.1" xref="Chx1.Sx5.p5.3.m2.1.8.1.cmml"><mi id="Chx1.Sx5.p5.3.m2.1.1" xref="Chx1.Sx5.p5.3.m2.1.1.cmml">c</mi><mo id="Chx1.Sx5.p5.3.m2.1.2.1" xref="Chx1.Sx5.p5.3.m2.1.2.1.cmml">′</mo></msup><mo id="Chx1.Sx5.p5.3.m2.1.3" xref="Chx1.Sx5.p5.3.m2.1.3.cmml">=</mo><mn id="Chx1.Sx5.p5.3.m2.1.7" xref="Chx1.Sx5.p5.3.m2.1.7.cmml">1024</mn></mrow><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p5.3.m2.1b"><apply id="Chx1.Sx5.p5.3.m2.1.8.cmml" xref="Chx1.Sx5.p5.3.m2.1.8"><eq id="Chx1.Sx5.p5.3.m2.1.3.cmml" xref="Chx1.Sx5.p5.3.m2.1.3"></eq><apply id="Chx1.Sx5.p5.3.m2.1.8.1.cmml" xref="Chx1.Sx5.p5.3.m2.1.8.1"><csymbol cd="ambiguous" id="Chx1.Sx5.p5.3.m2.1.8.1.1.cmml" xref="Chx1.Sx5.p5.3.m2.1.8.1">superscript</csymbol><ci id="Chx1.Sx5.p5.3.m2.1.1.cmml" xref="Chx1.Sx5.p5.3.m2.1.1">𝑐</ci><ci id="Chx1.Sx5.p5.3.m2.1.2.1.cmml" xref="Chx1.Sx5.p5.3.m2.1.2.1">′</ci></apply><cn type="integer" id="Chx1.Sx5.p5.3.m2.1.7.cmml" xref="Chx1.Sx5.p5.3.m2.1.7">1024</cn></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p5.3.m2.1c">italic-c POSTSUPERSCRIPT:start SUPOP:prime POSTSUPERSCRIPT:end RELOP:equals NUMBER:1024</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p5.3.m2.1d">c^{\prime}=1024</annotation></semantics></math>. As before, the programs for doing
+this are exhibited and run.</p>
+</div>
+<div id="Chx1.Sx5.p6" class="ltx_para">
+<p id="Chx1.Sx5.p6.1" class="ltx_p">Next we turn to the self-delimiting program-size complexity <math id="Chx1.Sx5.p6.1.m1.1" class="ltx_Math" alttext="H(X)" display="inline"><semantics id="Chx1.Sx5.p6.1.m1.1a"><mrow id="Chx1.Sx5.p6.1.m1.1.5" xref="Chx1.Sx5.p6.1.m1.1.5.cmml"><mi id="Chx1.Sx5.p6.1.m1.1.1" xref="Chx1.Sx5.p6.1.m1.1.1.cmml">H</mi><mo id="Chx1.Sx5.p6.1.m1.1.5.1" xref="Chx1.Sx5.p6.1.m1.1.5.1.cmml">⁢</mo><mrow id="Chx1.Sx5.p6.1.m1.1.5.2" xref="Chx1.Sx5.p6.1.m1.1.5.cmml"><mo stretchy="false" id="Chx1.Sx5.p6.1.m1.1.2" xref="Chx1.Sx5.p6.1.m1.1.5.cmml">(</mo><mi id="Chx1.Sx5.p6.1.m1.1.3" xref="Chx1.Sx5.p6.1.m1.1.3.cmml">X</mi><mo stretchy="false" id="Chx1.Sx5.p6.1.m1.1.4" xref="Chx1.Sx5.p6.1.m1.1.5.cmml">)</mo></mrow></mrow><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p6.1.m1.1b"><apply id="Chx1.Sx5.p6.1.m1.1.5.cmml" xref="Chx1.Sx5.p6.1.m1.1.5"><times id="Chx1.Sx5.p6.1.m1.1.5.1.cmml" xref="Chx1.Sx5.p6.1.m1.1.5.1"></times><ci id="Chx1.Sx5.p6.1.m1.1.1.cmml" xref="Chx1.Sx5.p6.1.m1.1.1">𝐻</ci><ci id="Chx1.Sx5.p6.1.m1.1.3.cmml" xref="Chx1.Sx5.p6.1.m1.1.3">𝑋</ci></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p6.1.m1.1c">italic-H OPEN:( italic-X CLOSE:)</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p6.1.m1.1d">H(X)</annotation></semantics></math> for
+infinite r.e. sets <math id="Chx1.Sx5.p6.1.m2.1" class="ltx_Math" alttext="X" display="inline"><semantics id="Chx1.Sx5.p6.1.m2.1a"><mi id="Chx1.Sx5.p6.1.m2.1.1" xref="Chx1.Sx5.p6.1.m2.1.1.cmml">X</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p6.1.m2.1b"><ci id="Chx1.Sx5.p6.1.m2.1.1.cmml" xref="Chx1.Sx5.p6.1.m2.1.1">𝑋</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p6.1.m2.1c">italic-X</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p6.1.m2.1d">X</annotation></semantics></math>. This is defined to be the size in bits of
+the smallest LISP expression <math id="Chx1.Sx5.p6.1.m3.1" class="ltx_Math" alttext="\xi" display="inline"><semantics id="Chx1.Sx5.p6.1.m3.1a"><mi id="Chx1.Sx5.p6.1.m3.1.1" xref="Chx1.Sx5.p6.1.m3.1.1.cmml">ξ</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p6.1.m3.1b"><ci id="Chx1.Sx5.p6.1.m3.1.1.cmml" xref="Chx1.Sx5.p6.1.m3.1.1">𝜉</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p6.1.m3.1c">italic-xi</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p6.1.m3.1d">\xi</annotation></semantics></math> that executes forever without
+halting and outputs the members of the r.e. set <math id="Chx1.Sx5.p6.1.m4.1" class="ltx_Math" alttext="X" display="inline"><semantics id="Chx1.Sx5.p6.1.m4.1a"><mi id="Chx1.Sx5.p6.1.m4.1.1" xref="Chx1.Sx5.p6.1.m4.1.1.cmml">X</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p6.1.m4.1b"><ci id="Chx1.Sx5.p6.1.m4.1.1.cmml" xref="Chx1.Sx5.p6.1.m4.1.1">𝑋</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p6.1.m4.1c">italic-X</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p6.1.m4.1d">X</annotation></semantics></math> using the LISP
+primitive <span id="Chx1.Sx5.p6.1.1" class="ltx_text ltx_font_typewriter">display</span>, which is an identity function with the
+side-effect of outputting the value of its argument. Note that this
+LISP expression <math id="Chx1.Sx5.p6.1.m5.1" class="ltx_Math" alttext="\xi" display="inline"><semantics id="Chx1.Sx5.p6.1.m5.1a"><mi id="Chx1.Sx5.p6.1.m5.1.1" xref="Chx1.Sx5.p6.1.m5.1.1.cmml">ξ</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p6.1.m5.1b"><ci id="Chx1.Sx5.p6.1.m5.1.1.cmml" xref="Chx1.Sx5.p6.1.m5.1.1">𝜉</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p6.1.m5.1c">italic-xi</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p6.1.m5.1d">\xi</annotation></semantics></math> is allowed to read additional bits or
+expressions from the TM tape using the primitive functions <span id="Chx1.Sx5.p6.1.2" class="ltx_text ltx_font_typewriter">read-bit</span> and <span id="Chx1.Sx5.p6.1.3" class="ltx_text ltx_font_typewriter">read-exp</span> if <math id="Chx1.Sx5.p6.1.m6.1" class="ltx_Math" alttext="\xi" display="inline"><semantics id="Chx1.Sx5.p6.1.m6.1a"><mi id="Chx1.Sx5.p6.1.m6.1.1" xref="Chx1.Sx5.p6.1.m6.1.1.cmml">ξ</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p6.1.m6.1b"><ci id="Chx1.Sx5.p6.1.m6.1.1.cmml" xref="Chx1.Sx5.p6.1.m6.1.1">𝜉</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p6.1.m6.1c">italic-xi</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p6.1.m6.1d">\xi</annotation></semantics></math> so desires. But of course <math id="Chx1.Sx5.p6.1.m7.1" class="ltx_Math" alttext="\xi" display="inline"><semantics id="Chx1.Sx5.p6.1.m7.1a"><mi id="Chx1.Sx5.p6.1.m7.1.1" xref="Chx1.Sx5.p6.1.m7.1.1.cmml">ξ</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p6.1.m7.1b"><ci id="Chx1.Sx5.p6.1.m7.1.1.cmml" xref="Chx1.Sx5.p6.1.m7.1.1">𝜉</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p6.1.m7.1c">italic-xi</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p6.1.m7.1d">\xi</annotation></semantics></math>
+is charged for this; this adds to <math id="Chx1.Sx5.p6.1.m8.1" class="ltx_Math" alttext="\xi" display="inline"><semantics id="Chx1.Sx5.p6.1.m8.1a"><mi id="Chx1.Sx5.p6.1.m8.1.1" xref="Chx1.Sx5.p6.1.m8.1.1.cmml">ξ</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p6.1.m8.1b"><ci id="Chx1.Sx5.p6.1.m8.1.1.cmml" xref="Chx1.Sx5.p6.1.m8.1.1">𝜉</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p6.1.m8.1c">italic-xi</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p6.1.m8.1d">\xi</annotation></semantics></math>’s program size.</p>
+</div>
+<div id="Chx1.Sx5.p7" class="ltx_para">
+<p id="Chx1.Sx5.p7.1" class="ltx_p">It is in order to deal with such unending expressions <math id="Chx1.Sx5.p7.1.m1.1" class="ltx_Math" alttext="\xi" display="inline"><semantics id="Chx1.Sx5.p7.1.m1.1a"><mi id="Chx1.Sx5.p7.1.m1.1.1" xref="Chx1.Sx5.p7.1.m1.1.1.cmml">ξ</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p7.1.m1.1b"><ci id="Chx1.Sx5.p7.1.m1.1.1.cmml" xref="Chx1.Sx5.p7.1.m1.1.1">𝜉</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p7.1.m1.1c">italic-xi</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p7.1.m1.1d">\xi</annotation></semantics></math> that the
+LISP primitive function for time-limited evaluation <span id="Chx1.Sx5.p7.1.1" class="ltx_text ltx_font_typewriter">try</span> captures
+all output from <span id="Chx1.Sx5.p7.1.2" class="ltx_text ltx_font_typewriter">display</span> within its second argument <math id="Chx1.Sx5.p7.1.m2.1" class="ltx_Math" alttext="\beta" display="inline"><semantics id="Chx1.Sx5.p7.1.m2.1a"><mi id="Chx1.Sx5.p7.1.m2.1.1" xref="Chx1.Sx5.p7.1.m2.1.1.cmml">β</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p7.1.m2.1b"><ci id="Chx1.Sx5.p7.1.m2.1.1.cmml" xref="Chx1.Sx5.p7.1.m2.1.1">𝛽</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p7.1.m2.1c">italic-beta</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p7.1.m2.1d">\beta</annotation></semantics></math>.</p>
+</div>
+<div id="Chx1.Sx5.p8" class="ltx_para">
+<p id="Chx1.Sx5.p8.1" class="ltx_p">Now consider a formal axiomatic system <math id="Chx1.Sx5.p8.1.m1.1" class="ltx_Math" alttext="A" display="inline"><semantics id="Chx1.Sx5.p8.1.m1.1a"><mi id="Chx1.Sx5.p8.1.m1.1.1" xref="Chx1.Sx5.p8.1.m1.1.1.cmml">A</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p8.1.m1.1b"><ci id="Chx1.Sx5.p8.1.m1.1.1.cmml" xref="Chx1.Sx5.p8.1.m1.1.1">𝐴</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p8.1.m1.1c">italic-A</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p8.1.m1.1d">A</annotation></semantics></math> of complexity <math id="Chx1.Sx5.p8.1.m2.1" class="ltx_Math" alttext="N" display="inline"><semantics id="Chx1.Sx5.p8.1.m2.1a"><mi id="Chx1.Sx5.p8.1.m2.1.1" xref="Chx1.Sx5.p8.1.m2.1.1.cmml">N</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p8.1.m2.1b"><ci id="Chx1.Sx5.p8.1.m2.1.1.cmml" xref="Chx1.Sx5.p8.1.m2.1.1">𝑁</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p8.1.m2.1c">italic-N</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p8.1.m2.1d">N</annotation></semantics></math>, i.e.,
+with a set of theorems <math id="Chx1.Sx5.p8.1.m3.1" class="ltx_Math" alttext="T_{A}" display="inline"><semantics id="Chx1.Sx5.p8.1.m3.1a"><msub id="Chx1.Sx5.p8.1.m3.1.3" xref="Chx1.Sx5.p8.1.m3.1.3.cmml"><mi id="Chx1.Sx5.p8.1.m3.1.1" xref="Chx1.Sx5.p8.1.m3.1.1.cmml">T</mi><mi id="Chx1.Sx5.p8.1.m3.1.2.1" xref="Chx1.Sx5.p8.1.m3.1.2.1.cmml">A</mi></msub><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p8.1.m3.1b"><apply id="Chx1.Sx5.p8.1.m3.1.3.cmml" xref="Chx1.Sx5.p8.1.m3.1.3"><csymbol cd="ambiguous" id="Chx1.Sx5.p8.1.m3.1.3.1.cmml" xref="Chx1.Sx5.p8.1.m3.1.3">subscript</csymbol><ci id="Chx1.Sx5.p8.1.m3.1.1.cmml" xref="Chx1.Sx5.p8.1.m3.1.1">𝑇</ci><ci id="Chx1.Sx5.p8.1.m3.1.2.1.cmml" xref="Chx1.Sx5.p8.1.m3.1.2.1">𝐴</ci></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p8.1.m3.1c">italic-T POSTSUBSCRIPT:start italic-A POSTSUBSCRIPT:end</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p8.1.m3.1d">T_{A}</annotation></semantics></math> that considered as an r.e. set as above
+has self-delimiting program-size complexity <math id="Chx1.Sx5.p8.1.m4.1" class="ltx_Math" alttext="H(T_{A})=N" display="inline"><semantics id="Chx1.Sx5.p8.1.m4.1a"><mrow id="Chx1.Sx5.p8.1.m4.1.8" xref="Chx1.Sx5.p8.1.m4.1.8.cmml"><mrow id="Chx1.Sx5.p8.1.m4.1.8.1" xref="Chx1.Sx5.p8.1.m4.1.8.1.cmml"><mi id="Chx1.Sx5.p8.1.m4.1.1" xref="Chx1.Sx5.p8.1.m4.1.1.cmml">H</mi><mo id="Chx1.Sx5.p8.1.m4.1.8.1.1" xref="Chx1.Sx5.p8.1.m4.1.8.1.1.cmml">⁢</mo><mrow id="Chx1.Sx5.p8.1.m4.1.8.1.2" xref="Chx1.Sx5.p8.1.m4.1.8.1.2.2.cmml"><mo stretchy="false" id="Chx1.Sx5.p8.1.m4.1.2" xref="Chx1.Sx5.p8.1.m4.1.8.1.2.2.cmml">(</mo><msub id="Chx1.Sx5.p8.1.m4.1.8.1.2.2" xref="Chx1.Sx5.p8.1.m4.1.8.1.2.2.cmml"><mi id="Chx1.Sx5.p8.1.m4.1.3" xref="Chx1.Sx5.p8.1.m4.1.3.cmml">T</mi><mi id="Chx1.Sx5.p8.1.m4.1.4.1" xref="Chx1.Sx5.p8.1.m4.1.4.1.cmml">A</mi></msub><mo stretchy="false" id="Chx1.Sx5.p8.1.m4.1.5" xref="Chx1.Sx5.p8.1.m4.1.8.1.2.2.cmml">)</mo></mrow></mrow><mo id="Chx1.Sx5.p8.1.m4.1.6" xref="Chx1.Sx5.p8.1.m4.1.6.cmml">=</mo><mi id="Chx1.Sx5.p8.1.m4.1.7" xref="Chx1.Sx5.p8.1.m4.1.7.cmml">N</mi></mrow><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p8.1.m4.1b"><apply id="Chx1.Sx5.p8.1.m4.1.8.cmml" xref="Chx1.Sx5.p8.1.m4.1.8"><eq id="Chx1.Sx5.p8.1.m4.1.6.cmml" xref="Chx1.Sx5.p8.1.m4.1.6"></eq><apply id="Chx1.Sx5.p8.1.m4.1.8.1.cmml" xref="Chx1.Sx5.p8.1.m4.1.8.1"><times id="Chx1.Sx5.p8.1.m4.1.8.1.1.cmml" xref="Chx1.Sx5.p8.1.m4.1.8.1.1"></times><ci id="Chx1.Sx5.p8.1.m4.1.1.cmml" xref="Chx1.Sx5.p8.1.m4.1.1">𝐻</ci><apply id="Chx1.Sx5.p8.1.m4.1.8.1.2.2.cmml" xref="Chx1.Sx5.p8.1.m4.1.8.1.2"><csymbol cd="ambiguous" id="Chx1.Sx5.p8.1.m4.1.8.1.2.2.1.cmml" xref="Chx1.Sx5.p8.1.m4.1.8.1.2">subscript</csymbol><ci id="Chx1.Sx5.p8.1.m4.1.3.cmml" xref="Chx1.Sx5.p8.1.m4.1.3">𝑇</ci><ci id="Chx1.Sx5.p8.1.m4.1.4.1.cmml" xref="Chx1.Sx5.p8.1.m4.1.4.1">𝐴</ci></apply></apply><ci id="Chx1.Sx5.p8.1.m4.1.7.cmml" xref="Chx1.Sx5.p8.1.m4.1.7">𝑁</ci></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p8.1.m4.1c">italic-H OPEN:( italic-T POSTSUBSCRIPT:start italic-A POSTSUBSCRIPT:end CLOSE:) RELOP:equals italic-N</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p8.1.m4.1d">H(T_{A})=N</annotation></semantics></math>. We show
+that <math id="Chx1.Sx5.p8.1.m5.1" class="ltx_Math" alttext="A" display="inline"><semantics id="Chx1.Sx5.p8.1.m5.1a"><mi id="Chx1.Sx5.p8.1.m5.1.1" xref="Chx1.Sx5.p8.1.m5.1.1.cmml">A</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p8.1.m5.1b"><ci id="Chx1.Sx5.p8.1.m5.1.1.cmml" xref="Chx1.Sx5.p8.1.m5.1.1">𝐴</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p8.1.m5.1c">italic-A</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p8.1.m5.1d">A</annotation></semantics></math> cannot enable us to exhibit a specific S-expression <math id="Chx1.Sx5.p8.1.m6.1" class="ltx_Math" alttext="s" display="inline"><semantics id="Chx1.Sx5.p8.1.m6.1a"><mi id="Chx1.Sx5.p8.1.m6.1.1" xref="Chx1.Sx5.p8.1.m6.1.1.cmml">s</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p8.1.m6.1b"><ci id="Chx1.Sx5.p8.1.m6.1.1.cmml" xref="Chx1.Sx5.p8.1.m6.1.1">𝑠</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p8.1.m6.1c">italic-s</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p8.1.m6.1d">s</annotation></semantics></math> with
+self-delimiting complexity <math id="Chx1.Sx5.p8.1.m7.1" class="ltx_Math" alttext="H(s)" display="inline"><semantics id="Chx1.Sx5.p8.1.m7.1a"><mrow id="Chx1.Sx5.p8.1.m7.1.5" xref="Chx1.Sx5.p8.1.m7.1.5.cmml"><mi id="Chx1.Sx5.p8.1.m7.1.1" xref="Chx1.Sx5.p8.1.m7.1.1.cmml">H</mi><mo id="Chx1.Sx5.p8.1.m7.1.5.1" xref="Chx1.Sx5.p8.1.m7.1.5.1.cmml">⁢</mo><mrow id="Chx1.Sx5.p8.1.m7.1.5.2" xref="Chx1.Sx5.p8.1.m7.1.5.cmml"><mo stretchy="false" id="Chx1.Sx5.p8.1.m7.1.2" xref="Chx1.Sx5.p8.1.m7.1.5.cmml">(</mo><mi id="Chx1.Sx5.p8.1.m7.1.3" xref="Chx1.Sx5.p8.1.m7.1.3.cmml">s</mi><mo stretchy="false" id="Chx1.Sx5.p8.1.m7.1.4" xref="Chx1.Sx5.p8.1.m7.1.5.cmml">)</mo></mrow></mrow><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p8.1.m7.1b"><apply id="Chx1.Sx5.p8.1.m7.1.5.cmml" xref="Chx1.Sx5.p8.1.m7.1.5"><times id="Chx1.Sx5.p8.1.m7.1.5.1.cmml" xref="Chx1.Sx5.p8.1.m7.1.5.1"></times><ci id="Chx1.Sx5.p8.1.m7.1.1.cmml" xref="Chx1.Sx5.p8.1.m7.1.1">𝐻</ci><ci id="Chx1.Sx5.p8.1.m7.1.3.cmml" xref="Chx1.Sx5.p8.1.m7.1.3">𝑠</ci></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p8.1.m7.1c">italic-H OPEN:( italic-s CLOSE:)</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p8.1.m7.1d">H(s)</annotation></semantics></math> greater than <math id="Chx1.Sx5.p8.1.m8.1" class="ltx_Math" alttext="N+c" display="inline"><semantics id="Chx1.Sx5.p8.1.m8.1a"><mrow id="Chx1.Sx5.p8.1.m8.1.4" xref="Chx1.Sx5.p8.1.m8.1.4.cmml"><mi id="Chx1.Sx5.p8.1.m8.1.1" xref="Chx1.Sx5.p8.1.m8.1.1.cmml">N</mi><mo id="Chx1.Sx5.p8.1.m8.1.2" xref="Chx1.Sx5.p8.1.m8.1.2.cmml">+</mo><mi id="Chx1.Sx5.p8.1.m8.1.3" xref="Chx1.Sx5.p8.1.m8.1.3.cmml">c</mi></mrow><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p8.1.m8.1b"><apply id="Chx1.Sx5.p8.1.m8.1.4.cmml" xref="Chx1.Sx5.p8.1.m8.1.4"><plus id="Chx1.Sx5.p8.1.m8.1.2.cmml" xref="Chx1.Sx5.p8.1.m8.1.2"></plus><ci id="Chx1.Sx5.p8.1.m8.1.1.cmml" xref="Chx1.Sx5.p8.1.m8.1.1">𝑁</ci><ci id="Chx1.Sx5.p8.1.m8.1.3.cmml" xref="Chx1.Sx5.p8.1.m8.1.3">𝑐</ci></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p8.1.m8.1c">italic-N ADDOP:plus italic-c</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p8.1.m8.1d">N+c</annotation></semantics></math>. Here <math id="Chx1.Sx5.p8.1.m9.1" class="ltx_Math" alttext="c=4872" display="inline"><semantics id="Chx1.Sx5.p8.1.m9.1a"><mrow id="Chx1.Sx5.p8.1.m9.1.7" xref="Chx1.Sx5.p8.1.m9.1.7.cmml"><mi id="Chx1.Sx5.p8.1.m9.1.1" xref="Chx1.Sx5.p8.1.m9.1.1.cmml">c</mi><mo id="Chx1.Sx5.p8.1.m9.1.2" xref="Chx1.Sx5.p8.1.m9.1.2.cmml">=</mo><mn id="Chx1.Sx5.p8.1.m9.1.6" xref="Chx1.Sx5.p8.1.m9.1.6.cmml">4872</mn></mrow><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p8.1.m9.1b"><apply id="Chx1.Sx5.p8.1.m9.1.7.cmml" xref="Chx1.Sx5.p8.1.m9.1.7"><eq id="Chx1.Sx5.p8.1.m9.1.2.cmml" xref="Chx1.Sx5.p8.1.m9.1.2"></eq><ci id="Chx1.Sx5.p8.1.m9.1.1.cmml" xref="Chx1.Sx5.p8.1.m9.1.1">𝑐</ci><cn type="integer" id="Chx1.Sx5.p8.1.m9.1.6.cmml" xref="Chx1.Sx5.p8.1.m9.1.6">4872</cn></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p8.1.m9.1c">italic-c RELOP:equals NUMBER:4872</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p8.1.m9.1d">c=4872</annotation></semantics></math>. See <span id="Chx1.Sx5.p8.1.1" class="ltx_text ltx_font_typewriter">godel2.r</span>.</p>
+</div>
+<div id="Chx1.Sx5.p9" class="ltx_para">
+<p id="Chx1.Sx5.p9.1" class="ltx_p">Next we show two different ways to calculate the halting probability
+<math id="Chx1.Sx5.p9.1.m1.1" class="ltx_Math" alttext="\Omega" display="inline"><semantics id="Chx1.Sx5.p9.1.m1.1a"><mi mathvariant="normal" id="Chx1.Sx5.p9.1.m1.1.1" xref="Chx1.Sx5.p9.1.m1.1.1.cmml">Ω</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p9.1.m1.1b"><ci id="Chx1.Sx5.p9.1.m1.1.1.cmml" xref="Chx1.Sx5.p9.1.m1.1.1">Ω</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p9.1.m1.1c">Omega</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p9.1.m1.1d">\Omega</annotation></semantics></math> of our standard self-delimiting universal Turing machine in
+the limit from below. See <span id="Chx1.Sx5.p9.1.1" class="ltx_text ltx_font_typewriter">omega.r</span> and <span id="Chx1.Sx5.p9.1.2" class="ltx_text ltx_font_typewriter">omega2.r</span>. The
+first way of doing this, <span id="Chx1.Sx5.p9.1.3" class="ltx_text ltx_font_typewriter">omega.r</span>, is straight-forward. The
+second way to calculate <math id="Chx1.Sx5.p9.1.m2.1" class="ltx_Math" alttext="\Omega" display="inline"><semantics id="Chx1.Sx5.p9.1.m2.1a"><mi mathvariant="normal" id="Chx1.Sx5.p9.1.m2.1.1" xref="Chx1.Sx5.p9.1.m2.1.1.cmml">Ω</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p9.1.m2.1b"><ci id="Chx1.Sx5.p9.1.m2.1.1.cmml" xref="Chx1.Sx5.p9.1.m2.1.1">Ω</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p9.1.m2.1c">Omega</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p9.1.m2.1d">\Omega</annotation></semantics></math>, <span id="Chx1.Sx5.p9.1.4" class="ltx_text ltx_font_typewriter">omega2.r</span>, uses a more clever
+method. Using the clever method as a subroutine, we show that if
+<math id="Chx1.Sx5.p9.1.m3.1" class="ltx_Math" alttext="\Omega_{N}" display="inline"><semantics id="Chx1.Sx5.p9.1.m3.1a"><msub id="Chx1.Sx5.p9.1.m3.1.3" xref="Chx1.Sx5.p9.1.m3.1.3.cmml"><mi mathvariant="normal" id="Chx1.Sx5.p9.1.m3.1.1" xref="Chx1.Sx5.p9.1.m3.1.1.cmml">Ω</mi><mi id="Chx1.Sx5.p9.1.m3.1.2.1" xref="Chx1.Sx5.p9.1.m3.1.2.1.cmml">N</mi></msub><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p9.1.m3.1b"><apply id="Chx1.Sx5.p9.1.m3.1.3.cmml" xref="Chx1.Sx5.p9.1.m3.1.3"><csymbol cd="ambiguous" id="Chx1.Sx5.p9.1.m3.1.3.1.cmml" xref="Chx1.Sx5.p9.1.m3.1.3">subscript</csymbol><ci id="Chx1.Sx5.p9.1.m3.1.1.cmml" xref="Chx1.Sx5.p9.1.m3.1.1">Ω</ci><ci id="Chx1.Sx5.p9.1.m3.1.2.1.cmml" xref="Chx1.Sx5.p9.1.m3.1.2.1">𝑁</ci></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p9.1.m3.1c">Omega POSTSUBSCRIPT:start italic-N POSTSUBSCRIPT:end</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p9.1.m3.1d">\Omega_{N}</annotation></semantics></math> is the first <math id="Chx1.Sx5.p9.1.m4.1" class="ltx_Math" alttext="N" display="inline"><semantics id="Chx1.Sx5.p9.1.m4.1a"><mi id="Chx1.Sx5.p9.1.m4.1.1" xref="Chx1.Sx5.p9.1.m4.1.1.cmml">N</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p9.1.m4.1b"><ci id="Chx1.Sx5.p9.1.m4.1.1.cmml" xref="Chx1.Sx5.p9.1.m4.1.1">𝑁</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p9.1.m4.1c">italic-N</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p9.1.m4.1d">N</annotation></semantics></math> bits of the fractional part of the
+base-two real number <math id="Chx1.Sx5.p9.1.m5.1" class="ltx_Math" alttext="\Omega" display="inline"><semantics id="Chx1.Sx5.p9.1.m5.1a"><mi mathvariant="normal" id="Chx1.Sx5.p9.1.m5.1.1" xref="Chx1.Sx5.p9.1.m5.1.1.cmml">Ω</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p9.1.m5.1b"><ci id="Chx1.Sx5.p9.1.m5.1.1.cmml" xref="Chx1.Sx5.p9.1.m5.1.1">Ω</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p9.1.m5.1c">Omega</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p9.1.m5.1d">\Omega</annotation></semantics></math>, then</p>
+<table id="Chx1.Ex4" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Chx1.Ex4.m1.1" class="ltx_Math" alttext="H(\Omega_{N})&gt;N-c" display="block"><semantics id="Chx1.Ex4.m1.1a"><mrow id="Chx1.Ex4.m1.1.10" xref="Chx1.Ex4.m1.1.10.cmml"><mrow id="Chx1.Ex4.m1.1.10.1" xref="Chx1.Ex4.m1.1.10.1.cmml"><mi id="Chx1.Ex4.m1.1.1" xref="Chx1.Ex4.m1.1.1.cmml">H</mi><mo id="Chx1.Ex4.m1.1.10.1.1" xref="Chx1.Ex4.m1.1.10.1.1.cmml">⁢</mo><mrow id="Chx1.Ex4.m1.1.10.1.2" xref="Chx1.Ex4.m1.1.10.1.2.2.cmml"><mo stretchy="false" id="Chx1.Ex4.m1.1.2" xref="Chx1.Ex4.m1.1.10.1.2.2.cmml">(</mo><msub id="Chx1.Ex4.m1.1.10.1.2.2" xref="Chx1.Ex4.m1.1.10.1.2.2.cmml"><mi mathvariant="normal" id="Chx1.Ex4.m1.1.3" xref="Chx1.Ex4.m1.1.3.cmml">Ω</mi><mi id="Chx1.Ex4.m1.1.4.1" xref="Chx1.Ex4.m1.1.4.1.cmml">N</mi></msub><mo stretchy="false" id="Chx1.Ex4.m1.1.5" xref="Chx1.Ex4.m1.1.10.1.2.2.cmml">)</mo></mrow></mrow><mo id="Chx1.Ex4.m1.1.6" xref="Chx1.Ex4.m1.1.6.cmml">&gt;</mo><mrow id="Chx1.Ex4.m1.1.10.2" xref="Chx1.Ex4.m1.1.10.2.cmml"><mi id="Chx1.Ex4.m1.1.7" xref="Chx1.Ex4.m1.1.7.cmml">N</mi><mo id="Chx1.Ex4.m1.1.8" xref="Chx1.Ex4.m1.1.8.cmml">-</mo><mi id="Chx1.Ex4.m1.1.9" xref="Chx1.Ex4.m1.1.9.cmml">c</mi></mrow></mrow><annotation-xml encoding="MathML-Content" id="Chx1.Ex4.m1.1b"><apply id="Chx1.Ex4.m1.1.10.cmml" xref="Chx1.Ex4.m1.1.10"><gt id="Chx1.Ex4.m1.1.6.cmml" xref="Chx1.Ex4.m1.1.6"></gt><apply id="Chx1.Ex4.m1.1.10.1.cmml" xref="Chx1.Ex4.m1.1.10.1"><times id="Chx1.Ex4.m1.1.10.1.1.cmml" xref="Chx1.Ex4.m1.1.10.1.1"></times><ci id="Chx1.Ex4.m1.1.1.cmml" xref="Chx1.Ex4.m1.1.1">𝐻</ci><apply id="Chx1.Ex4.m1.1.10.1.2.2.cmml" xref="Chx1.Ex4.m1.1.10.1.2"><csymbol cd="ambiguous" id="Chx1.Ex4.m1.1.10.1.2.2.1.cmml" xref="Chx1.Ex4.m1.1.10.1.2">subscript</csymbol><ci id="Chx1.Ex4.m1.1.3.cmml" xref="Chx1.Ex4.m1.1.3">Ω</ci><ci id="Chx1.Ex4.m1.1.4.1.cmml" xref="Chx1.Ex4.m1.1.4.1">𝑁</ci></apply></apply><apply id="Chx1.Ex4.m1.1.10.2.cmml" xref="Chx1.Ex4.m1.1.10.2"><minus id="Chx1.Ex4.m1.1.8.cmml" xref="Chx1.Ex4.m1.1.8"></minus><ci id="Chx1.Ex4.m1.1.7.cmml" xref="Chx1.Ex4.m1.1.7">𝑁</ci><ci id="Chx1.Ex4.m1.1.9.cmml" xref="Chx1.Ex4.m1.1.9">𝑐</ci></apply></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Ex4.m1.1c">italic-H OPEN:( Omega POSTSUBSCRIPT:start italic-N POSTSUBSCRIPT:end CLOSE:) RELOP:greater-than italic-N ADDOP:minus italic-c</annotation><annotation encoding="application/x-tex" id="Chx1.Ex4.m1.1d">H(\Omega_{N})&gt;N-c</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p id="Chx1.Sx5.p9.2" class="ltx_p">with <math id="Chx1.Sx5.p9.2.m1.1" class="ltx_Math" alttext="c=8000" display="inline"><semantics id="Chx1.Sx5.p9.2.m1.1a"><mrow id="Chx1.Sx5.p9.2.m1.1.7" xref="Chx1.Sx5.p9.2.m1.1.7.cmml"><mi id="Chx1.Sx5.p9.2.m1.1.1" xref="Chx1.Sx5.p9.2.m1.1.1.cmml">c</mi><mo id="Chx1.Sx5.p9.2.m1.1.2" xref="Chx1.Sx5.p9.2.m1.1.2.cmml">=</mo><mn id="Chx1.Sx5.p9.2.m1.1.6" xref="Chx1.Sx5.p9.2.m1.1.6.cmml">8000</mn></mrow><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p9.2.m1.1b"><apply id="Chx1.Sx5.p9.2.m1.1.7.cmml" xref="Chx1.Sx5.p9.2.m1.1.7"><eq id="Chx1.Sx5.p9.2.m1.1.2.cmml" xref="Chx1.Sx5.p9.2.m1.1.2"></eq><ci id="Chx1.Sx5.p9.2.m1.1.1.cmml" xref="Chx1.Sx5.p9.2.m1.1.1">𝑐</ci><cn type="integer" id="Chx1.Sx5.p9.2.m1.1.6.cmml" xref="Chx1.Sx5.p9.2.m1.1.6">8000</cn></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p9.2.m1.1c">italic-c RELOP:equals NUMBER:8000</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p9.2.m1.1d">c=8000</annotation></semantics></math>. Again this is done with a program that can actually
+be run and whose size gives us a value for <math id="Chx1.Sx5.p9.2.m2.1" class="ltx_Math" alttext="c" display="inline"><semantics id="Chx1.Sx5.p9.2.m2.1a"><mi id="Chx1.Sx5.p9.2.m2.1.1" xref="Chx1.Sx5.p9.2.m2.1.1.cmml">c</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p9.2.m2.1b"><ci id="Chx1.Sx5.p9.2.m2.1.1.cmml" xref="Chx1.Sx5.p9.2.m2.1.1">𝑐</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p9.2.m2.1c">italic-c</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p9.2.m2.1d">c</annotation></semantics></math>. See <span id="Chx1.Sx5.p9.2.1" class="ltx_text ltx_font_typewriter">omega3.r</span>.</p>
+</div>
+<div id="Chx1.Sx5.p10" class="ltx_para">
+<p id="Chx1.Sx5.p10.1" class="ltx_p">Consider again the formal axiomatic system <math id="Chx1.Sx5.p10.1.m1.1" class="ltx_Math" alttext="A" display="inline"><semantics id="Chx1.Sx5.p10.1.m1.1a"><mi id="Chx1.Sx5.p10.1.m1.1.1" xref="Chx1.Sx5.p10.1.m1.1.1.cmml">A</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p10.1.m1.1b"><ci id="Chx1.Sx5.p10.1.m1.1.1.cmml" xref="Chx1.Sx5.p10.1.m1.1.1">𝐴</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p10.1.m1.1c">italic-A</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p10.1.m1.1d">A</annotation></semantics></math> with complexity <math id="Chx1.Sx5.p10.1.m2.1" class="ltx_Math" alttext="N" display="inline"><semantics id="Chx1.Sx5.p10.1.m2.1a"><mi id="Chx1.Sx5.p10.1.m2.1.1" xref="Chx1.Sx5.p10.1.m2.1.1.cmml">N</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p10.1.m2.1b"><ci id="Chx1.Sx5.p10.1.m2.1.1.cmml" xref="Chx1.Sx5.p10.1.m2.1.1">𝑁</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p10.1.m2.1c">italic-N</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p10.1.m2.1d">N</annotation></semantics></math>,
+i.e., with self-delimiting program-size complexity <math id="Chx1.Sx5.p10.1.m3.1" class="ltx_Math" alttext="H(T_{A})=N" display="inline"><semantics id="Chx1.Sx5.p10.1.m3.1a"><mrow id="Chx1.Sx5.p10.1.m3.1.8" xref="Chx1.Sx5.p10.1.m3.1.8.cmml"><mrow id="Chx1.Sx5.p10.1.m3.1.8.1" xref="Chx1.Sx5.p10.1.m3.1.8.1.cmml"><mi id="Chx1.Sx5.p10.1.m3.1.1" xref="Chx1.Sx5.p10.1.m3.1.1.cmml">H</mi><mo id="Chx1.Sx5.p10.1.m3.1.8.1.1" xref="Chx1.Sx5.p10.1.m3.1.8.1.1.cmml">⁢</mo><mrow id="Chx1.Sx5.p10.1.m3.1.8.1.2" xref="Chx1.Sx5.p10.1.m3.1.8.1.2.2.cmml"><mo stretchy="false" id="Chx1.Sx5.p10.1.m3.1.2" xref="Chx1.Sx5.p10.1.m3.1.8.1.2.2.cmml">(</mo><msub id="Chx1.Sx5.p10.1.m3.1.8.1.2.2" xref="Chx1.Sx5.p10.1.m3.1.8.1.2.2.cmml"><mi id="Chx1.Sx5.p10.1.m3.1.3" xref="Chx1.Sx5.p10.1.m3.1.3.cmml">T</mi><mi id="Chx1.Sx5.p10.1.m3.1.4.1" xref="Chx1.Sx5.p10.1.m3.1.4.1.cmml">A</mi></msub><mo stretchy="false" id="Chx1.Sx5.p10.1.m3.1.5" xref="Chx1.Sx5.p10.1.m3.1.8.1.2.2.cmml">)</mo></mrow></mrow><mo id="Chx1.Sx5.p10.1.m3.1.6" xref="Chx1.Sx5.p10.1.m3.1.6.cmml">=</mo><mi id="Chx1.Sx5.p10.1.m3.1.7" xref="Chx1.Sx5.p10.1.m3.1.7.cmml">N</mi></mrow><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p10.1.m3.1b"><apply id="Chx1.Sx5.p10.1.m3.1.8.cmml" xref="Chx1.Sx5.p10.1.m3.1.8"><eq id="Chx1.Sx5.p10.1.m3.1.6.cmml" xref="Chx1.Sx5.p10.1.m3.1.6"></eq><apply id="Chx1.Sx5.p10.1.m3.1.8.1.cmml" xref="Chx1.Sx5.p10.1.m3.1.8.1"><times id="Chx1.Sx5.p10.1.m3.1.8.1.1.cmml" xref="Chx1.Sx5.p10.1.m3.1.8.1.1"></times><ci id="Chx1.Sx5.p10.1.m3.1.1.cmml" xref="Chx1.Sx5.p10.1.m3.1.1">𝐻</ci><apply id="Chx1.Sx5.p10.1.m3.1.8.1.2.2.cmml" xref="Chx1.Sx5.p10.1.m3.1.8.1.2"><csymbol cd="ambiguous" id="Chx1.Sx5.p10.1.m3.1.8.1.2.2.1.cmml" xref="Chx1.Sx5.p10.1.m3.1.8.1.2">subscript</csymbol><ci id="Chx1.Sx5.p10.1.m3.1.3.cmml" xref="Chx1.Sx5.p10.1.m3.1.3">𝑇</ci><ci id="Chx1.Sx5.p10.1.m3.1.4.1.cmml" xref="Chx1.Sx5.p10.1.m3.1.4.1">𝐴</ci></apply></apply><ci id="Chx1.Sx5.p10.1.m3.1.7.cmml" xref="Chx1.Sx5.p10.1.m3.1.7">𝑁</ci></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p10.1.m3.1c">italic-H OPEN:( italic-T POSTSUBSCRIPT:start italic-A POSTSUBSCRIPT:end CLOSE:) RELOP:equals italic-N</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p10.1.m3.1d">H(T_{A})=N</annotation></semantics></math>.
+Using the lower bound of <math id="Chx1.Sx5.p10.1.m4.1" class="ltx_Math" alttext="N-c" display="inline"><semantics id="Chx1.Sx5.p10.1.m4.1a"><mrow id="Chx1.Sx5.p10.1.m4.1.4" xref="Chx1.Sx5.p10.1.m4.1.4.cmml"><mi id="Chx1.Sx5.p10.1.m4.1.1" xref="Chx1.Sx5.p10.1.m4.1.1.cmml">N</mi><mo id="Chx1.Sx5.p10.1.m4.1.2" xref="Chx1.Sx5.p10.1.m4.1.2.cmml">-</mo><mi id="Chx1.Sx5.p10.1.m4.1.3" xref="Chx1.Sx5.p10.1.m4.1.3.cmml">c</mi></mrow><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p10.1.m4.1b"><apply id="Chx1.Sx5.p10.1.m4.1.4.cmml" xref="Chx1.Sx5.p10.1.m4.1.4"><minus id="Chx1.Sx5.p10.1.m4.1.2.cmml" xref="Chx1.Sx5.p10.1.m4.1.2"></minus><ci id="Chx1.Sx5.p10.1.m4.1.1.cmml" xref="Chx1.Sx5.p10.1.m4.1.1">𝑁</ci><ci id="Chx1.Sx5.p10.1.m4.1.3.cmml" xref="Chx1.Sx5.p10.1.m4.1.3">𝑐</ci></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p10.1.m4.1c">italic-N ADDOP:minus italic-c</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p10.1.m4.1d">N-c</annotation></semantics></math> on <math id="Chx1.Sx5.p10.1.m5.1" class="ltx_Math" alttext="H(\Omega_{N})" display="inline"><semantics id="Chx1.Sx5.p10.1.m5.1a"><mrow id="Chx1.Sx5.p10.1.m5.1.6" xref="Chx1.Sx5.p10.1.m5.1.6.cmml"><mi id="Chx1.Sx5.p10.1.m5.1.1" xref="Chx1.Sx5.p10.1.m5.1.1.cmml">H</mi><mo id="Chx1.Sx5.p10.1.m5.1.6.1" xref="Chx1.Sx5.p10.1.m5.1.6.1.cmml">⁢</mo><mrow id="Chx1.Sx5.p10.1.m5.1.6.2" xref="Chx1.Sx5.p10.1.m5.1.6.2.2.cmml"><mo stretchy="false" id="Chx1.Sx5.p10.1.m5.1.2" xref="Chx1.Sx5.p10.1.m5.1.6.2.2.cmml">(</mo><msub id="Chx1.Sx5.p10.1.m5.1.6.2.2" xref="Chx1.Sx5.p10.1.m5.1.6.2.2.cmml"><mi mathvariant="normal" id="Chx1.Sx5.p10.1.m5.1.3" xref="Chx1.Sx5.p10.1.m5.1.3.cmml">Ω</mi><mi id="Chx1.Sx5.p10.1.m5.1.4.1" xref="Chx1.Sx5.p10.1.m5.1.4.1.cmml">N</mi></msub><mo stretchy="false" id="Chx1.Sx5.p10.1.m5.1.5" xref="Chx1.Sx5.p10.1.m5.1.6.2.2.cmml">)</mo></mrow></mrow><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p10.1.m5.1b"><apply id="Chx1.Sx5.p10.1.m5.1.6.cmml" xref="Chx1.Sx5.p10.1.m5.1.6"><times id="Chx1.Sx5.p10.1.m5.1.6.1.cmml" xref="Chx1.Sx5.p10.1.m5.1.6.1"></times><ci id="Chx1.Sx5.p10.1.m5.1.1.cmml" xref="Chx1.Sx5.p10.1.m5.1.1">𝐻</ci><apply id="Chx1.Sx5.p10.1.m5.1.6.2.2.cmml" xref="Chx1.Sx5.p10.1.m5.1.6.2"><csymbol cd="ambiguous" id="Chx1.Sx5.p10.1.m5.1.6.2.2.1.cmml" xref="Chx1.Sx5.p10.1.m5.1.6.2">subscript</csymbol><ci id="Chx1.Sx5.p10.1.m5.1.3.cmml" xref="Chx1.Sx5.p10.1.m5.1.3">Ω</ci><ci id="Chx1.Sx5.p10.1.m5.1.4.1.cmml" xref="Chx1.Sx5.p10.1.m5.1.4.1">𝑁</ci></apply></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p10.1.m5.1c">italic-H OPEN:( Omega POSTSUBSCRIPT:start italic-N POSTSUBSCRIPT:end CLOSE:)</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p10.1.m5.1d">H(\Omega_{N})</annotation></semantics></math> established in <span id="Chx1.Sx5.p10.1.1" class="ltx_text ltx_font_typewriter">omega3.r</span>, we show that <math id="Chx1.Sx5.p10.1.m6.1" class="ltx_Math" alttext="A" display="inline"><semantics id="Chx1.Sx5.p10.1.m6.1a"><mi id="Chx1.Sx5.p10.1.m6.1.1" xref="Chx1.Sx5.p10.1.m6.1.1.cmml">A</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p10.1.m6.1b"><ci id="Chx1.Sx5.p10.1.m6.1.1.cmml" xref="Chx1.Sx5.p10.1.m6.1.1">𝐴</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p10.1.m6.1c">italic-A</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p10.1.m6.1d">A</annotation></semantics></math> cannot enable us to determine more than
+the first <math id="Chx1.Sx5.p10.1.m7.1" class="ltx_Math" alttext="N+c^{\prime}" display="inline"><semantics id="Chx1.Sx5.p10.1.m7.1a"><mrow id="Chx1.Sx5.p10.1.m7.1.5" xref="Chx1.Sx5.p10.1.m7.1.5.cmml"><mi id="Chx1.Sx5.p10.1.m7.1.1" xref="Chx1.Sx5.p10.1.m7.1.1.cmml">N</mi><mo id="Chx1.Sx5.p10.1.m7.1.2" xref="Chx1.Sx5.p10.1.m7.1.2.cmml">+</mo><msup id="Chx1.Sx5.p10.1.m7.1.5.1" xref="Chx1.Sx5.p10.1.m7.1.5.1.cmml"><mi id="Chx1.Sx5.p10.1.m7.1.3" xref="Chx1.Sx5.p10.1.m7.1.3.cmml">c</mi><mo id="Chx1.Sx5.p10.1.m7.1.4.1" xref="Chx1.Sx5.p10.1.m7.1.4.1.cmml">′</mo></msup></mrow><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p10.1.m7.1b"><apply id="Chx1.Sx5.p10.1.m7.1.5.cmml" xref="Chx1.Sx5.p10.1.m7.1.5"><plus id="Chx1.Sx5.p10.1.m7.1.2.cmml" xref="Chx1.Sx5.p10.1.m7.1.2"></plus><ci id="Chx1.Sx5.p10.1.m7.1.1.cmml" xref="Chx1.Sx5.p10.1.m7.1.1">𝑁</ci><apply id="Chx1.Sx5.p10.1.m7.1.5.1.cmml" xref="Chx1.Sx5.p10.1.m7.1.5.1"><csymbol cd="ambiguous" id="Chx1.Sx5.p10.1.m7.1.5.1.1.cmml" xref="Chx1.Sx5.p10.1.m7.1.5.1">superscript</csymbol><ci id="Chx1.Sx5.p10.1.m7.1.3.cmml" xref="Chx1.Sx5.p10.1.m7.1.3">𝑐</ci><ci id="Chx1.Sx5.p10.1.m7.1.4.1.cmml" xref="Chx1.Sx5.p10.1.m7.1.4.1">′</ci></apply></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p10.1.m7.1c">italic-N ADDOP:plus italic-c POSTSUPERSCRIPT:start SUPOP:prime POSTSUPERSCRIPT:end</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p10.1.m7.1d">N+c^{\prime}</annotation></semantics></math> bits of <math id="Chx1.Sx5.p10.1.m8.1" class="ltx_Math" alttext="\Omega" display="inline"><semantics id="Chx1.Sx5.p10.1.m8.1a"><mi mathvariant="normal" id="Chx1.Sx5.p10.1.m8.1.1" xref="Chx1.Sx5.p10.1.m8.1.1.cmml">Ω</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p10.1.m8.1b"><ci id="Chx1.Sx5.p10.1.m8.1.1.cmml" xref="Chx1.Sx5.p10.1.m8.1.1">Ω</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p10.1.m8.1c">Omega</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p10.1.m8.1d">\Omega</annotation></semantics></math>. Here <math id="Chx1.Sx5.p10.1.m9.1" class="ltx_Math" alttext="c^{\prime}=15328" display="inline"><semantics id="Chx1.Sx5.p10.1.m9.1a"><mrow id="Chx1.Sx5.p10.1.m9.1.9" xref="Chx1.Sx5.p10.1.m9.1.9.cmml"><msup id="Chx1.Sx5.p10.1.m9.1.9.1" xref="Chx1.Sx5.p10.1.m9.1.9.1.cmml"><mi id="Chx1.Sx5.p10.1.m9.1.1" xref="Chx1.Sx5.p10.1.m9.1.1.cmml">c</mi><mo id="Chx1.Sx5.p10.1.m9.1.2.1" xref="Chx1.Sx5.p10.1.m9.1.2.1.cmml">′</mo></msup><mo id="Chx1.Sx5.p10.1.m9.1.3" xref="Chx1.Sx5.p10.1.m9.1.3.cmml">=</mo><mn id="Chx1.Sx5.p10.1.m9.1.8" xref="Chx1.Sx5.p10.1.m9.1.8.cmml">15328</mn></mrow><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p10.1.m9.1b"><apply id="Chx1.Sx5.p10.1.m9.1.9.cmml" xref="Chx1.Sx5.p10.1.m9.1.9"><eq id="Chx1.Sx5.p10.1.m9.1.3.cmml" xref="Chx1.Sx5.p10.1.m9.1.3"></eq><apply id="Chx1.Sx5.p10.1.m9.1.9.1.cmml" xref="Chx1.Sx5.p10.1.m9.1.9.1"><csymbol cd="ambiguous" id="Chx1.Sx5.p10.1.m9.1.9.1.1.cmml" xref="Chx1.Sx5.p10.1.m9.1.9.1">superscript</csymbol><ci id="Chx1.Sx5.p10.1.m9.1.1.cmml" xref="Chx1.Sx5.p10.1.m9.1.1">𝑐</ci><ci id="Chx1.Sx5.p10.1.m9.1.2.1.cmml" xref="Chx1.Sx5.p10.1.m9.1.2.1">′</ci></apply><cn type="integer" id="Chx1.Sx5.p10.1.m9.1.8.cmml" xref="Chx1.Sx5.p10.1.m9.1.8">15328</cn></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p10.1.m9.1c">italic-c POSTSUPERSCRIPT:start SUPOP:prime POSTSUPERSCRIPT:end RELOP:equals NUMBER:15328</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p10.1.m9.1d">c^{\prime}=15328</annotation></semantics></math>. In fact, we
+show that <math id="Chx1.Sx5.p10.1.m10.1" class="ltx_Math" alttext="A" display="inline"><semantics id="Chx1.Sx5.p10.1.m10.1a"><mi id="Chx1.Sx5.p10.1.m10.1.1" xref="Chx1.Sx5.p10.1.m10.1.1.cmml">A</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p10.1.m10.1b"><ci id="Chx1.Sx5.p10.1.m10.1.1.cmml" xref="Chx1.Sx5.p10.1.m10.1.1">𝐴</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p10.1.m10.1c">italic-A</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p10.1.m10.1d">A</annotation></semantics></math> cannot enable us to determine more than <math id="Chx1.Sx5.p10.1.m11.1" class="ltx_Math" alttext="N+c^{\prime}" display="inline"><semantics id="Chx1.Sx5.p10.1.m11.1a"><mrow id="Chx1.Sx5.p10.1.m11.1.5" xref="Chx1.Sx5.p10.1.m11.1.5.cmml"><mi id="Chx1.Sx5.p10.1.m11.1.1" xref="Chx1.Sx5.p10.1.m11.1.1.cmml">N</mi><mo id="Chx1.Sx5.p10.1.m11.1.2" xref="Chx1.Sx5.p10.1.m11.1.2.cmml">+</mo><msup id="Chx1.Sx5.p10.1.m11.1.5.1" xref="Chx1.Sx5.p10.1.m11.1.5.1.cmml"><mi id="Chx1.Sx5.p10.1.m11.1.3" xref="Chx1.Sx5.p10.1.m11.1.3.cmml">c</mi><mo id="Chx1.Sx5.p10.1.m11.1.4.1" xref="Chx1.Sx5.p10.1.m11.1.4.1.cmml">′</mo></msup></mrow><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p10.1.m11.1b"><apply id="Chx1.Sx5.p10.1.m11.1.5.cmml" xref="Chx1.Sx5.p10.1.m11.1.5"><plus id="Chx1.Sx5.p10.1.m11.1.2.cmml" xref="Chx1.Sx5.p10.1.m11.1.2"></plus><ci id="Chx1.Sx5.p10.1.m11.1.1.cmml" xref="Chx1.Sx5.p10.1.m11.1.1">𝑁</ci><apply id="Chx1.Sx5.p10.1.m11.1.5.1.cmml" xref="Chx1.Sx5.p10.1.m11.1.5.1"><csymbol cd="ambiguous" id="Chx1.Sx5.p10.1.m11.1.5.1.1.cmml" xref="Chx1.Sx5.p10.1.m11.1.5.1">superscript</csymbol><ci id="Chx1.Sx5.p10.1.m11.1.3.cmml" xref="Chx1.Sx5.p10.1.m11.1.3">𝑐</ci><ci id="Chx1.Sx5.p10.1.m11.1.4.1.cmml" xref="Chx1.Sx5.p10.1.m11.1.4.1">′</ci></apply></apply></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p10.1.m11.1c">italic-N ADDOP:plus italic-c POSTSUPERSCRIPT:start SUPOP:prime POSTSUPERSCRIPT:end</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p10.1.m11.1d">N+c^{\prime}</annotation></semantics></math> bits of
+<math id="Chx1.Sx5.p10.1.m12.1" class="ltx_Math" alttext="\Omega" display="inline"><semantics id="Chx1.Sx5.p10.1.m12.1a"><mi mathvariant="normal" id="Chx1.Sx5.p10.1.m12.1.1" xref="Chx1.Sx5.p10.1.m12.1.1.cmml">Ω</mi><annotation-xml encoding="MathML-Content" id="Chx1.Sx5.p10.1.m12.1b"><ci id="Chx1.Sx5.p10.1.m12.1.1.cmml" xref="Chx1.Sx5.p10.1.m12.1.1">Ω</ci></annotation-xml><annotation encoding="application/x-llamapun" id="Chx1.Sx5.p10.1.m12.1c">Omega</annotation><annotation encoding="application/x-tex" id="Chx1.Sx5.p10.1.m12.1d">\Omega</annotation></semantics></math> even if they are scattered and we leave gaps. See <span id="Chx1.Sx5.p10.1.2" class="ltx_text ltx_font_typewriter">godel3.r</span>.</p>
+</div>
+<div id="Chx1.Sx5.p11" class="ltx_para">
+<p id="Chx1.Sx5.p11.1" class="ltx_p">Last but not least, the philosophical implications of all this
+should be discussed, especially the extent to which it tends to
+justify experimental mathematics. This would be along the lines of
+the discussion in my talk transcript “Randomness in arithmetic and
+the decline and fall of reductionism in pure mathematics.”
+</p>
+</div>
+<div id="Chx1.Sx5.p12" class="ltx_para">
+<p id="Chx1.Sx5.p12.1" class="ltx_p">This concludes our “hands-on” mini-course on the
+information-theoretic limits of mathematics.</p>
+</div>
+</section>
+<section id="Chx1.Sx6" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">Bibliography</h3>
+
+<div id="Chx1.Sx6.p1" class="ltx_para">
+<p id="Chx1.Sx6.p1.1" class="ltx_p">Here is a useful collection of hand-outs for this course:</p>
+</div>
+<div id="Chx1.Sx6.p2" class="ltx_para">
+<ul id="Chx1.Sx6.I1" class="ltx_itemize">
+<li id="Chx1.Sx6.I1.ix1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">[1]</span> 
+<div id="Chx1.Sx6.I1.ix1.p1" class="ltx_para">
+<p id="Chx1.Sx6.I1.ix1.p1.1" class="ltx_p">G. J. Chaitin, “Randomness in arithmetic and the decline
+and fall of reductionism in pure mathematics,” in J. Cornwell, <span id="Chx1.Sx6.I1.ix1.p1.1.1" class="ltx_text ltx_font_italic">Nature’s Imagination,</span> Oxford University Press, 1995, pp. 27–44.</p>
+</div>
+</li>
+<li id="Chx1.Sx6.I1.ix2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">[2]</span> 
+<div id="Chx1.Sx6.I1.ix2.p1" class="ltx_para">
+<p id="Chx1.Sx6.I1.ix2.p1.1" class="ltx_p">G. J. Chaitin, “The Berry paradox,” <span id="Chx1.Sx6.I1.ix2.p1.1.1" class="ltx_text ltx_font_italic">Complexity</span>
+1 (1995), pp. 26–30.</p>
+</div>
+</li>
+<li id="Chx1.Sx6.I1.ix3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">[3]</span> 
+<div id="Chx1.Sx6.I1.ix3.p1" class="ltx_para">
+<p id="Chx1.Sx6.I1.ix3.p1.1" class="ltx_p">G. J. Chaitin, “A new version of algorithmic information
+theory,” <span id="Chx1.Sx6.I1.ix3.p1.1.1" class="ltx_text ltx_font_italic">Complexity,</span> to appear.</p>
+</div>
+</li>
+<li id="Chx1.Sx6.I1.ix4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">[4]</span> 
+<div id="Chx1.Sx6.I1.ix4.p1" class="ltx_para">
+<p id="Chx1.Sx6.I1.ix4.p1.1" class="ltx_p">G. J. Chaitin, “How to run algorithmic information
+theory on a computer,” <span id="Chx1.Sx6.I1.ix4.p1.1.1" class="ltx_text ltx_font_italic">Complexity,</span> to appear.</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+<section id="Chx1.Sx7" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">examples.r</h3>
+
+<div id="Chx1.Sx7.p1" class="ltx_para">
+<pre id="Chx1.Sx7.p1.1" class="ltx_verbatim ltx_font_typewriter" style="font-size:90%;">
+LISP Interpreter Run
+
+[ Test new lisp ]
+
+’ (ab c d)
+
+expression  (’ (ab c d))
+value       (ab c d)
+
+’(ab   cd  )
+
+expression  (’ (ab cd))
+value       (ab cd)
+
+car ’(aa bb cc)
+
+expression  (car (’ (aa bb cc)))
+value       aa
+
+cdr ’(aa bb cc)
+
+expression  (cdr (’ (aa bb cc)))
+value       (bb cc)
+
+cadr ’(aa bb cc)
+
+expression  (car (cdr (’ (aa bb cc))))
+value       bb
+
+caddr ’(aa bb cc)
+
+expression  (car (cdr (cdr (’ (aa bb cc)))))
+value       cc
+
+cons ’(aa bb cc) ’(dd ee ff)
+
+expression  (cons (’ (aa bb cc)) (’ (dd ee ff)))
+value       ((aa bb cc) dd ee ff)
+
+car aa
+
+expression  (car aa)
+value       aa
+
+cdr aa
+
+expression  (cdr aa)
+value       aa
+
+cons aa bb
+
+expression  (cons aa bb)
+value       aa
+
+nil
+
+expression  nil
+value       ()
+
+cons aa nil
+
+expression  (cons aa nil)
+value       (aa)
+
+("cons aa)
+
+expression  (cons aa)
+value       (aa)
+
+("cons ’(aa) ’(bb) ’(cc))
+
+expression  (cons (’ (aa)) (’ (bb)) (’ (cc)))
+value       ((aa) bb)
+
+let x a x
+
+expression  ((’ (lambda (x) x)) a)
+value       a
+
+x
+
+expression  x
+value       x
+
+atom ’ aa
+
+expression  (atom (’ aa))
+value       true
+
+atom ’(aa)
+
+expression  (atom (’ (aa)))
+value       false
+
+if true x y
+
+expression  (if true x y)
+value       x
+
+if false x y
+
+expression  (if false x y)
+value       y
+
+if xxx x y
+
+expression  (if xxx x y)
+value       x
+
+let (f x) if atom display x x (f car x)
+ (f ’(((a)b)c))
+
+expression  ((’ (lambda (f) (f (’ (((a) b) c))))) (’ (lambda (
+            x) (if (atom (display x)) x (f (car x))))))
+display     (((a) b) c)
+display     ((a) b)
+display     (a)
+display     a
+value       a
+
+f
+
+expression  f
+value       f
+
+append ’(a b c) ’(d e f)
+
+expression  (append (’ (a b c)) (’ (d e f)))
+value       (a b c d e f)
+
+let (cat x y) if atom x y cons car x (cat cdr x y)
+    (cat ’(a b c) ’(d e f))
+
+expression  ((’ (lambda (cat) (cat (’ (a b c)) (’ (d e f)))))
+            (’ (lambda (x y) (if (atom x) y (cons (car x) (cat
+             (cdr x) y))))))
+value       (a b c d e f)
+
+cat
+
+expression  cat
+value       cat
+
+define (cat x y) if atom x y cons car x (cat cdr x y)
+
+define      cat
+value       (lambda (x y) (if (atom x) y (cons (car x) (cat (c
+            dr x) y))))
+
+cat
+
+expression  cat
+value       (lambda (x y) (if (atom x) y (cons (car x) (cat (c
+            dr x) y))))
+
+(cat ’(a b c) ’(d e f))
+
+expression  (cat (’ (a b c)) (’ (d e f)))
+value       (a b c d e f)
+
+define x (a b c)
+
+define      x
+value       (a b c)
+
+cons x nil
+
+expression  (cons x nil)
+value       ((a b c))
+
+define x (d e f)
+
+define      x
+value       (d e f)
+
+cons x nil
+
+expression  (cons x nil)
+value       ((d e f))
+
+length display bits ’ a
+
+expression  (length (display (bits (’ a))))
+display     (0 1 1 0 0 0 0 1 0 0 0 0 1 0 1 0)
+value       16
+
+length display bits ’ abc
+
+expression  (length (display (bits (’ abc))))
+display     (0 1 1 0 0 0 0 1 0 1 1 0 0 0 1 0 0 1 1 0 0 0 1 1 0
+             0 0 0 1 0 1 0)
+value       32
+
+length display bits nil
+
+expression  (length (display (bits nil)))
+display     (0 0 1 0 1 0 0 0 0 0 1 0 1 0 0 1 0 0 0 0 1 0 1 0)
+value       24
+
+length display bits ’ (a)
+
+expression  (length (display (bits (’ (a)))))
+display     (0 0 1 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 1 0 1 0 0 1 0
+             0 0 0 1 0 1 0)
+value       32
+
+size abc
+
+expression  (size abc)
+value       3
+
+size ’ ( a b c )
+
+expression  (size (’ (a b c)))
+value       7
+
+length ’ ( a b c )
+
+expression  (length (’ (a b c)))
+value       3
+
++ abc 15
+
+expression  (+ abc 15)
+value       15
+
++ ’(abc) 15
+
+expression  (+ (’ (abc)) 15)
+value       15
+
++ 10 15
+
+expression  (+ 10 15)
+value       25
+
+- 10 15
+
+expression  (- 10 15)
+value       0
+
+- 15 10
+
+expression  (- 15 10)
+value       5
+
+* 10 15
+
+expression  (* 10 15)
+value       150
+
+^ 10 15
+
+expression  (^ 10 15)
+value       1000000000000000
+
+&lt; 10 15
+
+expression  (&lt; 10 15)
+value       true
+
+&lt; 10 10
+
+expression  (&lt; 10 10)
+value       false
+
+&gt; 15 10
+
+expression  (&gt; 15 10)
+value       true
+
+&gt; 10 10
+
+expression  (&gt; 10 10)
+value       false
+
+&lt;= 15 10
+
+expression  (&lt;= 15 10)
+value       false
+
+&lt;= 10 10
+
+expression  (&lt;= 10 10)
+value       true
+
+&gt;= 10 15
+
+expression  (&gt;= 10 15)
+value       false
+
+&gt;= 10 10
+
+expression  (&gt;= 10 10)
+value       true
+
+= 10 15
+
+expression  (= 10 15)
+value       false
+
+= 10 10
+
+expression  (= 10 10)
+value       true
+
+eval display ’+ display 5 display 15
+
+expression  (eval (display (’ (+ (display 5) (display 15)))))
+display     (+ (display 5) (display 15))
+display     5
+display     15
+value       20
+
+try 0 display ’+ display 5 display 15 nil
+
+expression  (try 0 (display (’ (+ (display 5) (display 15))))
+            nil)
+display     (+ (display 5) (display 15))
+value       (success 20 (5 15))
+
+try 0 display ’+ debug 5 debug 15 nil
+
+expression  (try 0 (display (’ (+ (debug 5) (debug 15)))) nil)
+display     (+ (debug 5) (debug 15))
+debug       5
+debug       15
+value       (success 20 ())
+
+define five!
+let (f x) if = 0 x 1 * display x (f - x 1)
+    (f 5)
+
+define      five!
+value       ((’ (lambda (f) (f 5))) (’ (lambda (x) (if (= 0 x)
+             1 (* (display x) (f (- x 1)))))))
+
+eval five!
+
+expression  (eval five!)
+display     5
+display     4
+display     3
+display     2
+display     1
+value       120
+
+let (f x) if = 0 x 1 * x (f - x 1)
+    (f 100)
+
+expression  ((’ (lambda (f) (f 100))) (’ (lambda (x) (if (= 0
+            x) 1 (* x (f (- x 1)))))))
+value       93326215443944152681699238856266700490715968264381
+            62146859296389521759999322991560894146397615651828
+            62536979208272237582511852109168640000000000000000
+            00000000
+
+try 0 five! nil
+
+expression  (try 0 five! nil)
+value       (failure out-of-time ())
+
+try 1 five! nil
+
+expression  (try 1 five! nil)
+value       (failure out-of-time ())
+
+try 2 five! nil
+
+expression  (try 2 five! nil)
+value       (failure out-of-time (5))
+
+try 3 five! nil
+
+expression  (try 3 five! nil)
+value       (failure out-of-time (5 4))
+
+try 4 five! nil
+
+expression  (try 4 five! nil)
+value       (failure out-of-time (5 4 3))
+
+try 5 five! nil
+
+expression  (try 5 five! nil)
+value       (failure out-of-time (5 4 3 2))
+
+try 6 five! nil
+
+expression  (try 6 five! nil)
+value       (failure out-of-time (5 4 3 2 1))
+
+try 7 five! nil
+
+expression  (try 7 five! nil)
+value       (success 120 (5 4 3 2 1))
+
+try no-time-limit five! nil
+
+expression  (try no-time-limit five! nil)
+value       (success 120 (5 4 3 2 1))
+
+define two*
+ let (f x) if = 0 x nil
+           cons * 2 display read-bit (f - x 1)
+     (f 5)
+
+define      two*
+value       ((’ (lambda (f) (f 5))) (’ (lambda (x) (if (= 0 x)
+             nil (cons (* 2 (display (read-bit))) (f (- x 1)))
+            ))))
+
+try 6 two* ’(1 0 1 0 1)
+
+expression  (try 6 two* (’ (1 0 1 0 1)))
+value       (failure out-of-time (1 0 1 0 1))
+
+try 7 two* ’(1 0 1 0 1)
+
+expression  (try 7 two* (’ (1 0 1 0 1)))
+value       (success (2 0 2 0 2) (1 0 1 0 1))
+
+try 7 two* ’(1 0 1)
+
+expression  (try 7 two* (’ (1 0 1)))
+value       (failure out-of-data (1 0 1))
+
+try no-time-limit two* ’(1 0 1)
+
+expression  (try no-time-limit two* (’ (1 0 1)))
+value       (failure out-of-data (1 0 1))
+
+try 18
+’let (f x) if = 0 x nil
+           cons * 2 display read-bit (f - x 1)
+     (f 16)
+bits ’a
+
+expression  (try 18 (’ ((’ (lambda (f) (f 16))) (’ (lambda (x)
+             (if (= 0 x) nil (cons (* 2 (display (read-bit)))
+            (f (- x 1)))))))) (bits (’ a)))
+value       (success (0 2 2 0 0 0 0 2 0 0 0 0 2 0 2 0) (0 1 1
+            0 0 0 0 1 0 0 0 0 1 0 1 0))
+
+base10-to-2 128
+
+expression  (base10-to-2 128)
+value       (1 0 0 0 0 0 0 0)
+
+base10-to-2 256
+
+expression  (base10-to-2 256)
+value       (1 0 0 0 0 0 0 0 0)
+
+base10-to-2 257
+
+expression  (base10-to-2 257)
+value       (1 0 0 0 0 0 0 0 1)
+
+base2-to-10 ’(1 1 1 1)
+
+expression  (base2-to-10 (’ (1 1 1 1)))
+value       15
+
+base2-to-10 ’(1 0 0 0 0)
+
+expression  (base2-to-10 (’ (1 0 0 0 0)))
+value       16
+
+base2-to-10 ’(1 0 0 0 1)
+
+expression  (base2-to-10 (’ (1 0 0 0 1)))
+value       17
+
+try 20
+’cons abcdef try 10
+’let (f n) (f display + n 1) (f 0) [infinite loop]
+nil nil
+
+expression  (try 20 (’ (cons abcdef (try 10 (’ ((’ (lambda (f)
+             (f 0))) (’ (lambda (n) (f (display (+ n 1)))))))
+            nil))) nil)
+value       (success (abcdef failure out-of-time (1 2 3 4 5 6
+            7 8 9)) ())
+
+try 10
+’cons abcdef try 20
+’let (f n) (f display + n 1) (f 0) [infinite loop]
+nil nil
+
+expression  (try 10 (’ (cons abcdef (try 20 (’ ((’ (lambda (f)
+             (f 0))) (’ (lambda (n) (f (display (+ n 1)))))))
+            nil))) nil)
+value       (failure out-of-time ())
+
+try no-time-limit
+’cons abcdef try 20
+’let (f n) (f display + n 1) (f 0) [infinite loop]
+nil nil
+
+expression  (try no-time-limit (’ (cons abcdef (try 20 (’ ((’
+            (lambda (f) (f 0))) (’ (lambda (n) (f (display (+
+            n 1))))))) nil))) nil)
+value       (success (abcdef failure out-of-time (1 2 3 4 5 6
+            7 8 9 10 11 12 13 14 15 16 17 18 19)) ())
+
+try 10
+’cons abcdef try no-time-limit
+’let (f n) (f display + n 1) (f 0) [infinite loop]
+nil nil
+
+expression  (try 10 (’ (cons abcdef (try no-time-limit (’ ((’
+            (lambda (f) (f 0))) (’ (lambda (n) (f (display (+
+            n 1))))))) nil))) nil)
+value       (failure out-of-time ())
+
+read-bit
+
+expression  (read-bit)
+value       out-of-data
+
+read-exp
+
+expression  (read-exp)
+value       out-of-data
+
+bits ’(abc def)
+
+expression  (bits (’ (abc def)))
+value       (0 0 1 0 1 0 0 0 0 1 1 0 0 0 0 1 0 1 1 0 0 0 1 0 0
+             1 1 0 0 0 1 1 0 0 1 0 0 0 0 0 0 1 1 0 0 1 0 0 0 1
+             1 0 0 1 0 1 0 1 1 0 0 1 1 0 0 0 1 0 1 0 0 1 0 0 0
+             0 1 0 1 0)
+
+try no-time-limit ’read-exp bits ’(abc def)
+
+expression  (try no-time-limit (’ (read-exp)) (bits (’ (abc de
+            f))))
+value       (success (abc def) ())
+
+bits ’abc
+
+expression  (bits (’ abc))
+value       (0 1 1 0 0 0 0 1 0 1 1 0 0 0 1 0 0 1 1 0 0 0 1 1 0
+             0 0 0 1 0 1 0)
+
+try 0 ’read-bit nil
+
+expression  (try 0 (’ (read-bit)) nil)
+value       (failure out-of-data ())
+
+try 0 ’read-exp nil
+
+expression  (try 0 (’ (read-exp)) nil)
+value       (failure out-of-data ())
+
+try 0 ’read-exp bits ’abc
+
+expression  (try 0 (’ (read-exp)) (bits (’ abc)))
+value       (success abc ())
+
+try 0 ’cons read-exp cons read-bit nil bits ’abc
+
+expression  (try 0 (’ (cons (read-exp) (cons (read-bit) nil)))
+             (bits (’ abc)))
+value       (failure out-of-data ())
+
+try 0 ’cons read-exp cons read-bit nil append bits ’abc ’(0)
+
+expression  (try 0 (’ (cons (read-exp) (cons (read-bit) nil)))
+             (append (bits (’ abc)) (’ (0))))
+value       (success (abc 0) ())
+
+try 0 ’cons read-exp cons read-bit nil append bits ’abc ’(1)
+
+expression  (try 0 (’ (cons (read-exp) (cons (read-bit) nil)))
+             (append (bits (’ abc)) (’ (1))))
+value       (success (abc 1) ())
+
+try 0 ’read-exp bits ’(a b)
+
+expression  (try 0 (’ (read-exp)) (bits (’ (a b))))
+value       (success (a b) ())
+
+try 0 ’cons read-exp cons read-bit nil bits ’(a b)
+
+expression  (try 0 (’ (cons (read-exp) (cons (read-bit) nil)))
+             (bits (’ (a b))))
+value       (failure out-of-data ())
+
+try 0 ’cons read-exp cons read-exp nil bits ’(a b)
+
+expression  (try 0 (’ (cons (read-exp) (cons (read-exp) nil)))
+             (bits (’ (a b))))
+value       (failure out-of-data ())
+
+try 0 ’read-exp bits ’(abc(def ghi)j)
+
+expression  (try 0 (’ (read-exp)) (bits (’ (abc (def ghi) j)))
+            )
+value       (success (abc (def ghi) j) ())
+
+try 0 ’read-exp ’(1 1 1 1) [character is incomplete]
+
+expression  (try 0 (’ (read-exp)) (’ (1 1 1 1)))
+value       (failure out-of-data ())
+
+try 0 ’read-exp
+      ’(0 0 0 0 1 0 1 0) [nothing in record; only \n]
+
+expression  (try 0 (’ (read-exp)) (’ (0 0 0 0 1 0 1 0)))
+value       (success () ())
+
+try 0 ’cons read-exp cons read-exp nil
+      append bits ’(a b c) bits ’(d e f)
+
+expression  (try 0 (’ (cons (read-exp) (cons (read-exp) nil)))
+             (append (bits (’ (a b c))) (bits (’ (d e f)))))
+value       (success ((a b c) (d e f)) ())
+
+try 0 ’read-exp ’(1 1 1 1  1 1 1 1
+                  0 0 0 0  1 0 1 0) [invalid character]
+
+expression  (try 0 (’ (read-exp)) (’ (1 1 1 1 1 1 1 1 0 0 0 0
+            1 0 1 0)))
+value       (success () ())
+
+= 0003 3
+
+expression  (= 3 3)
+value       true
+
+000099
+
+expression  99
+value       99
+
+x
+
+expression  x
+value       (d e f)
+
+let x b x
+
+expression  ((’ (lambda (x) x)) b)
+value       b
+
+x
+
+expression  x
+value       (d e f)
+
+let 99 45 99
+
+expression  ((’ (lambda (99) 99)) 45)
+value       99
+
+End of LISP Run
+
+Elapsed time is 13 seconds.
+</pre>
+</div>
+</section>
+<section id="Chx1.Sx8" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">godel.r</h3>
+
+<div id="Chx1.Sx8.p1" class="ltx_para">
+<pre id="Chx1.Sx8.p1.1" class="ltx_verbatim ltx_font_typewriter" style="font-size:90%;">
+LISP Interpreter Run
+
+[[[
+    Show that a formal system of lisp complexity
+    H_lisp (FAS) = N cannot enable us to exhibit
+    an elegant S-expression of size greater than N + 410.
+    An elegant lisp expression is one with the property
+    that no smaller S-expression has the same value.
+    Setting: formal axiomatic system is never-ending
+    lisp expression that displays elegant S-expressions.
+]]]
+
+[Here is the key expression.]
+
+define expression
+
+let (examine x)
+    if atom x  false
+    if &lt; n size car x  car x
+    (examine cdr x)
+
+let fas ’display ^ 10 430 [insert FAS here preceeded by ’]
+
+let n + 410 size fas
+
+let t 0
+
+let (loop)
+  let v try t fas nil
+  let s (examine caddr v)
+  if s eval s
+  if = success car v failure
+  let t + t 1
+  (loop)
+
+(loop)
+
+define      expression
+value       ((’ (lambda (examine) ((’ (lambda (fas) ((’ (lambd
+            a (n) ((’ (lambda (t) ((’ (lambda (loop) (loop)))
+            (’ (lambda () ((’ (lambda (v) ((’ (lambda (s) (if
+            s (eval s) (if (= success (car v)) failure ((’ (la
+            mbda (t) (loop))) (+ t 1)))))) (examine (car (cdr
+            (cdr v))))))) (try t fas nil))))))) 0))) (+ 410 (s
+            ize fas))))) (’ (display (^ 10 430)))))) (’ (lambd
+            a (x) (if (atom x) false (if (&lt; n (size (car x)))
+            (car x) (examine (cdr x)))))))
+
+[Size expression.]
+size expression
+
+expression  (size expression)
+value       430
+
+[Run expression &amp; show that it knows its own size
+ and can find something bigger than it is.]
+eval expression
+
+expression  (eval expression)
+value       10000000000000000000000000000000000000000000000000
+            00000000000000000000000000000000000000000000000000
+            00000000000000000000000000000000000000000000000000
+            00000000000000000000000000000000000000000000000000
+            00000000000000000000000000000000000000000000000000
+            00000000000000000000000000000000000000000000000000
+            00000000000000000000000000000000000000000000000000
+            00000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000
+
+[Here it fails to find anything bigger than it is.]
+
+let (examine x)
+    if atom x  false
+    if &lt; n size car x  car x
+    (examine cdr x)
+
+let fas ’display ^ 10 429 [insert FAS here preceeded by ’]
+
+let n + 410 size fas
+
+let t 0
+
+let (loop)
+  let v try t fas nil
+  let s (examine caddr v)
+  if s eval s
+  if = success car v failure
+  let t + t 1
+  (loop)
+
+(loop)
+
+expression  ((’ (lambda (examine) ((’ (lambda (fas) ((’ (lambd
+            a (n) ((’ (lambda (t) ((’ (lambda (loop) (loop)))
+            (’ (lambda () ((’ (lambda (v) ((’ (lambda (s) (if
+            s (eval s) (if (= success (car v)) failure ((’ (la
+            mbda (t) (loop))) (+ t 1)))))) (examine (car (cdr
+            (cdr v))))))) (try t fas nil))))))) 0))) (+ 410 (s
+            ize fas))))) (’ (display (^ 10 429)))))) (’ (lambd
+            a (x) (if (atom x) false (if (&lt; n (size (car x)))
+            (car x) (examine (cdr x)))))))
+value       failure
+
+End of LISP Run
+
+Elapsed time is 2 seconds.
+</pre>
+</div>
+</section>
+<section id="Chx1.Sx9" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">utm.r</h3>
+
+<div id="Chx1.Sx9.p1" class="ltx_para">
+<pre id="Chx1.Sx9.p1.1" class="ltx_verbatim ltx_font_typewriter" style="font-size:90%;">
+LISP Interpreter Run
+
+[[[
+ First steps with my new construction for
+ a self-delimiting universal Turing machine.
+ We show that
+    H(x,y) &lt;= H(x) + H(y) + c
+ and determine c.
+ Consider a bit string x of length |x|.
+ We also show that
+    H(x) &lt;= 2|x| + c
+ and that
+    H(x) &lt;= |x| + H(the binary string for |x|) + c
+ and determine both these c’s.
+]]]
+
+[
+ Here is the self-delimiting universal Turing machine!
+]
+define (U p) cadr try no-time-limit ’eval read-exp p
+
+define      U
+value       (lambda (p) (car (cdr (try no-time-limit (’ (eval
+            (read-exp))) p))))
+
+(U bits ’cons x cons y cons z nil)
+
+expression  (U (bits (’ (cons x (cons y (cons z nil))))))
+value       (x y z)
+
+(U append bits ’cons a debug read-exp
+          bits ’(b c d)
+)
+
+expression  (U (append (bits (’ (cons a (debug (read-exp)))))
+            (bits (’ (b c d)))))
+debug       (b c d)
+value       (a b c d)
+
+[
+ The length of alpha in bits is the
+ constant c in H(x) &lt;= 2|x| + 2 + c.
+]
+define alpha
+let (loop) let x read-bit
+           let y read-bit
+           if = x y
+              cons x (loop)
+              nil
+(loop)
+
+define      alpha
+value       ((’ (lambda (loop) (loop))) (’ (lambda () ((’ (lam
+            bda (x) ((’ (lambda (y) (if (= x y) (cons x (loop)
+            ) nil))) (read-bit)))) (read-bit)))))
+
+length bits alpha
+
+expression  (length (bits alpha))
+value       1104
+
+(U
+ append
+   bits alpha
+   ’(0 0 1 1 0 0 1 1 0 1)
+)
+
+expression  (U (append (bits alpha) (’ (0 0 1 1 0 0 1 1 0 1)))
+            )
+value       (0 1 0 1)
+
+(U
+ append
+   bits alpha
+   ’(0 0 1 1 0 0 1 1 0 0)
+)
+
+expression  (U (append (bits alpha) (’ (0 0 1 1 0 0 1 1 0 0)))
+            )
+value       out-of-data
+
+[
+ The length of beta in bits is the
+ constant c in H(x,y) &lt;= H(x) + H(y) + c.
+]
+define beta
+cons eval read-exp
+cons eval read-exp
+     nil
+
+define      beta
+value       (cons (eval (read-exp)) (cons (eval (read-exp)) ni
+            l))
+
+length bits beta
+
+expression  (length (bits beta))
+value       432
+
+(U
+ append
+   bits  beta
+ append
+   bits ’cons a cons b cons c nil
+   bits ’cons x cons y cons z nil
+)
+
+expression  (U (append (bits beta) (append (bits (’ (cons a (c
+            ons b (cons c nil))))) (bits (’ (cons x (cons y (c
+            ons z nil))))))))
+value       ((a b c) (x y z))
+
+(U
+ append
+   bits beta
+ append
+   append bits alpha ’(0 0 1 1 0 0 1 1 0 1)
+   append bits alpha ’(1 1 0 0 1 1 0 0 1 0)
+)
+
+expression  (U (append (bits beta) (append (append (bits alpha
+            ) (’ (0 0 1 1 0 0 1 1 0 1))) (append (bits alpha)
+            (’ (1 1 0 0 1 1 0 0 1 0))))))
+value       ((0 1 0 1) (1 0 1 0))
+
+[
+ The length of gamma in bits is the
+ constant c in H(x) &lt;= |x| + H(|x|) + c
+]
+define gamma
+let (loop k)
+   if = 0 k nil
+   cons read-bit (loop - k 1)
+(loop base2-to-10 eval read-exp)
+
+define      gamma
+value       ((’ (lambda (loop) (loop (base2-to-10 (eval (read-
+            exp)))))) (’ (lambda (k) (if (= 0 k) nil (cons (re
+            ad-bit) (loop (- k 1)))))))
+
+length bits gamma
+
+expression  (length (bits gamma))
+value       1024
+
+(U
+ append
+   bits gamma
+ append
+   [Arbitrary program for U to compute number of bits]
+   bits’ ’(1 0 0 0)
+   [That many bits of data]
+   ’(0 0 0 0  0 0 0 1)
+)
+
+expression  (U (append (bits gamma) (append (bits (’ (’ (1 0 0
+             0)))) (’ (0 0 0 0 0 0 0 1)))))
+value       (0 0 0 0 0 0 0 1)
+
+End of LISP Run
+
+Elapsed time is 19 seconds.
+</pre>
+</div>
+</section>
+<section id="Chx1.Sx10" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">godel2.r</h3>
+
+<div id="Chx1.Sx10.p1" class="ltx_para">
+<pre id="Chx1.Sx10.p1.1" class="ltx_verbatim ltx_font_typewriter" style="font-size:90%;">
+LISP Interpreter Run
+
+[[[
+ Show that a formal system of complexity N
+ can’t prove that a specific object has
+ complexity &gt; N + 4872.
+ Formal system is a never halting lisp expression
+ that output pairs (lisp object, lower bound
+ on its complexity).  E.g., (x 4) means
+ that x has complexity H(x) greater than or equal to 4.
+]]]
+
+[Here is the prefix.]
+
+define pi
+
+let (examine pairs)
+    if atom pairs false
+    if &lt; n cadr car pairs
+       car pairs
+       (examine cdr pairs)
+
+let t 0
+
+let fas nil
+
+let (loop)
+  let v try t ’eval read-exp fas
+  let n + 4872 length fas
+  let p (examine caddr v)
+  if p car p
+  if = car v success failure
+  if = cadr v out-of-data
+     let fas append fas cons read-bit nil
+     (loop)
+  if = cadr v out-of-time
+     let t + t 1
+     (loop)
+  unexpected-condition
+
+(loop)
+
+define      pi
+value       ((’ (lambda (examine) ((’ (lambda (t) ((’ (lambda
+            (fas) ((’ (lambda (loop) (loop))) (’ (lambda () ((
+            ’ (lambda (v) ((’ (lambda (n) ((’ (lambda (p) (if
+            p (car p) (if (= (car v) success) failure (if (= (
+            car (cdr v)) out-of-data) ((’ (lambda (fas) (loop)
+            )) (append fas (cons (read-bit) nil))) (if (= (car
+             (cdr v)) out-of-time) ((’ (lambda (t) (loop))) (+
+             t 1)) unexpected-condition)))))) (examine (car (c
+            dr (cdr v))))))) (+ 4872 (length fas))))) (try t (
+            ’ (eval (read-exp))) fas))))))) nil))) 0))) (’ (la
+            mbda (pairs) (if (atom pairs) false (if (&lt; n (car
+            (cdr (car pairs)))) (car pairs) (examine (cdr pair
+            s)))))))
+
+[Size pi.]
+length bits pi
+
+expression  (length (bits pi))
+value       4872
+
+[Size pi + fas.]
+length
+append bits pi
+       bits ’display ’(xyz 9999)
+
+expression  (length (append (bits pi) (bits (’ (display (’ (xy
+            z 9999)))))))
+value       5072
+
+[Here pi finds something suitable.]
+
+cadr try no-time-limit ’eval read-exp
+append bits pi
+       bits ’display ’(xyz 5073)
+
+expression  (car (cdr (try no-time-limit (’ (eval (read-exp)))
+             (append (bits pi) (bits (’ (display (’ (xyz 5073)
+            ))))))))
+value       xyz
+
+[Here pi doesn’t find anything suitable.]
+
+cadr try no-time-limit ’eval read-exp
+append bits pi
+       bits ’display ’(xyz 5072)
+
+expression  (car (cdr (try no-time-limit (’ (eval (read-exp)))
+             (append (bits pi) (bits (’ (display (’ (xyz 5072)
+            ))))))))
+value       failure
+
+End of LISP Run
+
+Elapsed time is 153 seconds.
+</pre>
+</div>
+</section>
+<section id="Chx1.Sx11" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">omega.r</h3>
+
+<div id="Chx1.Sx11.p1" class="ltx_para">
+<pre id="Chx1.Sx11.p1.1" class="ltx_verbatim ltx_font_typewriter" style="font-size:90%;">
+LISP Interpreter Run
+
+[[[[ Omega in the limit from below! ]]]]
+
+define (all-bit-strings-of-size k)
+    if = 0 k ’(())
+    (extend-by-one-bit (all-bit-strings-of-size - k 1))
+
+define      all-bit-strings-of-size
+value       (lambda (k) (if (= 0 k) (’ (())) (extend-by-one-bi
+            t (all-bit-strings-of-size (- k 1)))))
+
+define (extend-by-one-bit x)
+    if atom x nil
+    cons append car x ’(0)
+    cons append car x ’(1)
+    (extend-by-one-bit cdr x)
+
+define      extend-by-one-bit
+value       (lambda (x) (if (atom x) nil (cons (append (car x)
+             (’ (0))) (cons (append (car x) (’ (1))) (extend-b
+            y-one-bit (cdr x))))))
+
+define (count-halt p)
+    if atom p 0
+    +
+    if = success car try t ’eval read-exp car p
+       1 0
+    (count-halt cdr p)
+
+define      count-halt
+value       (lambda (p) (if (atom p) 0 (+ (if (= success (car
+            (try t (’ (eval (read-exp))) (car p)))) 1 0) (coun
+            t-halt (cdr p)))))
+
+define (omega t) cons (count-halt (all-bit-strings-of-size t))
+                 cons /
+                 cons ^ 2 t
+                      nil
+
+define      omega
+value       (lambda (t) (cons (count-halt (all-bit-strings-of-
+            size t)) (cons / (cons (^ 2 t) nil))))
+
+(omega 0)
+
+expression  (omega 0)
+value       (0 / 1)
+
+(omega 1)
+
+expression  (omega 1)
+value       (0 / 2)
+
+(omega 2)
+
+expression  (omega 2)
+value       (0 / 4)
+
+(omega 3)
+
+expression  (omega 3)
+value       (0 / 8)
+
+(omega 8)
+
+expression  (omega 8)
+value       (1 / 256)
+
+End of LISP Run
+
+Elapsed time is 38 seconds.
+</pre>
+</div>
+</section>
+<section id="Chx1.Sx12" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">omega2.r</h3>
+
+<div id="Chx1.Sx12.p1" class="ltx_para">
+<pre id="Chx1.Sx12.p1.1" class="ltx_verbatim ltx_font_typewriter" style="font-size:90%;">
+LISP Interpreter Run
+
+[[[[ Omega in the limit from below! ]]]]
+
+define (count-halt prefix bits-left-to-extend)
+    if = bits-left-to-extend 0
+    if = success car try t ’eval read-exp prefix
+       1 0
+    + (count-halt append prefix ’(0) - bits-left-to-extend 1)
+      (count-halt append prefix ’(1) - bits-left-to-extend 1)
+
+define      count-halt
+value       (lambda (prefix bits-left-to-extend) (if (= bits-l
+            eft-to-extend 0) (if (= success (car (try t (’ (ev
+            al (read-exp))) prefix))) 1 0) (+ (count-halt (app
+            end prefix (’ (0))) (- bits-left-to-extend 1)) (co
+            unt-halt (append prefix (’ (1))) (- bits-left-to-e
+            xtend 1)))))
+
+define (omega t) cons (count-halt nil t)
+                 cons /
+                 cons ^ 2 t
+                      nil
+
+define      omega
+value       (lambda (t) (cons (count-halt nil t) (cons / (cons
+             (^ 2 t) nil))))
+
+(omega 0)
+
+expression  (omega 0)
+value       (0 / 1)
+
+(omega 1)
+
+expression  (omega 1)
+value       (0 / 2)
+
+(omega 2)
+
+expression  (omega 2)
+value       (0 / 4)
+
+(omega 3)
+
+expression  (omega 3)
+value       (0 / 8)
+
+(omega 8)
+
+expression  (omega 8)
+value       (1 / 256)
+
+End of LISP Run
+
+Elapsed time is 33 seconds.
+</pre>
+</div>
+</section>
+<section id="Chx1.Sx13" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">omega3.r</h3>
+
+<div id="Chx1.Sx13.p1" class="ltx_para">
+<pre id="Chx1.Sx13.p1.1" class="ltx_verbatim ltx_font_typewriter" style="font-size:90%;">
+LISP Interpreter Run
+
+[[[
+ Show that
+    H(Omega_n) &gt; n - 8000.
+ Omega_n is the first n bits of Omega,
+ where we choose
+    Omega = xxx0111111...
+ instead of
+    Omega = xxx1000000...
+ if necessary.
+]]]
+
+[Here is the prefix.]
+
+define pi
+
+let (count-halt prefix bits-left-to-extend)
+    if = bits-left-to-extend 0
+    if = success car try t ’eval read-exp prefix
+       1 0
+    + (count-halt append prefix ’(0) - bits-left-to-extend 1)
+      (count-halt append prefix ’(1) - bits-left-to-extend 1)
+
+let (omega t) cons (count-halt nil t)
+              cons /
+              cons ^ 2 t
+                   nil
+
+let w eval read-exp
+
+let n length w
+
+let w cons base2-to-10 w
+      cons /
+      cons ^ 2 n
+           nil
+
+let (loop t)
+  if (&lt;=rat w (omega t))
+     (big nil n)
+     (loop + t 1)
+
+let (&lt;=rat x y)
+    &lt;= * car x caddr y * caddr x car y
+
+let (big prefix bits-left-to-add)
+ if = 0 bits-left-to-add
+ cons cadr try t ’eval read-exp prefix
+      nil
+ append (big append prefix ’(0) - bits-left-to-add 1)
+        (big append prefix ’(1) - bits-left-to-add 1)
+
+(loop 0)
+
+define      pi
+value       ((’ (lambda (count-halt) ((’ (lambda (omega) ((’ (
+            lambda (w) ((’ (lambda (n) ((’ (lambda (w) ((’ (la
+            mbda (loop) ((’ (lambda (&lt;=rat) ((’ (lambda (big)
+            (loop 0))) (’ (lambda (prefix bits-left-to-add) (i
+            f (= 0 bits-left-to-add) (cons (car (cdr (try t (’
+             (eval (read-exp))) prefix))) nil) (append (big (a
+            ppend prefix (’ (0))) (- bits-left-to-add 1)) (big
+             (append prefix (’ (1))) (- bits-left-to-add 1))))
+            ))))) (’ (lambda (x y) (&lt;= (* (car x) (car (cdr (c
+            dr y)))) (* (car (cdr (cdr x))) (car y)))))))) (’
+            (lambda (t) (if (&lt;=rat w (omega t)) (big nil n) (l
+            oop (+ t 1)))))))) (cons (base2-to-10 w) (cons / (
+            cons (^ 2 n) nil)))))) (length w)))) (eval (read-e
+            xp))))) (’ (lambda (t) (cons (count-halt nil t) (c
+            ons / (cons (^ 2 t) nil)))))))) (’ (lambda (prefix
+             bits-left-to-extend) (if (= bits-left-to-extend 0
+            ) (if (= success (car (try t (’ (eval (read-exp)))
+             prefix))) 1 0) (+ (count-halt (append prefix (’ (
+            0))) (- bits-left-to-extend 1)) (count-halt (appen
+            d prefix (’ (1))) (- bits-left-to-extend 1)))))))
+
+[Run pi.]
+cadr try no-time-limit ’eval read-exp
+append bits pi
+       bits ’
+      [Program to compute first n = 8 bits of Omega]
+            ’(0 0 0 0  0 0 0 1)
+
+expression  (car (cdr (try no-time-limit (’ (eval (read-exp)))
+             (append (bits pi) (bits (’ (’ (0 0 0 0 0 0 0 1)))
+            )))))
+value       (out-of-data out-of-data out-of-data out-of-data o
+            ut-of-data out-of-data out-of-data out-of-data out
+            -of-data out-of-data () out-of-data out-of-data ou
+            t-of-data out-of-data out-of-data out-of-data out-
+            of-data out-of-data out-of-data out-of-data out-of
+            -data out-of-data out-of-data out-of-data out-of-d
+            ata out-of-data out-of-data out-of-data out-of-dat
+            a out-of-data out-of-data out-of-data out-of-data
+            out-of-data out-of-data out-of-data out-of-data ou
+            t-of-data out-of-data out-of-data out-of-data out-
+            of-data out-of-data out-of-data out-of-data out-of
+            -data out-of-data out-of-data out-of-data out-of-d
+            ata out-of-data out-of-data out-of-data out-of-dat
+            a out-of-data out-of-data out-of-data out-of-data
+            out-of-data out-of-data out-of-data out-of-data ou
+            t-of-data out-of-data out-of-data out-of-data out-
+            of-data out-of-data out-of-data out-of-data out-of
+            -data out-of-data out-of-data out-of-data out-of-d
+            ata out-of-data out-of-data out-of-data out-of-dat
+            a out-of-data out-of-data out-of-data out-of-data
+            out-of-data out-of-data out-of-data out-of-data ou
+            t-of-data out-of-data out-of-data out-of-data out-
+            of-data out-of-data out-of-data out-of-data out-of
+            -data out-of-data out-of-data out-of-data out-of-d
+            ata out-of-data out-of-data out-of-data out-of-dat
+            a out-of-data out-of-data out-of-data out-of-data
+            out-of-data out-of-data out-of-data out-of-data ou
+            t-of-data out-of-data out-of-data out-of-data out-
+            of-data out-of-data out-of-data out-of-data out-of
+            -data out-of-data out-of-data out-of-data out-of-d
+            ata out-of-data out-of-data out-of-data out-of-dat
+            a out-of-data out-of-data out-of-data out-of-data
+            out-of-data out-of-data out-of-data out-of-data ou
+            t-of-data out-of-data out-of-data out-of-data out-
+            of-data out-of-data out-of-data out-of-data out-of
+            -data out-of-data out-of-data out-of-data out-of-d
+            ata out-of-data out-of-data out-of-data out-of-dat
+            a out-of-data out-of-data out-of-data out-of-data
+            out-of-data out-of-data out-of-data out-of-data ou
+            t-of-data out-of-data out-of-data out-of-data out-
+            of-data out-of-data out-of-data out-of-data out-of
+            -data out-of-data out-of-data out-of-data out-of-d
+            ata out-of-data out-of-data out-of-data out-of-dat
+            a out-of-data out-of-data out-of-data out-of-data
+            out-of-data out-of-data out-of-data out-of-data ou
+            t-of-data out-of-data out-of-data out-of-data out-
+            of-data out-of-data out-of-data out-of-data out-of
+            -data out-of-data out-of-data out-of-data out-of-d
+            ata out-of-data out-of-data out-of-data out-of-dat
+            a out-of-data out-of-data out-of-data out-of-data
+            out-of-data out-of-data out-of-data out-of-data ou
+            t-of-data out-of-data out-of-data out-of-data out-
+            of-data out-of-data out-of-data out-of-data out-of
+            -data out-of-data out-of-data out-of-data out-of-d
+            ata out-of-data out-of-data out-of-data out-of-dat
+            a out-of-data out-of-data out-of-data out-of-data
+            out-of-data out-of-data out-of-data out-of-data ou
+            t-of-data out-of-data out-of-data out-of-data out-
+            of-data out-of-data out-of-data out-of-data out-of
+            -data out-of-data out-of-data out-of-data out-of-d
+            ata out-of-data out-of-data out-of-data out-of-dat
+            a out-of-data)
+
+[Size pi.]
+length bits pi
+
+expression  (length (bits pi))
+value       8000
+
+End of LISP Run
+
+Elapsed time is 148 seconds.
+</pre>
+</div>
+</section>
+<section id="Chx1.Sx14" class="ltx_section">
+<h3 class="ltx_title ltx_title_section">godel3.r</h3>
+
+<div id="Chx1.Sx14.p1" class="ltx_para">
+<pre id="Chx1.Sx14.p1.1" class="ltx_verbatim ltx_font_typewriter" style="font-size:90%;">
+LISP Interpreter Run
+
+[[[
+ Show that a formal system of complexity N
+ can’t determine more than N + 8000 + 7328
+ = N + 15328 bits of Omega.
+ Formal system is a never halting lisp expression
+ that outputs lists of the form (1 0 X 0 X X X X 1 0).
+ This stands for the fractional part of Omega,
+ and means that these 0,1 bits of Omega are known.
+ X stands for an unknown bit.
+]]]
+
+[Here is the prefix.]
+
+define pi
+
+let (number-of-bits-determined w)
+    if atom w 0
+    + (number-of-bits-determined cdr w)
+      if = X car w
+         0
+         1
+
+let (supply-missing-bits w)
+    if atom w nil
+    cons if = X car w
+            read-bit
+            car w
+    (supply-missing-bits cdr w)
+
+let (examine w)
+    if atom w false
+   [if &lt; n (number-of-bits-determined car w)]
+   [   Change n to 1 here so will succeed.  ]
+    if &lt; 1 (number-of-bits-determined car w)
+       car w
+       (examine cdr w)
+
+let t 0
+
+let fas nil
+
+let (loop)
+  let v try t ’eval read-exp fas
+  let n + 8000 + 7328 length fas
+  let w (examine caddr v)
+  if w (supply-missing-bits w)
+  if = car v success failure
+  if = cadr v out-of-data
+     let fas append fas cons read-bit nil
+     (loop)
+  if = cadr v out-of-time
+     let t + t 1
+     (loop)
+  unexpected-condition
+
+(loop)
+
+define      pi
+value       ((’ (lambda (number-of-bits-determined) ((’ (lambd
+            a (supply-missing-bits) ((’ (lambda (examine) ((’
+            (lambda (t) ((’ (lambda (fas) ((’ (lambda (loop) (
+            loop))) (’ (lambda () ((’ (lambda (v) ((’ (lambda
+            (n) ((’ (lambda (w) (if w (supply-missing-bits w)
+            (if (= (car v) success) failure (if (= (car (cdr v
+            )) out-of-data) ((’ (lambda (fas) (loop))) (append
+             fas (cons (read-bit) nil))) (if (= (car (cdr v))
+            out-of-time) ((’ (lambda (t) (loop))) (+ t 1)) une
+            xpected-condition)))))) (examine (car (cdr (cdr v)
+            )))))) (+ 8000 (+ 7328 (length fas)))))) (try t (’
+             (eval (read-exp))) fas))))))) nil))) 0))) (’ (lam
+            bda (w) (if (atom w) false (if (&lt; 1 (number-of-bit
+            s-determined (car w))) (car w) (examine (cdr w))))
+            ))))) (’ (lambda (w) (if (atom w) nil (cons (if (=
+             X (car w)) (read-bit) (car w)) (supply-missing-bi
+            ts (cdr w))))))))) (’ (lambda (w) (if (atom w) 0 (
+            + (number-of-bits-determined (cdr w)) (if (= X (ca
+            r w)) 0 1))))))
+
+[Size pi.]
+length bits pi
+
+expression  (length (bits pi))
+value       7328
+
+[Run pi.]
+
+cadr try no-time-limit ’eval read-exp
+append bits pi
+append [Toy formal system with only one theorem.]
+       bits ’display ’(1 X 0)
+       [Missing bit of omega that is needed.]
+       ’(1)
+
+expression  (car (cdr (try no-time-limit (’ (eval (read-exp)))
+             (append (bits pi) (append (bits (’ (display (’ (1
+             X 0))))) (’ (1)))))))
+value       (1 1 0)
+
+End of LISP Run
+
+Elapsed time is 94 seconds.
+</pre>
+</div>
+</section>
+</section>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Sat Jul  6 23:36:53 2019 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

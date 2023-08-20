@@ -96,6 +96,7 @@ def first_word(input_file, target_word):
     sentences = parsed_sentence.split('.')
     for sentence in sentences:
         idx = 0
+        sentence = sentence.replace('\n', '')
         for word in sentence:
             idx += 1
             if target_word == word:
